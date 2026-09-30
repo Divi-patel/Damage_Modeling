@@ -1,0 +1,4 @@
+scope,usd_per_kw,capacity_kw,value_usd,treatment
+tower,276,100000,27600000,modeled
+other_physical,1347,100000,134700000,withheld_not_zero
+full_physical,1623,100000,162300000,denominator_not_additive

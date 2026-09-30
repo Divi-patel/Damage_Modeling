@@ -252,6 +252,17 @@ def _validate_proxy_request(
             "uncovered_flag": "UNCOVERED_PROJECT_VALUE_84PCT_WITHHELD_NOT_ZERO",
             "scenario_loss_status": "consumer_computable_with_explicit_0p16_tower_value_cap",
         },
+        ("model v1.3", TOWER_PROXY_ARCHETYPE_ID): {
+            "failure_unit_id": TOWER_PROXY_FAILURE_UNIT,
+            "proxy_policy_id": "TCWW_OWNER_APPROVED_3P3MW_FOR_CANONICAL_5MW_PHYSICAL_TOWER_V1",
+            "canonical_asset_profile_id": "CONUS_WIND_FARM_REFERENCE_V2",
+            "covered_value_basis_id": "CONUS_WIND_FARM_SOURCE_TOWER_VALUE_V1",
+            "covered_value_share": 276 / 1623,
+            "covered_subsystems": ["tower"],
+            "coverage_flag": "PARTIAL_SOURCE_COST_TOWER_VALUE_COVERAGE",
+            "uncovered_flag": "NON_TOWER_PHYSICAL_VALUE_WITHHELD_NOT_ZERO",
+            "scenario_loss_status": "consumer_computable_with_exact_source_tower_value_cap",
+        },
     }
     config = configs.get((model_version, archetype_id))
     if config is None:

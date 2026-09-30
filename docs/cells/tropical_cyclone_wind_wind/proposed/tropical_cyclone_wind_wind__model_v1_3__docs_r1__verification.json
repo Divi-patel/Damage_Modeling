@@ -1,0 +1,14 @@
+{
+  "status": "passed_proposal_contract_checks",
+  "artifact_sha256": "1f6f79fc4def7ebe87c06cfece954bd7cd88430f022ce6b289468bf8d1c1eb01",
+  "source_native_known_answers": 24,
+  "proxy_known_answers": 9,
+  "negative_contracts": 5,
+  "exact_response_sweep": 4001,
+  "source_workbook_sha256": "9edb7a64cf36df6c6e7a95f5b3d06aa5b50cb502792b9012b95af4692b542d52",
+  "tower_usd": 27600000,
+  "full_tiv_usd": 162300000,
+  "schemas": "bundle v3, capability v3 and emit v2 passed",
+  "national_consumer_gate": "separate Hazard receipt required",
+  "canonical": false
+}

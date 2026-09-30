@@ -1,0 +1,138 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "tropical_cyclone_wind_wind",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "supported_with_explicit_failure_unit_value_and_exposure_basis",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "exact source-native Jaimes selectors retain model-v1.0 behavior",
+        "canonical 5 MW use requires exact tower-proxy policy, asset-profile and value-basis IDs",
+        "the proxy evaluates the unchanged Jaimes 3.3 MW / 100 m parameters",
+        "the failure unit remains WT_JAIMES_TURBINE_TOWER_EXPOSURE_UNIT",
+        "only tower value is covered: 276/1623 of project TIV; 1347/1623 is withheld, not zero",
+        "the named proxy alone completes the 90\u2013108 and above-252 km/h review boundaries"
+      ],
+      "limitation_flags": [
+        "OWNER_APPROVED_SCREENING_PROXY",
+        "REQUESTED_5MW_EVALUATED_WITH_3P3MW_SOURCE_CURVE",
+        "NO_CAPACITY_RATIO_SCALING",
+        "NOT_TARGET_MATCHED_5MW_EVIDENCE",
+        "NOT_FIELD_CALIBRATED",
+        "NOT_CLAIMS_CALIBRATED",
+        "PARTIAL_SOURCE_COST_TOWER_VALUE_COVERAGE",
+        "NON_TOWER_PHYSICAL_VALUE_WITHHELD_NOT_ZERO",
+        "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+        "NO_NHC_OR_HUB_HEIGHT_BRIDGE",
+        "PROXY_SCREENING_TRANSITION_BAND_ZERO_RULE",
+        "PROXY_SCREENING_ABOVE_RANGE_MAX_DR_CAP"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "WT_TURBINE_EQUIPMENT_ASSEMBLY",
+          "reason_codes": [
+            "SOURCE_NATIVE_ATOM_NOT_HARMONIZED_TO_STANDARD_EQUIPMENT_ASSEMBLY",
+            "OMITTED_NON_TOWER_FAILURE_MODES"
+          ]
+        },
+        {
+          "failure_unit_id": "WT_FOUNDATION",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        },
+        {
+          "failure_unit_id": "WT_PAD_MOUNTED_ELECTRICAL",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "ELECTRICAL_VALUE_SPLIT_REQUIRED"
+          ]
+        },
+        {
+          "failure_unit_id": "WT_COLLECTION_SYSTEM",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "LINE_NETWORK_EXPOSURE_REQUIRED"
+          ]
+        },
+        {
+          "failure_unit_id": "WT_GSU_SUBSTATION",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "FACILITY_LEVEL_EXPOSURE_REQUIRED"
+          ]
+        },
+        {
+          "failure_unit_id": "WT_CONTROL_BUILDING_AND_SCADA",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        },
+        {
+          "failure_unit_id": "WT_CIVIL_INFRA",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "MIXED_CIVIL_BUCKET_REQUIRES_SPLIT"
+          ]
+        },
+        {
+          "failure_unit_id": "SUPPORT_FIELDWORK",
+          "reason_codes": [
+            "SUPPORT_COST_ALLOCATE_ONCE_AFTER_DISPOSITION",
+            "NO_INDEPENDENT_FRAGILITY"
+          ]
+        },
+        {
+          "failure_unit_id": "SUPPORT_TRANSPORT_LOGISTICS",
+          "reason_codes": [
+            "SUPPORT_COST_ALLOCATE_ONCE_AFTER_DISPOSITION",
+            "NO_INDEPENDENT_FRAGILITY"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+    "prerequisites": [
+      "released exact cell/model/docs/schema/SHA pin",
+      "validated Hurricane event frequency and intensity coupling",
+      "exact canonical asset, tower-proxy policy and tower-value IDs",
+      "276/1623 occurrence and annual caps",
+      "explicit disclosure that 1347/1623 of project TIV is withheld"
+    ],
+    "limitation_flags": [
+      "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+      "PARTIAL_SOURCE_COST_TOWER_VALUE_COVERAGE",
+      "ANNUAL_AND_TAIL_METRICS_CONDITIONAL_ON_SCREENING_PROXY"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact tower-proxy policy, asset profile, value basis, model/docs/schema/SHA pin",
+      "covered loss <= 276/1623 * project TIV for every occurrence",
+      "uncovered 1347/1623 remains withheld and is never emitted as zero loss",
+      "no 5/3.3 multiplier and no rotor or nacelle value binding",
+      "annual/TIV cap is applied inside the annual calculation"
+    ],
+    "action_if_fail": "withhold scenario loss and all annual or tail metrics"
+  },
+  "promotion_gate": {
+    "status": "ready_for_review",
+    "required_before_canonical_use": [
+      "unchanged source and proxy response KATs",
+      "exact physical reference/value source pins",
+      "13,085-cell consumer build with preserved placement/rate identity and $27.6M caps"
+    ]
+  }
+}
