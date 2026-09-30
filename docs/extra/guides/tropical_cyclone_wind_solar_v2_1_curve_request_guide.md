@@ -1,7 +1,9 @@
 # Guide: requesting the usable tropical-cyclone wind × solar v2.1 curve
 
-> V2.1 is a coverage-complete screening proxy. It emits numeric plant physical DR and scenario loss; it is
-> not a calibrated or canonical model.
+> V2.1 is the canonical coverage-complete screening release. It emits numeric plant physical DR and event
+> scenario loss; it is not calibrated, claims-validated or bankable.
+
+Canonical consumer pin: `tropical_cyclone_wind_solar@model_v2_1__docs_r2`.
 
 ## Exact pin
 
@@ -9,9 +11,9 @@
 {
   "cell_id": "tropical_cyclone_wind_solar",
   "semantic_damage_model_version": "model v2.1",
-  "documentation_revision": "docs r1",
+  "documentation_revision": "docs r2",
   "schema_version": "damage_curve_record_bundle.v3",
-  "artifact_sha256": "4dd951495a9fedd975b5e519d778dae1e3c01b8bc48db0f6b1bebbec78146602"
+  "artifact_sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e"
 }
 ```
 
@@ -22,8 +24,8 @@ Run from the repository root:
 ```bash
 .venv/bin/python \
   scripts/reference_helpers/tropical_cyclone_wind_solar_v2_1_curve_eval.py \
-  docs/cells/tropical_cyclone_wind_solar/proposed/tropical_cyclone_wind_solar__model_v2_1__docs_r1__curve_artifact.json \
-  '{"artifact_pin":{"cell_id":"tropical_cyclone_wind_solar","semantic_damage_model_version":"model v2.1","documentation_revision":"docs r1","schema_version":"damage_curve_record_bundle.v3","artifact_sha256":"4dd951495a9fedd975b5e519d778dae1e3c01b8bc48db0f6b1bebbec78146602"},"event_id":"TC-USE-1","event_family_id":"TC-FAMILY-USE-1","pathway_id":"tropical_cyclone_wind","array_architecture":"fixed_tilt_ground_mount_tc_synthetic_t4_v1","tc_fixed_event_to_design_net_pressure_ratio":1.0,"tc_wind_field_bridge_id":"TCWF-BRIDGE-V1","tc_directional_history_bridge_id":"TCDIR-BRIDGE-V1","tc_duration_cycling_bridge_id":"TCDUR-BRIDGE-V1","aerodynamic_demand_bridge_id":"TCFIXED-PRESSURE-BRIDGE-V1","array_zone":"edge","array_spatial_object_id":"FIXED-ARRAY-ZONE-EDGE-A","tc_duration_class":"sustained_1_to_6h","tc_direction_evolution_class":"evolving","rain_ingress_indicator":false,"windborne_debris_indicator":false,"flood_or_surge_indicator":false,"tc_tornado_indicator":false,"output_mode":"full_plant_screening","tc_site_event_to_design_wind_pressure_ratio":1.0,"site_facility_demand_bridge_id":"TC-SITE-FACILITY-BRIDGE-V1","array_exposure_basis":"representative_site_array_zone","value_profile_id":"NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1","capacity_kwdc":100000.0}'
+  docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json \
+  '{"artifact_pin":{"cell_id":"tropical_cyclone_wind_solar","semantic_damage_model_version":"model v2.1","documentation_revision":"docs r2","schema_version":"damage_curve_record_bundle.v3","artifact_sha256":"2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e"},"event_id":"TC-USE-1","event_family_id":"TC-FAMILY-USE-1","pathway_id":"tropical_cyclone_wind","array_architecture":"fixed_tilt_ground_mount_tc_synthetic_t4_v1","tc_fixed_event_to_design_net_pressure_ratio":1.0,"tc_wind_field_bridge_id":"TCWF-BRIDGE-V1","tc_directional_history_bridge_id":"TCDIR-BRIDGE-V1","tc_duration_cycling_bridge_id":"TCDUR-BRIDGE-V1","aerodynamic_demand_bridge_id":"TCFIXED-PRESSURE-BRIDGE-V1","array_zone":"edge","array_spatial_object_id":"FIXED-ARRAY-ZONE-EDGE-A","tc_duration_class":"sustained_1_to_6h","tc_direction_evolution_class":"evolving","rain_ingress_indicator":false,"windborne_debris_indicator":false,"flood_or_surge_indicator":false,"tc_tornado_indicator":false,"output_mode":"full_plant_screening","tc_site_event_to_design_wind_pressure_ratio":1.0,"site_facility_demand_bridge_id":"TC-SITE-FACILITY-BRIDGE-V1","array_exposure_basis":"representative_site_array_zone","value_profile_id":"NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1","capacity_kwdc":100000.0}'
 ```
 
 At both demand ratios equal to 1.0, the central output is:
@@ -68,9 +70,9 @@ GSU is evaluated on the site-facility axis, without inheriting the array axis or
   "artifact_pin": {
     "cell_id": "tropical_cyclone_wind_solar",
     "semantic_damage_model_version": "model v2.1",
-    "documentation_revision": "docs r1",
+    "documentation_revision": "docs r2",
     "schema_version": "damage_curve_record_bundle.v3",
-    "artifact_sha256": "4dd951495a9fedd975b5e519d778dae1e3c01b8bc48db0f6b1bebbec78146602"
+    "artifact_sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e"
   },
   "event_id": "TC-GSU-1",
   "event_family_id": "TC-FAMILY-GSU-1",
@@ -105,17 +107,17 @@ Frequency, EAL, and tail metrics remain Hazard-tier calculations. Their absence 
 partial: they require an event-frequency/annual aggregation object that this repository intentionally does not
 own.
 
-The capability-v3 field `consumer_annual_metrics.status_before_promotion=withheld_noncanonical_proposal`
-applies only to that downstream annual/tail stage. It does **not** gate the failure-unit, full-plant, per-kWdc,
-or scenario-dollar event outputs shown above; the machine flag
-`EVENT_PHYSICAL_DAMAGE_OUTPUTS_AVAILABLE_BEFORE_PROMOTION` makes this explicit.
+The capability-v3 field `consumer_annual_metrics.status_before_promotion=withheld_noncanonical_proposal` is
+historical transition metadata. The adjacent `status_after_promotion` governs this current release. Neither
+field delegates EAL/PML physics to Damage: those metrics remain consumer-computable only after Hazard's exact
+frequency, coupling, value and cap gates pass.
 
 ## Machine files
 
-- [artifact](../../cells/tropical_cyclone_wind_solar/proposed/tropical_cyclone_wind_solar__model_v2_1__docs_r1__curve_artifact.json)
-- [capability](../../cells/tropical_cyclone_wind_solar/proposed/tropical_cyclone_wind_solar__model_v2_1__docs_r1__capability.json)
-- [metadata contract](../../cells/tropical_cyclone_wind_solar/proposed/tropical_cyclone_wind_solar_damage_code_metadata_spec__model_v2_1__docs_r1.md)
-- [known-answer tests](../../cells/tropical_cyclone_wind_solar/proposed/known_answer_tests_tropical_cyclone_wind_solar__model_v2_1__docs_r1.json)
-- [full-plant curve table](../../cells/tropical_cyclone_wind_solar/proposed/FULL_PLANT_SCREENING_CURVE_TABLE_tropical_cyclone_wind_solar__model_v2_1__docs_r1.csv)
+- [artifact](../../cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json)
+- [capability](../../cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__capability.json)
+- [metadata contract](../../cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar_damage_code_metadata_spec__model_v2_1__docs_r2.md)
+- [known-answer tests](../../cells/tropical_cyclone_wind_solar/current/known_answer_tests_tropical_cyclone_wind_solar__model_v2_1__docs_r2.json)
+- [full-plant curve table](../../cells/tropical_cyclone_wind_solar/current/FULL_PLANT_SCREENING_CURVE_TABLE_tropical_cyclone_wind_solar__model_v2_1__docs_r2.csv)
 - [reference evaluator](../../../scripts/reference_helpers/tropical_cyclone_wind_solar_v2_1_curve_eval.py)
-- [validator](../../../scripts/reference_helpers/validate_tropical_cyclone_wind_solar_v2_1_proposal.py)
+- [release validator](../../../scripts/reference_helpers/validate_tropical_cyclone_wind_solar_v2_1_release.py)

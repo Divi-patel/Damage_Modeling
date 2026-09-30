@@ -748,8 +748,12 @@ def evaluate_damage_call(
     request: Mapping[str, Any],
     *,
     verified_artifact_sha256_hex: str | None = None,
+    allow_canonical_runtime_artifact: bool = False,
 ) -> dict[str, Any]:
-    if artifact.get("canonical_runtime_artifact") is not False:
+    canonical = artifact.get("canonical_runtime_artifact")
+    if canonical is not False and not (
+        allow_canonical_runtime_artifact and canonical is True
+    ):
         raise TropicalCycloneWindSolarV2EvaluationError(
             "CURVE_PAYLOAD_INVALID", "reference evaluator requires a noncanonical proposal"
         )

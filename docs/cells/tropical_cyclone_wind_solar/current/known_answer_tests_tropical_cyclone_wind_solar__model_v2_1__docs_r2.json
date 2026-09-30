@@ -1,0 +1,2304 @@
+{
+  "cell_id": "tropical_cyclone_wind_solar",
+  "semantic_damage_model_version": "model v2.1",
+  "documentation_revision": "docs r2",
+  "runtime_known_answer_tests": [
+    {
+      "test_id": "TCWS21-FIXED-ZERO",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_fixed_event_to_design_net_pressure_ratio": 0.0,
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+        "array_zone": "edge",
+        "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+        "output_mode": "full_plant_screening",
+        "tc_site_event_to_design_wind_pressure_ratio": 0.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "array_exposure_basis": "representative_site_array_zone",
+        "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+      },
+      "expected": {
+        "output_mode": "full_plant_screening",
+        "damage_emit": {
+          "schema_version": "damage_emit.v2",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "pathway_id": "tropical_cyclone_wind",
+          "emit_mode": "state_ensemble",
+          "hazard_input_used": {
+            "event_id": "TC-EVENT-TEST",
+            "event_family_id": "TC-FAMILY-TEST",
+            "array_axis": {
+              "input_field": "tc_fixed_event_to_design_net_pressure_ratio",
+              "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+              "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+              "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+              "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+              "array_zone": "edge",
+              "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+              "event_id": "TC-EVENT-TEST",
+              "event_family_id": "TC-FAMILY-TEST",
+              "axis_value": 0.0,
+              "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+              "axis_id": "architecture_specific_tropical_cyclone_wind_demand_index"
+            },
+            "site_facility_axis": {
+              "input_field": "tc_site_event_to_design_wind_pressure_ratio",
+              "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+              "axis_id": "site_facility_tropical_cyclone_wind_demand_ratio",
+              "axis_value": 0.0,
+              "valid_range": [
+                0.0,
+                2.0
+              ]
+            }
+          },
+          "input_quality": {
+            "limitation_flags": [
+              "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+              "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+              "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+              "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+              "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+              "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+              "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+              "SCREENING_ENGINEERING_PROXY",
+              "CANONICAL_SCREENING_RELEASE",
+              "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+              "SITE_FACILITY_T4_DEMAND_BRIDGE",
+              "NAMED_REFERENCE_VALUE_PROFILE_USED",
+              "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+              "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED"
+            ]
+          },
+          "selectors_used": {
+            "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+            "array_zone": "edge",
+            "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A"
+          },
+          "conditioners_used": {
+            "rain_ingress_indicator": false,
+            "windborne_debris_indicator": false,
+            "flood_or_surge_indicator": false,
+            "tc_tornado_indicator": false,
+            "tc_duration_class": "sustained_1_to_6h",
+            "tc_direction_evolution_class": "evolving"
+          },
+          "exposure_used": {
+            "array_exposure_basis": "representative_site_array_zone",
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+          },
+          "failure_unit_results": [
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FIXED_TILT_MODULE_FIELD",
+              "curve_id": "TCWS2_FIXED_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "PV array",
+              "component": "modules, frames, clamps, and module-to-rail retention on fixed-tilt ground mount",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.0,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.0
+                },
+                "central_screening": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.0,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.0
+                },
+                "upper_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.0,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+              "curve_id": "TCWS2_FIXED_STRUCTURE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "mounting",
+              "component": "fixed-tilt rails, posts, braces, connections, and structural hardware excluding foundations",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.0,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.0,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.0
+                },
+                "central_screening": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.0,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.0,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.0
+                },
+                "upper_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.0,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.0,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FOUNDATION",
+              "curve_id": "TCWS21_FOUNDATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "foundation",
+              "component": "piles, posts below the governed support boundary, anchors, and pads",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.0,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "central_screening": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.0,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "upper_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.0,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_POWER_CONVERSION_AND_COLLECTION",
+              "curve_id": "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "power conversion and collection",
+              "component": "inverter, combiner, cable, grounding, and MV collection subjects",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.0,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "central_screening": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.0,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "upper_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.0,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_GSU_SUBSTATION",
+              "curve_id": "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "GSU and substation",
+              "component": "GSU transformer, switchyard, protection, and control yard",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.0,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "central_screening": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.0,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "upper_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.0,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.0,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_SCADA_COMMUNICATIONS",
+              "curve_id": "TCWS21_SCADA_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "SCADA and communications",
+              "component": "monitoring, communications, tracker controls, and exposed sensors",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.0,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.0,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "central_screening": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.0,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.0,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "upper_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.0,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.0,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_CIVIL_INFRA",
+              "curve_id": "TCWS21_CIVIL_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "civil infrastructure",
+              "component": "roads, fencing, grading, drainage, and buildings",
+              "status": "conditional",
+              "scalar_central_dr": 0.0,
+              "scenario_drs": {
+                "lower_resistance": 0.0,
+                "central_screening": 0.0,
+                "upper_resistance": 0.0
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.0,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.0,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "central_screening": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.0,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.0,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                },
+                "upper_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 1.0,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.0,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.0,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.0
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            }
+          ],
+          "capability_declaration_ref": {
+            "path": "tropical_cyclone_wind_solar__model_v2_1__docs_r2__capability.json",
+            "semantic_damage_model_version": "model v2.1",
+            "documentation_revision": "docs r2",
+            "artifact_schema_version": "damage_curve_record_bundle.v3",
+            "artifact_sha256": null,
+            "pin_status": "unbound_reference_evaluation"
+          }
+        },
+        "physical_damage_assembly": {
+          "schema_version": "physical_damage_assembly.v1",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "documentation_revision": "docs r2",
+          "artifact_schema_version": "damage_curve_record_bundle.v3",
+          "artifact_sha256": null,
+          "pathway_id": "tropical_cyclone_wind",
+          "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+          "value_profile": {
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+            "currency_basis": "2024 USD",
+            "value_unit": "USD_per_kWdc",
+            "unit_values": {
+              "PV_FIXED_TILT_MODULE_FIELD": 291.21485143992487,
+              "PV_FIXED_TILT_SUPPORT_STRUCTURE": 109.98972602739727,
+              "PV_FOUNDATION": 31.12448715327472,
+              "PV_POWER_CONVERSION_AND_COLLECTION": 116.83772835067089,
+              "PV_GSU_SUBSTATION": 106.50466417910448,
+              "PV_SCADA_COMMUNICATIONS": 1.31,
+              "PV_CIVIL_INFRA": 31.223744292237445
+            },
+            "replacement_support_value": 189.59050092005714,
+            "physical_replacement_value": 877.7957023626668,
+            "installed_capex": 1120.0,
+            "capacity_kwdc": null
+          },
+          "coverage": {
+            "physical_replacement_value_fraction": 1.0,
+            "intrinsic_curve_value_fraction": 0.7840152322348388,
+            "derived_support_value_fraction": 0.21598476776516118,
+            "excluded_soft_nonphysical_value_2024_usd_per_kwdc": 242.20429763733296
+          },
+          "support_allocation_rule": "replacement-support DR equals the value-weighted direct-and-civil DR once; support is not independently damaged or double-counted",
+          "scenario_results": {
+            "central_screening": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 0.0,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 0.0,
+                "PV_FOUNDATION": 0.0,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 0.0,
+                "PV_GSU_SUBSTATION": 0.0,
+                "PV_SCADA_COMMUNICATIONS": 0.0,
+                "PV_CIVIL_INFRA": 0.0
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 0.0,
+              "replacement_support_dr": 0.0,
+              "replacement_support_loss_2024_usd_per_kwdc": 0.0,
+              "physical_loss_2024_usd_per_kwdc": 0.0,
+              "physical_replacement_dr": 0.0,
+              "installed_capex_physical_loss_fraction": 0.0
+            },
+            "lower_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 0.0,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 0.0,
+                "PV_FOUNDATION": 0.0,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 0.0,
+                "PV_GSU_SUBSTATION": 0.0,
+                "PV_SCADA_COMMUNICATIONS": 0.0,
+                "PV_CIVIL_INFRA": 0.0
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 0.0,
+              "replacement_support_dr": 0.0,
+              "replacement_support_loss_2024_usd_per_kwdc": 0.0,
+              "physical_loss_2024_usd_per_kwdc": 0.0,
+              "physical_replacement_dr": 0.0,
+              "installed_capex_physical_loss_fraction": 0.0
+            },
+            "upper_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 0.0,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 0.0,
+                "PV_FOUNDATION": 0.0,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 0.0,
+                "PV_GSU_SUBSTATION": 0.0,
+                "PV_SCADA_COMMUNICATIONS": 0.0,
+                "PV_CIVIL_INFRA": 0.0
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 0.0,
+              "replacement_support_dr": 0.0,
+              "replacement_support_loss_2024_usd_per_kwdc": 0.0,
+              "physical_loss_2024_usd_per_kwdc": 0.0,
+              "physical_replacement_dr": 0.0,
+              "installed_capex_physical_loss_fraction": 0.0
+            }
+          },
+          "limitation_flags": [
+            "SCREENING_ENGINEERING_PROXY",
+            "NAMED_REFERENCE_VALUE_PROFILE_USED",
+            "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+            "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+            "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED",
+            "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED"
+          ]
+        }
+      }
+    },
+    {
+      "test_id": "TCWS21-FIXED-CENTRAL",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_fixed_event_to_design_net_pressure_ratio": 1.0,
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+        "array_zone": "edge",
+        "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+        "output_mode": "full_plant_screening",
+        "tc_site_event_to_design_wind_pressure_ratio": 1.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "array_exposure_basis": "representative_site_array_zone",
+        "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+        "capacity_kwdc": 100000.0
+      },
+      "expected": {
+        "output_mode": "full_plant_screening",
+        "damage_emit": {
+          "schema_version": "damage_emit.v2",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "pathway_id": "tropical_cyclone_wind",
+          "emit_mode": "state_ensemble",
+          "hazard_input_used": {
+            "event_id": "TC-EVENT-TEST",
+            "event_family_id": "TC-FAMILY-TEST",
+            "array_axis": {
+              "input_field": "tc_fixed_event_to_design_net_pressure_ratio",
+              "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+              "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+              "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+              "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+              "array_zone": "edge",
+              "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+              "event_id": "TC-EVENT-TEST",
+              "event_family_id": "TC-FAMILY-TEST",
+              "axis_value": 1.0,
+              "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+              "axis_id": "architecture_specific_tropical_cyclone_wind_demand_index"
+            },
+            "site_facility_axis": {
+              "input_field": "tc_site_event_to_design_wind_pressure_ratio",
+              "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+              "axis_id": "site_facility_tropical_cyclone_wind_demand_ratio",
+              "axis_value": 1.0,
+              "valid_range": [
+                0.0,
+                2.0
+              ]
+            }
+          },
+          "input_quality": {
+            "limitation_flags": [
+              "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+              "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+              "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+              "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+              "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+              "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+              "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+              "SCREENING_ENGINEERING_PROXY",
+              "CANONICAL_SCREENING_RELEASE",
+              "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+              "SITE_FACILITY_T4_DEMAND_BRIDGE",
+              "NAMED_REFERENCE_VALUE_PROFILE_USED",
+              "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+              "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED"
+            ]
+          },
+          "selectors_used": {
+            "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+            "array_zone": "edge",
+            "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A"
+          },
+          "conditioners_used": {
+            "rain_ingress_indicator": false,
+            "windborne_debris_indicator": false,
+            "flood_or_surge_indicator": false,
+            "tc_tornado_indicator": false,
+            "tc_duration_class": "sustained_1_to_6h",
+            "tc_direction_evolution_class": "evolving"
+          },
+          "exposure_used": {
+            "array_exposure_basis": "representative_site_array_zone",
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+          },
+          "failure_unit_results": [
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FIXED_TILT_MODULE_FIELD",
+              "curve_id": "TCWS2_FIXED_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "PV array",
+              "component": "modules, frames, clamps, and module-to-rail retention on fixed-tilt ground mount",
+              "status": "conditional",
+              "scalar_central_dr": 0.13542526918149927,
+              "scenario_drs": {
+                "lower_resistance": 0.3369614817679642,
+                "central_screening": 0.13542526918149927,
+                "upper_resistance": 0.05524376626749503
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.0755092730626401,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.6528102724104397,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.27168045452692025
+                },
+                "central_screening": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.29400234088438193,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.6339693221490209,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.07202833696659716
+                },
+                "upper_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.5645966453541803,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.422399542642583,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.013003812003236729
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+              "curve_id": "TCWS2_FIXED_STRUCTURE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "mounting",
+              "component": "fixed-tilt rails, posts, braces, connections, and structural hardware excluding foundations",
+              "status": "conditional",
+              "scalar_central_dr": 0.10932205947512846,
+              "scenario_drs": {
+                "lower_resistance": 0.3265206097954518,
+                "central_screening": 0.10932205947512846,
+                "upper_resistance": 0.027216788516571007
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.3627185103495364,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.36560103512354336,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.18342085491212407,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.0882595996147962
+                },
+                "central_screening": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.6793468463098608,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.24862481672354209,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.05583126299421982,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.016197073972377345
+                },
+                "upper_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.8922430112412014,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.09475317675556186,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.010804418911876485,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.0021993930913602436
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FOUNDATION",
+              "curve_id": "TCWS21_FOUNDATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "foundation",
+              "component": "piles, posts below the governed support boundary, anchors, and pads",
+              "status": "conditional",
+              "scalar_central_dr": 0.10293452158209598,
+              "scenario_drs": {
+                "lower_resistance": 0.24313771964686,
+                "central_screening": 0.10293452158209598,
+                "upper_resistance": 0.03407071770314258
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.3091882673340157,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.31776558256846155,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.22430263012167045,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.14874351997585228
+                },
+                "central_screening": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.5554331491367721,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.2763785539906549,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.12165031229232266,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.04653798458025031
+                },
+                "upper_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.7814068893829029,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.16367194873878885,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.044667756326315616,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.010253405551992672
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_POWER_CONVERSION_AND_COLLECTION",
+              "curve_id": "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "power conversion and collection",
+              "component": "inverter, combiner, cable, grounding, and MV collection subjects",
+              "status": "conditional",
+              "scalar_central_dr": 0.18614254608419975,
+              "scenario_drs": {
+                "lower_resistance": 0.360895289144507,
+                "central_screening": 0.18614254608419975,
+                "upper_resistance": 0.07874701738984777
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.17397242972930282,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.3260275702706972,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.28617911313760447,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.2138208868623955
+                },
+                "central_screening": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.3816957920597335,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.35642185972770274,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.18563664683522385,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.07624570137733994
+                },
+                "upper_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.6317617293436085,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.2671024089926014,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.08183180862200409,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.019304053041785982
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_GSU_SUBSTATION",
+              "curve_id": "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "GSU and substation",
+              "component": "GSU transformer, switchyard, protection, and control yard",
+              "status": "conditional",
+              "scalar_central_dr": 0.1479686613352501,
+              "scenario_drs": {
+                "lower_resistance": 0.30902434810480095,
+                "central_screening": 0.1479686613352501,
+                "upper_resistance": 0.05742727083792238
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.2164891706888683,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.3281225879106267,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.26555953896700646,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.18982870243349856
+                },
+                "central_screening": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.4417427150287554,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.33151312975506264,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.16199468347897983,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.06474947173720218
+                },
+                "upper_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.6882870358221048,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.229017265185653,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.06706124518334161,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.015634453808900575
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_SCADA_COMMUNICATIONS",
+              "curve_id": "TCWS21_SCADA_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "SCADA and communications",
+              "component": "monitoring, communications, tracker controls, and exposed sensors",
+              "status": "conditional",
+              "scalar_central_dr": 0.3618866438634783,
+              "scenario_drs": {
+                "lower_resistance": 0.5665855933573938,
+                "central_screening": 0.3618866438634783,
+                "upper_resistance": 0.19349942046755794
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.07221352523661584,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.23697474209739988,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.3550496680515567,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.3357620646144276
+                },
+                "central_screening": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.20555302481466087,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.34988012432211124,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.30036050144014736,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.14420634942308055
+                },
+                "upper_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.42685149215241625,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.3545553972304866,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.17394888829802707,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.044644222319070045
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_CIVIL_INFRA",
+              "curve_id": "TCWS21_CIVIL_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "civil infrastructure",
+              "component": "roads, fencing, grading, drainage, and buildings",
+              "status": "conditional",
+              "scalar_central_dr": 0.21043051716034683,
+              "scenario_drs": {
+                "lower_resistance": 0.38852932034397275,
+                "central_screening": 0.21043051716034683,
+                "upper_resistance": 0.09596063806207111
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.10113586166378996,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.3047142647903003,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.35384260674640156,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.24030726679950817
+                },
+                "central_screening": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.2618823482125636,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.39328887501158327,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.25517133787143526,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.08965743890441784
+                },
+                "upper_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.5,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.35010243820154674,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.1260694135269321,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.02382814827152115
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            }
+          ],
+          "capability_declaration_ref": {
+            "path": "tropical_cyclone_wind_solar__model_v2_1__docs_r2__capability.json",
+            "semantic_damage_model_version": "model v2.1",
+            "documentation_revision": "docs r2",
+            "artifact_schema_version": "damage_curve_record_bundle.v3",
+            "artifact_sha256": null,
+            "pin_status": "unbound_reference_evaluation"
+          }
+        },
+        "physical_damage_assembly": {
+          "schema_version": "physical_damage_assembly.v1",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "documentation_revision": "docs r2",
+          "artifact_schema_version": "damage_curve_record_bundle.v3",
+          "artifact_sha256": null,
+          "pathway_id": "tropical_cyclone_wind",
+          "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+          "value_profile": {
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+            "currency_basis": "2024 USD",
+            "value_unit": "USD_per_kWdc",
+            "unit_values": {
+              "PV_FIXED_TILT_MODULE_FIELD": 291.21485143992487,
+              "PV_FIXED_TILT_SUPPORT_STRUCTURE": 109.98972602739727,
+              "PV_FOUNDATION": 31.12448715327472,
+              "PV_POWER_CONVERSION_AND_COLLECTION": 116.83772835067089,
+              "PV_GSU_SUBSTATION": 106.50466417910448,
+              "PV_SCADA_COMMUNICATIONS": 1.31,
+              "PV_CIVIL_INFRA": 31.223744292237445
+            },
+            "replacement_support_value": 189.59050092005714,
+            "physical_replacement_value": 877.7957023626668,
+            "installed_capex": 1120.0,
+            "capacity_kwdc": 100000.0
+          },
+          "coverage": {
+            "physical_replacement_value_fraction": 1.0,
+            "intrinsic_curve_value_fraction": 0.7840152322348388,
+            "derived_support_value_fraction": 0.21598476776516118,
+            "excluded_soft_nonphysical_value_2024_usd_per_kwdc": 242.20429763733296
+          },
+          "support_allocation_rule": "replacement-support DR equals the value-weighted direct-and-civil DR once; support is not independently damaged or double-counted",
+          "scenario_results": {
+            "central_screening": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 39.43784964590215,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 12.02430337042021,
+                "PV_FOUNDATION": 3.203784194610426,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 21.748472233887966,
+                "PV_GSU_SUBSTATION": 15.759352584542453,
+                "PV_SCADA_COMMUNICATIONS": 0.47407150346115656,
+                "PV_CIVIL_INFRA": 6.570428659097953
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 99.2182621919223,
+              "replacement_support_dr": 0.14416959067432483,
+              "replacement_support_loss_2024_usd_per_kwdc": 27.333184913384844,
+              "physical_loss_2024_usd_per_kwdc": 126.55144710530715,
+              "physical_replacement_dr": 0.14416959067432483,
+              "installed_capex_physical_loss_fraction": 0.11299236348688138,
+              "scenario_physical_loss_2024_usd": 12655144.710530715
+            },
+            "lower_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 98.12818785403465,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 35.91391241370043,
+                "PV_FOUNDATION": 7.567536831625206,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 42.166185756102735,
+                "PV_GSU_SUBSTATION": 32.91253441806851,
+                "PV_SCADA_COMMUNICATIONS": 0.7422271272981859,
+                "PV_CIVIL_INFRA": 12.131340148457014
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 229.56192454928674,
+              "replacement_support_dr": 0.33356609927980935,
+              "replacement_support_loss_2024_usd_per_kwdc": 63.24096385240856,
+              "physical_loss_2024_usd_per_kwdc": 292.8028884016953,
+              "physical_replacement_dr": 0.3335660992798094,
+              "installed_capex_physical_loss_fraction": 0.26143115035865655,
+              "scenario_physical_loss_2024_usd": 29280288.840169534
+            },
+            "upper_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 16.0878051865705,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 2.993567112283257,
+                "PV_FOUNDATION": 1.0604336154543108,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 9.20062262622059,
+                "PV_GSU_SUBSTATION": 6.116272195315403,
+                "PV_SCADA_COMMUNICATIONS": 0.2534842408125009,
+                "PV_CIVIL_INFRA": 2.9962504249700563
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 38.708435401626616,
+              "replacement_support_dr": 0.05624548509730286,
+              "replacement_support_loss_2024_usd_per_kwdc": 10.663609694089258,
+              "physical_loss_2024_usd_per_kwdc": 49.372045095715876,
+              "physical_replacement_dr": 0.056245485097302865,
+              "installed_capex_physical_loss_fraction": 0.04408218312117489,
+              "scenario_physical_loss_2024_usd": 4937204.509571588
+            }
+          },
+          "limitation_flags": [
+            "SCREENING_ENGINEERING_PROXY",
+            "NAMED_REFERENCE_VALUE_PROFILE_USED",
+            "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+            "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+            "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED",
+            "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED"
+          ]
+        }
+      }
+    },
+    {
+      "test_id": "TCWS21-FIXED-HIGH",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_fixed_event_to_design_net_pressure_ratio": 2.0,
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+        "array_zone": "edge",
+        "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+        "output_mode": "full_plant_screening",
+        "tc_site_event_to_design_wind_pressure_ratio": 2.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "array_exposure_basis": "representative_site_array_zone",
+        "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+      },
+      "expected": {
+        "output_mode": "full_plant_screening",
+        "damage_emit": {
+          "schema_version": "damage_emit.v2",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "pathway_id": "tropical_cyclone_wind",
+          "emit_mode": "state_ensemble",
+          "hazard_input_used": {
+            "event_id": "TC-EVENT-TEST",
+            "event_family_id": "TC-FAMILY-TEST",
+            "array_axis": {
+              "input_field": "tc_fixed_event_to_design_net_pressure_ratio",
+              "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+              "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+              "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+              "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+              "array_zone": "edge",
+              "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+              "event_id": "TC-EVENT-TEST",
+              "event_family_id": "TC-FAMILY-TEST",
+              "axis_value": 2.0,
+              "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+              "axis_id": "architecture_specific_tropical_cyclone_wind_demand_index"
+            },
+            "site_facility_axis": {
+              "input_field": "tc_site_event_to_design_wind_pressure_ratio",
+              "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+              "axis_id": "site_facility_tropical_cyclone_wind_demand_ratio",
+              "axis_value": 2.0,
+              "valid_range": [
+                0.0,
+                2.0
+              ]
+            }
+          },
+          "input_quality": {
+            "limitation_flags": [
+              "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+              "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+              "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+              "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+              "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+              "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+              "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+              "SCREENING_ENGINEERING_PROXY",
+              "CANONICAL_SCREENING_RELEASE",
+              "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+              "SITE_FACILITY_T4_DEMAND_BRIDGE",
+              "NAMED_REFERENCE_VALUE_PROFILE_USED",
+              "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+              "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED"
+            ]
+          },
+          "selectors_used": {
+            "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+            "array_zone": "edge",
+            "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A"
+          },
+          "conditioners_used": {
+            "rain_ingress_indicator": false,
+            "windborne_debris_indicator": false,
+            "flood_or_surge_indicator": false,
+            "tc_tornado_indicator": false,
+            "tc_duration_class": "sustained_1_to_6h",
+            "tc_direction_evolution_class": "evolving"
+          },
+          "exposure_used": {
+            "array_exposure_basis": "representative_site_array_zone",
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+          },
+          "failure_unit_results": [
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FIXED_TILT_MODULE_FIELD",
+              "curve_id": "TCWS2_FIXED_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "PV array",
+              "component": "modules, frames, clamps, and module-to-rail retention on fixed-tilt ground mount",
+              "status": "conditional",
+              "scalar_central_dr": 0.821796763590911,
+              "scenario_drs": {
+                "lower_resistance": 0.9601145182864417,
+                "central_screening": 0.821796763590911,
+                "upper_resistance": 0.5786788456145704
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 8.968320641100647e-05,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.04421755389683035,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.9556927628967586
+                },
+                "central_screening": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.0021707495855056713,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.19559165202620366,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.8022375983882907
+                },
+                "upper_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.015862569692664086,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.4505095385475172,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.5336278917598187
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+              "curve_id": "TCWS2_FIXED_STRUCTURE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "mounting",
+              "component": "fixed-tilt rails, posts, braces, connections, and structural hardware excluding foundations",
+              "status": "conditional",
+              "scalar_central_dr": 0.8270199682377997,
+              "scenario_drs": {
+                "lower_resistance": 0.9617557316290826,
+                "central_screening": 0.8270199682377997,
+                "upper_resistance": 0.5823028666981629
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.0038874455544151143,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.040419791548826245,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.12448718824462135,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.8312055746521373
+                },
+                "central_screening": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.032546602614982434,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.1652157989967269,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.23435826895195977,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.5678793294363309
+                },
+                "upper_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.1418722753178865,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.3244998329222948,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.2381876357966225,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.29544025596319623
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FOUNDATION",
+              "curve_id": "TCWS21_FOUNDATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "foundation",
+              "component": "piles, posts below the governed support boundary, anchors, and pads",
+              "status": "conditional",
+              "scalar_central_dr": 0.7040318996479488,
+              "scenario_drs": {
+                "lower_resistance": 0.8719488286405789,
+                "central_screening": 0.7040318996479488,
+                "upper_resistance": 0.4782121768388939
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.0065954548303176486,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.04220227614921046,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.12517469874977472,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.8260275702706972
+                },
+                "central_screening": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.032809310510815815,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.1212752561147965,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.22761122543412116,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.6183042079402665
+                },
+                "upper_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.11439781872383237,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.23701154178139738,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.2803523688383788,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.3682382706563915
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_POWER_CONVERSION_AND_COLLECTION",
+              "curve_id": "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "power conversion and collection",
+              "component": "inverter, combiner, cable, grounding, and MV collection subjects",
+              "status": "conditional",
+              "scalar_central_dr": 0.7972055439293442,
+              "scenario_drs": {
+                "lower_resistance": 0.9221298171232651,
+                "central_screening": 0.7972055439293442,
+                "upper_resistance": 0.6018802623891655
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.0017557610427513248,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.022072387228769808,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.09374878888015115,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.8824230628483277
+                },
+                "central_screening": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.011260899534764168,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.07839653936965363,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.20162778517200564,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.7087147759235766
+                },
+                "upper_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.05009868245879545,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.19020858434071275,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.294722215408996,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.4649705177914958
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_GSU_SUBSTATION",
+              "curve_id": "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "GSU and substation",
+              "component": "GSU transformer, switchyard, protection, and control yard",
+              "status": "conditional",
+              "scalar_central_dr": 0.7603984386454242,
+              "scenario_drs": {
+                "lower_resistance": 0.9035257046581193,
+                "central_screening": 0.7603984386454242,
+                "upper_resistance": 0.5501957857267639
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.0028502800407181894,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.028005581247263933,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.10439827777489175,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.8647458609371261
+                },
+                "central_screening": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.016711172224913362,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.09248610710869276,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.212004877830254,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.6787978428361399
+                },
+                "upper_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.06818843131959906,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.2083167137252393,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.2922529328098722,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.43124192214528945
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_SCADA_COMMUNICATIONS",
+              "curve_id": "TCWS21_SCADA_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "SCADA and communications",
+              "component": "monitoring, communications, tracker controls, and exposed sensors",
+              "status": "conditional",
+              "scalar_central_dr": 0.9059019855558663,
+              "scenario_drs": {
+                "lower_resistance": 0.970403291528021,
+                "central_screening": 0.9059019855558663,
+                "upper_resistance": 0.7767953113661186
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.00029094060863998905,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.0063045142216776595,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.05321540172202899,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.9401891434476534
+                },
+                "central_screening": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.0025364383834417525,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.030272872127374062,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.14628807722760884,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.8209026122615753
+                },
+                "upper_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.01520087837823858,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.09919694034559379,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.27485869102641813,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.6107434902497495
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_CIVIL_INFRA",
+              "curve_id": "TCWS21_CIVIL_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "civil infrastructure",
+              "component": "roads, fencing, grading, drainage, and buildings",
+              "status": "conditional",
+              "scalar_central_dr": 0.8140522313976283,
+              "scenario_drs": {
+                "lower_resistance": 0.9306375272633051,
+                "central_screening": 0.8140522313976283,
+                "upper_resistance": 0.626464634619501
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.0005659116216181204,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.012689235509871,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.08788071453230084,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.89886413833621
+                },
+                "central_screening": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.00442268344888419,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.05250482613739216,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.20495483862628727,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.7381176517874364
+                },
+                "upper_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.023828148271521132,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.14887227216839494,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.32729957956008393,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.5
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            }
+          ],
+          "capability_declaration_ref": {
+            "path": "tropical_cyclone_wind_solar__model_v2_1__docs_r2__capability.json",
+            "semantic_damage_model_version": "model v2.1",
+            "documentation_revision": "docs r2",
+            "artifact_schema_version": "damage_curve_record_bundle.v3",
+            "artifact_sha256": null,
+            "pin_status": "unbound_reference_evaluation"
+          }
+        },
+        "physical_damage_assembly": {
+          "schema_version": "physical_damage_assembly.v1",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "documentation_revision": "docs r2",
+          "artifact_schema_version": "damage_curve_record_bundle.v3",
+          "artifact_sha256": null,
+          "pathway_id": "tropical_cyclone_wind",
+          "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+          "value_profile": {
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+            "currency_basis": "2024 USD",
+            "value_unit": "USD_per_kWdc",
+            "unit_values": {
+              "PV_FIXED_TILT_MODULE_FIELD": 291.21485143992487,
+              "PV_FIXED_TILT_SUPPORT_STRUCTURE": 109.98972602739727,
+              "PV_FOUNDATION": 31.12448715327472,
+              "PV_POWER_CONVERSION_AND_COLLECTION": 116.83772835067089,
+              "PV_GSU_SUBSTATION": 106.50466417910448,
+              "PV_SCADA_COMMUNICATIONS": 1.31,
+              "PV_CIVIL_INFRA": 31.223744292237445
+            },
+            "replacement_support_value": 189.59050092005714,
+            "physical_replacement_value": 877.7957023626668,
+            "installed_capex": 1120.0,
+            "capacity_kwdc": null
+          },
+          "coverage": {
+            "physical_replacement_value_fraction": 1.0,
+            "intrinsic_curve_value_fraction": 0.7840152322348388,
+            "derived_support_value_fraction": 0.21598476776516118,
+            "excluded_soft_nonphysical_value_2024_usd_per_kwdc": 242.20429763733296
+          },
+          "support_allocation_rule": "replacement-support DR equals the value-weighted direct-and-civil DR once; support is not independently damaged or double-counted",
+          "scenario_results": {
+            "central_screening": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 239.3194224229382,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 90.96369972566238,
+                "PV_FOUNDATION": 21.91263181608818,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 93.14368478126553,
+                "PV_GSU_SUBSTATION": 80.9859803502463,
+                "PV_SCADA_COMMUNICATIONS": 1.186731601078185,
+                "PV_CIVIL_INFRA": 25.41775871368485
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 552.9299094109637,
+              "replacement_support_dr": 0.803437562302518,
+              "replacement_support_loss_2024_usd_per_kwdc": 152.324129894924,
+              "physical_loss_2024_usd_per_kwdc": 705.2540393058877,
+              "physical_replacement_dr": 0.803437562302518,
+              "installed_capex_physical_loss_fraction": 0.629691106523114
+            },
+            "lower_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 279.59960680810116,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 105.7832494271618,
+                "PV_FOUNDATION": 27.138960115336637,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 107.73955307710187,
+                "PV_GSU_SUBSTATION": 96.22970175180174,
+                "PV_SCADA_COMMUNICATIONS": 1.2712283119017076,
+                "PV_CIVIL_INFRA": 29.05798818002959
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 646.8202876714345,
+              "replacement_support_dr": 0.939865444660365,
+              "replacement_support_loss_2024_usd_per_kwdc": 178.18956045061086,
+              "physical_loss_2024_usd_per_kwdc": 825.0098481220454,
+              "physical_replacement_dr": 0.9398654446603651,
+              "installed_capex_physical_loss_fraction": 0.7366159358232548
+            },
+            "upper_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_FIXED_TILT_MODULE_FIELD": 168.51987405707433,
+                "PV_FIXED_TILT_SUPPORT_STRUCTURE": 64.04733277309897,
+                "PV_FOUNDATION": 14.884108754561693,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 70.32232259665584,
+                "PV_GSU_SUBSTATION": 58.59841739158751,
+                "PV_SCADA_COMMUNICATIONS": 1.0176018578896153,
+                "PV_CIVIL_INFRA": 19.56057155948926
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 396.95022899035723,
+              "replacement_support_dr": 0.5767905098047409,
+              "replacement_support_loss_2024_usd_per_kwdc": 109.35400167981595,
+              "physical_loss_2024_usd_per_kwdc": 506.3042306701732,
+              "physical_replacement_dr": 0.5767905098047409,
+              "installed_capex_physical_loss_fraction": 0.45205734881265464
+            }
+          },
+          "limitation_flags": [
+            "SCREENING_ENGINEERING_PROXY",
+            "NAMED_REFERENCE_VALUE_PROFILE_USED",
+            "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+            "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+            "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED",
+            "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED"
+          ]
+        }
+      }
+    },
+    {
+      "test_id": "TCWS21-TRACKER-CENTRAL",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "single_axis_tracker_tc_qualified_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_tracker_normal_3s_gust_mps": 50.0,
+        "critical_instability_3s_gust_mps": 50.0,
+        "aeroelastic_qualification_id": "TRACKER-QUAL-V1",
+        "aeroelastic_qualification_sha256": "298c417eca3af45bfc88c4f0aa60965c16c444dbafd966ec2bce1e6bdf873c22",
+        "tracker_system_id": "TRACKER-SYSTEM-A",
+        "tracker_module_configuration": "1P",
+        "tracker_layout_id": "LAYOUT-A",
+        "tracker_position_state": "confirmed_wind_stow",
+        "tracker_angle_deg": 0.0,
+        "stow_confirmation_basis": "position_sensor_and_scada",
+        "tracker_drive_lock_state": "mechanically_locked",
+        "array_zone": "edge",
+        "array_spatial_object_id": "TRACKER-ARRAY-ZONE-EDGE-A",
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "qualification_tracker_system_id": "TRACKER-SYSTEM-A",
+        "qualification_tracker_module_configuration": "1P",
+        "qualification_tracker_layout_id": "LAYOUT-A",
+        "qualification_tracker_position_state": "confirmed_wind_stow",
+        "qualification_tracker_angle_deg": 0.0,
+        "qualification_array_zone": "edge",
+        "qualification_drive_lock_state": "mechanically_locked",
+        "qualification_speed_averaging_s": 3.0,
+        "qualification_speed_reference": "array_height_tracker_normal_3s_gust",
+        "qualification_tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "qualification_direction_basis_id": "TCDIR-BRIDGE-V1",
+        "qualification_duration_basis_id": "TCDUR-BRIDGE-V1",
+        "output_mode": "full_plant_screening",
+        "tc_site_event_to_design_wind_pressure_ratio": 1.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "array_exposure_basis": "representative_site_array_zone",
+        "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+      },
+      "expected": {
+        "output_mode": "full_plant_screening",
+        "damage_emit": {
+          "schema_version": "damage_emit.v2",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "pathway_id": "tropical_cyclone_wind",
+          "emit_mode": "state_ensemble",
+          "hazard_input_used": {
+            "event_id": "TC-EVENT-TEST",
+            "event_family_id": "TC-FAMILY-TEST",
+            "array_axis": {
+              "input_field": "tc_tracker_normal_3s_gust_mps",
+              "input_speed_mps": 50.0,
+              "critical_instability_3s_gust_mps": 50.0,
+              "aeroelastic_qualification_id": "TRACKER-QUAL-V1",
+              "aeroelastic_qualification_sha256": "298c417eca3af45bfc88c4f0aa60965c16c444dbafd966ec2bce1e6bdf873c22",
+              "tracker_system_id": "TRACKER-SYSTEM-A",
+              "tracker_layout_id": "LAYOUT-A",
+              "tracker_module_configuration": "1P",
+              "tracker_angle_deg": 0.0,
+              "tracker_position_state": "confirmed_wind_stow",
+              "stow_confirmation_basis": "position_sensor_and_scada",
+              "tracker_drive_lock_state": "mechanically_locked",
+              "array_zone": "edge",
+              "array_spatial_object_id": "TRACKER-ARRAY-ZONE-EDGE-A",
+              "qualification_basis_match": true,
+              "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+              "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+              "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+              "event_id": "TC-EVENT-TEST",
+              "event_family_id": "TC-FAMILY-TEST",
+              "axis_value": 1.0,
+              "array_architecture": "single_axis_tracker_tc_qualified_synthetic_t4_v1",
+              "axis_id": "architecture_specific_tropical_cyclone_wind_demand_index"
+            },
+            "site_facility_axis": {
+              "input_field": "tc_site_event_to_design_wind_pressure_ratio",
+              "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+              "axis_id": "site_facility_tropical_cyclone_wind_demand_ratio",
+              "axis_value": 1.0,
+              "valid_range": [
+                0.0,
+                2.0
+              ]
+            }
+          },
+          "input_quality": {
+            "limitation_flags": [
+              "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+              "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+              "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+              "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+              "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+              "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+              "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+              "STOW_ACTION_THRESHOLD_EXCEEDED_NOT_DAMAGE_ONSET",
+              "QUALIFIED_TRACKER_INSTABILITY_AXIS",
+              "QUALIFICATION_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+              "SCREENING_ENGINEERING_PROXY",
+              "CANONICAL_SCREENING_RELEASE",
+              "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+              "SITE_FACILITY_T4_DEMAND_BRIDGE",
+              "NAMED_REFERENCE_VALUE_PROFILE_USED",
+              "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+              "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED"
+            ]
+          },
+          "selectors_used": {
+            "array_architecture": "single_axis_tracker_tc_qualified_synthetic_t4_v1",
+            "aeroelastic_qualification_id": "TRACKER-QUAL-V1",
+            "aeroelastic_qualification_sha256": "298c417eca3af45bfc88c4f0aa60965c16c444dbafd966ec2bce1e6bdf873c22",
+            "tracker_system_id": "TRACKER-SYSTEM-A",
+            "tracker_module_configuration": "1P",
+            "tracker_layout_id": "LAYOUT-A",
+            "tracker_angle_deg": 0.0,
+            "tracker_position_state": "confirmed_wind_stow",
+            "stow_confirmation_basis": "position_sensor_and_scada",
+            "tracker_drive_lock_state": "mechanically_locked",
+            "array_zone": "edge",
+            "array_spatial_object_id": "TRACKER-ARRAY-ZONE-EDGE-A",
+            "qualification_tracker_system_id": "TRACKER-SYSTEM-A",
+            "qualification_tracker_module_configuration": "1P",
+            "qualification_tracker_layout_id": "LAYOUT-A",
+            "qualification_tracker_angle_deg": 0.0,
+            "qualification_tracker_position_state": "confirmed_wind_stow",
+            "qualification_array_zone": "edge",
+            "qualification_drive_lock_state": "mechanically_locked",
+            "qualification_speed_averaging_s": 3.0,
+            "qualification_speed_reference": "array_height_tracker_normal_3s_gust",
+            "qualification_tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+            "qualification_direction_basis_id": "TCDIR-BRIDGE-V1",
+            "qualification_duration_basis_id": "TCDUR-BRIDGE-V1"
+          },
+          "conditioners_used": {
+            "rain_ingress_indicator": false,
+            "windborne_debris_indicator": false,
+            "flood_or_surge_indicator": false,
+            "tc_tornado_indicator": false,
+            "tc_duration_class": "sustained_1_to_6h",
+            "tc_direction_evolution_class": "evolving"
+          },
+          "exposure_used": {
+            "array_exposure_basis": "representative_site_array_zone",
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+          },
+          "failure_unit_results": [
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_TRACKER_MODULE_FIELD",
+              "curve_id": "TCWS2_TRACKER_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "PV array",
+              "component": "modules, frames, clamps, and module-to-torque-tube retention on qualified single-axis tracker",
+              "status": "conditional",
+              "scalar_central_dr": 0.15690558508887348,
+              "scenario_drs": {
+                "lower_resistance": 0.35422701745287827,
+                "central_screening": 0.15690558508887348,
+                "upper_resistance": 0.060593023345156365
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.20855907388973416,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.4857932318415418,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.30564769426872407
+                },
+                "central_screening": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.4260180784557359,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.46341815161710065,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.11056376992716342
+                },
+                "upper_resistance": {
+                  "MODULE_DS0_NO_DIRECT_DAMAGE": 0.6355474920235656,
+                  "MODULE_DS1_LOCALIZED_REPLACEMENT": 0.3376216495903089,
+                  "MODULE_DS2_FIELD_REPLACEMENT": 0.026830858386125478
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "STOW_ACTION_THRESHOLD_EXCEEDED_NOT_DAMAGE_ONSET",
+                "QUALIFIED_TRACKER_INSTABILITY_AXIS",
+                "QUALIFICATION_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_TRACKER_SBOS_ASSEMBLY",
+              "curve_id": "TCWS2_TRACKER_SBOS_SYNTHETIC_T4_ORDERED_STATES",
+              "subsystem": "mounting",
+              "component": "qualified single-axis tracker torque tube, bearings, drive, racking, and structural hardware excluding foundations",
+              "status": "conditional",
+              "scalar_central_dr": 0.1398263585783975,
+              "scenario_drs": {
+                "lower_resistance": 0.34589782836005506,
+                "central_screening": 0.1398263585783975,
+                "upper_resistance": 0.04344214577128501
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.4260180784557359,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.26833422727554,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.16807491998153506,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.137572774287189
+                },
+                "central_screening": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.6943523057312759,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.19508392434156063,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.07626042106740644,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.034303348859756985
+                },
+                "upper_resistance": {
+                  "STRUCT_DS0_NO_DIRECT_DAMAGE": 0.8624272257128109,
+                  "STRUCT_DS1_LOCALIZED_REPAIR": 0.11074191590106353,
+                  "STRUCT_DS2_FULL_UNIT_REPLACEMENT": 0.020972032528477513,
+                  "STRUCT_DS3_TERMINAL_UNIT_FAILURE": 0.0058588258576479655
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "EXPERIMENTAL_SYNTHETIC_T4_SCENARIO",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+                "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+                "TC_BRIDGE_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "TC_DURATION_DIRECTION_AND_CYCLING_NOT_NUMERICALLY_MODELED",
+                "NO_HARD_ZERO_EXCEPT_ZERO_DEMAND",
+                "STOW_ACTION_THRESHOLD_EXCEEDED_NOT_DAMAGE_ONSET",
+                "QUALIFIED_TRACKER_INSTABILITY_AXIS",
+                "QUALIFICATION_CONTENT_NOT_RESOLVED_BY_REFERENCE_EVALUATOR",
+                "SCREENING_ENGINEERING_PROXY",
+                "CANONICAL_SCREENING_RELEASE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_FOUNDATION",
+              "curve_id": "TCWS21_FOUNDATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "foundation",
+              "component": "piles, posts below the governed support boundary, anchors, and pads",
+              "status": "conditional",
+              "scalar_central_dr": 0.10293452158209598,
+              "scenario_drs": {
+                "lower_resistance": 0.24313771964686,
+                "central_screening": 0.10293452158209598,
+                "upper_resistance": 0.03407071770314258
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.3091882673340157,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.31776558256846155,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.22430263012167045,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.14874351997585228
+                },
+                "central_screening": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.5554331491367721,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.2763785539906549,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.12165031229232266,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.04653798458025031
+                },
+                "upper_resistance": {
+                  "FOUNDATION_DS0_NO_DIRECT_DAMAGE": 0.7814068893829029,
+                  "FOUNDATION_DS1_LOCALIZED_REPAIR": 0.16367194873878885,
+                  "FOUNDATION_DS2_MAJOR_REPAIR": 0.044667756326315616,
+                  "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT": 0.010253405551992672
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_POWER_CONVERSION_AND_COLLECTION",
+              "curve_id": "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "power conversion and collection",
+              "component": "inverter, combiner, cable, grounding, and MV collection subjects",
+              "status": "conditional",
+              "scalar_central_dr": 0.18614254608419975,
+              "scenario_drs": {
+                "lower_resistance": 0.360895289144507,
+                "central_screening": 0.18614254608419975,
+                "upper_resistance": 0.07874701738984777
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.17397242972930282,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.3260275702706972,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.28617911313760447,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.2138208868623955
+                },
+                "central_screening": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.3816957920597335,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.35642185972770274,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.18563664683522385,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.07624570137733994
+                },
+                "upper_resistance": {
+                  "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE": 0.6317617293436085,
+                  "POWER_COLLECTION_DS1_LOCALIZED_REPAIR": 0.2671024089926014,
+                  "POWER_COLLECTION_DS2_MAJOR_REPAIR": 0.08183180862200409,
+                  "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT": 0.019304053041785982
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_GSU_SUBSTATION",
+              "curve_id": "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "GSU and substation",
+              "component": "GSU transformer, switchyard, protection, and control yard",
+              "status": "conditional",
+              "scalar_central_dr": 0.1479686613352501,
+              "scenario_drs": {
+                "lower_resistance": 0.30902434810480095,
+                "central_screening": 0.1479686613352501,
+                "upper_resistance": 0.05742727083792238
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.2164891706888683,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.3281225879106267,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.26555953896700646,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.18982870243349856
+                },
+                "central_screening": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.4417427150287554,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.33151312975506264,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.16199468347897983,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.06474947173720218
+                },
+                "upper_resistance": {
+                  "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.6882870358221048,
+                  "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.229017265185653,
+                  "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.06706124518334161,
+                  "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.015634453808900575
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_SCADA_COMMUNICATIONS",
+              "curve_id": "TCWS21_SCADA_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "SCADA and communications",
+              "component": "monitoring, communications, tracker controls, and exposed sensors",
+              "status": "conditional",
+              "scalar_central_dr": 0.3618866438634783,
+              "scenario_drs": {
+                "lower_resistance": 0.5665855933573938,
+                "central_screening": 0.3618866438634783,
+                "upper_resistance": 0.19349942046755794
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.07221352523661584,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.23697474209739988,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.3550496680515567,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.3357620646144276
+                },
+                "central_screening": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.20555302481466087,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.34988012432211124,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.30036050144014736,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.14420634942308055
+                },
+                "upper_resistance": {
+                  "SCADA_DS0_NO_DIRECT_DAMAGE": 0.42685149215241625,
+                  "SCADA_DS1_LOCALIZED_REPAIR": 0.3545553972304866,
+                  "SCADA_DS2_MAJOR_REPAIR": 0.17394888829802707,
+                  "SCADA_DS3_FULL_UNIT_REPLACEMENT": 0.044644222319070045
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            },
+            {
+              "pathway_id": "tropical_cyclone_wind",
+              "failure_unit_id": "PV_CIVIL_INFRA",
+              "curve_id": "TCWS21_CIVIL_SCREENING_T4_ORDERED_STATES",
+              "subsystem": "civil infrastructure",
+              "component": "roads, fencing, grading, drainage, and buildings",
+              "status": "conditional",
+              "scalar_central_dr": 0.21043051716034683,
+              "scenario_drs": {
+                "lower_resistance": 0.38852932034397275,
+                "central_screening": 0.21043051716034683,
+                "upper_resistance": 0.09596063806207111
+              },
+              "state_probabilities_by_scenario": {
+                "lower_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.10113586166378996,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.3047142647903003,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.35384260674640156,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.24030726679950817
+                },
+                "central_screening": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.2618823482125636,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.39328887501158327,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.25517133787143526,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.08965743890441784
+                },
+                "upper_resistance": {
+                  "CIVIL_DS0_NO_DIRECT_DAMAGE": 0.5,
+                  "CIVIL_DS1_LOCALIZED_REPAIR": 0.35010243820154674,
+                  "CIVIL_DS2_MAJOR_REPAIR": 0.1260694135269321,
+                  "CIVIL_DS3_FULL_UNIT_REPLACEMENT": 0.02382814827152115
+                }
+              },
+              "withheld_reason_codes": [],
+              "metadata_flags": [
+                "SCREENING_ENGINEERING_PROXY",
+                "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+                "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+                "SITE_FACILITY_T4_DEMAND_BRIDGE"
+              ]
+            }
+          ],
+          "capability_declaration_ref": {
+            "path": "tropical_cyclone_wind_solar__model_v2_1__docs_r2__capability.json",
+            "semantic_damage_model_version": "model v2.1",
+            "documentation_revision": "docs r2",
+            "artifact_schema_version": "damage_curve_record_bundle.v3",
+            "artifact_sha256": null,
+            "pin_status": "unbound_reference_evaluation"
+          }
+        },
+        "physical_damage_assembly": {
+          "schema_version": "physical_damage_assembly.v1",
+          "cell_id": "tropical_cyclone_wind_solar",
+          "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+          "model_version": "model v2.1",
+          "documentation_revision": "docs r2",
+          "artifact_schema_version": "damage_curve_record_bundle.v3",
+          "artifact_sha256": null,
+          "pathway_id": "tropical_cyclone_wind",
+          "array_architecture": "single_axis_tracker_tc_qualified_synthetic_t4_v1",
+          "value_profile": {
+            "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+            "currency_basis": "2024 USD",
+            "value_unit": "USD_per_kWdc",
+            "unit_values": {
+              "PV_TRACKER_MODULE_FIELD": 291.21485143992487,
+              "PV_TRACKER_SBOS_ASSEMBLY": 109.98972602739727,
+              "PV_FOUNDATION": 31.12448715327472,
+              "PV_POWER_CONVERSION_AND_COLLECTION": 116.83772835067089,
+              "PV_GSU_SUBSTATION": 106.50466417910448,
+              "PV_SCADA_COMMUNICATIONS": 1.31,
+              "PV_CIVIL_INFRA": 31.223744292237445
+            },
+            "replacement_support_value": 189.59050092005714,
+            "physical_replacement_value": 877.7957023626668,
+            "installed_capex": 1120.0,
+            "capacity_kwdc": null
+          },
+          "coverage": {
+            "physical_replacement_value_fraction": 1.0,
+            "intrinsic_curve_value_fraction": 0.7840152322348388,
+            "derived_support_value_fraction": 0.21598476776516118,
+            "excluded_soft_nonphysical_value_2024_usd_per_kwdc": 242.20429763733296
+          },
+          "support_allocation_rule": "replacement-support DR equals the value-weighted direct-and-civil DR once; support is not independently damaged or double-counted",
+          "scenario_results": {
+            "central_screening": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_TRACKER_MODULE_FIELD": 45.69323665175078,
+                "PV_TRACKER_SBOS_ASSEMBLY": 15.379462871446552,
+                "PV_FOUNDATION": 3.203784194610426,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 21.748472233887966,
+                "PV_GSU_SUBSTATION": 15.759352584542453,
+                "PV_SCADA_COMMUNICATIONS": 0.47407150346115656,
+                "PV_CIVIL_INFRA": 6.570428659097953
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 108.82880869879729,
+              "replacement_support_dr": 0.15813424320343888,
+              "replacement_support_loss_2024_usd_per_kwdc": 29.98075038155412,
+              "physical_loss_2024_usd_per_kwdc": 138.80955908035142,
+              "physical_replacement_dr": 0.1581342432034389,
+              "installed_capex_physical_loss_fraction": 0.12393710632174233
+            },
+            "lower_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_TRACKER_MODULE_FIELD": 103.15616826354761,
+                "PV_TRACKER_SBOS_ASSEMBLY": 38.04520737479414,
+                "PV_FOUNDATION": 7.567536831625206,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 42.166185756102735,
+                "PV_GSU_SUBSTATION": 32.91253441806851,
+                "PV_SCADA_COMMUNICATIONS": 0.7422271272981859,
+                "PV_CIVIL_INFRA": 12.131340148457014
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 236.7211999198934,
+              "replacement_support_dr": 0.34396892006000607,
+              "replacement_support_loss_2024_usd_per_kwdc": 65.21323985510764,
+              "physical_loss_2024_usd_per_kwdc": 301.934439775001,
+              "physical_replacement_dr": 0.34396892006000607,
+              "installed_capex_physical_loss_fraction": 0.26958432122767945
+            },
+            "upper_resistance": {
+              "unit_loss_2024_usd_per_kwdc": {
+                "PV_TRACKER_MODULE_FIELD": 17.64558829175561,
+                "PV_TRACKER_SBOS_ASSEMBLY": 4.778189711425893,
+                "PV_FOUNDATION": 1.0604336154543108,
+                "PV_POWER_CONVERSION_AND_COLLECTION": 9.20062262622059,
+                "PV_GSU_SUBSTATION": 6.116272195315403,
+                "PV_SCADA_COMMUNICATIONS": 0.2534842408125009,
+                "PV_CIVIL_INFRA": 2.9962504249700563
+              },
+              "direct_and_civil_loss_2024_usd_per_kwdc": 42.05084110595436,
+              "replacement_support_dr": 0.06110218437438101,
+              "replacement_support_loss_2024_usd_per_kwdc": 11.584393742848583,
+              "physical_loss_2024_usd_per_kwdc": 53.635234848802945,
+              "physical_replacement_dr": 0.06110218437438101,
+              "installed_capex_physical_loss_fraction": 0.047888602543574056
+            }
+          },
+          "limitation_flags": [
+            "SCREENING_ENGINEERING_PROXY",
+            "NAMED_REFERENCE_VALUE_PROFILE_USED",
+            "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+            "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+            "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED",
+            "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED"
+          ]
+        }
+      }
+    },
+    {
+      "test_id": "TCWS21-GSU-DIRECT",
+      "request": {
+        "event_id": "TC-EVENT-GSU",
+        "event_family_id": "TC-FAMILY-GSU",
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_id": "PV_GSU_SUBSTATION",
+        "tc_site_event_to_design_wind_pressure_ratio": 1.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false
+      },
+      "expected": {
+        "schema_version": "damage_emit.v2",
+        "cell_id": "tropical_cyclone_wind_solar",
+        "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+        "model_version": "model v2.1",
+        "pathway_id": "tropical_cyclone_wind",
+        "emit_mode": "state_ensemble",
+        "hazard_input_used": {
+          "event_id": "TC-EVENT-GSU",
+          "event_family_id": "TC-FAMILY-GSU",
+          "input_field": "tc_site_event_to_design_wind_pressure_ratio",
+          "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+          "axis_id": "site_facility_tropical_cyclone_wind_demand_ratio",
+          "axis_value": 1.0,
+          "valid_range": [
+            0.0,
+            2.0
+          ]
+        },
+        "input_quality": {
+          "limitation_flags": [
+            "SCREENING_ENGINEERING_PROXY",
+            "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+            "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+            "SITE_FACILITY_T4_DEMAND_BRIDGE"
+          ]
+        },
+        "selectors_used": {
+          "failure_unit_id": "PV_GSU_SUBSTATION"
+        },
+        "conditioners_used": {
+          "rain_ingress_indicator": false,
+          "windborne_debris_indicator": false,
+          "flood_or_surge_indicator": false,
+          "tc_tornado_indicator": false,
+          "tc_duration_class": "sustained_1_to_6h",
+          "tc_direction_evolution_class": "evolving"
+        },
+        "failure_unit_results": [
+          {
+            "pathway_id": "tropical_cyclone_wind",
+            "failure_unit_id": "PV_GSU_SUBSTATION",
+            "curve_id": "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+            "subsystem": "GSU and substation",
+            "component": "GSU transformer, switchyard, protection, and control yard",
+            "status": "conditional",
+            "scalar_central_dr": 0.1479686613352501,
+            "scenario_drs": {
+              "lower_resistance": 0.30902434810480095,
+              "central_screening": 0.1479686613352501,
+              "upper_resistance": 0.05742727083792238
+            },
+            "state_probabilities_by_scenario": {
+              "lower_resistance": {
+                "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.2164891706888683,
+                "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.3281225879106267,
+                "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.26555953896700646,
+                "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.18982870243349856
+              },
+              "central_screening": {
+                "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.4417427150287554,
+                "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.33151312975506264,
+                "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.16199468347897983,
+                "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.06474947173720218
+              },
+              "upper_resistance": {
+                "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE": 0.6882870358221048,
+                "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR": 0.229017265185653,
+                "GSU_SUBSTATION_DS2_MAJOR_REPAIR": 0.06706124518334161,
+                "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT": 0.015634453808900575
+              }
+            },
+            "withheld_reason_codes": [],
+            "metadata_flags": [
+              "SCREENING_ENGINEERING_PROXY",
+              "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+              "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+              "SITE_FACILITY_T4_DEMAND_BRIDGE"
+            ]
+          }
+        ],
+        "capability_declaration_ref": {
+          "path": "tropical_cyclone_wind_solar__model_v2_1__docs_r2__capability.json",
+          "semantic_damage_model_version": "model v2.1",
+          "documentation_revision": "docs r2",
+          "artifact_schema_version": "damage_curve_record_bundle.v3",
+          "artifact_sha256": null,
+          "pin_status": "unbound_reference_evaluation"
+        }
+      }
+    }
+  ],
+  "rejection_tests": [
+    {
+      "test_id": "TCWS21-REJECT-MISSING-SITE-AXIS",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_fixed_event_to_design_net_pressure_ratio": 1.0,
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+        "array_zone": "edge",
+        "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+        "output_mode": "full_plant_screening",
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "array_exposure_basis": "representative_site_array_zone",
+        "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1"
+      },
+      "expected_error_code": "SITE_AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "TCWS21-REJECT-VALUE-PROFILE",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_fixed_event_to_design_net_pressure_ratio": 1.0,
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+        "array_zone": "edge",
+        "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A",
+        "output_mode": "full_plant_screening",
+        "tc_site_event_to_design_wind_pressure_ratio": 1.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "array_exposure_basis": "representative_site_array_zone",
+        "value_profile_id": "UNKNOWN"
+      },
+      "expected_error_code": "VALUE_PROFILE_UNSUPPORTED"
+    },
+    {
+      "test_id": "TCWS21-REJECT-NO-MODE-OR-UNIT",
+      "request": {
+        "event_id": "TC-EVENT-TEST",
+        "event_family_id": "TC-FAMILY-TEST",
+        "pathway_id": "tropical_cyclone_wind",
+        "array_architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false,
+        "tc_fixed_event_to_design_net_pressure_ratio": 1.0,
+        "tc_wind_field_bridge_id": "TCWF-BRIDGE-V1",
+        "tc_directional_history_bridge_id": "TCDIR-BRIDGE-V1",
+        "tc_duration_cycling_bridge_id": "TCDUR-BRIDGE-V1",
+        "aerodynamic_demand_bridge_id": "TCFIXED-PRESSURE-BRIDGE-V1",
+        "array_zone": "edge",
+        "array_spatial_object_id": "FIXED-ARRAY-ZONE-EDGE-A"
+      },
+      "expected_error_code": "OUTPUT_MODE_REQUIRED"
+    },
+    {
+      "test_id": "TCWS21-REJECT-DIRECT-SUPPORT",
+      "request": {
+        "event_id": "TC-EVENT-GSU",
+        "event_family_id": "TC-FAMILY-GSU",
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_id": "PV_REPLACEMENT_SUPPORT",
+        "tc_site_event_to_design_wind_pressure_ratio": 1.0,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false
+      },
+      "expected_error_code": "DERIVED_ASSEMBLY_RULE_ONLY"
+    },
+    {
+      "test_id": "TCWS21-REJECT-SITE-RANGE",
+      "request": {
+        "event_id": "TC-EVENT-GSU",
+        "event_family_id": "TC-FAMILY-GSU",
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_id": "PV_GSU_SUBSTATION",
+        "tc_site_event_to_design_wind_pressure_ratio": 2.1,
+        "site_facility_demand_bridge_id": "TC-SITE-FACILITY-BRIDGE-V1",
+        "tc_duration_class": "sustained_1_to_6h",
+        "tc_direction_evolution_class": "evolving",
+        "rain_ingress_indicator": false,
+        "windborne_debris_indicator": false,
+        "flood_or_surge_indicator": false,
+        "tc_tornado_indicator": false
+      },
+      "expected_error_code": "SITE_AXIS_OUTSIDE_VALID_RANGE"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "cell_runtime_changelog.v1",
+  "cell_id": "tropical_cyclone_wind_solar",
+  "current_pin": "tropical_cyclone_wind_solar@model_v2_1__docs_r2",
+  "entries": [
+    {
+      "consumer_pin": "tropical_cyclone_wind_solar@model_v2_1__docs_r2",
+      "published_on": "2026-08-30",
+      "semantic_damage_model_version": "model v2.1",
+      "documentation_revision": "docs r2",
+      "artifact_schema_version": "damage_curve_record_bundle.v3",
+      "capability_schema_version": "capability_declaration.v3",
+      "artifact_path": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json",
+      "runtime_behavior_changed": false,
+      "contract_changed": true,
+      "summary": "Fix-forward documentation/KAT release: preserves every curve, value and numerical output from docs r1 while replacing the inherited NONCANONICAL_MODEL_V2_1 result label with CANONICAL_SCREENING_RELEASE.",
+      "consumer_action": "Pin docs r2 and its exact SHA; run the docs-r2 KATs; mark docs r1 superseded; keep every screening/Tier-4/wind-only limitation."
+    },
+    {
+      "consumer_pin": "tropical_cyclone_wind_solar@model_v2_1__docs_r1",
+      "published_on": "2026-08-30",
+      "semantic_damage_model_version": "model v2.1",
+      "documentation_revision": "docs r1",
+      "artifact_schema_version": "damage_curve_record_bundle.v3",
+      "capability_schema_version": "capability_declaration.v3",
+      "artifact_path": "docs/cells/tropical_cyclone_wind_solar/archive/model_v2_1__docs_r1/tropical_cyclone_wind_solar__model_v2_1__docs_r1__curve_artifact.json",
+      "runtime_behavior_changed": true,
+      "contract_changed": true,
+      "summary": "First canonical coverage-complete TC-wind × Solar screening release: ten failure-unit curves, named 100%-physical replacement-value assembly, plant DR, loss per kWdc and optional event dollars; frequency and tail metrics remain Hazard-owned.",
+      "consumer_action": "Superseded by docs r2 because the KAT output inherited a stale noncanonical status label; retain this immutable release for audit and rollback only."
+    }
+  ]
+}

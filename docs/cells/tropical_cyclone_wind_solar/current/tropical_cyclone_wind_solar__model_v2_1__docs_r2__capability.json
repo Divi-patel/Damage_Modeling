@@ -1,0 +1,74 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "tropical_cyclone_wind_solar",
+  "canonical_runtime_artifact": true,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "supported_with_explicit_failure_unit_value_and_exposure_basis",
+      "curve_intrinsic_spread": "nonprobabilistic_epistemic_envelope",
+      "populated_emit_modes": [
+        "scalar_mean",
+        "state_ensemble"
+      ],
+      "conditions": [
+        "fixed or tracker array route supplies its qualified architecture-specific demand input",
+        "common facility units supply a qualified site event/design wind-pressure ratio or complete gust-squared proxy",
+        "full-plant calls explicitly select the named 2024-USD reference value profile and representative-site array exposure basis",
+        "tracker calls prove attained state and exact-system qualification; commanded stow is insufficient",
+        "compound rain, debris, surge, and tornado pathways are excluded from the wind-only DR and separately acknowledged",
+        "scenario dollars require positive capacity_kwdc; normalized physical DR and loss per kWdc do not"
+      ],
+      "limitation_flags": [
+        "SCREENING_ENGINEERING_PROXY",
+        "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+        "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+        "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+        "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+        "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+        "NAMED_REFERENCE_VALUE_PROFILE_USED",
+        "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED"
+      ],
+      "withheld_failure_units": []
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+    "prerequisites": [
+      "exact model/docs/schema/SHA pin",
+      "Hazard frequency-intensity-event coupling",
+      "consumer cap-binding and compound-event validation",
+      "explicit decision whether screening-grade v2.1 is acceptable"
+    ],
+    "limitation_flags": [
+      "FREQUENCY_DRIVEN_ANNUAL_AND_TAIL_METRICS_ARE_CONSUMER_OWNED",
+      "SYNTHETIC_SCENARIOS_ARE_NOT_A_PROBABILITY_DISTRIBUTION",
+      "EVENT_PHYSICAL_DAMAGE_OUTPUTS_AVAILABLE_BEFORE_PROMOTION"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact model/docs/schema/SHA pin",
+      "pathway and architecture match",
+      "array and site-facility demand bridges are present",
+      "named value profile and representative-site exposure are explicit",
+      "support is allocated once",
+      "no synthetic resistance scenario is treated as calibrated frequency or uncertainty"
+    ],
+    "action_if_fail": "withhold the affected DR or downstream metric; do not substitute model v1, strong-wind response, legacy logistics, or another architecture"
+  },
+  "promotion_gate": {
+    "status": "passed",
+    "required_before_canonical_use": [
+      "owner accepted the labeled screening-grade Tier-4 common-unit proxies",
+      "Everglades Hazard exact-pin M0-M4 integration passed 18 of 18 checks",
+      "proposal-to-canonical physics and KAT dual-read parity passed",
+      "rollback remains the immutable proposed artifact and absent-prefix release boundary"
+    ]
+  }
+}

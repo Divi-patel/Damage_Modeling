@@ -1,0 +1,1734 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "released",
+  "cell_id": "tropical_cyclone_wind_solar",
+  "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+  "semantic_damage_model_version": "model v2.1",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "released_v2_1",
+  "promotion_status": "released",
+  "review_status": "reviewed_owner_approved_screening_release",
+  "model_grade": "screening_engineering_proxy_T4_coverage_complete",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "repository_canonical_not_in_portable_package",
+  "canonical_runtime_artifact": true,
+  "source_dossier": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar_curve_derivation_dossier__model_v2_1__docs_r1.md",
+  "source_workbook": "docs/cells/tropical_cyclone_wind_solar/current/damage_curve_records_tropical_cyclone_wind_solar__model_v2_1__docs_r1.xlsx",
+  "known_answer_tests": "docs/cells/tropical_cyclone_wind_solar/current/known_answer_tests_tropical_cyclone_wind_solar__model_v2_1__docs_r1.json",
+  "source_register": "docs/cells/tropical_cyclone_wind_solar/current/SOURCE_REGISTER_tropical_cyclone_wind_solar__model_v2_1__docs_r1.csv",
+  "claim_parameter_register": "docs/cells/tropical_cyclone_wind_solar/current/CLAIM_PARAMETER_REGISTER_tropical_cyclone_wind_solar__model_v2_1__docs_r1.csv",
+  "claim_supersession_map": "docs/cells/tropical_cyclone_wind_solar/current/CLAIM_SUPERSESSION_MAP_tropical_cyclone_wind_solar__model_v2_0__docs_r1.csv",
+  "value_crosswalk": "docs/cells/tropical_cyclone_wind_solar/current/VALUE_CROSSWALK_tropical_cyclone_wind_solar__model_v2_1__docs_r1.csv",
+  "derivation_rationale": {
+    "summary": "Preserve Perry source compatibility and add owner-authorized synthetic Tier-4 fixed/tracker coverage through cell-local synthetic parameters plus TC-specific fail-closed bridge-ID contracts whose unresolved external content remains explicitly flagged.",
+    "rejected_models": [
+      "Ceferino extensive-failure probability relabeled as a damage ratio",
+      "missing plant value treated as zero loss",
+      "one generic hurricane-solar curve independent of architecture",
+      "tracker stow assumed rather than exact attained state supplied",
+      "strong-wind numerical parameters presented as tropical-cyclone evidence"
+    ],
+    "model_v2_1_usability_revision": {
+      "reason": "model v2.0 withheld most physical value and plant assembly, so it could not serve the requested screening use case",
+      "change": "add explicit Tier-4 common-unit curves and a fully reconciled named physical-value assembly",
+      "preserved_boundaries": "wind-only physical damage; calibrated annual/tail metrics and BI remain outside this repo"
+    }
+  },
+  "audit_comparison_profile": {
+    "shared_response_id": "SHARED_SOLAR_WIND_NORMALIZED_RESPONSE_SYNTHETIC_T4_V0_1",
+    "shared_response_version": "candidate v0.1",
+    "path": "docs/method/shared_components/solar_wind_normalized_response/candidate_response_profile_v0_1.json",
+    "sha256": "4a8a37d45b24cc7dfa080fd132fa061e94dab9791d8aee9dfefb723eb7344a8e",
+    "role": "post_adoption_parameter_fingerprint_only",
+    "runtime_dependency": false,
+    "runtime_approved": false
+  },
+  "failure_units": [
+    {
+      "id": "PV_PERRY_GROUND_FIXED_VISIBLE_MODULE_HARDWARE_SOURCE_UNIT",
+      "subsystem": "PV_ARRAY_MODULES_SOURCE_COHORT",
+      "component": "VISIBLE_OR_MISSING_MODULE_HARDWARE_MATERIAL_ONLY",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same source-compatible module-hardware material acquisition value under uniform per-module value and full replacement of every visibly damaged or missing module",
+      "exposure_grain": "one complete source-compatible ground-mounted non-tracking site module population",
+      "mutually_exclusive_with": [
+        "PV_FIXED_TILT_MODULE_FIELD"
+      ]
+    },
+    {
+      "id": "PV_FIXED_TILT_MODULE_FIELD",
+      "subsystem": "PV array",
+      "component": "modules, frames, clamps, and module-to-rail retention on fixed-tilt ground mount",
+      "treatment": "primary_nonzero",
+      "y_axis": "same-failure-unit direct repair or replacement cost divided by fixed-tilt module-field replacement value",
+      "denominator": "explicit site module-field value; repository reference 291.21485143992487 2024 USD/kWdc is informational only; scenario dollars disabled for this direct failure-unit route"
+    },
+    {
+      "id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+      "subsystem": "mounting",
+      "component": "fixed-tilt rails, posts, braces, connections, and structural hardware excluding foundations",
+      "treatment": "primary_nonzero",
+      "y_axis": "same-failure-unit direct repair or replacement cost divided by fixed-tilt support-structure replacement value",
+      "denominator": "explicit site fixed-tilt structural value; no implicit repository default; scenario dollars disabled for this direct failure-unit route"
+    },
+    {
+      "id": "PV_TRACKER_MODULE_FIELD",
+      "subsystem": "PV array",
+      "component": "modules, frames, clamps, and module-to-torque-tube retention on qualified single-axis tracker",
+      "treatment": "primary_nonzero",
+      "y_axis": "same-failure-unit direct repair or replacement cost divided by tracker module-field replacement value",
+      "denominator": "explicit site module-field value; repository reference 291.21485143992487 2024 USD/kWdc is informational only; scenario dollars disabled for this direct failure-unit route"
+    },
+    {
+      "id": "PV_TRACKER_SBOS_ASSEMBLY",
+      "subsystem": "mounting",
+      "component": "qualified single-axis tracker torque tube, bearings, drive, racking, and structural hardware excluding foundations",
+      "treatment": "primary_nonzero",
+      "y_axis": "same-failure-unit direct repair or replacement cost divided by tracker structural-BOS replacement value",
+      "denominator": "explicit site tracker structural-BOS value; repository reference mounting-hardware row 109.98972602739727 2024 USD/kWdc is informational only; scenario dollars disabled for this direct failure-unit route"
+    },
+    {
+      "id": "PV_FOUNDATION",
+      "subsystem": "foundation",
+      "component": "piles, posts below the governed support boundary, anchors, and pads",
+      "treatment": "secondary_conditional",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same-unit replacement value in the named v2.1 reference profile or a later governed site profile"
+    },
+    {
+      "id": "PV_POWER_CONVERSION_AND_COLLECTION",
+      "subsystem": "power conversion and collection",
+      "component": "inverter, combiner, cable, grounding, and MV collection subjects",
+      "treatment": "secondary_conditional",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same-unit replacement value in the named v2.1 reference profile or a later governed site profile"
+    },
+    {
+      "id": "PV_GSU_SUBSTATION",
+      "subsystem": "GSU and substation",
+      "component": "GSU transformer, switchyard, protection, and control yard",
+      "treatment": "secondary_conditional",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same-unit replacement value in the named v2.1 reference profile or a later governed site profile"
+    },
+    {
+      "id": "PV_SCADA_COMMUNICATIONS",
+      "subsystem": "SCADA and communications",
+      "component": "monitoring, communications, tracker controls, and exposed sensors",
+      "treatment": "secondary_conditional",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same-unit replacement value in the named v2.1 reference profile or a later governed site profile"
+    },
+    {
+      "id": "PV_CIVIL_INFRA",
+      "subsystem": "civil infrastructure",
+      "component": "roads, fencing, grading, drainage, and buildings",
+      "treatment": "secondary_conditional",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same-unit replacement value in the named v2.1 reference profile or a later governed site profile"
+    },
+    {
+      "id": "PV_REPLACEMENT_SUPPORT",
+      "subsystem": "replacement support",
+      "component": "inspection, labor, rental, logistics, management, removal, and reinstatement",
+      "treatment": "exposure_modifier",
+      "y_axis": "no intrinsic damage ratio",
+      "denominator": "named replacement-support value allocated once in full-plant assembly",
+      "withheld_reason_codes": [
+        "DERIVED_ASSEMBLY_RULE_ONLY"
+      ]
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "hazard_scope": {
+        "included": [
+          "tropical-cyclone wind after a versioned local demand bridge",
+          "source-composite Perry hurricane module outcome only on the compatibility route"
+        ],
+        "excluded": [
+          "straight-line convective wind",
+          "tornado direct hit",
+          "windborne-debris impact as a separately valued pathway",
+          "wind-driven rain or water ingress",
+          "flood, storm surge, and scour",
+          "hail, lightning, fire, downtime, BI, and financial terms"
+        ],
+        "event_partition_rule": "retain one event_family_id; evaluate TC wind once per qualified array zone; reconcile rain, debris, tornado, flood, and surge as separate pathways"
+      },
+      "hazard_axis": {
+        "id": "architecture_specific_tropical_cyclone_wind_demand_index",
+        "preferred_input_field": "architecture_input_contracts[selected_by_array_architecture].preferred_input_field",
+        "permitted_proxy_fields": [
+          "tc_array_height_3s_gust_mps"
+        ],
+        "unit": "dimensionless_or_source_native_by_architecture",
+        "valid_range": [
+          0.0,
+          2.0
+        ],
+        "extrapolation_policy": "generic fixed/tracker: bounded synthetic domain and withhold above 2.0; Perry compatibility: withhold outside 17.4-39.1 m/s",
+        "routing_field": "array_architecture",
+        "architecture_input_contracts": {
+          "perry_ground_nontracking_source_cohort_v1_compat": {
+            "axis_field": "perry_event_max_gust_mps",
+            "preferred_input_field": "perry_event_max_gust_mps",
+            "accepted_payloads": [
+              {
+                "mode": "source_compatibility",
+                "required_fields": [
+                  "perry_event_max_gust_mps",
+                  "array_architecture_id",
+                  "source_population_match_id",
+                  "module_value_distribution_assumption_id",
+                  "visible_damage_disposition_assumption_id",
+                  "source_wind_product_id",
+                  "causal_scope_acknowledgement_id"
+                ]
+              }
+            ],
+            "valid_range": [
+              17.4,
+              39.1
+            ],
+            "required_acknowledgements": [
+              "array_architecture_id",
+              "source_population_match_id",
+              "module_value_distribution_assumption_id",
+              "visible_damage_disposition_assumption_id",
+              "source_wind_product_id",
+              "causal_scope_acknowledgement_id"
+            ]
+          },
+          "fixed_tilt_ground_mount_tc_synthetic_t4_v1": {
+            "axis_field": "tc_fixed_event_to_design_net_pressure_ratio",
+            "preferred_input_field": "tc_fixed_event_to_design_net_pressure_ratio",
+            "accepted_payloads": [
+              {
+                "mode": "preferred",
+                "required_fields": [
+                  "tc_fixed_event_to_design_net_pressure_ratio",
+                  "tc_wind_field_bridge_id",
+                  "tc_directional_history_bridge_id",
+                  "tc_duration_cycling_bridge_id",
+                  "aerodynamic_demand_bridge_id",
+                  "array_zone",
+                  "array_spatial_object_id"
+                ]
+              },
+              {
+                "mode": "screening_proxy",
+                "required_fields": [
+                  "tc_array_height_3s_gust_mps",
+                  "qualified_design_array_height_3s_gust_mps",
+                  "tc_wind_field_bridge_id",
+                  "tc_directional_history_bridge_id",
+                  "tc_duration_cycling_bridge_id",
+                  "aerodynamic_demand_bridge_id",
+                  "array_zone",
+                  "array_spatial_object_id"
+                ]
+              }
+            ],
+            "definition": "peak TC event net-pressure demand divided by comparable same-zone design net-pressure demand after named wind-field, direction-history, duration-cycling, geometry, zone, and aerodynamic treatment",
+            "permitted_screening_proxy": "(tc_array_height_3s_gust_mps / qualified_design_array_height_3s_gust_mps)^2 only with all named TC and aerodynamic bridges",
+            "valid_range": [
+              0.0,
+              2.0
+            ]
+          },
+          "single_axis_tracker_tc_qualified_synthetic_t4_v1": {
+            "axis_field": "tracker_instability_speed_ratio",
+            "preferred_input_field": "tc_tracker_normal_3s_gust_mps",
+            "accepted_payloads": [
+              {
+                "mode": "qualified_exact_system",
+                "required_fields": [
+                  "tc_tracker_normal_3s_gust_mps",
+                  "critical_instability_3s_gust_mps",
+                  "aeroelastic_qualification_id",
+                  "aeroelastic_qualification_sha256",
+                  "tracker_system_id",
+                  "tracker_module_configuration",
+                  "tracker_layout_id",
+                  "tracker_angle_deg",
+                  "tracker_position_state",
+                  "stow_confirmation_basis",
+                  "array_zone",
+                  "array_spatial_object_id",
+                  "tracker_drive_lock_state",
+                  "tc_wind_field_bridge_id",
+                  "tc_directional_history_bridge_id",
+                  "tc_duration_cycling_bridge_id",
+                  "qualification_tracker_system_id",
+                  "qualification_tracker_module_configuration",
+                  "qualification_tracker_layout_id",
+                  "qualification_tracker_angle_deg",
+                  "qualification_tracker_position_state",
+                  "qualification_array_zone",
+                  "qualification_drive_lock_state",
+                  "qualification_speed_reference",
+                  "qualification_speed_averaging_s",
+                  "qualification_tc_wind_field_bridge_id",
+                  "qualification_direction_basis_id",
+                  "qualification_duration_basis_id"
+                ]
+              }
+            ],
+            "equation": "tc_tracker_normal_3s_gust_mps / critical_instability_3s_gust_mps",
+            "valid_range": [
+              0.0,
+              2.0
+            ],
+            "required_basis": [
+              "exact tracker system, 1P/2P, layout, attained angle and position",
+              "known array zone and drive/lock state",
+              "3-second array-height tracker-normal speed reference",
+              "matching TC wind-field, direction-history, and duration-cycling qualification bases"
+            ],
+            "stow_action_flag": "at ratio >= 0.75 emit an operational-action flag only; never force damage"
+          }
+        },
+        "prohibited_input": "unbridged Hazard 10 m gust, category, NHC sustained wind, convective demand, generic tracker speed without exact Ucrit, or present-day Perry vendor reconstruction"
+      },
+      "selector_logic": [
+        {
+          "field": "array_architecture",
+          "required": true,
+          "allowed": [
+            "perry_ground_nontracking_source_cohort_v1_compat",
+            "fixed_tilt_ground_mount_tc_synthetic_t4_v1",
+            "single_axis_tracker_tc_qualified_synthetic_t4_v1"
+          ],
+          "no_default": true,
+          "mutually_exclusive": true
+        },
+        {
+          "field": "tracker_system_and_qualification_basis",
+          "required_when": "array_architecture=single_axis_tracker_tc_qualified_synthetic_t4_v1",
+          "numeric_effect": "only exact matching enables the normalized input; no stow multiplier"
+        }
+      ],
+      "conditioner_logic": [
+        {
+          "field": "tc_duration_class",
+          "required": "required_or_unknown",
+          "numeric_effect": "metadata/bridge input only; no multiplier"
+        },
+        {
+          "field": "tc_direction_evolution_class",
+          "required": "required_or_unknown",
+          "numeric_effect": "metadata/bridge input only; no multiplier"
+        },
+        {
+          "field": "tracker_position_state",
+          "required": "tracker_attained_known_and_qualification_matched",
+          "numeric_effect": "command-only stow rejects; no generic protection credit"
+        },
+        {
+          "field": "rain_debris_flood_surge_tornado_indicators",
+          "required": "required_or_unknown",
+          "numeric_effect": "separate pathway acknowledgement only; no TC-wind DR multiplier"
+        }
+      ],
+      "exposure_contract": {
+        "required_for_curve_evaluation": [
+          "event_id",
+          "event_family_id",
+          "array_architecture"
+        ],
+        "required_for_generic_curve_evaluation": [
+          "array_zone",
+          "array_spatial_object_id"
+        ],
+        "direct_withheld_unit_query": "requires event_id, event_family_id, pathway_id, and failure_unit_id; array architecture and array axis are prohibited",
+        "scenario_loss_status": "supported_only_with_explicit_named_value_profile_and_exposure_basis",
+        "no_default_exposed_fraction": true,
+        "rules": [
+          "evaluate each qualified array zone once",
+          "do not apply a second zone factor after the delivered demand contains zoning",
+          "do not reuse array exposure for inverter, collection, GSU, SCADA, foundation, or civil units",
+          "do not turn withheld units into zero",
+          "Perry source atom is mutually exclusive with the generic fixed module unit"
+        ]
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "PV_PERRY_GROUND_FIXED_VISIBLE_MODULE_HARDWARE_SOURCE_UNIT",
+          "status": "conditional_source_compatibility_curve",
+          "architecture": "perry_ground_nontracking_source_cohort_v1_compat"
+        },
+        {
+          "failure_unit_id": "PV_FIXED_TILT_MODULE_FIELD",
+          "status": "conditional_synthetic_t4_curve",
+          "architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1"
+        },
+        {
+          "failure_unit_id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+          "status": "conditional_synthetic_t4_curve",
+          "architecture": "fixed_tilt_ground_mount_tc_synthetic_t4_v1"
+        },
+        {
+          "failure_unit_id": "PV_TRACKER_MODULE_FIELD",
+          "status": "conditional_synthetic_t4_curve",
+          "architecture": "single_axis_tracker_tc_qualified_synthetic_t4_v1"
+        },
+        {
+          "failure_unit_id": "PV_TRACKER_SBOS_ASSEMBLY",
+          "status": "conditional_synthetic_t4_curve",
+          "architecture": "single_axis_tracker_tc_qualified_synthetic_t4_v1"
+        },
+        {
+          "failure_unit_id": "PV_FOUNDATION",
+          "status": "conditional_screening_t4_curve",
+          "axis": "site_facility_tropical_cyclone_wind_demand_ratio"
+        },
+        {
+          "failure_unit_id": "PV_POWER_CONVERSION_AND_COLLECTION",
+          "status": "conditional_screening_t4_curve",
+          "axis": "site_facility_tropical_cyclone_wind_demand_ratio"
+        },
+        {
+          "failure_unit_id": "PV_GSU_SUBSTATION",
+          "status": "conditional_screening_t4_curve",
+          "axis": "site_facility_tropical_cyclone_wind_demand_ratio"
+        },
+        {
+          "failure_unit_id": "PV_SCADA_COMMUNICATIONS",
+          "status": "conditional_screening_t4_curve",
+          "axis": "site_facility_tropical_cyclone_wind_demand_ratio"
+        },
+        {
+          "failure_unit_id": "PV_CIVIL_INFRA",
+          "status": "conditional_screening_t4_curve",
+          "axis": "site_facility_tropical_cyclone_wind_demand_ratio"
+        },
+        {
+          "failure_unit_id": "PV_REPLACEMENT_SUPPORT",
+          "status": "supported_derived_full_plant_assembly_rule"
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "TCWS_PERRY_GROUND_FIXED_VISIBLE_REPLACEMENT_PROXY_V1",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_PERRY_GROUND_FIXED_VISIBLE_MODULE_HARDWARE_SOURCE_UNIT",
+          "curve_form": "piecewise_linear",
+          "x_axis": "perry_event_max_gust_mps",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                17.4,
+                0.0
+              ],
+              [
+                18.3,
+                0.0
+              ],
+              [
+                20.7,
+                0.00027276656
+              ],
+              [
+                24.6,
+                0.00027276656
+              ],
+              [
+                24.8,
+                0.000955175835
+              ],
+              [
+                25.1,
+                0.000955175835
+              ],
+              [
+                25.9,
+                0.001853190692857
+              ],
+              [
+                29.5,
+                0.001853190692857
+              ],
+              [
+                29.8,
+                0.004054775905
+              ],
+              [
+                31.7,
+                0.00441454805
+              ],
+              [
+                37.9,
+                0.00441454805
+              ],
+              [
+                38.9,
+                0.0182729376325
+              ],
+              [
+                39.1,
+                0.0182729376325
+              ]
+            ]
+          },
+          "valid_range": [
+            17.4,
+            39.1
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "withhold outside 17.4 through 39.1 m/s; no endpoint clamp and no use of the 48.2 m/s audit-only observation",
+          "selector_match": {
+            "array_architecture_id": "PERRY_GROUND_NONTRACKING_SOURCE_COHORT_V1",
+            "source_population_match_id": "PERRY_MANUAL_GROUND_NONTRACKING_MIXED_SCALE_V1",
+            "module_value_distribution_assumption_id": "UNIFORM_MODULE_HARDWARE_VALUE",
+            "visible_damage_disposition_assumption_id": "FULL_REPLACEMENT_IF_VISIBLE_OR_MISSING",
+            "source_wind_product_id": "PERRY_DATASET_REPORTED_EVENT_MAX_GUST",
+            "causal_scope_acknowledgement_id": "SOURCE_COMPOSITE_HURRICANE_MODULE_LOSS"
+          },
+          "source_parameter_refs": [
+            "TCWS-S020#manual_csv_ground_tracking_false_x_le_39_1",
+            "TCWS-S021#manual_endpoint_definition",
+            "FIT_SUFFICIENT_STATISTICS_tropical_cyclone_wind_solar__model_v1_0__docs_r1.csv"
+          ],
+          "metadata_flags": [
+            "SCREENING_REMOTE_SENSING_LABELED_VISIBLE_FRACTION_WITH_T4_ECONOMIC_BRIDGE",
+            "SOURCE_COHORT_MIXED_SCALE",
+            "SOURCE_COMPOSITE_HURRICANE_MODULE_LOSS",
+            "VISIBLE_DAMAGE_ONLY_HIDDEN_DAMAGE_UNOBSERVED",
+            "SPARSE_SEVERE_TAIL_WITHHELD",
+            "EVENT_CLUSTERED_SAMPLE",
+            "PAVA_DERIVED_KNOTS",
+            "EQUAL_SITE_WEIGHT_NOT_MODULE_WEIGHTED",
+            "CROSS_METHOD_SAME_EVENT_ENDPOINT_CONFLICT",
+            "NO_EXTRAPOLATION",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED"
+          ]
+        },
+        {
+          "curve_id": "TCWS2_FIXED_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_FIXED_TILT_MODULE_FIELD",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "architecture_specific_tropical_cyclone_wind_demand_index",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.3,
+            "damage_states": [
+              {
+                "state_id": "MODULE_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "no direct physical module-field repair; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "MODULE_DS1_LOCALIZED_REPLACEMENT",
+                "cost_ratio": 0.1,
+                "affected_subsystems": [
+                  "modules",
+                  "frames",
+                  "clamps"
+                ],
+                "description": "localized module, frame, or retention replacement; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "MODULE_DS2_FIELD_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "module field"
+                ],
+                "description": "replace the exposed module-field failure unit; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.65,
+                  1.2
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.85,
+                  1.55
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.05,
+                  1.95
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS2_FIXED_STRUCTURE_SYNTHETIC_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "architecture_specific_tropical_cyclone_wind_demand_index",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.3,
+            "damage_states": [
+              {
+                "state_id": "STRUCT_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "no direct structural repair; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "STRUCT_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.15,
+                "affected_subsystems": [
+                  "rails",
+                  "braces",
+                  "connections"
+                ],
+                "description": "localized connection, rail, brace, or post repair; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "STRUCT_DS2_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "exposed fixed-tilt support structure"
+                ],
+                "description": "full replacement of the support/SBOS failure unit; module disposition is outside this unit and excluded pending a governed joint-state model; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "STRUCT_DS3_TERMINAL_UNIT_FAILURE",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "exposed fixed-tilt support structure"
+                ],
+                "description": "terminal destructive failure of the support/SBOS failure unit only; module disposition and any cascade are excluded pending a governed joint-state model; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.9,
+                  1.2,
+                  1.5
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  1.15,
+                  1.55,
+                  1.9
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.45,
+                  1.95,
+                  2.35
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS2_TRACKER_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_TRACKER_MODULE_FIELD",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "architecture_specific_tropical_cyclone_wind_demand_index",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.275,
+            "damage_states": [
+              {
+                "state_id": "MODULE_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "no direct physical module-field repair; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "MODULE_DS1_LOCALIZED_REPLACEMENT",
+                "cost_ratio": 0.1,
+                "affected_subsystems": [
+                  "modules",
+                  "frames",
+                  "clamps"
+                ],
+                "description": "localized module, frame, or retention replacement; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "MODULE_DS2_FIELD_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "module field"
+                ],
+                "description": "replace the exposed tracker module-field failure unit; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.8,
+                  1.15
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.95,
+                  1.4
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.1,
+                  1.7
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS2_TRACKER_SBOS_SYNTHETIC_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_TRACKER_SBOS_ASSEMBLY",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "architecture_specific_tropical_cyclone_wind_demand_index",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.275,
+            "damage_states": [
+              {
+                "state_id": "STRUCT_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "no direct tracker structural repair; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "STRUCT_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.15,
+                "affected_subsystems": [
+                  "torque tube",
+                  "bearings",
+                  "drive",
+                  "connections"
+                ],
+                "description": "localized tracker structural or drive-row repair; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "STRUCT_DS2_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "exposed tracker structural-BOS assembly"
+                ],
+                "description": "full replacement of the support/SBOS failure unit; module disposition is outside this unit and excluded pending a governed joint-state model; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "STRUCT_DS3_TERMINAL_UNIT_FAILURE",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "exposed tracker structural-BOS assembly"
+                ],
+                "description": "terminal destructive failure of the support/SBOS failure unit only; module disposition and any cascade are excluded pending a governed joint-state model; synthetic coverage state cost, not an observed or calibrated hazard consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.95,
+                  1.15,
+                  1.35
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  1.15,
+                  1.4,
+                  1.65
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.35,
+                  1.7,
+                  2.0
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted synthetic normalized-demand response scenario; not fitted, not a percentile, and not a hazard-specific calibration"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS21_FOUNDATION_SCREENING_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_FOUNDATION",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "site_facility_tropical_cyclone_wind_demand_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "FOUNDATION_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "foundation and anchorage unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "FOUNDATION_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.05,
+                "affected_subsystems": [
+                  "foundation and anchorage unit"
+                ],
+                "description": "foundation and anchorage unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "FOUNDATION_DS2_MAJOR_REPAIR",
+                "cost_ratio": 0.35,
+                "affected_subsystems": [
+                  "foundation and anchorage unit"
+                ],
+                "description": "foundation and anchorage unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "FOUNDATION_DS3_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "foundation and anchorage unit"
+                ],
+                "description": "foundation and anchorage unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.84,
+                  1.12,
+                  1.44
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  1.05,
+                  1.4,
+                  1.8
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.3125,
+                  1.75,
+                  2.25
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_POWER_CONVERSION_AND_COLLECTION",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "site_facility_tropical_cyclone_wind_demand_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "POWER_COLLECTION_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "power-conversion and collection unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "POWER_COLLECTION_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.1,
+                "affected_subsystems": [
+                  "power-conversion and collection unit"
+                ],
+                "description": "power-conversion and collection unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "POWER_COLLECTION_DS2_MAJOR_REPAIR",
+                "cost_ratio": 0.4,
+                "affected_subsystems": [
+                  "power-conversion and collection unit"
+                ],
+                "description": "power-conversion and collection unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "POWER_COLLECTION_DS3_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "power-conversion and collection unit"
+                ],
+                "description": "power-conversion and collection unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.72,
+                  1.0,
+                  1.32
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.9,
+                  1.25,
+                  1.65
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.125,
+                  1.5625,
+                  2.0625
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_GSU_SUBSTATION",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "site_facility_tropical_cyclone_wind_demand_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "GSU_SUBSTATION_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "GSU and substation yard unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "GSU_SUBSTATION_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.08,
+                "affected_subsystems": [
+                  "GSU and substation yard unit"
+                ],
+                "description": "GSU and substation yard unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "GSU_SUBSTATION_DS2_MAJOR_REPAIR",
+                "cost_ratio": 0.35,
+                "affected_subsystems": [
+                  "GSU and substation yard unit"
+                ],
+                "description": "GSU and substation yard unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "GSU_SUBSTATION_DS3_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "GSU and substation yard unit"
+                ],
+                "description": "GSU and substation yard unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.76,
+                  1.04,
+                  1.36
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.95,
+                  1.3,
+                  1.7
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.1875,
+                  1.625,
+                  2.125
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS21_SCADA_SCREENING_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_SCADA_COMMUNICATIONS",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "site_facility_tropical_cyclone_wind_demand_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "SCADA_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "SCADA, communications, controls, and sensor unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "SCADA_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.15,
+                "affected_subsystems": [
+                  "SCADA, communications, controls, and sensor unit"
+                ],
+                "description": "SCADA, communications, controls, and sensor unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "SCADA_DS2_MAJOR_REPAIR",
+                "cost_ratio": 0.55,
+                "affected_subsystems": [
+                  "SCADA, communications, controls, and sensor unit"
+                ],
+                "description": "SCADA, communications, controls, and sensor unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "SCADA_DS3_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "SCADA, communications, controls, and sensor unit"
+                ],
+                "description": "SCADA, communications, controls, and sensor unit screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.6,
+                  0.84,
+                  1.16
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.75,
+                  1.05,
+                  1.45
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  0.9375,
+                  1.3125,
+                  1.8125
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "TCWS21_CIVIL_SCREENING_T4_ORDERED_STATES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "PV_CIVIL_INFRA",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "site_facility_tropical_cyclone_wind_demand_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "CIVIL_DS0_NO_DIRECT_DAMAGE",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "wind-exposed civil infrastructure bucket screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "CIVIL_DS1_LOCALIZED_REPAIR",
+                "cost_ratio": 0.08,
+                "affected_subsystems": [
+                  "wind-exposed civil infrastructure bucket"
+                ],
+                "description": "wind-exposed civil infrastructure bucket screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "CIVIL_DS2_MAJOR_REPAIR",
+                "cost_ratio": 0.35,
+                "affected_subsystems": [
+                  "wind-exposed civil infrastructure bucket"
+                ],
+                "description": "wind-exposed civil infrastructure bucket screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              },
+              {
+                "state_id": "CIVIL_DS3_FULL_UNIT_REPLACEMENT",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "wind-exposed civil infrastructure bucket"
+                ],
+                "description": "wind-exposed civil infrastructure bucket screening disposition; explicit Tier-4 coverage assumption, not an observed or calibrated TC-wind consequence",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.64,
+                  0.92,
+                  1.28
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.8,
+                  1.15,
+                  1.6
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.0,
+                  1.4375,
+                  2.0
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+                  "NO_DIRECT_TC_CALIBRATION_SOURCE"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        }
+      ],
+      "site_facility_hazard_axis": {
+        "id": "site_facility_tropical_cyclone_wind_demand_ratio",
+        "preferred_input_field": "tc_site_event_to_design_wind_pressure_ratio",
+        "permitted_proxy_fields": [
+          "tc_peak_gust_3s_10m_mps",
+          "qualified_site_design_3s_gust_mps"
+        ],
+        "unit": "dimensionless pressure-demand/design ratio",
+        "valid_range": [
+          0.0,
+          2.0
+        ],
+        "extrapolation_policy": "reject",
+        "required_bridge_field": "site_facility_demand_bridge_id"
+      }
+    }
+  ],
+  "value_linkage": {
+    "implicit_default_profile": null,
+    "screening_reference_profile": {
+      "value_profile_id": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+      "source": "docs/method/value_basis/solar_wind_value_breakdown.xlsx",
+      "currency_basis": "2024 USD",
+      "unit": "USD_per_kWdc",
+      "unit_values": {
+        "PV_FIXED_TILT_MODULE_FIELD": 291.21485143992487,
+        "PV_TRACKER_MODULE_FIELD": 291.21485143992487,
+        "PV_FIXED_TILT_SUPPORT_STRUCTURE": 109.98972602739727,
+        "PV_TRACKER_SBOS_ASSEMBLY": 109.98972602739727,
+        "PV_FOUNDATION": 31.12448715327472,
+        "PV_POWER_CONVERSION_AND_COLLECTION": 116.83772835067089,
+        "PV_GSU_SUBSTATION": 106.50466417910448,
+        "PV_SCADA_COMMUNICATIONS": 1.31,
+        "PV_CIVIL_INFRA": 31.223744292237445,
+        "PV_REPLACEMENT_SUPPORT": 189.59050092005714
+      },
+      "physical_replacement_value_usd_per_kwdc": 877.7957023626668,
+      "installed_capex_usd_per_kwdc": 1120.0,
+      "request_rule": "caller must name value_profile_id; it is never silently selected"
+    },
+    "scenario_loss_status": "supported_with_named_reference_profile",
+    "assembly_rules": [
+      "evaluate every architecture-active array and common direct/civil failure unit",
+      "multiply each same-unit DR by its named value row",
+      "set replacement-support DR to the value-weighted direct-and-civil DR and allocate once",
+      "divide total physical loss by 877.7957023626668 USD/kWdc for physical replacement DR",
+      "divide the same numerator by 1120 USD/kWdc for installed-capex physical loss fraction",
+      "multiply loss per kWdc by positive capacity_kwdc only when scenario dollars are requested"
+    ]
+  },
+  "parameter_tier_table": [
+    {
+      "parameter": "Perry source curve and range",
+      "value": "unchanged 13 knots, 17.4-39.1 m/s",
+      "tier": "T1_claims_or_field_calibrated",
+      "source_ids": [
+        "TCWS-S020",
+        "TCWS-S021"
+      ]
+    },
+    {
+      "parameter": "generic ordered-state form",
+      "value": "ordered_damage_state_lognormal",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION"
+      ]
+    },
+    {
+      "parameter": "all generic beta, medians, and state cost ratios",
+      "value": "see curve records",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "TCWS2_CELL_LOCAL_SYNTHETIC_DECISION",
+        "NO_DIRECT_TC_CALIBRATION_SOURCE"
+      ]
+    },
+    {
+      "parameter": "hard-zero treatment",
+      "value": "exact zero only at zero normalized demand; no positive hard-zero threshold",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "GOVERNANCE_CONTRACT"
+      ]
+    },
+    {
+      "parameter": "scenario loss",
+      "value": "withheld",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "GOVERNANCE_CONTRACT"
+      ]
+    }
+  ],
+  "architecture_capability_interpretation": {
+    "perry_ground_nontracking_source_cohort_v1_compat": {
+      "emit_mode": "scalar_mean",
+      "curve_intrinsic_spread": "not_carried",
+      "grade": "source_specific_unvalidated_visible_module_material_proxy"
+    },
+    "fixed_tilt_ground_mount_tc_synthetic_t4_v1": {
+      "emit_mode": "state_ensemble",
+      "curve_intrinsic_spread": "nonprobabilistic_epistemic_envelope",
+      "grade": "screening_engineering_proxy_T4_coverage_complete"
+    },
+    "single_axis_tracker_tc_qualified_synthetic_t4_v1": {
+      "emit_mode": "state_ensemble",
+      "curve_intrinsic_spread": "nonprobabilistic_epistemic_envelope",
+      "grade": "screening_engineering_proxy_T4_coverage_complete"
+    }
+  },
+  "evaluation_contract": {
+    "pathway_id_required": true,
+    "architecture_required_for_array_and_perry_routes": true,
+    "event_id_and_event_family_id_required": true,
+    "no_cross_pathway_or_cross_architecture_fallback": true,
+    "central_scenario_id": "central_screening",
+    "scenario_semantics": "unweighted synthetic epistemic scenarios; not percentiles or probabilities of model truth",
+    "state_probability_to_dr_rule": "DR is the sum of exact-state probability times the explicitly listed same-unit T4 state cost ratio; a failure-state probability is never itself relabelled as DR",
+    "scenario_loss_behavior": "supported_in_full_plant_screening_mode",
+    "failure_codes": [
+      "AERODYNAMIC_DEMAND_BRIDGE_REQUIRED",
+      "ARCHITECTURE_AXIS_MISMATCH",
+      "ARRAY_ARCHITECTURE_REQUIRED",
+      "ARRAY_ARCHITECTURE_UNSUPPORTED",
+      "ARRAY_EXPOSURE_BASIS_REQUIRED",
+      "ARRAY_SPATIAL_OBJECT_ID_REQUIRED",
+      "ARRAY_ZONE_REQUIRED",
+      "ARTIFACT_PIN_INCOMPLETE",
+      "ARTIFACT_PIN_MISMATCH",
+      "ASSEMBLY_COVERAGE_INCOMPLETE",
+      "AXIS_OUTSIDE_VALID_RANGE",
+      "AXIS_PAYLOAD_REQUIRED",
+      "AXIS_VALUE_INVALID",
+      "CAPACITY_VALUE_INVALID",
+      "COMPOUND_RECONCILIATION_REQUIRED",
+      "CONDITIONER_VALUE_UNSUPPORTED",
+      "CURVE_FORM_UNSUPPORTED",
+      "CURVE_PAYLOAD_INVALID",
+      "CURVE_RECORD_NOT_UNIQUE",
+      "DERIVED_ASSEMBLY_RULE_ONLY",
+      "EVENT_FAMILY_ID_REQUIRED",
+      "EVENT_ID_REQUIRED",
+      "FAILURE_UNIT_ID_UNKNOWN",
+      "FAILURE_UNIT_NOT_APPLICABLE_TO_ARCHITECTURE",
+      "FULL_PLANT_ARCHITECTURE_UNSUPPORTED",
+      "OUTPUT_MODE_REQUIRED",
+      "PATHWAY_ID_REQUIRED",
+      "PATHWAY_ID_UNKNOWN",
+      "PERRY_COMPOSITE_PATHWAY_OVERLAP_UNRESOLVED",
+      "PRESSURE_INDEX_REQUIRED",
+      "QUALIFIED_DESIGN_GUST_REQUIRED",
+      "REQUEST_FIELD_UNSUPPORTED",
+      "SELECTOR_MISMATCH",
+      "SELECTOR_REQUIRED",
+      "SITE_AXIS_OUTSIDE_VALID_RANGE",
+      "SITE_AXIS_PAYLOAD_AMBIGUOUS",
+      "SITE_AXIS_PAYLOAD_REQUIRED",
+      "SITE_FACILITY_DEMAND_BRIDGE_REQUIRED",
+      "TC_WIND_BRIDGE_REQUIRED",
+      "TRACKER_QUALIFICATION_BASIS_MISMATCH",
+      "UNBRIDGED_TEN_METER_GUST_PROHIBITED",
+      "VALUE_PROFILE_UNSUPPORTED"
+    ],
+    "withheld_reason_codes": [
+      "DERIVED_ASSEMBLY_RULE_ONLY"
+    ],
+    "full_plant_output_mode": "full_plant_screening",
+    "value_profile_id_required": "NLR_Q1_2025_UPV_PV_ONLY_2024_USD_PHYSICAL_V1",
+    "site_facility_axis_required_for_common_units": true,
+    "support_rule": "derived_once_not_intrinsic_DR",
+    "architecture_prohibited_for_direct_failure_unit_query": true
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean",
+      "state_ensemble"
+    ],
+    "companion_output_schema": "physical_damage_assembly.v1",
+    "result_grain_by_mode": {
+      "failure_unit": "pathway_id x failure_unit_id x governed input state",
+      "full_plant_screening": "pathway_id x array_architecture x event x named value profile"
+    },
+    "supported_outputs": [
+      "failure-unit physical DR",
+      "full-plant physical replacement DR",
+      "installed-capex physical loss fraction",
+      "physical loss per kWdc",
+      "scenario physical dollars when capacity_kwdc is supplied"
+    ],
+    "prohibited_outputs": [
+      "frequency and EAL inside the damage-curve layer",
+      "PML, VaR, and TVaR without a downstream annual loss distribution",
+      "business interruption, downtime, and revenue loss",
+      "rain, debris, surge, flood, and tornado loss inside the wind-only pathway"
+    ]
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "tropical_cyclone_wind_solar",
+    "canonical_runtime_artifact": true,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "supported_with_explicit_failure_unit_value_and_exposure_basis",
+        "curve_intrinsic_spread": "nonprobabilistic_epistemic_envelope",
+        "populated_emit_modes": [
+          "scalar_mean",
+          "state_ensemble"
+        ],
+        "conditions": [
+          "fixed or tracker array route supplies its qualified architecture-specific demand input",
+          "common facility units supply a qualified site event/design wind-pressure ratio or complete gust-squared proxy",
+          "full-plant calls explicitly select the named 2024-USD reference value profile and representative-site array exposure basis",
+          "tracker calls prove attained state and exact-system qualification; commanded stow is insufficient",
+          "compound rain, debris, surge, and tornado pathways are excluded from the wind-only DR and separately acknowledged",
+          "scenario dollars require positive capacity_kwdc; normalized physical DR and loss per kWdc do not"
+        ],
+        "limitation_flags": [
+          "SCREENING_ENGINEERING_PROXY",
+          "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
+          "CELL_LOCAL_SYNTHETIC_PARAMETER_DECISION",
+          "NONPROBABILISTIC_EPISTEMIC_ENVELOPE",
+          "T4_COMMON_UNIT_CURVES_NOT_CALIBRATED",
+          "REPRESENTATIVE_ARRAY_ZONE_APPLIED_TO_FULL_ARRAY_VALUE",
+          "NAMED_REFERENCE_VALUE_PROFILE_USED",
+          "WIND_ONLY_RAIN_DEBRIS_SURGE_AND_TORNADO_EXCLUDED"
+        ],
+        "withheld_failure_units": []
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+      "prerequisites": [
+        "exact model/docs/schema/SHA pin",
+        "Hazard frequency-intensity-event coupling",
+        "consumer cap-binding and compound-event validation",
+        "explicit decision whether screening-grade v2.1 is acceptable"
+      ],
+      "limitation_flags": [
+        "FREQUENCY_DRIVEN_ANNUAL_AND_TAIL_METRICS_ARE_CONSUMER_OWNED",
+        "SYNTHETIC_SCENARIOS_ARE_NOT_A_PROBABILITY_DISTRIBUTION",
+        "EVENT_PHYSICAL_DAMAGE_OUTPUTS_AVAILABLE_BEFORE_PROMOTION"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "exact model/docs/schema/SHA pin",
+        "pathway and architecture match",
+        "array and site-facility demand bridges are present",
+        "named value profile and representative-site exposure are explicit",
+        "support is allocated once",
+        "no synthetic resistance scenario is treated as calibrated frequency or uncertainty"
+      ],
+      "action_if_fail": "withhold the affected DR or downstream metric; do not substitute model v1, strong-wind response, legacy logistics, or another architecture"
+    },
+    "promotion_gate": {
+      "status": "passed",
+      "required_before_canonical_use": [
+        "owner accepted the labeled screening-grade Tier-4 common-unit proxies",
+        "Everglades Hazard exact-pin M0-M4 integration passed 18 of 18 checks",
+        "proposal-to-canonical physics and KAT dual-read parity passed",
+        "rollback remains the immutable proposed artifact and absent-prefix release boundary"
+      ]
+    }
+  },
+  "legacy_comparison": {
+    "prior_proposal_pin": "tropical_cyclone_wind_solar@model_v1_0__docs_r1",
+    "prior_artifact_sha256": "bb01300d3e76114203dd826be5bff4bb9f2b98490880327dd57575007a180840",
+    "strict_alternative_pin": "tropical_cyclone_wind_solar@model_v0_1__docs_r1",
+    "strict_alternative_artifact_sha256": "2b3753e8bdcef3e3c91c8afb7ca12d67b15cd236873e97c908d6ccccb4748ae1",
+    "legacy_hazard_notebook_status": "regression_fixture_only_runtime_prohibited",
+    "artifact_index_status": "repository_canonical_current",
+    "v2_0_to_v2_1": "v2.0 component outputs remain numerically unchanged; v2.1 adds common-unit proxy curves and full-plant assembly"
+  },
+  "screening_curve_table": "docs/cells/tropical_cyclone_wind_solar/current/FULL_PLANT_SCREENING_CURVE_TABLE_tropical_cyclone_wind_solar__model_v2_1__docs_r1.csv"
+}

@@ -595,9 +595,10 @@ def validate_workbook() -> None:
 def validate_index_absence() -> None:
     index = load_json(ARTIFACT_INDEX_PATH)
     matching = [
-        row for row in index["artifacts"] if row["cell_id"] == "tropical_cyclone_wind_solar"
+        row for row in index["artifacts"]
+        if (ROOT / row["path"]).resolve() == ARTIFACT_PATH.resolve()
     ]
-    require(not matching, "noncanonical scaffold appears in runtime artifact index")
+    require(not matching, "noncanonical v0.1 scaffold appears in runtime artifact index")
 
 
 def main() -> int:

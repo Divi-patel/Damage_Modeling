@@ -393,15 +393,29 @@ def validate_governance(artifact: Mapping[str, Any]) -> tuple[int, int, int, int
     require({row["scenario_id"] for row in curve_table} == {"lower_resistance", "central_screening", "upper_resistance"}, "curve-table scenarios")
     require(all(row["model_v2_0_full_plant_dr"] == "WITHHELD" for row in old_new), "v2.0 baseline misstated")
     require(sha(V20_ARTIFACT) == V20_SHA, "v2.0 baseline changed")
-    require("model v2.1" not in INDEX.read_text(), "artifact index cutover occurred")
-    require(not (PROPOSED.parent / "current").exists(), "current pointer created")
+    index = load(INDEX)
+    current_entries = [
+        entry for entry in index["artifacts"]
+        if entry["cell_id"] == "tropical_cyclone_wind_solar"
+    ]
+    require(len(current_entries) <= 1, "duplicate canonical artifact-index entry")
+    if current_entries:
+        entry = current_entries[0]
+        require("/current/" in entry["path"], "artifact index points at the proposal")
+        require("/proposed/" not in entry["path"], "proposal entered the artifact index")
+        current_artifact = load(ROOT / entry["path"])
+        require(current_artifact["canonical_runtime_artifact"] is True, "index target is noncanonical")
     artifact_hash = sha(ARTIFACT)
     report = REPORT.read_text()
     guide = GUIDE.read_text()
     handoff = HANDOFF.read_text()
     for expected_hash in (sha(ARTIFACT), sha(CAPABILITY), sha(KATS), sha(WORKBOOK)):
         require(expected_hash in report, f"validation report missing hash {expected_hash}")
-    require(guide.count(artifact_hash) >= 3, "usage guide artifact pins are stale")
+    if current_entries:
+        require(current_entries[0]["sha256"] in guide, "canonical usage guide pin is stale")
+        require(Path(current_entries[0]["path"]).name in guide, "canonical usage guide path is stale")
+    else:
+        require(guide.count(artifact_hash) >= 3, "proposal usage guide artifact pins are stale")
     require(artifact_hash in handoff, "Hazard handoff artifact pin is stale")
     require("full-plant physical replacement DR" in artifact["emit_contract"]["supported_outputs"], "plant output contract drift")
     return len(sources), len(claims), len(parameters), len(values), len(old_new)

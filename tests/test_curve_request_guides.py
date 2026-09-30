@@ -21,6 +21,7 @@ GUIDE_BY_CELL = {
     "flood_wind": "flood_wind_curve_request_guide.md",
     "wildfire_wind": "wildfire_wind_curve_request_guide.md",
     "tropical_cyclone_wind_wind": "tropical_cyclone_wind_wind_curve_request_guide.md",
+    "tropical_cyclone_wind_solar": "tropical_cyclone_wind_solar_v2_1_curve_request_guide.md",
 }
 
 

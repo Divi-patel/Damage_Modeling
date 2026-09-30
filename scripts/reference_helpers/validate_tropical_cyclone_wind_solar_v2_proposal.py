@@ -682,8 +682,18 @@ def validate_hash_preservation() -> int:
 
 def validate_index_and_repo_boundary() -> None:
     index = load(INDEX)
-    require("tropical_cyclone_wind_solar" not in {item["cell_id"] for item in index["artifacts"]}, "v2 entered artifact index")
-    require(not (ROOT / "docs/cells/tropical_cyclone_wind_solar/current").exists(), "current pointer created")
+    require(
+        not [item for item in index["artifacts"] if (ROOT / item["path"]).resolve() == ARTIFACT.resolve()],
+        "model-v2.0 proposal entered artifact index",
+    )
+    require(
+        not [
+            item for item in index["artifacts"]
+            if item["cell_id"] == "tropical_cyclone_wind_solar"
+            and item["semantic_damage_model_version"] == "model v2.0"
+        ],
+        "model-v2.0 proposal identity entered artifact index",
+    )
     require(artifact_sha256(ARTIFACT) == sha(ARTIFACT), "artifact digest helper mismatch")
     forbidden = {"hurricane_sites_manual.csv", "ceferino_supplement.docx"}
     require(not [path for path in PROPOSED.rglob("*") if path.name.lower() in forbidden], "raw source vendored")

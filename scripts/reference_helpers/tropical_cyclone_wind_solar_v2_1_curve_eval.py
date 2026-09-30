@@ -102,8 +102,9 @@ def _text(value: Any, code: str, field: str) -> str:
 def _capability_ref(
     artifact: Mapping[str, Any], verified_artifact_sha256_hex: str | None
 ) -> dict[str, Any]:
+    docs_stem = str(artifact["documentation_revision"]).replace(" ", "_")
     return {
-        "path": "tropical_cyclone_wind_solar__model_v2_1__docs_r1__capability.json",
+        "path": f"tropical_cyclone_wind_solar__model_v2_1__{docs_stem}__capability.json",
         "semantic_damage_model_version": artifact["semantic_damage_model_version"],
         "documentation_revision": artifact["documentation_revision"],
         "artifact_schema_version": artifact["schema_version"],
@@ -240,11 +241,17 @@ def _clean_v20_emit(
         for flag in cleaned.get("input_quality", {}).get("limitation_flags", [])
         if flag not in STALE_LIMITATION_FLAGS
     ]
+    release_flag = (
+        "CANONICAL_SCREENING_RELEASE"
+        if artifact.get("canonical_runtime_artifact") is True
+        and artifact.get("documentation_revision") == "docs r2"
+        else "NONCANONICAL_MODEL_V2_1"
+    )
     quality_flags.extend(
         [
             "SCREENING_ENGINEERING_PROXY",
             "TC_NUMERICAL_RESPONSE_NOT_CALIBRATED",
-            "NONCANONICAL_MODEL_V2_1",
+            release_flag,
         ]
     )
     quality_flags = list(dict.fromkeys(quality_flags))
@@ -288,6 +295,7 @@ def _array_unit_results(
             artifact,
             unit_request,
             verified_artifact_sha256_hex=verified_artifact_sha256_hex,
+            allow_canonical_runtime_artifact=True,
         )
         cleaned = _clean_v20_emit(artifact, raw, verified_artifact_sha256_hex)
         results.extend(cleaned["failure_unit_results"])
@@ -425,6 +433,17 @@ def evaluate_damage_call(
     if artifact.get("semantic_damage_model_version") != "model v2.1":
         raise TropicalCycloneWindSolarV21EvaluationError(
             "MODEL_VERSION_MISMATCH", "v2.1 evaluator requires model v2.1"
+        )
+    canonical = artifact.get("canonical_runtime_artifact")
+    expected_damage_code_id = (
+        "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1"
+        if canonical is True
+        else "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1_PROPOSED"
+    )
+    if canonical not in {False, True} or artifact.get("damage_code_id") != expected_damage_code_id:
+        raise TropicalCycloneWindSolarV21EvaluationError(
+            "CURVE_PAYLOAD_INVALID",
+            "v2.1 evaluator requires the exact proposed or canonical artifact identity",
         )
     if request.get("pathway_id") != PATHWAY:
         code = "PATHWAY_ID_REQUIRED" if not request.get("pathway_id") else "PATHWAY_ID_UNKNOWN"
@@ -574,6 +593,7 @@ def evaluate_damage_call(
         artifact,
         stripped,
         verified_artifact_sha256_hex=verified_artifact_sha256_hex,
+        allow_canonical_runtime_artifact=True,
     )
     return _clean_v20_emit(artifact, raw, verified_artifact_sha256_hex)
 

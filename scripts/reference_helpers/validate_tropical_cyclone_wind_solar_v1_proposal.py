@@ -781,7 +781,7 @@ def validate_docs_r2_state() -> tuple[int, int]:
     require("no scientifically validated" in decision, "predictive-use prohibition missing")
     require("direct material, direct labor" in blueprint, "v2 economic acquisition field missing")
     require("command and attained tracker state" in blueprint, "v2 tracker-state acquisition field missing")
-    # Model v2.1 is now the noncanonical lead. Historical model-v1 validation
+    # Model v2.1 is now the canonical lead. Historical model-v1 validation
     # must keep checking its own docs-r2 evidence package without requiring the
     # cell entrypoint to masquerade as the current v1 lead.
     require(
@@ -789,7 +789,7 @@ def validate_docs_r2_state() -> tuple[int, int]:
         "cell entrypoint does not identify the later model-v2.1 lead",
     )
     require(
-        fenced_yaml_value(root_readme, "documentation_revision") == "docs r1",
+        fenced_yaml_value(root_readme, "documentation_revision") == "docs r2",
         "cell entrypoint model-v2.1 docs revision stale",
     )
     require(
@@ -815,8 +815,10 @@ def validate_docs_r2_state() -> tuple[int, int]:
 def validate_index_and_raw_guard() -> None:
     index = load(INDEX)
     require(index["schema_version"] == "damage_curve_artifact_index.v2", "index schema changed")
-    require(not [item for item in index["artifacts"] if item["cell_id"] == "tropical_cyclone_wind_solar"], "proposal entered canonical index")
-    require(not (ROOT / "docs/cells/tropical_cyclone_wind_solar/current").exists(), "current folder created before promotion")
+    require(
+        not [item for item in index["artifacts"] if (ROOT / item["path"]).resolve() == ARTIFACT.resolve()],
+        "model-v1 proposal entered canonical index",
+    )
     forbidden_names = {
         "hurricane_sites_manual.csv",
         "hurricane_sites_aggregated.csv",

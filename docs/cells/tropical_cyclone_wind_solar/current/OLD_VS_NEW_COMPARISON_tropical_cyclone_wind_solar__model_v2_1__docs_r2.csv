@@ -1,0 +1,11 @@
+architecture,array_demand_ratio,site_demand_ratio,model_v2_0_full_plant_dr,model_v2_1_lower_resistance_physical_dr,model_v2_1_central_physical_dr,model_v2_1_upper_resistance_physical_dr,reason
+fixed_tilt,0.0,0.0,WITHHELD,0.0,0.0,0.0,coverage-complete common-unit proxies plus named value assembly
+fixed_tilt,0.5,0.5,WITHHELD,0.017977561981389518,0.003910730111155051,0.0007210066511114094,coverage-complete common-unit proxies plus named value assembly
+fixed_tilt,1.0,1.0,WITHHELD,0.3335660992798094,0.14416959067432483,0.056245485097302865,coverage-complete common-unit proxies plus named value assembly
+fixed_tilt,1.5,1.5,WITHHELD,0.7650320129778266,0.5082985569516422,0.2731135491806444,coverage-complete common-unit proxies plus named value assembly
+fixed_tilt,2.0,2.0,WITHHELD,0.9398654446603651,0.803437562302518,0.5767905098047409,coverage-complete common-unit proxies plus named value assembly
+tracker,0.0,0.0,WITHHELD,0.0,0.0,0.0,coverage-complete common-unit proxies plus named value assembly
+tracker,0.5,0.5,WITHHELD,0.011108574445425295,0.00266595221552022,0.0005250187986901105,coverage-complete common-unit proxies plus named value assembly
+tracker,1.0,1.0,WITHHELD,0.34396892006000607,0.1581342432034389,0.06110218437438101,coverage-complete common-unit proxies plus named value assembly
+tracker,1.5,1.5,WITHHELD,0.7963632825429554,0.5816487686180737,0.3441106342567026,coverage-complete common-unit proxies plus named value assembly
+tracker,2.0,2.0,WITHHELD,0.9513402330575608,0.8555356282361991,0.6761084248558854,coverage-complete common-unit proxies plus named value assembly

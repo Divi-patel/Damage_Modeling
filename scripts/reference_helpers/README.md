@@ -27,9 +27,10 @@ These files are reference implementations for downstream notebooks/services. The
 | `tropical_cyclone_wind_solar_v2_curve_eval.py` | Fail-closed reference evaluator for the noncanonical model-v2 Perry compatibility, fixed-tilt synthetic Tier-4, qualified-tracker synthetic Tier-4, and directly queried withheld-unit routes. |
 | `build_tropical_cyclone_wind_solar_v2_package.py` | Deterministic builder for the noncanonical model-v2 artifact, capability, KAT, registers, audit comparison profile, and governed workbook. |
 | `validate_tropical_cyclone_wind_solar_v2_proposal.py` | Schema/semantic/KAT/register/workbook/pin/link/non-promotion validator for the five-record model-v2 proposal. |
-| `tropical_cyclone_wind_solar_v2_1_curve_eval.py` | Coverage-complete screening evaluator for component DR and named-value full-plant physical-damage assembly. |
+| `tropical_cyclone_wind_solar_v2_1_curve_eval.py` | Exact-identity evaluator for the proposed and canonical coverage-complete component DR and named-value full-plant physical-damage assembly. |
 | `build_tropical_cyclone_wind_solar_v2_1_package.py` | Deterministic builder for the ten-record model-v2.1 artifact, capability, KATs, registers, old/new table, and workbook. |
-| `validate_tropical_cyclone_wind_solar_v2_1_proposal.py` | Schema, numeric coverage, plant assembly, value reconciliation, KAT, workbook, exact-pin, and no-cutover validator for model v2.1. |
+| `validate_tropical_cyclone_wind_solar_v2_1_proposal.py` | Preservation, schema, numeric coverage, plant assembly, value reconciliation, KAT, workbook and exact-pin validator for the immutable model-v2.1 proposal. |
+| `validate_tropical_cyclone_wind_solar_v2_1_release.py` | Canonical identity, schema, exact promotion-diff, supporting-byte, proposal/current dual-read, KAT and artifact-index validator for the model-v2.1 release. |
 | `validate_hail_wind_v0_1_scaffold.py` | Fail-closed source/contact/value/workbook/link validator for hail × wind model v0.1. |
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
 

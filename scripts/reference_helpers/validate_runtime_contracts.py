@@ -128,6 +128,35 @@ def validate_v3_curve_record(record: dict) -> None:
             f"{record['curve_id']}: D50 identity mismatch",
         )
         return
+    if form == "ordered_damage_state_lognormal":
+        require(
+            set(parameters) == {"beta_ln", "damage_states", "capacity_scenarios"},
+            f"{record['curve_id']}: invalid ordered-state payload",
+        )
+        require(parameters["beta_ln"] > 0, f"{record['curve_id']}: nonpositive beta")
+        states = parameters["damage_states"]
+        require(len(states) >= 2, f"{record['curve_id']}: too few damage states")
+        state_ids = [state["state_id"] for state in states]
+        require(len(state_ids) == len(set(state_ids)), f"{record['curve_id']}: duplicate state")
+        cost_ratios = [state["cost_ratio"] for state in states]
+        require(all(0 <= value <= 1 for value in cost_ratios), f"{record['curve_id']}: state cost outside [0,1]")
+        require(cost_ratios == sorted(cost_ratios), f"{record['curve_id']}: state costs unordered")
+        scenarios = parameters["capacity_scenarios"]
+        require(scenarios, f"{record['curve_id']}: no capacity scenarios")
+        scenario_ids = [scenario["scenario_id"] for scenario in scenarios]
+        require(len(scenario_ids) == len(set(scenario_ids)), f"{record['curve_id']}: duplicate scenario")
+        for scenario in scenarios:
+            medians = scenario["state_medians"]
+            require(
+                len(medians) == len(states) - 1,
+                f"{record['curve_id']}: median/state boundary mismatch",
+            )
+            require(all(value > 0 for value in medians), f"{record['curve_id']}: nonpositive median")
+            require(
+                all(left < right for left, right in zip(medians, medians[1:])),
+                f"{record['curve_id']}: state medians unordered",
+            )
+        return
     raise AssertionError(f"unsupported v3 curve_form {form!r}")
 
 

@@ -3,9 +3,16 @@
 This registry separates **package release labels** from **semantic damage-model versions**.
 
 The latest portable package remains the v2.5 implementation-hardening release. Repository-current runtime
-state has advanced to `2026-08-09.hurricane-wind-partial-screening-v1-v3`: the five existing bundle-v2 pins
-remain unchanged, while bundle v3/capability v3/emit v2 serve canonical `flood_wind`, `wildfire_wind`, and
-`tropical_cyclone_wind_wind` partial-screening model-v1.0 packages.
+state has advanced to `2026-08-30.hurricane-solar-screening-v2-1-docs-r2-v3`: the five existing bundle-v2 pins remain
+unchanged, while bundle v3/capability v3/emit v2 also serve canonical `flood_wind`, `wildfire_wind`,
+`tropical_cyclone_wind_wind`, and `tropical_cyclone_wind_solar` screening packages.
+
+On 2026-08-30 tropical-cyclone wind × solar model v2.1 moved into `current/` after the exact proposal passed
+the Everglades Hazard M0→M4 experiment and proposal-to-current numerical parity. Docs r2 is current: it fixes
+forward docs r1's inherited `NONCANONICAL_MODEL_V2_1` KAT label without changing any curve, value or numerical
+output. Ten failure-unit curves and the named physical-value assembly remain canonical at screening grade.
+Tier-4 response assumptions, the nonprobabilistic scenario envelope and wind-only exclusions remain explicit;
+annual/tail metrics remain Hazard-owned.
 
 On 2026-08-09 tropical-cyclone wind × wind moved from its pressure-tested v1 proposal into `current/` without
 broadening the science. It contributes three exact Jaimes selectors for one quarantined source-native
@@ -46,6 +53,7 @@ artifact index, the cell changelog, package releases, and Hazard runtime remain 
 | `flood_wind` | **model v1.0** | docs r1 | Current partial screening | One exact FEMA Hazus-MH 2.1 facility-substation atom; all component/wind units withheld; bundle v3 pin and KATs. |
 | `wildfire_wind` | **model v1.0** | docs r1 | Current Tier-4 partial screening | Two exact FSim-state electrical-unit curves; all other units withheld; bundle v3 pin and KATs. |
 | `tropical_cyclone_wind_wind` | **model v1.2** | docs r2 | Current owner-approved tower-only screening | Jaimes parameters and source selectors reproduce; the canonical-5-MW proxy covers tower value only (16% of TIV); remaining 84% withheld; old 63% route superseded. |
+| `tropical_cyclone_wind_solar` | **model v2.1** | docs r2 | Current owner-approved coverage-complete screening | Docs r2 corrects the result-status label only; ten failure-unit curves and a named physical replacement-value assembly produce plant DR, loss per kWdc and optional event dollars; Tier-4 assumptions and wind-only scope remain explicit. |
 
 ---
 
@@ -55,7 +63,6 @@ artifact index, the cell changelog, package releases, and Hazard runtime remain 
 |---|---:|---:|---|---|
 | `wind_tornado_wind` | model v2.0 | docs r1 | Pressure-tested pathway-aware screening proposal; promotion gates remain blocked | None. Model v1.0/docs r4 remains canonical and is still the artifact-index pin. |
 | `strong_wind_solar` | model v2.0 | docs r1 | Convective pathway/architecture-aware screening proposal; T4 numerical envelopes and promotion gates remain blocked | None. Model v1.0/docs r3 remains canonical and is still the artifact-index pin. |
-| `tropical_cyclone_wind_solar` | model v2.1 | docs r1 | Coverage-complete screening candidate: ten records cover Perry, fixed/tracker array units, foundation, power/collection, GSU, SCADA, and civil; a named 100%-physical-value assembly emits plant DR, loss per kWdc, and optional scenario dollars. Parameters without calibration remain explicit Tier 4. | None. Model v0.1, v1.0, and v2.0 remain preserved; no canonical cell, artifact-index entry, `current/` package, changelog event, package release, or consumer cutover exists. |
 | `hail_wind` | model v0.1 | docs r2 | Independently deep-curated, zero-curve research scaffold; seven-source and nine-claim evidence addenda strengthen mechanism, field-observation, inspection, migration, and acquisition controls, but the strict model-v1 gate remains NO-GO | None. The docs-r1 machine-shaped scaffold is unchanged; no canonical cell, artifact-index entry, package release, schema change, or consumer cutover exists. |
 
 The wind proposal introduces separate `straight_line_convective` and `tornado_direct_hit` pathways, proposed
@@ -79,16 +86,16 @@ substrate. Model v1.0 uses the exact legacy FEMA Hazus-MH 2.1 whole-substation r
 mutually exclusive screening atom; component-local disposition/cost remains unsupported, and current Hazus
 7.0 disables electric-power loss results. See [`flood_wind/current/`](flood_wind/current/README.md).
 
-The tropical-cyclone wind × solar lead proposal reuses solar anatomy and TC event/pathway semantics while
-keeping every parameter decision cell-owned. Model v2.1/docs r1 preserves v2.0's Perry and four array records,
+The tropical-cyclone wind × solar current release reuses solar anatomy and TC event/pathway semantics while
+keeping every parameter decision cell-owned. Model v2.1/docs r2 preserves v2.0's Perry and four array records,
 adds five site-facility screening records, and assembles all 877.7957023626668 USD/kWdc of the named physical
 replacement profile. The result includes plant physical DR, installed-capex physical loss fraction, loss per
 kWdc, and optional scenario dollars. Replacement support is allocated once. The additional records remain
 explicit Tier-4 assumptions; annual/tail and BI outputs remain outside the damage layer. Model v0.1 remains
 the strict fail-closed alternative, v1.0 the narrow source-derived alternative, and v2.0 the preserved partial
-baseline. No canonical promotion surface changed. See
+baseline. The immutable proposal remains the rollback and parity reference. See
 [`tropical_cyclone_wind_solar/`](tropical_cyclone_wind_solar/README.md) and the
-[`model-v2.1 proposal package`](tropical_cyclone_wind_solar/proposed/README_tropical_cyclone_wind_solar__model_v2_1__docs_r1.md).
+[`model-v2.1 current package`](tropical_cyclone_wind_solar/current/README.md).
 
 The hail × wind proposal separates observed/radar hail descriptors from the future blade-contact demand
 bridge and keeps blades, exposed nacelle subjects, towers, turbine-pad electrical, collection, GSU, controls,

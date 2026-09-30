@@ -1,7 +1,7 @@
 {
   "schema_version": "damage_curve_artifact_index.v2",
   "portable_package_baseline": "library v2.5",
-  "repository_contract_revision": "2026-08-09.hurricane-wind-partial-screening-v1-v3",
+  "repository_contract_revision": "2026-08-30.hurricane-solar-screening-v2-1-docs-r2-v3",
   "polling_contract": {
     "strategy": "poll_index_then_compare_cell_pin_and_sha256",
     "consumer_pin_fields": [
@@ -121,6 +121,20 @@
       "sha256": "009996c07eb8150f79f11741d42b6cd37562d655ee336f82f178ccdeb987c992",
       "changelog_path": "docs/cells/tropical_cyclone_wind_wind/CHANGELOG.json",
       "known_answer_tests_path": "docs/cells/tropical_cyclone_wind_wind/current/known_answer_tests_tropical_cyclone_wind_wind__model_v1_2__docs_r2.json"
+    },
+    {
+      "cell_id": "tropical_cyclone_wind_solar",
+      "damage_code_id": "TROPICAL_CYCLONE_WIND_SOLAR_SCREENING_COMPLETE_V2_1",
+      "semantic_damage_model_version": "model v2.1",
+      "documentation_revision": "docs r2",
+      "consumer_pin": "tropical_cyclone_wind_solar@model_v2_1__docs_r2",
+      "artifact_schema_version": "damage_curve_record_bundle.v3",
+      "capability_schema_version": "capability_declaration.v3",
+      "publication_status": "repository_canonical_not_in_portable_package",
+      "path": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json",
+      "sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+      "changelog_path": "docs/cells/tropical_cyclone_wind_solar/CHANGELOG.json",
+      "known_answer_tests_path": "docs/cells/tropical_cyclone_wind_solar/current/known_answer_tests_tropical_cyclone_wind_solar__model_v2_1__docs_r2.json"
     }
   ],
   "runtime_preference": "Poll this index, pin cell model + docs + artifact schema + SHA-256, validate the artifact, and run cell known-answer tests. Do not pin only the portable package release."
