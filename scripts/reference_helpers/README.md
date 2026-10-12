@@ -33,5 +33,6 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_tropical_cyclone_wind_solar_v2_1_release.py` | Canonical identity, schema, exact promotion-diff, supporting-byte, proposal/current dual-read, KAT and artifact-index validator for the model-v2.1 release. |
 | `validate_hail_wind_v0_1_scaffold.py` | Fail-closed source/contact/value/workbook/link validator for hail × wind model v0.1. |
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
+| `extract_tropical_cyclone_wind_real_estate_hazus_ordinates.py` | Extracts the fifteen proposed tropical-cyclone wind × real estate records from the FEMA Hazus 6.1 wind extract and cross-checks them against SimCenter's Hazus 5.1 copy (source files outside the repo; SHA-256 pinned). Needs openpyxl. |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.

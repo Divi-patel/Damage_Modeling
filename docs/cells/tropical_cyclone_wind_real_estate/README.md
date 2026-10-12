@@ -24,6 +24,18 @@ fraction of the structure's **replacement cost new**. The curves are to be adopt
 - [Change classification](proposed/CHANGE_CLASSIFICATION_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md)
 - [Decision log](proposed/DECISION_LOG_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md)
 - [Existing-coverage check (step 2)](proposed/COVERAGE_NOTE_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md)
+- [Source verification (step 3)](proposed/SOURCE_VERIFICATION_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md),
+  with the [source register](proposed/SOURCE_REGISTER_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv) and
+  [claim register](proposed/CLAIM_PARAMETER_REGISTER_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv)
+- [Evidence pressure test (step 4)](proposed/PRESSURE_TEST_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md), with the
+  [parameter tier table](proposed/PARAMETER_TIER_TABLE_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv) and
+  [variant sensitivity](proposed/VARIANT_SENSITIVITY_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv)
+- [Curve records and form (step 5)](proposed/CURVE_FORM_DECISION_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md), with the
+  [ordinates](proposed/CURVE_ORDINATES_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv) and the
+  [candidate-curves chart](previews/tropical_cyclone_wind_real_estate_v0_1_candidate_curves.png)
+- [Reference buildings and value link (step 6)](proposed/REFERENCE_BUILDINGS_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md),
+  [value crosswalk](proposed/VALUE_CROSSWALK_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv),
+  [seven-step audit](proposed/SEVEN_STEP_AUDIT_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md)
 
 ## Status
 
@@ -44,5 +56,7 @@ runtime_reason: NO_RUNTIME_CURVE
 
 ## Not done yet
 
-Steps 0–2 are drafted. Steps 3–7 (sources, pressure test, curve records, value link, package) wait on JL's scope
-decisions and on the Hazus hurricane source files.
+Steps 0–6 are drafted: fifteen proposed Hazus records (three buildings × five terrain classes), verified identical in
+two independent copies of the Hazus database. Step 7 (artifact, capability, known-answer tests, workbook, dossier,
+metadata spec, validation report) is next. Still open: owner review, the per-area replacement cost (dollars withheld),
+and a terrain-class field on the Hazard side.

@@ -48,9 +48,9 @@ explicit assumption of the reference building, never an observation.
 ```text
 - direct physical damage to the building STRUCTURE (shell, roof, openings, interior finishes, fixed services)
   caused by tropical-cyclone wind;
-- the damage the source library attributes to the wind event as a whole, which (to be verified in step 3)
-  includes wind pressure on the roof and walls, windborne-debris (missile) impact on openings, and rain
-  entering through a wind-breached envelope (§4);
+- the damage the source library attributes to the wind event as a whole: wind pressure on the roof and walls,
+  windborne-debris (missile) impact on openings, and rain entering through a wind-breached envelope (§4;
+  confirmed by Hazus 7.0 TM §2.1, TCRE-C002);
 - one source-native whole-building curve per reference building;
 - damage ratio = repair cost / structure replacement cost new.
 ```
@@ -63,7 +63,7 @@ explicit assumption of the reference building, never an observation.
 - tropical-cyclone rainfall flooding (water rising from the ground) — owned by flood_real_estate; Hazard
   routes it to Flood Pluvial / Riverine;
 - tornadoes spawned by the tropical cyclone — a future convective-wind × real-estate cell;
-- tree fall onto the building as a separately valued mechanism (unless embedded in the source curve);
+- tree fall onto the house — a Hazus additive term outside the base curve; deferred, withheld not zero (D-TCRE-13);
 - contents and inventory, loss of use / additional living expense, business interruption, rent;
 - land, site works, non-building structures, signage, rooftop equipment as separate units;
 - financial and insurance terms;
@@ -77,20 +77,20 @@ explicit assumption of the reference building, never an observation.
 Identical IDs and attributes to [`flood_real_estate`](https://github.com/aamani-ai/Damage_Modeling/tree/cell/flood-real-estate/docs/cells/flood_real_estate),
 so the two cells line up on the same building.
 
-| `reference_building_id` | Asset type | Reference building (assumed attributes) | Candidate Hazus hurricane building type (doc 06 §5; to verify in step 3) |
-|---|---|---|---|
-| `RE_RES_SFD_1S_SLAB` | Residential | Single-family detached; 1 story; wood frame; slab; no basement; asphalt-shingle roof; no opening protection | `WSF1` (wood single-family, one story) |
-| `RE_COM_LOWRISE` | Commercial | Small low-rise (1–3 story) retail or office; masonry or steel frame; low-slope membrane roof; no opening protection | `MLRM1` (masonry low-rise strip mall) **or** `SECBL` (steel engineered commercial, low-rise); `MECBL` (masonry engineered commercial, low-rise) is a further candidate |
-| `RE_IND_WAREHOUSE` | Industrial | One-story pre-engineered steel warehouse; large low-slope roof (membrane or metal); no opening protection | `SPMBL` (steel pre-engineered metal building, large); `SPMBM` and `MLRI` (masonry low-rise industrial / warehouse) are further candidates |
+| `reference_building_id` | Asset type | Reference building (assumed attributes) | Hazus hurricane building type (JL decided 2026-10-12) | Recorded alternatives |
+|---|---|---|---|---|
+| `RE_RES_SFD_1S_SLAB` | Residential | Single-family detached; 1 story; wood frame; slab; no basement; asphalt-shingle roof; no opening protection | `WSF1` (wood single-family, one story; CONUS variants) — D-TCRE-14 | — |
+| `RE_COM_LOWRISE` | Commercial | Small low-rise (1–3 story) retail or office; masonry or steel frame; low-slope membrane roof; no opening protection | `SECBL` (steel engineered commercial, 1–2 stories; identical to `MECBL`) — D-TCRE-15 | `MLRM1` (masonry strip mall) |
+| `RE_IND_WAREHOUSE` | Industrial | One-story pre-engineered steel warehouse; large low-slope roof (membrane or metal); no opening protection; **floor area > 50,000 ft²** | `SPMBL` (pre-engineered metal building, large) — D-TCRE-16 | `SPMBM` (medium), `MLRI` (masonry warehouse) |
 
-These are **candidates**, not decisions. Step 3 verifies each type's definition against the Hazus Hurricane
-Technical Manual and the FEMA function extract; step 4 proposes a selection.
+Verification: [source verification](SOURCE_VERIFICATION_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md);
+selection evidence: [pressure test](PRESSURE_TEST_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md);
+wind attributes: [reference buildings](REFERENCE_BUILDINGS_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md).
 
 **Wind building characteristics.** Hazus hurricane functions are not one curve per building type. Each type is
 split by wind building characteristics such as roof shape, roof cover, secondary water resistance, roof-deck
-attachment, roof-to-wall connection, opening protection (shutters), garage door, and terrain (to be confirmed
-per type in step 3). The reference building fixes the ones we know (roof cover, no shutters); the others must be
-either fixed as stated assumptions or taken as Hazus's default mix — an owner decision (D-TCRE-07). Because
+attachment, roof-to-wall connection, opening protection (shutters), garage door, and terrain (TCRE-C006–C008). The reference building fixes the ones we know (roof cover, no shutters); the others must be
+fixed at their most common Hazus value (JL decided, D-TCRE-07). Because
 these attributes are explicit in the source, a future resiliency measure (shutters, roof straps, a better roof
 deck or roof cover) becomes a change of one selector value on the same curve family — the doc 06 §8 ask.
 
@@ -103,8 +103,8 @@ deck or roof cover) becomes a change of one selector value on the same curve fam
     windborne debris breaks unprotected openings; once the envelope is breached, wind pressure rises inside
     and rain enters, damaging interior finishes and services. The source library (Hazus) simulates these
     together and publishes one building loss ratio per wind speed.
-  source_native_axis: peak 3-second gust at 10 m in open terrain (to verify in step 3: Hazus TM §4.4.7
-    states damage and loss functions are given as a function of peak gust, not one-minute sustained wind)
+  source_native_axis: peak 3-second gust at 10 m in open terrain (Hazus 7.0 TM §4.3 p. 4-81, §5.5.1.3
+    p. 5-173; TCRE-C001)
   axis_id: TC_PEAK_GUST_3S_10M_OPEN_TERRAIN_MPH
   input_field: tc_peak_gust_3s_10m_mph
   unit: mph
@@ -112,8 +112,8 @@ deck or roof cover) becomes a change of one selector value on the same curve fam
   bridge: none inside Damage. Hazard converts STORM 10-minute sustained wind to the 3-second gust
     (U3s = U10min × 1/0.88 × 1.20); Damage does not repeat or undo it.
   hazard_delivered_range: about 61–229 mph (STORM thresholds 20–75 m/s; Hazard origin/main @ e8664800)
-  valid_range: the published range of the selected curves (Hazus extract tabulated about 50–250 mph, to
-    verify); outside it withholds (no clamp, no extrapolation)
+  valid_range: [50, 250] mph, the published range of all fifteen records; below 50 returns 0 (the source's
+    own zero), above 250 withholds (D-TCRE-18)
   neighboring_cell_boundaries:
     - flood_real_estate (storm surge, wave, rainfall flooding)
     - future convective_wind × real estate (TC-spawned tornado, straight-line thunderstorm wind)
@@ -124,15 +124,15 @@ deck or roof cover) becomes a change of one selector value on the same curve fam
 `tropical_cyclone_wind_solar` and `tropical_cyclone_wind_wind` exclude windborne debris and wind-driven rain,
 because their source curves model wind loading only. For a building, the source curves (Hazus) are built from a
 simulation in which debris impact and rain ingress are part of the same wind event and cannot be separated in
-the published loss ratio (to verify in step 3). Splitting them into pathways would need component-level output
+the published loss ratio (TCRE-C002). Splitting them into pathways would need component-level output
 that the source does not publish. The guardrail is the reverse one: **no separate debris or rain-ingress pathway
 may be added to this cell while its records are Hazus-based**, or the same damage would be counted twice
 (D-TCRE-04).
 
 **Terrain is not on the axis.** Hazard delivers an open-terrain gust with no roughness adjustment. Hazus
 functions differ by surface roughness (open, suburban, wooded…), which changes both the local wind and the
-amount of debris. How this cell handles terrain is an open owner decision (D-TCRE-06); it must never be applied
-twice (once in Hazard, once in Damage).
+amount of debris. JL decided (D-TCRE-06) that terrain is a **required selector** with the five Hazus classes, no
+default and no interpolation; it must never be applied twice (once in Hazard, once in Damage).
 
 ## 5. Failure-unit coverage
 
@@ -144,8 +144,8 @@ twice (once in Hazard, once in Damage).
 
 - **Grain.** One whole-building record per reference building. Doc 06 asks to split the roof out for wind
   "where the sources support it". The Hazus loss function is whole-building; its roof-related attributes enter as
-  selectors, not as a separate roof failure unit. Whether any source supports a separate roof unit is checked in
-  step 3 (D-TCRE-05).
+  selectors, not as a separate roof failure unit. Step 3 found no source that prices a separate roof unit (the Hazus
+  extract publishes whole-building, contents and loss-of-use functions only; D-TCRE-05).
 - **Subsystem and component codes** are the same proposals as `flood_real_estate` (no platform building
   vocabulary yet; standard 24 exact join). The failure-unit IDs are cell-scoped (`TCRE_…`), so the two cells'
   losses on the same building are added, not merged.
@@ -157,7 +157,7 @@ loss = DR(TCRE_BUILDING_STRUCTURE | reference building, wind characteristics, te
 ```
 
 - **Denominator:** replacement cost new of the structure, as in `flood_real_estate` (Hazus expresses building
-  loss as a fraction of building replacement value — to verify). Excludes land, contents and depreciation.
+  loss over total building replacement cost, TCRE-C004). Excludes land, contents and depreciation.
 - **Per-area cost:** shared open seam with `flood_real_estate`; scenario dollars stay withheld until JL selects a
   source.
 - **Same building, several perils.** Wind and flood losses on the same building are computed by separate cells.
