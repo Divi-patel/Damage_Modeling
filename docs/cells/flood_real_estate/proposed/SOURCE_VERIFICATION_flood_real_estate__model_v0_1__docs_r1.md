@@ -33,7 +33,8 @@ Every value was therefore checked against an original or an independent copy whe
 | Hazus DF 217, 431, 341, 559 | USACE `go-consequences` HEC-FIA Galveston curves (FRE-S005), an independent distribution | **Identical at every depth** (29, 29, 29 and 26 points; FRE-C003) |
 | Hazus DF 129 | USACE EGM curve in `go-consequences` (FRE-S006) | Equals the **rounded EGM means** from −2 to +16 ft; EGM also gives a standard deviation per depth (FRE-C004) |
 | Hazus default list (Table 5-2) | Hazus Flood Technical Manual 5.1, 6.1 and 7.0 (FRE-S002; downloaded manually) | **Identical in all three editions** for every type we use: DF 129, 217, 431, 341, 559 (and 209 for hotels). Pollack's copy is correct and still current; cite Hazus 7.0 (FRE-C002). |
-| Hazus coastal defaults (Tables 5-3, 5-4) | Hazus 7.0 | Only RES1 (and RES2, RES3A) have coastal-specific curves; commercial and industrial use the riverine defaults for coastal water. The coastal house default is DF 658 (BCAR 2011), which is **not in our working copy** (FRE-C013, FRE-C014). |
+| Hazus coastal defaults (Tables 5-3, 5-4) | Hazus 7.0 | Only RES1 (and RES2, RES3A) have coastal-specific curves; commercial and industrial use the riverine defaults for coastal water. The coastal house default is DF 658 (BCAR 2011), not in the 5.1 working copy (FRE-C013, FRE-C014). |
+| All 550 compiled structure curves; DF 658; default assignments | Hazus 6.1 damage-function extract (FRE-S010; FEMA-provided file via a public mirror, downloaded by JL) | **All 550 shared structure curves identical** (FRE-C018). The software's default table matches Tables 5-2 to 5-4 (FRE-C019). **DF 658 found:** 12% at the floor, 25% at 1 ft, 50% at 2 ft, 75% at 3 ft, 100% from 4 ft (FRE-C020). |
 | NSI first-floor-height defaults | NSI technical documentation (FRE-S009) | **Pending.** Not yet accessed. |
 
 ## 3. What the checks changed
@@ -67,7 +68,7 @@ Every value was therefore checked against an original or an independent copy whe
 
    | Reference building | Our proposal (coastal surge) | FEMA Hazus 7.0 coastal default |
    |---|---|---|
-   | House | NACCS `RES1-1SNB` (inundation only) | DF 658, BCAR 2011, coastal A or V, built assuming waves ≥ 1.5 ft destroy walls; not in our data |
+   | House | NACCS `RES1-1SNB` (inundation only) | DF 658, BCAR 2011, coastal A or V, built assuming waves ≥ 1.5 ft destroy walls; total loss from 4 ft (FRE-C020) |
    | Commercial | NACCS `COM-ENG` | Same as riverine: DF 217 / 431 |
    | Warehouse | NACCS `COM-PRE` | Same as riverine: DF 559 / 341 |
 
@@ -80,7 +81,6 @@ Every value was therefore checked against an original or an independent copy whe
 ```text
 - NSI foundation-height defaults (FRE-S009)
 - identify the exact EGM document behind DF 129 (likely EGM 01-03)
-- DF 658 ordinates, only if step 4 selects the FEMA coastal house default
 ```
 
 None of these blocks step 4. Each is recorded as `pending` or `defer` in the registers.

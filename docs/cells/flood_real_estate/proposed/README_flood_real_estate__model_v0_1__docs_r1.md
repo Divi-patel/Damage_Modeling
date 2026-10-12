@@ -77,7 +77,10 @@ selector** on the single failure unit, in the same way module archetypes select 
 | `RE_COM_LOWRISE` | Commercial | Small low-rise (1–3 story) retail or office; masonry or steel frame; low-slope membrane roof; no basement | COM1 / COM4 | DF 217 — Galveston "Average of 47 Retail classes" **or** DF 431 — Galveston "Average prof/tech services" | `COM-ENG` (NACCS Prototype 2, steel frame); `COM-PRE` if the building is defined as masonry |
 | `RE_IND_WAREHOUSE` | Industrial | One-story warehouse / light industrial; pre-engineered steel frame; large low-slope roof | IND2 / COM2 | DF 559 — Galveston "Average of 14 Light Industrial classes" **or** DF 341 — Galveston "Average of 22 wholesale/warehouse classes" | `COM-PRE` (NACCS Prototype 3, one-story steel or light metal) |
 
-**Candidates only.** Selection between the two Hazus defaults for commercial and warehouse is step-4 work.
+**Step 4 proposed selections** ([pressure test](PRESSURE_TEST_flood_real_estate__model_v0_1__docs_r1.md)):
+house DF 129 / NACCS `RES1-1SNB`; commercial **DF 217** (retail) / NACCS `COM-ENG`; warehouse **DF 341**
+(wholesale/warehouse) / NACCS `COM-PRE`. DF 431 (office) and DF 559 (light industrial) become later profiles.
+All are proposed, pending owner review (D-FRE-16 to D-FRE-19).
 Step 3 verified the candidate ordinates against originals or independent copies and moved the commercial coastal
 candidate from `COM-PRE` to `COM-ENG`; see the
 [source verification](SOURCE_VERIFICATION_flood_real_estate__model_v0_1__docs_r1.md). NACCS prototype tables give
@@ -169,12 +172,12 @@ PML/VaR/TVaR:     withheld — no runtime curve; NACCS Min/Max is a source band,
 ```text
 seven-step audit:                 not started (step 4–6)
 source register:                  draft (step 3) — FRE-S001..S009; S006, S009 pending
-claim/parameter register:         draft (step 3) — FRE-C001..C014
-parameter-tier table:             not started (step 4)
+claim/parameter register:         draft (steps 3–4) — FRE-C001..C021
+parameter-tier table:             draft (step 4) — 19 parameters, two open seams
 legacy numerical audit:           legacy Real Estate_Hail array noted as rejected (coverage note); no flood legacy array found
 site-condition adapter:           not started; first-floor height is the main site condition
 row-level value crosswalk:        not started (step 6)
-pressure test:                    not started (step 4)
+pressure test:                    draft (step 4) — three proposed selections, fresh vs coastal gap recorded
 known-answer tests:               not started (step 7)
 ```
 
