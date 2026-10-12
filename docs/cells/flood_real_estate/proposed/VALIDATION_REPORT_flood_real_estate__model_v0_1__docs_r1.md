@@ -17,7 +17,7 @@ Promotion gate: **blocked** (owner review).
 | `flood_real_estate__model_v0_1__docs_r1__curve_artifact.json` | `106e3b53c8ac84f3dba7c233a261e32a8663012794d90c898e6ccab9dbd128e1` |
 | `flood_real_estate__model_v0_1__docs_r1__capability.json` | `d0cd4c60c348424662ebda0bd5f16a4b7f859794034918c140722907a68cb2c5` |
 | `known_answer_tests_flood_real_estate__model_v0_1__docs_r1.json` | `681ac67507c19bd3429e744604a93b496382909170baf5da7a74822ba3cc4cc7` |
-| `CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv` (governed input) | `2ae937107bc7149314baadfe316cc2113d64bb065af6dbd5c623c178413c2669` |
+| `CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv` (governed input) | `7a0e4e6a4689f3c186f9729683044f86d4086f4de84bfc0140fff3b22362918d` |
 | `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `33683b0be2d096c3133cf51b86cb5c3d0979ae47dc35aac9ffcab76bcc5e1979` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
 
 Built by `scripts/reference_helpers/build_flood_real_estate_v0_1_package.py`; the validator confirms the builder

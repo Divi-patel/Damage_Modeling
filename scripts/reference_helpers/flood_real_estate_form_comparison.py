@@ -98,7 +98,7 @@ for b, w, src, band, d, v in CURVES:
     print(f"{b:10} {w:10} {src:16} {band:3} | linear {res['linear']['loocv']:5.2f} pchip {res['pchip']['loocv']:5.2f} | best smooth {best_s} {res[best_s]['loocv'] if best_s else float('nan'):5.2f} "
           f"(misses a published value by up to {res[best_s]['knot_max'] if best_s else float('nan'):4.1f} pts; differs from linear by up to {res[best_s]['maxdiff_lin'] if best_s else float('nan'):4.1f}) | 10%-rule -> {rule}")
 with open(f"{out}/form_comparison.csv", "w", newline="") as fh:
-    w_ = csv.DictWriter(fh, fieldnames=list(rows[0])); w_.writeheader(); w_.writerows(rows)
+    w_ = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n"); w_.writeheader(); w_.writerows(rows)
 
 # ---- chart -----------------------------------------------------------------------------------------
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
