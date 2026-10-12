@@ -33,5 +33,6 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_tropical_cyclone_wind_solar_v2_1_release.py` | Canonical identity, schema, exact promotion-diff, supporting-byte, proposal/current dual-read, KAT and artifact-index validator for the model-v2.1 release. |
 | `validate_hail_wind_v0_1_scaffold.py` | Fail-closed source/contact/value/workbook/link validator for hail × wind model v0.1. |
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
+| `flood_real_estate_form_comparison.py` | Curve-form comparison (linear, PCHIP, anchored logistic/Richards/Weibull; LOOCV and shape gates) for the noncanonical flood × real estate model-v0.1 scaffold. Needs numpy, scipy and matplotlib. |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.

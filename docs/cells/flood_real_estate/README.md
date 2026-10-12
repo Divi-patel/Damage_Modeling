@@ -30,12 +30,15 @@ component evidence the way the solar and wind cells were.
   [claim register](proposed/CLAIM_PARAMETER_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv)
 - [Evidence pressure test (step 4)](proposed/PRESSURE_TEST_flood_real_estate__model_v0_1__docs_r1.md), with the
   [parameter tier table](proposed/PARAMETER_TIER_TABLE_flood_real_estate__model_v0_1__docs_r1.csv)
+- [Curve records and form (step 5)](proposed/CURVE_FORM_DECISION_flood_real_estate__model_v0_1__docs_r1.md), with the
+  [ordinates](proposed/CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv) and the
+  [candidate-curves chart](previews/flood_real_estate_v0_1_candidate_curves.png)
 
 ## Status
 
 ```yaml
 cell_id: flood_real_estate
-lifecycle_state: scaffold
+lifecycle_state: scaffold   # draft needs owner scope acceptance + capability declaration (CELL_LIFECYCLE gate)
 semantic_damage_model_version: model v0.1
 released_model_version: null
 promotion_status: proposed
@@ -50,6 +53,7 @@ runtime_reason: NO_RUNTIME_CURVE
 
 ## Not done yet
 
-Steps 3–4 are drafted: Hazus Table 5-2 is confirmed and three curve selections are proposed. Two source items stay
-pending (NSI defaults, EGM document). Steps 5–7 of the Damage Core lifecycle remain: curve records and form, value
-link, curve artifact, capability declaration, known-answer tests, and validation.
+Steps 3–5 are drafted: sources verified, three curve selections proposed, six curve records documented with
+straight lines between published points. Two source items stay pending (NSI defaults, EGM document). Steps 6–7
+remain: reference-building assumptions and value link, curve artifact, capability declaration, known-answer tests,
+and validation.

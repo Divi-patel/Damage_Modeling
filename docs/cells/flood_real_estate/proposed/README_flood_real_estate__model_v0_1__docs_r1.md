@@ -15,7 +15,7 @@ scope: Step 0/1 cell definition for flood × real estate — modelling question,
 
 ```yaml
 cell_id: flood_real_estate
-lifecycle_state: scaffold
+lifecycle_state: scaffold   # draft needs owner scope acceptance + capability declaration (CELL_LIFECYCLE gate)
 semantic_damage_model_version: model v0.1
 released_model_version: null
 promotion_status: proposed
@@ -26,7 +26,7 @@ canonical_runtime_artifact: false
 package_release: unreleased
 package_baseline: library v2.5
 package_inclusion_status: not_included
-curve_records: 0
+curve_records: 0   # six proposed records are documented (step 5); none is in a runtime artifact yet
 runtime_reason: NO_RUNTIME_CURVE
 ```
 
@@ -173,11 +173,12 @@ PML/VaR/TVaR:     withheld — no runtime curve; NACCS Min/Max is a source band,
 seven-step audit:                 not started (step 4–6)
 source register:                  draft (step 3) — FRE-S001..S009; S006, S009 pending
 claim/parameter register:         draft (steps 3–4) — FRE-C001..C021
-parameter-tier table:             draft (step 4) — 19 parameters, two open seams
+parameter-tier table:             draft (steps 4–5) — 20 parameters, two open seams
 legacy numerical audit:           legacy Real Estate_Hail array noted as rejected (coverage note); no flood legacy array found
 site-condition adapter:           not started; first-floor height is the main site condition
 row-level value crosswalk:        not started (step 6)
 pressure test:                    draft (step 4) — three proposed selections, fresh vs coastal gap recorded
+curve records and form:           draft (step 5) — six records, straight lines between published points, 177 ordinates
 known-answer tests:               not started (step 7)
 ```
 
