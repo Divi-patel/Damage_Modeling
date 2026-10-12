@@ -41,3 +41,11 @@ reviewer_notes:
   - Real estate is outside the ten-pair hazard × asset coverage plan; adding it is an owner decision.
 related_change_events: []
 ```
+
+## Why this is not a model release
+
+Step 7 added a **noncanonical** bundle-v3 artifact with fifteen proposed curve records, a capability declaration
+(promotion gate blocked) and 719 known-answer tests. None of it is in the artifact index, version registry or a
+`current/` package, so no runtime behaviour changes and the class stays `NEW_CELL_SCAFFOLD`. A
+`NEW_CELL_MODEL_RELEASE` needs owner acceptance, a selected value basis for dollars, a Hazard terrain input,
+independent review and a deliberate consumer cutover (validation report §4).

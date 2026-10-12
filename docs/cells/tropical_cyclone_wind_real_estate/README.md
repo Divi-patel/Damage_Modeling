@@ -36,12 +36,19 @@ fraction of the structure's **replacement cost new**. The curves are to be adopt
 - [Reference buildings and value link (step 6)](proposed/REFERENCE_BUILDINGS_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md),
   [value crosswalk](proposed/VALUE_CROSSWALK_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv),
   [seven-step audit](proposed/SEVEN_STEP_AUDIT_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md)
+- Package (step 7): [curve artifact](proposed/tropical_cyclone_wind_real_estate__model_v0_1__docs_r1__curve_artifact.json),
+  [capability](proposed/tropical_cyclone_wind_real_estate__model_v0_1__docs_r1__capability.json),
+  [known-answer tests](proposed/known_answer_tests_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.json),
+  [workbook](proposed/damage_curve_records_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.xlsx),
+  [derivation dossier](proposed/tropical_cyclone_wind_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md),
+  [metadata spec](proposed/tropical_cyclone_wind_real_estate_damage_code_metadata_spec__model_v0_1__docs_r1.md),
+  [validation report](proposed/VALIDATION_REPORT_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md)
 
 ## Status
 
 ```yaml
 cell_id: tropical_cyclone_wind_real_estate
-lifecycle_state: scaffold
+lifecycle_state: scaffold   # capability declaration exists; proposed artifact is review-only
 semantic_damage_model_version: model v0.1
 released_model_version: null
 promotion_status: proposed
@@ -56,7 +63,8 @@ runtime_reason: NO_RUNTIME_CURVE
 
 ## Not done yet
 
-Steps 0–6 are drafted: fifteen proposed Hazus records (three buildings × five terrain classes), verified identical in
-two independent copies of the Hazus database. Step 7 (artifact, capability, known-answer tests, workbook, dossier,
-metadata spec, validation report) is next. Still open: owner review, the per-area replacement cost (dollars withheld),
-and a terrain-class field on the Hazard side.
+Steps 0–7 are drafted. The proposed package (artifact with fifteen Hazus records, capability, 719 known-answer tests,
+workbook, dossier, metadata spec, validation report) passes its validator and stays out of the artifact index.
+Still open: owner review of the scope and selections, the per-area replacement cost (dollars withheld, shared with
+`flood_real_estate`), a terrain-class field on the Hazard side, and the consumer integration findings in the
+validation report §4.

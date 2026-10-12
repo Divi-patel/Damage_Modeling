@@ -15,7 +15,7 @@ scope: Step 0/1 cell definition for tropical-cyclone (hurricane) wind × real es
 
 ```yaml
 cell_id: tropical_cyclone_wind_real_estate
-lifecycle_state: scaffold   # draft needs owner scope acceptance (CELL_LIFECYCLE gate)
+lifecycle_state: scaffold   # draft needs owner scope acceptance (CELL_LIFECYCLE gate); capability declaration exists
 semantic_damage_model_version: model v0.1
 released_model_version: null
 promotion_status: proposed
@@ -26,8 +26,8 @@ canonical_runtime_artifact: false
 package_release: unreleased
 package_baseline: library v2.5
 package_inclusion_status: not_included
-curve_records: 0
-runtime_reason: NO_RUNTIME_CURVE
+curve_records: 15   # proposed, in a noncanonical artifact; not in the artifact index
+runtime_reason: NO_RUNTIME_CURVE   # no canonical runtime artifact; the proposed artifact is review-only
 ```
 
 ## 1. The modelling question
@@ -164,16 +164,34 @@ loss = DR(TCRE_BUILDING_STRUCTURE | reference building, wind characteristics, te
   Combining them for one storm (so a building is not repaired more than 100%) is a consumer rule, recorded in the
   scope but not solved here; Hazard's return-period rasters carry no storm identity today.
 
-## 7. Capability declaration summary (scaffold)
+## 7. Capability declaration summary
+
+Runtime: no canonical artifact, so `NO_RUNTIME_CURVE`. The proposed artifact's own
+[capability](tropical_cyclone_wind_real_estate__model_v0_1__docs_r1__capability.json) (review-only, promotion gate blocked):
 
 ```text
-failure-unit DR:  withheld — NO_RUNTIME_CURVE
-scenario loss:    withheld — NO_RUNTIME_CURVE (and value basis open)
-scalar EAL:       withheld — consumer-owned; no runtime curve
-PML/VaR/TVaR:     withheld — no runtime curve
+failure-unit DR:  conditional — proposal; owner acceptance required
+scenario loss:    withheld — per-area replacement cost not selected
+scalar EAL:       withheld — consumer-owned
+PML/VaR/TVaR:     withheld — no spread carried; consumer-owned
 ```
 
-## 8. Explicit non-changes
+## 8. Evidence-governance summary
+
+```text
+seven-step audit:                 draft (step 6) — steps 1-6 proposed, step 7 partial (dollars withheld)
+source register:                  draft — TCRE-S001..S009
+claim/parameter register:         draft — TCRE-C001..C024
+parameter-tier table:             draft — 18 parameters, one open seam (value per area)
+legacy numerical audit:           two legacy real-estate wind arrays rejected (coverage note §2)
+site-condition adapter:           draft (seven-step audit step 6) — terrain once, no protection credit
+row-level value crosswalk:        draft — structure RCN 100%; exclusions named; per-area cost open
+pressure test:                    draft — selections, sensitivities, two source anomalies contained
+curve records and form:           draft — 15 records, straight lines between published 5-mph points
+known-answer tests:               draft (step 7) — 719 tests, all passing
+```
+
+## 9. Explicit non-changes
 
 ```yaml
 artifact_index: unchanged

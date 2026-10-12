@@ -34,5 +34,9 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_hail_wind_v0_1_scaffold.py` | Fail-closed source/contact/value/workbook/link validator for hail × wind model v0.1. |
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
 | `extract_tropical_cyclone_wind_real_estate_hazus_ordinates.py` | Extracts the fifteen proposed tropical-cyclone wind × real estate records from the FEMA Hazus 6.1 wind extract and cross-checks them against SimCenter's Hazus 5.1 copy (source files outside the repo; SHA-256 pinned). Needs openpyxl. |
+| `tropical_cyclone_wind_real_estate_curve_eval.py` | Fail-closed reference evaluator for the noncanonical tropical-cyclone wind × real estate model-v0.1 proposal: reference-building and terrain selectors, reference-only wind characteristics, 50–250 mph records; damage emit v2. |
+| `build_tropical_cyclone_wind_real_estate_v0_1_package.py` | Deterministic builder for the tropical-cyclone wind × real estate model-v0.1 artifact, capability, known-answer tests and review workbook (needs openpyxl). |
+| `validate_tropical_cyclone_wind_real_estate_v0_1_package.py` | Schema/register/ordinate/loader-routing/reproducibility/KAT/non-promotion/workbook/link validator for the tropical-cyclone wind × real estate model-v0.1 proposal. |
+| `check_tropical_cyclone_wind_real_estate_hazard_loader.py` | Read-only consumer check: runs the proposal's known-answer requests through a copy of Hazard's generic v3 loader and lists the differences (validation report §4). |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
