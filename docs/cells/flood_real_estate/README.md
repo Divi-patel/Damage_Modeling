@@ -37,12 +37,19 @@ component evidence the way the solar and wind cells were.
   [value crosswalk](proposed/VALUE_CROSSWALK_flood_real_estate__model_v0_1__docs_r1.csv),
   [seven-step audit](proposed/SEVEN_STEP_AUDIT_flood_real_estate__model_v0_1__docs_r1.md),
   [NSI sample](proposed/NSI_SAMPLE_flood_real_estate__model_v0_1__docs_r1.csv)
+- Package (step 7): [curve artifact](proposed/flood_real_estate__model_v0_1__docs_r1__curve_artifact.json),
+  [capability](proposed/flood_real_estate__model_v0_1__docs_r1__capability.json),
+  [known-answer tests](proposed/known_answer_tests_flood_real_estate__model_v0_1__docs_r1.json),
+  [workbook](proposed/damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx),
+  [derivation dossier](proposed/flood_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md),
+  [metadata spec](proposed/flood_real_estate_damage_code_metadata_spec__model_v0_1__docs_r1.md),
+  [validation report](proposed/VALIDATION_REPORT_flood_real_estate__model_v0_1__docs_r1.md)
 
 ## Status
 
 ```yaml
 cell_id: flood_real_estate
-lifecycle_state: scaffold   # draft needs owner scope acceptance + capability declaration (CELL_LIFECYCLE gate)
+lifecycle_state: scaffold   # draft needs owner scope acceptance (CELL_LIFECYCLE gate); capability declaration exists
 semantic_damage_model_version: model v0.1
 released_model_version: null
 promotion_status: proposed
@@ -57,7 +64,7 @@ runtime_reason: NO_RUNTIME_CURVE
 
 ## Not done yet
 
-Steps 3–6 are drafted: sources verified, curve selections proposed, six curve records with straight lines
-between published points, reference-building assumptions (NSI 2026 first-floor heights) and the value link.
-The per-area replacement cost stays open, so scenario dollars are withheld. One source item stays pending (EGM
-document). Step 7 remains: curve artifact, capability declaration, known-answer tests, and validation.
+Steps 0–7 are drafted. The proposed package (artifact, capability, 166 known-answer tests, workbook, dossier,
+metadata spec, validation report) passes its validator 29/29 and stays out of the artifact index. Still open:
+owner review of the scope and selections, the per-area replacement cost (dollars withheld), the EGM document behind
+DF 129, and the consumer integration findings in the validation report §4.

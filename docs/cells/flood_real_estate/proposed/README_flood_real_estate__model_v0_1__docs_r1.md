@@ -15,7 +15,7 @@ scope: Step 0/1 cell definition for flood × real estate — modelling question,
 
 ```yaml
 cell_id: flood_real_estate
-lifecycle_state: scaffold   # draft needs owner scope acceptance + capability declaration (CELL_LIFECYCLE gate)
+lifecycle_state: scaffold   # draft needs owner scope acceptance (CELL_LIFECYCLE gate); capability declaration exists
 semantic_damage_model_version: model v0.1
 released_model_version: null
 promotion_status: proposed
@@ -26,8 +26,8 @@ canonical_runtime_artifact: false
 package_release: unreleased
 package_baseline: library v2.5
 package_inclusion_status: not_included
-curve_records: 0   # six proposed records are documented (step 5); none is in a runtime artifact yet
-runtime_reason: NO_RUNTIME_CURVE
+curve_records: 12   # proposed, in a noncanonical artifact (6 point records + 6 NACCS bounds); not in the artifact index
+runtime_reason: NO_RUNTIME_CURVE   # no canonical runtime artifact; the proposed artifact is review-only
 ```
 
 ## 1. The modelling question
@@ -180,7 +180,7 @@ site-condition adapter:           draft (step 6, in the seven-step audit) — fi
 row-level value crosswalk:        draft (step 6) — structure RCN 100%; exclusions named; per-area cost open
 pressure test:                    draft (step 4) — three proposed selections, fresh vs coastal gap recorded
 curve records and form:           draft (step 5) — six records, straight lines between published points, 177 ordinates
-known-answer tests:               not started (step 7)
+known-answer tests:               draft (step 7) — 166 tests, all passing
 ```
 
 ## 9. Explicit non-changes

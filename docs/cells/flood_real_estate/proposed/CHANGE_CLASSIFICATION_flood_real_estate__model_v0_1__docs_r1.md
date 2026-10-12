@@ -43,6 +43,8 @@ related_change_events: []
 
 ## Why this is not a model release
 
-No curve record exists yet. Candidate curves have been identified (coverage note), but source verification,
-selection, form, value basis and tests are still to be done. The cell therefore starts at model v0.1 with zero
-curve records and fails closed with `NO_RUNTIME_CURVE`.
+Step 7 added a **noncanonical** bundle-v3 artifact with twelve proposed curve records, a capability declaration
+(promotion gate blocked) and 166 known-answer tests. None of it is in the artifact index, version registry or a
+`current/` package, so no runtime behaviour changes and the class stays `NEW_CELL_SCAFFOLD`. A
+`NEW_CELL_MODEL_RELEASE` needs owner acceptance, a selected value basis for dollars, independent review and a
+deliberate consumer cutover (validation report §4).
