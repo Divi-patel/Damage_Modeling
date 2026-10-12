@@ -83,9 +83,10 @@ house DF 129 / NACCS `RES1-1SNB`; commercial **DF 217** (retail) / NACCS `COM-EN
 All are proposed, pending owner review (D-FRE-16 to D-FRE-19).
 Step 3 verified the candidate ordinates against originals or independent copies and moved the commercial coastal
 candidate from `COM-PRE` to `COM-ENG`; see the
-[source verification](SOURCE_VERIFICATION_flood_real_estate__model_v0_1__docs_r1.md). NACCS prototype tables give
-sourced first-floor-height defaults (house 1 ft, warehouse 1 ft, engineered commercial 0 ft). The full attribute
-table is fixed in step 6.
+[source verification](SOURCE_VERIFICATION_flood_real_estate__model_v0_1__docs_r1.md). First-floor heights are the
+NSI 2026 defaults (house 0.75 ft, commercial 0.25 ft, warehouse 0.25 ft; D-FRE-22), replacing the NACCS prototype
+heights proposed in step 3. Full attribute table:
+[reference buildings](REFERENCE_BUILDINGS_flood_real_estate__model_v0_1__docs_r1.md).
 
 The platform type labels (Hotel → Commercial, Warehouse → Industrial; doc 06 check 4) do not change the curve.
 The curve keys on the Hazus occupancy recorded above.
@@ -170,13 +171,13 @@ PML/VaR/TVaR:     withheld — no runtime curve; NACCS Min/Max is a source band,
 ## 8. Evidence-governance summary
 
 ```text
-seven-step audit:                 not started (step 4–6)
-source register:                  draft (step 3) — FRE-S001..S009; S006, S009 pending
-claim/parameter register:         draft (steps 3–4) — FRE-C001..C021
+seven-step audit:                 draft (step 6) — steps 1–6 proposed, step 7 partial
+source register:                  draft (steps 3–6) — FRE-S001..S011; S006 pending
+claim/parameter register:         draft (steps 3–6) — FRE-C001..C025
 parameter-tier table:             draft (steps 4–5) — 20 parameters, two open seams
 legacy numerical audit:           legacy Real Estate_Hail array noted as rejected (coverage note); no flood legacy array found
-site-condition adapter:           not started; first-floor height is the main site condition
-row-level value crosswalk:        not started (step 6)
+site-condition adapter:           draft (step 6, in the seven-step audit) — first-floor height, no protection credit
+row-level value crosswalk:        draft (step 6) — structure RCN 100%; exclusions named; per-area cost open
 pressure test:                    draft (step 4) — three proposed selections, fresh vs coastal gap recorded
 curve records and form:           draft (step 5) — six records, straight lines between published points, 177 ordinates
 known-answer tests:               not started (step 7)

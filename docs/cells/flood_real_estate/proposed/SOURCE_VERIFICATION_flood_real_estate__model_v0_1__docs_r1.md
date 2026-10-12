@@ -35,7 +35,7 @@ Every value was therefore checked against an original or an independent copy whe
 | Hazus default list (Table 5-2) | Hazus Flood Technical Manual 5.1, 6.1 and 7.0 (FRE-S002; downloaded manually) | **Identical in all three editions** for every type we use: DF 129, 217, 431, 341, 559 (and 209 for hotels). Pollack's copy is correct and still current; cite Hazus 7.0 (FRE-C002). |
 | Hazus coastal defaults (Tables 5-3, 5-4) | Hazus 7.0 | Only RES1 (and RES2, RES3A) have coastal-specific curves; commercial and industrial use the riverine defaults for coastal water. The coastal house default is DF 658 (BCAR 2011), not in the 5.1 working copy (FRE-C013, FRE-C014). |
 | All 550 compiled structure curves; DF 658; default assignments | Hazus 6.1 damage-function extract (FRE-S010; FEMA-provided file via a public mirror, downloaded by JL) | **All 550 shared structure curves identical** (FRE-C018). The software's default table matches Tables 5-2 to 5-4 (FRE-C019). **DF 658 found:** 12% at the floor, 25% at 1 ft, 50% at 2 ft, 75% at 3 ft, 100% from 4 ft (FRE-C020). |
-| NSI first-floor-height defaults | NSI technical documentation (FRE-S009) | **Pending.** Not yet accessed. |
+| NSI first-floor-height defaults | NSI 2026 technical documentation (FRE-S009) and NSI records in three counties (FRE-S011) | **Done in step 6.** RES1 slab 0.75 ft (documented); commercial and industrial slab 0.25 ft (read from records). Adopted by D-FRE-22. |
 
 ## 3. What the checks changed
 
@@ -54,8 +54,8 @@ Every value was therefore checked against an original or an independent copy whe
    | `RE_IND_WAREHOUSE` | 3: 1 story, steel or light metal, slab | **1 ft** (Table 34) |
    | `RE_COM_LOWRISE` | 2: 2 stories, steel frame, precast infill, slab | **0 ft** (Table 24) |
 
-   NACCS 5A is an exact description of the reviewer's reference house. These remain reference-building assumptions,
-   cross-checked later against NSI.
+   NACCS 5A is an exact description of the reviewer's reference house. **Superseded in step 6:** the cell now uses the
+   NSI 2026 defaults (0.75 / 0.25 / 0.25 ft; D-FRE-22); the NACCS values stay recorded as the alternative.
 4. **A known low-bias warning for the house.** NACCS reports that its no-basement residential inundation curves
    (5A, 5B) came out **lower than FEMA substantial-damage estimates** in its own verification, and advises users
    to review that before selecting them (FRE-C009). Recorded as a caveat for coastal results on the house.
@@ -79,8 +79,8 @@ Every value was therefore checked against an original or an independent copy whe
 ## 4. Still open for step 3
 
 ```text
-- NSI foundation-height defaults (FRE-S009)
 - identify the exact EGM document behind DF 129 (likely EGM 01-03)
+(NSI foundation-height defaults: resolved in step 6, FRE-S009 and FRE-S011)
 ```
 
 None of these blocks step 4. Each is recorded as `pending` or `defer` in the registers.

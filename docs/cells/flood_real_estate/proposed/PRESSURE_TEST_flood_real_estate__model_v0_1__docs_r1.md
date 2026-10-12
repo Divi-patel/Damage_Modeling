@@ -30,7 +30,7 @@ water level at the building
 | Axis: depth above first finished floor | Supported (FRE-C001) | Supported (FRE-C001) |
 | Ordinate: % of structure value | Supported; verified against two independent chains (FRE-C002–C004) | Supported; 90/90 published knots verified (FRE-C005) |
 | Reference-building match | By Hazus occupancy and stories / basement | By NACCS prototype description (FRE-C007, C008) |
-| First-floor height | Not given by Hazus; taken from the NACCS prototypes (D-FRE-15) | Given by the prototype |
+| First-floor height | Not given by Hazus; NSI 2026 defaults (D-FRE-22, step 6; replaces D-FRE-15) | NSI 2026 defaults; the prototype height is the recorded alternative |
 | Value denominator | Structure replacement value (Hazus convention) | Structure value (NACCS convention) |
 | Calibration to observed losses | None verified (class averages; EGM lineage for the house) | Expert panel; own verification found 5A low against FEMA estimates (FRE-C009) |
 

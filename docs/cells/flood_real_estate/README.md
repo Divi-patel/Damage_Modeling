@@ -33,6 +33,10 @@ component evidence the way the solar and wind cells were.
 - [Curve records and form (step 5)](proposed/CURVE_FORM_DECISION_flood_real_estate__model_v0_1__docs_r1.md), with the
   [ordinates](proposed/CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv) and the
   [candidate-curves chart](previews/flood_real_estate_v0_1_candidate_curves.png)
+- [Reference buildings and value link (step 6)](proposed/REFERENCE_BUILDINGS_flood_real_estate__model_v0_1__docs_r1.md),
+  [value crosswalk](proposed/VALUE_CROSSWALK_flood_real_estate__model_v0_1__docs_r1.csv),
+  [seven-step audit](proposed/SEVEN_STEP_AUDIT_flood_real_estate__model_v0_1__docs_r1.md),
+  [NSI sample](proposed/NSI_SAMPLE_flood_real_estate__model_v0_1__docs_r1.csv)
 
 ## Status
 
@@ -53,7 +57,7 @@ runtime_reason: NO_RUNTIME_CURVE
 
 ## Not done yet
 
-Steps 3–5 are drafted: sources verified, three curve selections proposed, six curve records documented with
-straight lines between published points. Two source items stay pending (NSI defaults, EGM document). Steps 6–7
-remain: reference-building assumptions and value link, curve artifact, capability declaration, known-answer tests,
-and validation.
+Steps 3–6 are drafted: sources verified, curve selections proposed, six curve records with straight lines
+between published points, reference-building assumptions (NSI 2026 first-floor heights) and the value link.
+The per-area replacement cost stays open, so scenario dollars are withheld. One source item stays pending (EGM
+document). Step 7 remains: curve artifact, capability declaration, known-answer tests, and validation.
