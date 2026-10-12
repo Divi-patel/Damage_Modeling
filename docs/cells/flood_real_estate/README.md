@@ -25,6 +25,9 @@ component evidence the way the solar and wind cells were.
 - [Change classification](proposed/CHANGE_CLASSIFICATION_flood_real_estate__model_v0_1__docs_r1.md)
 - [Decision log](proposed/DECISION_LOG_flood_real_estate__model_v0_1__docs_r1.md)
 - [Existing-coverage check (step 2)](proposed/COVERAGE_NOTE_flood_real_estate__model_v0_1__docs_r1.md)
+- [Source verification (step 3)](proposed/SOURCE_VERIFICATION_flood_real_estate__model_v0_1__docs_r1.md),
+  with the [source register](proposed/SOURCE_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv) and
+  [claim register](proposed/CLAIM_PARAMETER_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv)
 
 ## Status
 
@@ -45,5 +48,6 @@ runtime_reason: NO_RUNTIME_CURVE
 
 ## Not done yet
 
-Steps 3–7 of the Damage Core lifecycle: source and claim registers, evidence judgment, curve records and form,
-value link, curve artifact, capability declaration, known-answer tests, and validation.
+Step 3 is drafted; Hazus Table 5-2 is confirmed. Two items stay pending (NSI defaults, EGM document). Steps 4–7 of the
+Damage Core lifecycle remain: evidence judgment, curve records and form, value link, curve artifact, capability
+declaration, known-answer tests, and validation.

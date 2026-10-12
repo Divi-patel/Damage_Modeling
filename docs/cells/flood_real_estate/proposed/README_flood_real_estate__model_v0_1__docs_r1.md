@@ -74,12 +74,15 @@ selector** on the single failure unit, in the same way module archetypes select 
 | `reference_building_id` (proposed) | Asset type | Reference building (assumed attributes) | Hazus occupancy | Candidate freshwater curve (Hazus default, Table 5-2) | Candidate coastal-surge curve (NACCS 2015) |
 |---|---|---|---|---|---|
 | `RE_RES_SFD_1S_SLAB` | Residential | Single-family detached; wood frame; 1 story; slab-on-grade; no basement; asphalt-shingle roof | RES1 | DF 129 — USACE-IWR "one story, no basement, Structure" | `RES1-1SNB` (Min / ML / Max) |
-| `RE_COM_LOWRISE` | Commercial | Small low-rise (1–3 story) retail or office; masonry or steel frame; low-slope membrane roof; no basement | COM1 / COM4 | DF 217 — Galveston "Average of 47 Retail classes" **or** DF 431 — Galveston "Average prof/tech services" | `COM-PRE` (`COM-ENG` if steel-framed engineered) |
-| `RE_IND_WAREHOUSE` | Industrial | One-story warehouse / light industrial; pre-engineered steel frame; large low-slope roof | IND2 / COM2 | DF 559 — Galveston "Average of 14 Light Industrial classes" **or** DF 341 — Galveston "Average of 22 wholesale/warehouse classes" | `COM-PRE` |
+| `RE_COM_LOWRISE` | Commercial | Small low-rise (1–3 story) retail or office; masonry or steel frame; low-slope membrane roof; no basement | COM1 / COM4 | DF 217 — Galveston "Average of 47 Retail classes" **or** DF 431 — Galveston "Average prof/tech services" | `COM-ENG` (NACCS Prototype 2, steel frame); `COM-PRE` if the building is defined as masonry |
+| `RE_IND_WAREHOUSE` | Industrial | One-story warehouse / light industrial; pre-engineered steel frame; large low-slope roof | IND2 / COM2 | DF 559 — Galveston "Average of 14 Light Industrial classes" **or** DF 341 — Galveston "Average of 22 wholesale/warehouse classes" | `COM-PRE` (NACCS Prototype 3, one-story steel or light metal) |
 
-**Candidates only.** Selection between the two Hazus defaults for commercial and warehouse, and confirmation of
-each curve against its original publication, is step 3–4 work. First-floor height and the remaining attribute
-defaults are fixed in the assumption table in step 6.
+**Candidates only.** Selection between the two Hazus defaults for commercial and warehouse is step-4 work.
+Step 3 verified the candidate ordinates against originals or independent copies and moved the commercial coastal
+candidate from `COM-PRE` to `COM-ENG`; see the
+[source verification](SOURCE_VERIFICATION_flood_real_estate__model_v0_1__docs_r1.md). NACCS prototype tables give
+sourced first-floor-height defaults (house 1 ft, warehouse 1 ft, engineered commercial 0 ft). The full attribute
+table is fixed in step 6.
 
 The platform type labels (Hotel → Commercial, Warehouse → Industrial; doc 06 check 4) do not change the curve.
 The curve keys on the Hazus occupancy recorded above.
@@ -165,8 +168,8 @@ PML/VaR/TVaR:     withheld — no runtime curve; NACCS Min/Max is a source band,
 
 ```text
 seven-step audit:                 not started (step 4–6)
-source register:                  not started (step 3) — sources identified in the coverage note
-claim/parameter register:         not started (step 3)
+source register:                  draft (step 3) — FRE-S001..S009; S006, S009 pending
+claim/parameter register:         draft (step 3) — FRE-C001..C014
 parameter-tier table:             not started (step 4)
 legacy numerical audit:           legacy Real Estate_Hail array noted as rejected (coverage note); no flood legacy array found
 site-condition adapter:           not started; first-floor height is the main site condition
