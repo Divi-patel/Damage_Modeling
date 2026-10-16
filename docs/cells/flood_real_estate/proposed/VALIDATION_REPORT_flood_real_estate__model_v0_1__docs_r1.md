@@ -18,7 +18,7 @@ Promotion gate: **blocked** (owner review).
 | `flood_real_estate__model_v0_1__docs_r1__capability.json` | `d0cd4c60c348424662ebda0bd5f16a4b7f859794034918c140722907a68cb2c5` |
 | `known_answer_tests_flood_real_estate__model_v0_1__docs_r1.json` | `681ac67507c19bd3429e744604a93b496382909170baf5da7a74822ba3cc4cc7` |
 | `CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv` (governed input) | `7a0e4e6a4689f3c186f9729683044f86d4086f4de84bfc0140fff3b22362918d` |
-| `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `beb95814bc8909bd9a855cb835e15eb2c4d3d146f82a1e93a38c2d184382ef39` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
+| `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `d90f6a883ba6c8d509801386fbd355fa04fd9cc1c17b5e338c2d5bf94b58818b` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
 
 Built by `scripts/reference_helpers/build_flood_real_estate_v0_1_package.py`; the validator confirms the builder
 reproduces the artifact and test JSON exactly.
@@ -41,9 +41,11 @@ PASS  builder reproduces the artifact JSON and the known-answer tests
 PASS  known-answer tests pass (166), each output also valid against damage emit v2
 PASS  cell absent from the artifact index and version registry; no current/ package
 PASS  artifact is noncanonical and proposed; promotion gate blocked
+PASS  profile binding records and evidence resolve
+PASS  profile binding pinned to one profile revision
 PASS  workbook has the expected sheets
 PASS  Markdown links in the cell resolve
-29/29 checks passed
+31/31 checks passed
 ```
 
 The 166 known-answer tests cover every published point of the six point records, one interior point per record,
@@ -101,3 +103,11 @@ The [NFIP claims check](NFIP_CLAIMS_CHECK_flood_real_estate__model_v0_1__docs_r1
 one-floor slab buildings (source FRE-S012, claims FRE-C026 to FRE-C031). The freshwater records agree within about
 5–6 points over most depths; the NACCS coastal records sit 12–23 points below the house claims in the first 2 ft and
 6–12 points above the commercial claims from 1 ft. No record changes; the coastal source decision (D-FRE-18) is open.
+
+## 7. Profile binding (2026-10-16)
+
+The records are bound to the Hazard reference profiles r1 in the [profile binding](PROFILE_BINDING_flood_real_estate__model_v0_1__docs_r1.md)
+(D-FRE-26, source FRE-S013): house and warehouse records bound, office and the wave pathway explicit gaps. The
+validator checks that every bound record exists with the matching building and water type, that cited evidence
+resolves, and that all rows carry one profile revision. The binding adds one consumer rule to §4: the dry-ground
+rule needs depth above grade, so a consumer sending floor-relative depth must apply it itself.

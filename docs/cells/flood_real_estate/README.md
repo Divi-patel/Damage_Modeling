@@ -44,6 +44,9 @@ component evidence the way the solar and wind cells were.
   [derivation dossier](proposed/flood_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md),
   [metadata spec](proposed/flood_real_estate_damage_code_metadata_spec__model_v0_1__docs_r1.md),
   [validation report](proposed/VALIDATION_REPORT_flood_real_estate__model_v0_1__docs_r1.md)
+- [Profile binding](proposed/PROFILE_BINDING_flood_real_estate__model_v0_1__docs_r1.md): which record serves each Hazard reference profile r1, with
+  the [binding table](proposed/PROFILE_BINDING_flood_real_estate__model_v0_1__docs_r1.csv) and
+  [floor-height sensitivity](proposed/FLOOR_HEIGHT_SENSITIVITY_flood_real_estate__model_v0_1__docs_r1.csv)
 - [NFIP claims check](proposed/NFIP_CLAIMS_CHECK_flood_real_estate__model_v0_1__docs_r1.md): the curves against paid flood claims, with the
   [band table](proposed/NFIP_CLAIMS_COMPARISON_flood_real_estate__model_v0_1__docs_r1.csv),
   [sensitivity table](proposed/NFIP_CLAIMS_SENSITIVITY_flood_real_estate__model_v0_1__docs_r1.csv),
@@ -70,7 +73,8 @@ runtime_reason: NO_RUNTIME_CURVE
 ## Not done yet
 
 Steps 0–7 are drafted. The proposed package (artifact, capability, 166 known-answer tests, workbook, dossier,
-metadata spec, validation report) passes its validator 29/29 and stays out of the artifact index. The NFIP claims
-check is recorded and supports the freshwater records; it questions the NACCS coastal records. Still open: owner
-review of the scope and selections, the coastal source decision (D-FRE-18), the per-area replacement cost (dollars
-withheld), the EGM document behind DF 129, and the consumer integration findings in the validation report §4.
+metadata spec, validation report) passes its validator 31/31 and stays out of the artifact index. The records are
+bound to the Hazard reference profiles r1 (house and warehouse; office pending). The NFIP claims check is recorded
+and supports the freshwater records; it questions the NACCS coastal records. Still open: owner review of the scope
+and selections, the coastal source decision (D-FRE-18), the per-area replacement cost (dollars withheld), the EGM
+document behind DF 129, and the consumer integration findings in the validation report §4.

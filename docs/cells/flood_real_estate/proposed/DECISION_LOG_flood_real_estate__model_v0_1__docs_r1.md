@@ -1,13 +1,13 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-16
 status: draft
 -->
 
 # Decision log — flood_real_estate model v0.1 / docs r1
 
-All entries are **proposed** on 2026-10-11 by JL for this scaffold. None is owner-accepted yet. Items marked
+All entries are **proposed** by JL for this scaffold (D-FRE-01 to -25 on 2026-10-11, D-FRE-26 on 2026-10-16). None is owner-accepted yet. Items marked
 *owner* need the reviewer (or the platform) before they can be settled.
 
 | ID | Decision | Reason | Alternatives considered | Revisit trigger |
@@ -37,3 +37,4 @@ All entries are **proposed** on 2026-10-11 by JL for this scaffold. None is owne
 | D-FRE-23 | The structure failure unit carries 100% of structure replacement cost new; NSI `val_struct` (depreciated) is rejected; the per-area cost source stays open, and scenario dollars stay withheld until it is chosen. | Matches the curve denominator (FRE-C001, C024). Four options documented without a selection (reference buildings §4). | Select NSI `fullrep` now; use team reference values. | Owner selects a per-area source. |
 | D-FRE-24 | When depth is given above grade, a depth of 0 or less means the building is not inundated and returns 0%, even where the curve has damage below the floor. | FEMA DF 129 reads 3% at −1 ft and 13% at the floor, so a dry slab house (floor 0.75 ft) would otherwise show about 5.5%. Hazus only estimates damage where the flood depth at the structure is above zero. | Evaluate the curve below the floor for dry buildings. | A source shows damage without water above ground (e.g. groundwater seepage) is in scope. |
 | D-FRE-25 | Package choices for v0.1: NACCS Min/Max kept as separate bound records emitted with the point value (`scalar_mean_plus_bounds`, a non-probabilistic building-variant envelope); water type stays a conditioner and record routing is declared in `record_routing_fields`; the reference first-floor heights are carried in the pathway for the depth-above-grade mode. | Keeps the method semantics (water type is event-time state, D-FRE-05) and the full NACCS publication; consumer integration gaps are recorded in the validation report §4 rather than worked around. | Drop the bounds; make water type a selector to fit the current Hazard loader. | Consumer cutover design. |
+| D-FRE-26 | Bind the records to the Hazard reference profiles r1 without renaming them: house → `RE_RES_SFD_1S_SLAB` (freshwater exact match on the source's keys; coastal qualified proxy), warehouse → `RE_IND_WAREHOUSE` (same), office → unavailable until its own record exists; the retail record `RE_COM_LOWRISE` is kept and bound to no profile. Covered fraction of the profile budget is returned as not stated by the source. | The profiles match every key the sources select on; no profile field changes selection except first-floor height, which already equals the cell's references (PROFILE_BINDING §2, §4). Keeping the cell's IDs avoids a rebuild for a label change; the binding table is the mapping. The sources do not itemize "structure", so a 100% coverage claim would be unsupported. | Rename selectors to the profile IDs; alias the retail record as the office; declare 100% coverage. | A new profile revision, an office record, or a consumer contract that needs profile IDs in the artifact. |

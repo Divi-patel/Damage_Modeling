@@ -38,5 +38,6 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_flood_real_estate_v0_1_package.py` | Schema/register/ordinate/reproducibility/KAT/non-promotion/workbook/link validator for the flood × real estate model-v0.1 proposal. |
 | `flood_real_estate_form_comparison.py` | Curve-form comparison (linear, PCHIP, anchored logistic/Richards/Weibull; LOOCV and shape gates) for the noncanonical flood × real estate model-v0.1 scaffold. Needs numpy, scipy and matplotlib. |
 | `flood_real_estate_nfip_claims_check.py` | NFIP claims check for the noncanonical flood × real estate model-v0.1 proposal: fetches OpenFEMA NfipClaims v3 into gitignored `build/nfip_claims`, compares band means with the proposed curves, writes the comparison, sensitivity and manifest files and the chart. Needs numpy and matplotlib. |
+| `flood_real_estate_profile_binding.py` | Binds the flood × real estate model-v0.1 records to the Hazard reference profiles r1 (binding table with explicit gaps) and computes the profiles' floor-height sensitivity through the reference evaluator. Standard library only. |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
