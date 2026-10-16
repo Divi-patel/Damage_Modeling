@@ -58,7 +58,8 @@ solar and wind cells were.
 [profile binding](proposed/PROFILE_BINDING_flood_real_estate__model_v0_2__docs_r1.md) (with the
 [binding table](proposed/PROFILE_BINDING_flood_real_estate__model_v0_2__docs_r1.csv) and
 [floor-height sensitivity](proposed/FLOOR_HEIGHT_SENSITIVITY_flood_real_estate__model_v0_2__docs_r1.csv)),
-[validation report](proposed/VALIDATION_REPORT_flood_real_estate__model_v0_2__docs_r1.md)
+[validation report](proposed/VALIDATION_REPORT_flood_real_estate__model_v0_2__docs_r1.md),
+[**return package for Hazard**](proposed/RETURN_PACKAGE_flood_real_estate__model_v0_2__docs_r1.md) (one card per profile and a worked example)
 
 **Previous package — model v0.1** (kept for reproducibility):
 [curve artifact](proposed/flood_real_estate__model_v0_1__docs_r1__curve_artifact.json),
@@ -91,7 +92,8 @@ runtime_reason: NO_RUNTIME_CURVE
 
 Model v0.2 (7 records, 185 known-answer tests) passes its validator and stays out of the artifact index. House,
 warehouse and office each have one FEMA Hazus record for all still water (D-FRE-28), bound to the Hazard reference
-profiles r1; Hazard's common v3 loader routes them without ambiguity (validation report v0.2 §4). Still open: owner
-review of the scope and selections, the return package for Hazard (one card per profile and a worked example), the
-consumer's value qualification of each reference budget, the dry-ground rule and record ranges at cutover, the
-office height bias and the thin warehouse coastal evidence, and the EGM document behind DF 129.
+profiles r1; Hazard's common v3 loader routes them without ambiguity (validation report v0.2 §4). The return
+package for Hazard (one card per profile and a warehouse worked example) is written. Still open: owner review of
+the scope and selections, the consumer's value qualification of each reference budget, the dry-ground rule and
+record ranges at cutover, the office height bias and the thin warehouse coastal evidence, and the EGM document
+behind DF 129.
