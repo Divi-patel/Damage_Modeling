@@ -83,7 +83,7 @@ business uses, not offices only; the claims are mostly Gulf states (FRE-S012).
 
 ## 6. Proposal
 
-**Decided 2026-10-16: freshwater option A (D-FRE-27).** Coastal is decided with D-FRE-18.
+**Decided 2026-10-16: freshwater option A (D-FRE-27); coastal surge DF 431 (D-FRE-28).** Built in model v0.2.
 
 **Freshwater.** Options:
 
@@ -99,11 +99,12 @@ it keeps the cell adopted and FEMA-consistent, and the bias is visible rather th
 **Coastal.** FEMA assigns DF 431 to COM4 in coastal zones too (§3), and it is closer to multi-floor coastal claims
 than NACCS prototype 2, which is a two-storey North Atlantic prototype and runs about twice the claims. Proposed:
 **DF 431 for the office in coastal surge**, NACCS prototype 2 as the recorded alternative. This belongs with the
-coastal decision for all three buildings (D-FRE-18), so it is decided there.
+coastal decision for all three buildings; decided in D-FRE-28.
 
 **Elevator and rooftop equipment.** No separate response; inside the assembly (§5).
 
-## 7. What changes in the package once decided
+## 7. What changed in the package (model v0.2)
 
 A new selector `RE_COM_OFFICE_3S_SLAB` (first-floor height 0.25 ft) with its record(s), DF 431 ordinates in the
-governed ordinates CSV, known-answer tests, and the office rows of the profile binding changed from unavailable.
+governed ordinates CSV (`FRE_OFF_HAZUS_DF431`, one record for both water types), known-answer tests, and the office rows
+of the profile binding changed from unavailable to qualified proxy.

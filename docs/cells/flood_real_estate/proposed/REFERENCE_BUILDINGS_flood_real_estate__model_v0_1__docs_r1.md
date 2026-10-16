@@ -1,12 +1,17 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-16
 status: draft
 scope: Step 6 (connect value) for flood × real estate — the stated assumptions of each reference building, the first-floor-height choice, the value link, and the open options for a replacement cost per floor area.
 -->
 
 # Reference buildings and value link — flood_real_estate model v0.1 / docs r1
+
+> **Model v0.2 note (2026-10-16):** this step document describes model v0.1. In model v0.2 the house, the
+> warehouse and the new three-storey office use their FEMA Hazus record for coastal surge as well as freshwater
+> (D-FRE-28; office DF 431, D-FRE-27); NACCS remains only for the retail record. See the
+> [v0.2 dossier](flood_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md).
 
 OSM supplies location and footprint, and rarely anything about construction (doc 06 §2). Every attribute below is
 therefore an **assumption of the reference building**, stated once here and never presented as an observation.

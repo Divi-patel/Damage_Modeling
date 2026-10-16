@@ -1,12 +1,17 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-16
 status: draft
 scope: Step 0/1 cell definition for flood × real estate — modelling question, boundary, reference buildings, pathways, axis, failure-unit coverage, value link, and capability stance for the model v0.1 scaffold.
 -->
 
 # flood_real_estate — flood × real estate, model v0.1 scaffold
+
+> **Model v0.2 note (2026-10-16):** this step document describes model v0.1. In model v0.2 the house, the
+> warehouse and the new three-storey office use their FEMA Hazus record for coastal surge as well as freshwater
+> (D-FRE-28; office DF 431, D-FRE-27); NACCS remains only for the retail record. See the
+> [v0.2 dossier](flood_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md).
 
 > **Status: proposed, not yet reviewed, noncanonical, zero runtime curves.** No current Damage Modeling or
 > Hazard Modeling runtime pin changes.

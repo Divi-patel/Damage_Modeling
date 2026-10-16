@@ -173,34 +173,6 @@ def main() -> int:
           art["canonical_runtime_artifact"] is False and art["schema_status"] == "proposed_draft"
           and art["promotion_status"] == "proposed" and cap["promotion_gate"]["status"] == "blocked")
 
-    # profile binding (Hazard reference profiles r1)
-    bind_path = PROP / f"PROFILE_BINDING_{TAG}.csv"
-    if bind_path.exists():
-        with bind_path.open(newline="") as fh:
-            binding = list(csv.DictReader(fh))
-        by_id = {r["curve_id"]: r for r in art["pathways"][0]["curve_records"]}
-        ids = {r[0] for r in csv_rows(files["source_register"])[1:]} | {r[0] for r in csv_rows(files["claim_register"])[1:]}
-        bad = []
-        for b in binding:
-            tag = f"{b['profile_id']}/{b['pathway_id']}/{b['flood_water_type']}"
-            if b["applicability"] == "unavailable":
-                if b["point_record_id"] or b["bound_record_ids"]:
-                    bad.append(f"{tag}: unavailable row names a record")
-                continue
-            want = {"reference_building_id": b["damage_selector_reference_building_id"],
-                    "flood_water_type": b["flood_water_type"]}
-            point = by_id.get(b["point_record_id"])
-            if not point or point["selector_match"] != {**want, "band": "point"}:
-                bad.append(f"{tag}: point record {b['point_record_id']} missing or mismatched")
-            for cid in filter(None, b["bound_record_ids"].split(";")):
-                r = by_id.get(cid)
-                if not r or {k: r["selector_match"][k] for k in want} != want or r["selector_match"]["band"] == "point":
-                    bad.append(f"{tag}: bound record {cid} missing or mismatched")
-            bad += [f"{tag}: evidence {e} unknown" for e in b["evidence_ids"].split(";") if e and e not in ids]
-        check("profile binding records and evidence resolve", binding and not bad, "; ".join(bad[:5]))
-        check("profile binding pinned to one profile revision",
-              len({(b["profile_revision"], b["profile_commit"]) for b in binding}) == 1)
-
     # workbook
     try:
         from openpyxl import load_workbook

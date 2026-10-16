@@ -1,4 +1,4 @@
-"""Reference evaluator for the noncanonical flood × real estate model-v0.1 proposal.
+"""Reference evaluator for the noncanonical flood × real estate model-v0.1 and model-v0.2 proposals.
 
 Evaluates one request against the proposed bundle-v3 artifact and returns a damage-emit-v2 object.
 Physics only: failure-unit damage ratio (fraction of structure replacement cost new). No dollars,
@@ -14,11 +14,12 @@ Request contract (canonical field names):
     flood_depth_above_first_floor_ft axis mode B: depth already referenced to the first floor
 
 Rules (decision log D-FRE-05, -20, -21, -22, -24):
-    - unknown water type withholds; freshwater uses Hazus, coastal surge uses NACCS;
+    - unknown water type withholds; v0.1: freshwater uses Hazus, coastal surge uses NACCS; v0.2: house,
+      warehouse and office use one Hazus record for both, retail keeps the v0.1 routing (D-FRE-28);
     - straight lines between published points;
     - mode A: depth above grade <= 0 is not inundated and returns 0 (D-FRE-24);
     - below a record's lowest published depth returns 0; above its highest published depth withholds;
-    - coastal records also emit the NACCS Min / Max building-variant bounds (not a probability spread).
+    - NACCS records also emit the NACCS Min / Max building-variant bounds (not a probability spread).
 
 Usage:
     python flood_real_estate_curve_eval.py <artifact.json> '<request json>'
@@ -158,11 +159,16 @@ def evaluate_damage_call(artifact: Mapping[str, Any], request: Mapping[str, Any]
     if water not in conditioner["numeric_support_when"]:
         return withheld([conditioner["withhold_otherwise"]])
 
+    def serves_water(r: Mapping[str, Any]) -> bool:
+        # model v0.1: one water type per record; model v0.2: a record may list several (one record for both)
+        value = r["selector_match"]["flood_water_type"]
+        return water in value if isinstance(value, list) else value == water
+
     def pick(band: str) -> Mapping[str, Any] | None:
         hits = [r for r in pathway["curve_records"]
                 if r["failure_unit_id"] == unit_id
                 and r["selector_match"]["reference_building_id"] == building
-                and r["selector_match"]["flood_water_type"] == water
+                and serves_water(r)
                 and r["selector_match"]["band"] == band]
         if len(hits) > 1:
             raise DamageCallError("CURVE_SELECTOR_MATCH_NOT_UNIQUE")

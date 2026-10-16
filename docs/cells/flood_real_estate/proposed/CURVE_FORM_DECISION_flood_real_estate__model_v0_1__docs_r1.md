@@ -1,12 +1,17 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-16
 status: draft
 scope: Step 5 (derive the response) for flood × real estate — the six proposed curve records, how values between published depths are computed, behaviour outside the published range, and the evidence for choosing straight lines over smooth fits.
 -->
 
 # Curve records and form — flood_real_estate model v0.1 / docs r1
+
+> **Model v0.2 note (2026-10-16):** this step document describes model v0.1. In model v0.2 the house, the
+> warehouse and the new three-storey office use their FEMA Hazus record for coastal surge as well as freshwater
+> (D-FRE-28; office DF 431, D-FRE-27); NACCS remains only for the retail record. See the
+> [v0.2 dossier](flood_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md).
 
 Exact ordinates: [CURVE_ORDINATES](CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv) (177 rows).
 Comparison metrics: [FORM_COMPARISON](FORM_COMPARISON_flood_real_estate__model_v0_1__docs_r1.csv).

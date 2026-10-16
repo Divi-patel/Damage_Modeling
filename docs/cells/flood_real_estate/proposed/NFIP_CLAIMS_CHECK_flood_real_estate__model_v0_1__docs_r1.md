@@ -12,7 +12,7 @@ buildings. **It is a check, not a calibration: no curve, record or decision chan
 "calibration against observed losses" item left open in the
 [validation report §5](VALIDATION_REPORT_flood_real_estate__model_v0_1__docs_r1.md) and is the evidence named by the
 revisit trigger of D-FRE-18 (coastal source) in the [decision log](DECISION_LOG_flood_real_estate__model_v0_1__docs_r1.md).
-The coastal decision itself stays open.
+The coastal decision was taken afterwards in D-FRE-28 (model v0.2).
 
 ## 1. Data
 

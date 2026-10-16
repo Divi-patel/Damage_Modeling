@@ -1,4 +1,4 @@
-"""Profile binding for the noncanonical flood × real estate model-v0.1 proposal.
+"""Profile binding for the noncanonical flood × real estate model-v0.2 proposal.
 
 Binds the proposed curve records to the Hazard reference profiles r1 (one row per profile × pathway × water
 type, including explicit gaps) and computes the floor-height sensitivity each profile asks for, by calling the
@@ -21,7 +21,7 @@ sys.path.insert(0, str(HERE))
 import flood_real_estate_curve_eval as ev  # noqa: E402
 
 ROOT = HERE.parents[1]
-TAG = "flood_real_estate__model_v0_1__docs_r1"
+TAG = "flood_real_estate__model_v0_2__docs_r1"
 PROPOSED = ROOT / "docs/cells/flood_real_estate/proposed"
 ARTIFACT = PROPOSED / f"{TAG}__curve_artifact.json"
 OUT_BINDING = PROPOSED / f"PROFILE_BINDING_{TAG}.csv"
@@ -37,9 +37,10 @@ PIN = {  # Hazard reference profiles r1 (source FRE-S013)
 PATHWAY, WAVE = "flood_inundation_contact", "flood_wave_velocity"
 FRESH, COAST = "freshwater_riverine_or_pluvial", "coastal_surge_saline"
 
-DEMAND = ("flood_depth_above_grade_ft (preferred: the evaluator converts once with the reference first-floor height) "
-          "or flood_depth_above_first_floor_ft (already converted by Hazard; never shifted again)")
-DRY = ("depth above grade <= 0 returns 0 (D-FRE-24) only when depth is sent above grade; below the record range returns 0; "
+DEMAND = ("flood_depth_above_first_floor_ft (source-native axis, read by the common v3 loader; Hazard converts from grade "
+          "once and never shifts again) or flood_depth_above_grade_ft (reference evaluator converts with the reference first-floor height)")
+DRY = ("depth above grade <= 0 returns 0 (D-FRE-24): applied by the reference evaluator in the above-grade mode, by Hazard when it sends "
+       "floor-relative depth; below the record range returns 0; "
        "above the record range withholds (ABOVE_SOURCE_VALID_RANGE); unknown water type withholds (FLOOD_WATER_TYPE_UNKNOWN)")
 DENOM = "structure value of the same building (Hazus: structure replacement value; NACCS: structure value); components not itemized by the source"
 COVERED = "foundation_and_floor;structural_frame;roof_assembly;walls_and_openings;fixed_services;interiors (as one source-native assembly)"
@@ -48,9 +49,11 @@ FRACTION = "not stated by the source: the ratio is of whole-structure value with
 OVERLAP = "single assembly; no component response may be added for the same pathway and event"
 POINT_OUT = "failure_unit_damage_ratio (expected repair/replacement fraction of structure value), conditional on the event"
 
+HAZUS_ALL = ("One Hazus record serves freshwater and coastal surge (D-FRE-28): NFIP coastal-surge claims are closer to it "
+             "than to the NACCS prototype")
 ROWS = [
     # profile, selector, pathway, water, point record, bound records, applicability, reason, uncertainty, evidence, open
-    ("re_house_1s_wood_slab", "RE_RES_SFD_1S_SLAB", PATHWAY, FRESH, "FRE_RES_FRESH_HAZUS_DF129", "",
+    ("re_house_1s_wood_slab", "RE_RES_SFD_1S_SLAB", PATHWAY, FRESH, "FRE_RES_HAZUS_DF129", "",
      "exact_match",
      "Matches every key the source selects on: Hazus RES1, one storey, no basement (Table 5-2 default). The curve is the "
      "class average for that key; wood frame, 20-year age, no garage and 1,800 ft2 are not source keys and do not change it.",
@@ -58,16 +61,14 @@ ROWS = [
      "FRE-S002;FRE-S003;FRE-S010;FRE-C002;FRE-C026;FRE-S012",
      "Class average, not calibrated to the profile. NFIP claims sit 9-12 points above at 0-2 ft above the floor, mostly a "
      "floor-height sensitivity (FRE-C031)."),
-    ("re_house_1s_wood_slab", "RE_RES_SFD_1S_SLAB", PATHWAY, COAST, "FRE_RES_COAST_NACCS_5A",
-     "FRE_RES_COAST_NACCS_5A_MIN;FRE_RES_COAST_NACCS_5A_MAX",
+    ("re_house_1s_wood_slab", "RE_RES_SFD_1S_SLAB", PATHWAY, COAST, "FRE_RES_HAZUS_DF129", "",
      "qualified_proxy",
-     "NACCS prototype 5A most-likely building matches the profile: one storey, wood frame, slab, 15-30 years (profile 20). "
-     "Transfer limits: North Atlantic prototype; the profile is placed CONUS-wide.",
-     "Min/Max are the NACCS building-variant envelope; scenario bounds, not quantiles; do not sample",
-     "FRE-S004;FRE-C005;FRE-C007;FRE-C027;FRE-S012",
-     "NFIP coastal claims (95% Gulf states) sit 12-23 points above the point curve at 0-2 ft; coastal source decision "
-     "D-FRE-18 open."),
-    ("re_warehouse_1s_steel_slab", "RE_IND_WAREHOUSE", PATHWAY, FRESH, "FRE_IND_FRESH_HAZUS_DF341", "",
+     HAZUS_ALL + " (house: 8-12 points below the claims at 0-2 ft, NACCS 5A 12-23 below). A riverine curve used for coastal "
+     "still water: FEMA's own coastal-A house default (DF 658) includes wave damage and is not used for still water.",
+     "none supplied (point value only); no sampleable spread",
+     "FRE-S002;FRE-S010;FRE-S012;FRE-C020;FRE-C027;FRE-C029;FRE-C030",
+     "NACCS 5A kept as the recorded alternative; its building-variant bounds are no longer emitted."),
+    ("re_warehouse_1s_steel_slab", "RE_IND_WAREHOUSE", PATHWAY, FRESH, "FRE_IND_HAZUS_DF341", "",
      "exact_match",
      "Matches every key the source selects on: Hazus COM2 (wholesale trade / warehouse), no basement. The curve is the class "
      "average; 100,000 ft2, the 4,000 ft2 office fitout inside it and the equipment heights are not source keys.",
@@ -75,22 +76,29 @@ ROWS = [
      "FRE-S002;FRE-S003;FRE-S010;FRE-C002;FRE-C026;FRE-S012",
      "Only 365 NFIP claims compared, all under 3 ft above the floor. Equipment elevations (switchboard 0.5 ft, heaters 20 ft) "
      "are not used: the curve is a whole-building average."),
-    ("re_warehouse_1s_steel_slab", "RE_IND_WAREHOUSE", PATHWAY, COAST, "FRE_IND_COAST_NACCS_P3",
-     "FRE_IND_COAST_NACCS_P3_MIN;FRE_IND_COAST_NACCS_P3_MAX",
+    ("re_warehouse_1s_steel_slab", "RE_IND_WAREHOUSE", PATHWAY, COAST, "FRE_IND_HAZUS_DF341", "",
      "qualified_proxy",
-     "NACCS prototype 3 most-likely building matches the construction: one storey, steel or light-metal frame, slab. "
-     "Transfer limits: North Atlantic prototype; NACCS assumes a 1 ft floor height, the profile 0.25 ft.",
-     "Min/Max are the NACCS building-variant envelope; scenario bounds, not quantiles; do not sample",
-     "FRE-S004;FRE-C005;FRE-C008",
-     "No usable claims evidence (25 coastal claims). Most sensitive building to floor height; coastal source decision "
-     "D-FRE-18 open."),
-    ("re_office_3s_slab", "", PATHWAY, FRESH, "", "", "unavailable",
-     "No office record in v0.1. Hazus COM4 DF 431 ordinates are transcription-checked (29 knots) but three-storey "
-     "applicability and value coverage are not yet qualified. The retail record RE_COM_LOWRISE is not an office proxy.",
-     "", "FRE-S003;FRE-S005", "Office record: next research step."),
-    ("re_office_3s_slab", "", PATHWAY, COAST, "", "", "unavailable",
-     "No coastal office source selected; NACCS prototype 2 is a two-storey engineered commercial building and is not "
-     "assigned to the office without review.", "", "FRE-S004;FRE-C008", "Office coastal choice: next research step."),
+     "FEMA assigns DF 341 to COM2 in coastal A and V zones (FRE-C033 pattern); one record for both water types (D-FRE-28). "
+     "Thin evidence: on 14 coastal warehouse claims at 1-3 ft (mean 14%) DF 341 reads 7% and NACCS prototype 3 26%.",
+     "none supplied (point value only); no sampleable spread",
+     "FRE-S002;FRE-S010;FRE-S012;FRE-C037",
+     "Likely low for coastal surge (business coastal claims run above freshwater, FRE-C030); NACCS prototype 3 kept as the "
+     "recorded alternative. Most sensitive building to floor height."),
+    ("re_office_3s_slab", "RE_COM_OFFICE_3S_SLAB", PATHWAY, FRESH, "FRE_OFF_HAZUS_DF431", "",
+     "qualified_proxy",
+     "Matches every key FEMA selects on: COM4 low-rise (under 4 storeys), no basement (FRE-C033). Qualified because the "
+     "Galveston class average is not height-specific: on NFIP business claims it is about x1.6 the three-or-more-floor ratio "
+     "at shallow depth (FRE-C034, C035). Adopted as published (D-FRE-27).",
+     "none supplied (point value only); no sampleable spread; the NFIP storey ratio (about 0.5 for 3+ floors) is a stated sensitivity, not a factor",
+     "FRE-S002;FRE-S003;FRE-S005;FRE-S010;FRE-S012;FRE-C032;FRE-C033;FRE-C034;FRE-C035",
+     "Elevator pit and ground-floor controls are inside the assembly; rooftop HVAC is never reached within the curve's range."),
+    ("re_office_3s_slab", "RE_COM_OFFICE_3S_SLAB", PATHWAY, COAST, "FRE_OFF_HAZUS_DF431", "",
+     "qualified_proxy",
+     "FEMA assigns DF 431 to COM4 in coastal A and V zones (FRE-C033); within 2-5 points of two-floor and taller NFIP "
+     "coastal claims, where NACCS prototype 2 is 11-13 points above (FRE-C035). One record for both water types (D-FRE-28).",
+     "none supplied (point value only); no sampleable spread",
+     "FRE-S010;FRE-S012;FRE-C033;FRE-C035",
+     "Same height caveat as freshwater; 46 coastal claims with three or more floors."),
 ]
 for profile in ("re_house_1s_wood_slab", "re_warehouse_1s_steel_slab", "re_office_3s_slab"):
     ROWS.append((profile, "", WAVE, "any", "", "", "unavailable",
@@ -115,7 +123,9 @@ def main() -> None:
         numeric = app != "unavailable"
         if numeric:
             r = recs[point]
-            assert r["selector_match"] == {"reference_building_id": sel, "flood_water_type": water, "band": "point"}, point
+            assert r["selector_match"]["reference_building_id"] == sel and r["selector_match"]["band"] == "point", point
+            wt = r["selector_match"]["flood_water_type"]
+            assert water in (wt if isinstance(wt, list) else [wt]), (point, water)
             domain = "{} to {}".format(*r["valid_range"])
         out.append([profile, PIN["profile_revision"], PIN["profile_repository"], PIN["profile_commit"], PIN["profile_file"],
                     PIN["profile_file_git_blob"], art["cell_id"], art["damage_code_id"], art["semantic_damage_model_version"],
@@ -129,7 +139,8 @@ def main() -> None:
 
     # floor heights requested by each profile (floor_elevation_sensitivity_ft) plus the reference value
     heights = {"RE_RES_SFD_1S_SLAB": ("re_house_1s_wood_slab", [0.0, 0.75, 1.0, 2.0]),
-               "RE_IND_WAREHOUSE": ("re_warehouse_1s_steel_slab", [0.0, 0.25, 1.0, 2.0])}
+               "RE_IND_WAREHOUSE": ("re_warehouse_1s_steel_slab", [0.0, 0.25, 1.0, 2.0]),
+               "RE_COM_OFFICE_3S_SLAB": ("re_office_3s_slab", [0.0, 0.25, 1.0, 2.0])}
     sens = [["profile_id", "damage_selector_reference_building_id", "flood_water_type", "first_floor_height_ft",
              "is_reference_height", "depth_above_grade_ft", "depth_above_floor_ft", "curve_id", "status",
              "central_damage_ratio", "naccs_min", "naccs_max", "withheld_reason"]]
