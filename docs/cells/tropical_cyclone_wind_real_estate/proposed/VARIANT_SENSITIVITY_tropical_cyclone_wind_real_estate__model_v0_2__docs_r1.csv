@@ -1,0 +1,35 @@
+reference_building_id,variant,role,hazus_sbt,hazus_wind_building_characteristics,hazus_wbid,terrain,loss_ratio_100mph,loss_ratio_120mph,loss_ratio_140mph,loss_ratio_160mph
+RE_RES_SFD_1S_SLAB,reference (most common),reference,WSF1,rsgabswrnorda6dtnailgdnodshtnorcshg,6,open,0.0524,0.3135,0.7788,0.9786
+RE_RES_SFD_1S_SLAB,reference (most common),reference,WSF1,rsgabswrnorda6dtnailgdnodshtnorcshg,6,suburban,0.0144,0.0925,0.5117,0.891
+RE_RES_SFD_1S_SLAB,roof-to-wall straps,code_built_sensitivity,WSF1,rsgabswrnorda6dstrapgdnodshtnorcshg,1,open,0.044,0.2435,0.7235,0.9668
+RE_RES_SFD_1S_SLAB,roof-to-wall straps,code_built_sensitivity,WSF1,rsgabswrnorda6dstrapgdnodshtnorcshg,1,suburban,0.0141,0.0676,0.297,0.6921
+RE_RES_SFD_1S_SLAB,"roof deck 8d @ 6""/12"" + straps",code_built_sensitivity,WSF1,rsgabswrnorda8dstrapgdnodshtnorcshg,21,open,0.0367,0.1896,0.6198,0.9335
+RE_RES_SFD_1S_SLAB,"roof deck 8d @ 6""/12"" + straps",code_built_sensitivity,WSF1,rsgabswrnorda8dstrapgdnodshtnorcshg,21,suburban,0.0136,0.0522,0.2146,0.5344
+RE_RES_SFD_1S_SLAB,"roof deck 8d @ 6""/6"" + straps",code_built_sensitivity,WSF1,rsgabswrnorda8sstrapgdnodshtnorcshg,31,open,0.0197,0.117,0.522,0.9068
+RE_RES_SFD_1S_SLAB,"roof deck 8d @ 6""/6"" + straps",code_built_sensitivity,WSF1,rsgabswrnorda8sstrapgdnodshtnorcshg,31,suburban,0.0073,0.0262,0.1424,0.432
+RE_RES_SFD_1S_SLAB,"roof deck 8d @ 6""/12"", toe-nail",code_built_sensitivity,WSF1,rsgabswrnorda8dtnailgdnodshtnorcshg,26,open,0.0477,0.29,0.7464,0.9769
+RE_RES_SFD_1S_SLAB,"roof deck 8d @ 6""/12"", toe-nail",code_built_sensitivity,WSF1,rsgabswrnorda8dtnailgdnodshtnorcshg,26,suburban,0.0135,0.0849,0.4769,0.8625
+RE_RES_SFD_1S_SLAB,shutters,measure_candidate,WSF1,rsgabswrnorda6dtnailgdno2shtysrcshg,7,open,0.0416,0.1878,0.4773,0.7879
+RE_RES_SFD_1S_SLAB,shutters,measure_candidate,WSF1,rsgabswrnorda6dtnailgdno2shtysrcshg,7,suburban,0.0138,0.0564,0.2298,0.5664
+RE_IND_WAREHOUSE,reference (new or average roof deck),reference,SPMBL,dqgodshtnord100,1730,open,0.0394,0.2348,0.7352,0.9501
+RE_IND_WAREHOUSE,reference (new or average roof deck),reference,SPMBL,dqgodshtnord100,1730,suburban,0.0122,0.0519,0.3157,0.8164
+RE_IND_WAREHOUSE,old roof deck (v0.1 reference),previous_reference,SPMBL,dqporshtnord100,1729,open,0.0684,0.3948,0.882,0.9986
+RE_IND_WAREHOUSE,old roof deck (v0.1 reference),previous_reference,SPMBL,dqporshtnord100,1729,suburban,0.0164,0.1268,0.5612,0.9469
+RE_IND_WAREHOUSE,shutters,measure_candidate,SPMBL,dqgodshtysrd100,4812,open,0.0008,0.0046,0.0224,0.1733
+RE_IND_WAREHOUSE,shutters,measure_candidate,SPMBL,dqgodshtysrd100,4812,suburban,0.0006,0.006,0.0279,0.0912
+RE_IND_WAREHOUSE,"SPMBM medium metal building (4,000-50,000 ft2)",alternative_type,SPMBM,dqgodshtnord100,1728,open,0.0481,0.2147,0.6341,0.9436
+RE_IND_WAREHOUSE,"SPMBM medium metal building (4,000-50,000 ft2)",alternative_type,SPMBM,dqgodshtnord100,1728,suburban,0.007,0.0585,0.2605,0.6831
+RE_COM_OFFICE_3S_SLAB,"reference (single-ply membrane, medium windows)",reference,SECBM,rcspmwamedshtnowiddBrd100,1840,open,0.0317,0.1402,0.3935,0.6847
+RE_COM_OFFICE_3S_SLAB,"reference (single-ply membrane, medium windows)",reference,SECBM,rcspmwamedshtnowiddBrd100,1840,suburban,0.0169,0.101,0.3246,0.6188
+RE_COM_OFFICE_3S_SLAB,"built-up roof, medium windows",alternative_attribute,SECBM,rcburwamedshtnowiddBrd100,1828,open,0.0167,0.1152,0.3826,0.6832
+RE_COM_OFFICE_3S_SLAB,"built-up roof, medium windows",alternative_attribute,SECBM,rcburwamedshtnowiddBrd100,1828,suburban,0.0078,0.0767,0.3095,0.6216
+RE_COM_OFFICE_3S_SLAB,"single-ply membrane, high windows",alternative_attribute,SECBM,rcspmwahigshtnowiddBrd100,1832,open,0.0372,0.2171,0.5474,0.7497
+RE_COM_OFFICE_3S_SLAB,"single-ply membrane, high windows",alternative_attribute,SECBM,rcspmwahigshtnowiddBrd100,1832,suburban,0.0181,0.1424,0.4484,0.7028
+RE_COM_OFFICE_3S_SLAB,shutters,measure_candidate,SECBM,rcspmwamedshtyswiddBrd100,4484,open,0.0272,0.0805,0.1449,0.2948
+RE_COM_OFFICE_3S_SLAB,shutters,measure_candidate,SECBM,rcspmwamedshtyswiddBrd100,4484,suburban,0.015,0.0629,0.1192,0.2692
+RE_COM_OFFICE_3S_SLAB,MECBM masonry engineered (same characteristics),alternative_type,MECBM,rcspmwamedshtnowiddBrd100,1546,open,0.0317,0.1402,0.3935,0.6847
+RE_COM_OFFICE_3S_SLAB,MECBM masonry engineered (same characteristics),alternative_type,MECBM,rcspmwamedshtnowiddBrd100,1546,suburban,0.0169,0.101,0.3246,0.6188
+RE_COM_OFFICE_3S_SLAB,SECBL 1-2 storey retail reference (v0.1 commercial),previous_reference,SECBL,rcburwalowshtnowiddBrd100,1812,open,0.0099,0.0877,0.3128,0.616
+RE_COM_OFFICE_3S_SLAB,SECBL 1-2 storey retail reference (v0.1 commercial),previous_reference,SECBL,rcburwalowshtnowiddBrd100,1812,suburban,0.0036,0.0572,0.2585,0.5543
+RE_COM_LOWRISE,reference (most common),reference,SECBL,rcburwalowshtnowiddBrd100,1812,open,0.0099,0.0877,0.3128,0.616
+RE_COM_LOWRISE,reference (most common),reference,SECBL,rcburwalowshtnowiddBrd100,1812,suburban,0.0036,0.0572,0.2585,0.5543

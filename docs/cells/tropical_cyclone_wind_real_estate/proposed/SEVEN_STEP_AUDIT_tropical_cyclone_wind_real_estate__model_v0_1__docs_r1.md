@@ -1,11 +1,16 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-16
 status: draft
 -->
 
 # Seven-step audit — tropical_cyclone_wind_real_estate model v0.1 / docs r1
+
+> **Model v0.2 note (2026-10-16):** this step document describes model v0.1. Model v0.2 binds the cell to the
+> Hazard reference profiles r1: a new three-storey office (Hazus SECBM, single-ply membrane, medium windows,
+> D-TCRE-23), a new-or-average warehouse roof deck (D-TCRE-24); house and retail unchanged (D-TCRE-25). See the
+> [v0.2 dossier](tropical_cyclone_wind_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md).
 
 ## Governing y-axis and loss contract
 

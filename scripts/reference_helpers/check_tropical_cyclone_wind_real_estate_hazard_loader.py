@@ -6,7 +6,8 @@ fixed; the Hazard repository is not modified.
 
 Usage (from the repository root), with a copy of Hazard's loader, e.g.
 ``git -C <Hazard_Modeling> show origin/main:drivers/deep/src/deep/damage_loader.py > /tmp/hz/damage_loader.py``:
-    python scripts/reference_helpers/check_tropical_cyclone_wind_real_estate_hazard_loader.py /tmp/hz
+    python scripts/reference_helpers/check_tropical_cyclone_wind_real_estate_hazard_loader.py /tmp/hz [v0_1|v0_2]
+(model defaults to v0_1).
 Needs jsonschema (imported by the Hazard loader).
 """
 from __future__ import annotations
@@ -18,18 +19,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PROP = ROOT / "docs/cells/tropical_cyclone_wind_real_estate/proposed"
-TAG = "tropical_cyclone_wind_real_estate__model_v0_1__docs_r1"
+TAG = "tropical_cyclone_wind_real_estate__model_{}__docs_r1"
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) != 2:
+    if len(argv) not in (2, 3):
         print(__doc__)
         return 2
     sys.path.insert(0, argv[1])
     import damage_loader as hazard  # noqa: E402  (Hazard's module, loaded from the given directory)
 
-    art = json.loads((PROP / f"{TAG}__curve_artifact.json").read_text())
-    kats = json.loads((PROP / f"known_answer_tests_{TAG}.json").read_text())
+    tag = TAG.format(argv[2] if len(argv) == 3 else "v0_1")
+    art = json.loads((PROP / f"{tag}__curve_artifact.json").read_text())
+    kats = json.loads((PROP / f"known_answer_tests_{tag}.json").read_text())
     agree, groups = 0, {}
     for t in kats["formula_known_answer_tests"] + kats["withheld_tests"] + kats["error_tests"]:
         try:

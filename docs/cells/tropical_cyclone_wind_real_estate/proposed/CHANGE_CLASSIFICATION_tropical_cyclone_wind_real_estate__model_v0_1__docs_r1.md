@@ -1,7 +1,7 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-16
 status: draft
 -->
 
@@ -49,3 +49,18 @@ Step 7 added a **noncanonical** bundle-v3 artifact with fifteen proposed curve r
 `current/` package, so no runtime behaviour changes and the class stays `NEW_CELL_SCAFFOLD`. A
 `NEW_CELL_MODEL_RELEASE` needs owner acceptance, a selected value basis for dollars, a Hazard terrain input,
 independent review and a deliberate consumer cutover (validation report §4).
+
+## Model v0.2 (2026-10-16)
+
+```yaml
+change_class: MODEL_VERSION_BUMP_WITHIN_PROPOSAL
+cell_model_version: model v0.1 -> model v0.2 (v0.1 package kept unchanged)
+docs_revision: docs r1
+why_a_model_bump: a new selector (office) and a changed warehouse record change runtime output, per the Damage
+  release guide (parameter / curve / runtime behavior change)
+decisions: [D-TCRE-22, D-TCRE-23, D-TCRE-24, D-TCRE-25]
+explicit_non_changes:
+  - still no artifact-index, version-registry, package or contract-schema edit
+  - no change to any other cell; no Hazard edit (the common loader was only probed, read-only)
+  - shared registers keep their docs-r1 file names; v0.1 extractor, builder, validator and outputs reproduce unchanged
+```

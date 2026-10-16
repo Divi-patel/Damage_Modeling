@@ -1,12 +1,17 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-16
 status: draft
 scope: Step 5 (derive the response) for tropical-cyclone wind × real estate — the fifteen proposed curve records, how values between published speeds are computed, behaviour outside the published range, and why no smooth form is fitted.
 -->
 
 # Curve records and form — tropical_cyclone_wind_real_estate model v0.1 / docs r1
+
+> **Model v0.2 note (2026-10-16):** this step document describes model v0.1. Model v0.2 binds the cell to the
+> Hazard reference profiles r1: a new three-storey office (Hazus SECBM, single-ply membrane, medium windows,
+> D-TCRE-23), a new-or-average warehouse roof deck (D-TCRE-24); house and retail unchanged (D-TCRE-25). See the
+> [v0.2 dossier](tropical_cyclone_wind_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md).
 
 Exact ordinates: [CURVE_ORDINATES](CURVE_ORDINATES_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv)
 (615 rows = 15 records × 41 speeds). Chart: [candidate curves](../previews/tropical_cyclone_wind_real_estate_v0_1_candidate_curves.png).

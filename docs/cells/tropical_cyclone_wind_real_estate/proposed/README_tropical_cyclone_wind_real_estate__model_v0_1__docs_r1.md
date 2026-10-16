@@ -1,12 +1,17 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-16
 status: draft
 scope: Step 0/1 cell definition for tropical-cyclone (hurricane) wind × real estate — modelling question, boundary, reference buildings, pathway, axis, failure-unit coverage, value link, and capability stance for the model v0.1 scaffold.
 -->
 
 # tropical_cyclone_wind_real_estate — hurricane wind × real estate, model v0.1 scaffold
+
+> **Model v0.2 note (2026-10-16):** this step document describes model v0.1. Model v0.2 binds the cell to the
+> Hazard reference profiles r1: a new three-storey office (Hazus SECBM, single-ply membrane, medium windows,
+> D-TCRE-23), a new-or-average warehouse roof deck (D-TCRE-24); house and retail unchanged (D-TCRE-25). See the
+> [v0.2 dossier](tropical_cyclone_wind_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md).
 
 > **Status: proposed, not yet reviewed, noncanonical, zero runtime curves.** No current Damage Modeling or
 > Hazard Modeling runtime pin changes.
