@@ -1,0 +1,61 @@
+{
+  "source": "OpenFEMA FIMA NFIP Redacted Claims, dataset NfipClaims version 3",
+  "api": "https://www.fema.gov/api/open/v3/NfipClaims",
+  "retrieved_at_utc": "2026-10-16T15:35:11Z",
+  "pulls": {
+    "house": {
+      "filter": "(occupancyType eq 1 or occupancyType eq 11) and numberOfFloorsInTheInsuredBuilding eq 1 and foundationType eq '1' and exteriorWaterDepth gt 0 and buildingDamageAmount gt 0",
+      "records": 95435,
+      "sha256_of_cached_json": "c5c73bbd03031a936529dd9adc3e29a6056750ccd57f1df02267dbd51fa7aa5e"
+    },
+    "nonres": {
+      "filter": "(occupancyType eq 4 or occupancyType eq 6 or occupancyType eq 18) and numberOfFloorsInTheInsuredBuilding eq 1 and foundationType eq '1' and exteriorWaterDepth gt 0 and buildingDamageAmount gt 0",
+      "records": 10180,
+      "sha256_of_cached_json": "59766fe827d619f06571d889927b6b5ad076ebd8f6f5afad386ecb6b5a530fc4"
+    },
+    "house_zero": {
+      "filter": "(occupancyType eq 1 or occupancyType eq 11) and numberOfFloorsInTheInsuredBuilding eq 1 and foundationType eq '1' and exteriorWaterDepth gt 0 and buildingDamageAmount eq 0",
+      "records": 1006,
+      "sha256_of_cached_json": "2e2492e9daf021092a8e890d677dc665a9b538031e5949b793322d2a51e4b8be"
+    }
+  },
+  "year_of_loss_range": [
+    2008,
+    2026
+  ],
+  "analogue_claims_compared": {
+    "house|freshwater_riverine_or_pluvial": {
+      "claims": 60402,
+      "within_curve_range": 59831
+    },
+    "house|coastal_surge_saline": {
+      "claims": 19560,
+      "within_curve_range": 19497
+    },
+    "commercial|freshwater_riverine_or_pluvial": {
+      "claims": 6128,
+      "within_curve_range": 6110
+    },
+    "commercial|coastal_surge_saline": {
+      "claims": 1166,
+      "within_curve_range": 1163
+    },
+    "warehouse|freshwater_riverine_or_pluvial": {
+      "claims": 420,
+      "within_curve_range": 419
+    },
+    "warehouse|coastal_surge_saline": {
+      "claims": 25,
+      "within_curve_range": 25
+    }
+  },
+  "exclusions": [
+    "V-zone (wave) claims",
+    "cause of damage other than tidal overflow, river overflow or rainfall",
+    "zero or missing building replacement cost",
+    "depth bands with fewer than 20 claims"
+  ],
+  "damage_ratio": "buildingDamageAmount / buildingReplacementCost, clipped to [0, 1]",
+  "depth": "exteriorWaterDepth (inches above grade) / 12 minus the reference first-floor height",
+  "artifact_sha256": "106e3b53c8ac84f3dba7c233a261e32a8663012794d90c898e6ccab9dbd128e1"
+}

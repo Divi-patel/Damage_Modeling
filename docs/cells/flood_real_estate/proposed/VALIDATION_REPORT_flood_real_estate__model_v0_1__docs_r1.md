@@ -1,7 +1,7 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-16
 status: draft
 -->
 
@@ -18,7 +18,7 @@ Promotion gate: **blocked** (owner review).
 | `flood_real_estate__model_v0_1__docs_r1__capability.json` | `d0cd4c60c348424662ebda0bd5f16a4b7f859794034918c140722907a68cb2c5` |
 | `known_answer_tests_flood_real_estate__model_v0_1__docs_r1.json` | `681ac67507c19bd3429e744604a93b496382909170baf5da7a74822ba3cc4cc7` |
 | `CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv` (governed input) | `7a0e4e6a4689f3c186f9729683044f86d4086f4de84bfc0140fff3b22362918d` |
-| `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `33683b0be2d096c3133cf51b86cb5c3d0979ae47dc35aac9ffcab76bcc5e1979` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
+| `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `beb95814bc8909bd9a855cb835e15eb2c4d3d146f82a1e93a38c2d184382ef39` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
 
 Built by `scripts/reference_helpers/build_flood_real_estate_v0_1_package.py`; the validator confirms the builder
 reproduces the artifact and test JSON exactly.
@@ -89,7 +89,15 @@ reviewed step.
 ## 5. Not validated here
 
 ```text
-- calibration against observed losses (NFIP claims comparison: open seam)
+- calibration against observed losses (curves are not refit; a comparison with NFIP claims is reported in
+  NFIP_CLAIMS_CHECK, see §6)
 - dollar outputs (per-area replacement cost not selected)
 - independent review of the package (promotion gate item)
 ```
+
+## 6. Comparison with NFIP claims (2026-10-16)
+
+The [NFIP claims check](NFIP_CLAIMS_CHECK_flood_real_estate__model_v0_1__docs_r1.md) compares the proposed curves with 67,241 paid claims for
+one-floor slab buildings (source FRE-S012, claims FRE-C026 to FRE-C031). The freshwater records agree within about
+5–6 points over most depths; the NACCS coastal records sit 12–23 points below the house claims in the first 2 ft and
+6–12 points above the commercial claims from 1 ft. No record changes; the coastal source decision (D-FRE-18) is open.
