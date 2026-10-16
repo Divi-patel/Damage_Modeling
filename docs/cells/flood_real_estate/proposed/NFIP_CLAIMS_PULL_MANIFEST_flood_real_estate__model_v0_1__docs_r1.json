@@ -17,6 +17,16 @@
       "filter": "(occupancyType eq 1 or occupancyType eq 11) and numberOfFloorsInTheInsuredBuilding eq 1 and foundationType eq '1' and exteriorWaterDepth gt 0 and buildingDamageAmount eq 0",
       "records": 1006,
       "sha256_of_cached_json": "2e2492e9daf021092a8e890d677dc665a9b538031e5949b793322d2a51e4b8be"
+    },
+    "nonres_2f": {
+      "filter": "(occupancyType eq 4 or occupancyType eq 6 or occupancyType eq 18) and numberOfFloorsInTheInsuredBuilding eq 2 and foundationType eq '1' and exteriorWaterDepth gt 0 and buildingDamageAmount gt 0",
+      "records": 2729,
+      "sha256_of_cached_json": "094456d84cc1b80b3f0053aecd16688f9fcdec4df00c571d8326d0cb3ba79ed5"
+    },
+    "nonres_3f": {
+      "filter": "(occupancyType eq 4 or occupancyType eq 6 or occupancyType eq 18) and numberOfFloorsInTheInsuredBuilding eq 3 and foundationType eq '1' and exteriorWaterDepth gt 0 and buildingDamageAmount gt 0",
+      "records": 492,
+      "sha256_of_cached_json": "8fd711183d230c5fd5f95c1ce644f4a2081b75dba0dbdd8efd6047f16b52563a"
     }
   },
   "year_of_loss_range": [

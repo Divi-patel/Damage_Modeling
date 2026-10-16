@@ -20,11 +20,13 @@ Source FRE-S012: OpenFEMA NFIP Redacted Claims, `NfipClaims` v3, retrieved 2026-
 [`flood_real_estate_nfip_claims_check.py`](../../../../scripts/reference_helpers/flood_real_estate_nfip_claims_check.py).
 Filters, record counts and checksums: [pull manifest](NFIP_CLAIMS_PULL_MANIFEST_flood_real_estate__model_v0_1__docs_r1.json).
 
-| Pull | Filter (all: one floor, slab foundation, exterior water depth > 0) | Records |
+| Pull | Filter (all: slab foundation, exterior water depth > 0; one floor unless stated) | Records |
 |---|---|---|
 | house | single-family (occupancy 1 or 11), building damage > 0 | 95,435 |
 | non-residential | occupancy 4, 6 or 18, building damage > 0 | 10,180 |
 | house, zero damage | single-family, building damage = 0 (sensitivity only) | 1,006 |
+| business, 2 floors | occupancy 4, 6 or 18, two floors, building damage > 0 (office research only) | 2,729 |
+| business, 3+ floors | occupancy 4, 6 or 18, three or more floors, building damage > 0 (office research only) | 492 |
 
 Nearly all records with an exterior water depth are losses from 2016 on (all but 103), so the sample is
 effectively 2016–2026. It is concentrated on the Gulf coast: **95% of the house claims are from TX, LA, MS, AL
@@ -42,7 +44,9 @@ or FL (59% Florida) and 0.7% from the Northeast**, where NACCS was developed.
 
 67,241 claims fall in the reported bands ([band table](NFIP_CLAIMS_COMPARISON_flood_real_estate__model_v0_1__docs_r1.csv),
 [sensitivity table](NFIP_CLAIMS_SENSITIVITY_flood_real_estate__model_v0_1__docs_r1.csv),
-[chart](../previews/flood_real_estate_v0_1_nfip_claims_check.png)).
+[chart](../previews/flood_real_estate_v0_1_nfip_claims_check.png)). Business claims by number of floors (two further pulls,
+2,729 two-floor and 492 three-or-more-floor claims) are in the [by-storeys table](NFIP_CLAIMS_BY_STOREYS_flood_real_estate__model_v0_1__docs_r1.csv),
+used by the [office flood research](OFFICE_FLOOD_RESEARCH_flood_real_estate__model_v0_1__docs_r1.md).
 
 ## 3. Results
 

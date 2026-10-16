@@ -7,9 +7,10 @@ not changed by it.
     python scripts/reference_helpers/flood_real_estate_nfip_claims_check.py fetch   [--cache build/nfip_claims]
     python scripts/reference_helpers/flood_real_estate_nfip_claims_check.py compare [--cache build/nfip_claims]
 
-`fetch` pages the public OpenFEMA API (about 60 MB) into the cache directory (gitignored `build/`).
+`fetch` pages the public OpenFEMA API (about 65 MB) into the cache directory (gitignored `build/`); pulls
+already cached are kept unless `--refresh` is given.
 `compare` reads the cache and the proposed artifact and writes, inside the cell's `proposed/` folder, the
-band comparison CSV, the sensitivity CSV and the pull manifest, plus the chart in `previews/`.
+band comparison CSV, the sensitivity CSV, the by-storeys CSV and the pull manifest, plus the chart in `previews/`.
 Needs numpy and matplotlib.
 """
 import argparse
@@ -30,19 +31,30 @@ OUT_BANDS = CELL / "proposed" / f"NFIP_CLAIMS_COMPARISON_{TAG}.csv"
 OUT_SENS = CELL / "proposed" / f"NFIP_CLAIMS_SENSITIVITY_{TAG}.csv"
 OUT_MANIFEST = CELL / "proposed" / f"NFIP_CLAIMS_PULL_MANIFEST_{TAG}.json"
 OUT_CHART = CELL / "previews" / "flood_real_estate_v0_1_nfip_claims_check.png"
+OUT_STOREYS = CELL / "proposed" / f"NFIP_CLAIMS_BY_STOREYS_{TAG}.csv"
 
 API = "https://www.fema.gov/api/open/v3/NfipClaims"
 FIELDS = ("id,occupancyType,foundationType,numberOfFloorsInTheInsuredBuilding,buildingDescriptionCode,causeOfDamage,"
           "ratedFloodZone,floodZoneCurrent,yearOfLoss,state,exteriorWaterDepth,interiorWaterDepth,waterDepth,"
           "lowestAdjacentGrade,lowestFloorElevation,elevatedBuildingIndicator,buildingDamageAmount,buildingPropertyValue,"
           "buildingReplacementCost,replacementCostBasis,floodWaterDuration,postFIRMConstructionIndicator")
-ONE_FLOOR_SLAB = "numberOfFloorsInTheInsuredBuilding eq 1 and foundationType eq '1' and exteriorWaterDepth gt 0"
+SLAB = "foundationType eq '1' and exteriorWaterDepth gt 0"
+ONE_FLOOR_SLAB = f"numberOfFloorsInTheInsuredBuilding eq 1 and {SLAB}"
+BUSINESS = "(occupancyType eq 4 or occupancyType eq 6 or occupancyType eq 18)"
 PULLS = {
     # occupancy 1/11 = single-family residential; 4/6/18 = non-residential (business and other)
     "house": f"(occupancyType eq 1 or occupancyType eq 11) and {ONE_FLOOR_SLAB} and buildingDamageAmount gt 0",
     "nonres": f"(occupancyType eq 4 or occupancyType eq 6 or occupancyType eq 18) and {ONE_FLOOR_SLAB} and buildingDamageAmount gt 0",
     "house_zero": f"(occupancyType eq 1 or occupancyType eq 11) and {ONE_FLOOR_SLAB} and buildingDamageAmount eq 0",
+    # NFIP floors code 2 = two floors, 3 = three or more floors
+    "nonres_2f": f"{BUSINESS} and numberOfFloorsInTheInsuredBuilding eq 2 and {SLAB} and buildingDamageAmount gt 0",
+    "nonres_3f": f"{BUSINESS} and numberOfFloorsInTheInsuredBuilding eq 3 and {SLAB} and buildingDamageAmount gt 0",
 }
+# Hazus DF 431 (COM4 "Average Prof/Tech Services, Structure", USACE Galveston), -4..24 ft by 1 ft. Not in the v0.1
+# artifact; identical in FRE-S003, FRE-S005 and FRE-S010 (checked 2026-10-16).
+DF431 = [0, 0, 0, 0, 2, 11, 16, 22, 28, 35, 38, 41, 44, 47, 50, 54, 57, 59, 62, 66, 68, 70, 72, 74, 76, 77, 78, 79, 80]
+STOREY_BINS = [0, 1, 2, 3, 4, 6, 10]
+
 
 FRESH, COAST = "freshwater_riverine_or_pluvial", "coastal_surge_saline"
 # NFIP causeOfDamage: 1 tidal water overflow, 2 stream/river/lake overflow, 4 accumulation of rainfall or snowmelt
@@ -60,9 +72,12 @@ NORTHEAST = {"ME", "NH", "MA", "RI", "CT", "NY", "NJ", "PA", "DE", "MD", "VA", "
 GULF = {"TX", "LA", "MS", "AL", "FL"}
 
 
-def fetch(cache: Path) -> None:
+def fetch(cache: Path, refresh: bool = False) -> None:
     cache.mkdir(parents=True, exist_ok=True)
     for name, flt in PULLS.items():
+        if (cache / f"{name}.json").exists() and not refresh:
+            print(name, "cached")
+            continue
         rows, skip = [], 0
         while True:
             q = urllib.parse.urlencode({"$filter": flt, "$select": FIELDS, "$top": 10000, "$skip": skip, "$orderby": "id"})
@@ -76,7 +91,8 @@ def fetch(cache: Path) -> None:
             time.sleep(1)
         (cache / f"{name}.json").write_text(json.dumps(rows))
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    (cache / "retrieved_at.txt").write_text(stamp + "\n")
+    if refresh or not (cache / "retrieved_at.txt").exists():
+        (cache / "retrieved_at.txt").write_text(stamp + "\n")
     print("done", stamp)
 
 
@@ -175,6 +191,25 @@ def compare(cache: Path) -> None:
     with OUT_SENS.open("w", newline="") as fh:
         csv.writer(fh, lineterminator="\n").writerows(sens)
 
+    # storeys: all business occupancies, 1 vs 2 vs 3+ floors, against DF 431 and NACCS prototype 2
+    df431 = lambda x: np.where(np.asarray(x) > 24, np.nan, np.interp(x, np.arange(-4, 25), np.array(DF431) / 100))
+    p2 = curve("RE_COM_LOWRISE", COAST)
+    storeys = [["water_type", "floors", "depth_band_ft", "n_claims", "claims_mean_dr", "claims_median_dr",
+                "hazus_df431_mean_dr", "naccs_p2_mean_dr"]]
+    for water in (FRESH, COAST):
+        for label, pull in (("1", "nonres"), ("2", "nonres_2f"), ("3+", "nonres_3f")):
+            S = [r for r in pulls[pull] if usable(r) and water_of(r) == water]
+            x, dr = depth_and_dr(S, 0.25)
+            for a, b in zip(STOREY_BINS, STOREY_BINS[1:]):
+                m = (x >= a) & (x < b)
+                if m.sum() < 15:
+                    continue
+                storeys.append([water, label, f"{a:g}-{b:g}", int(m.sum()), round(float(dr[m].mean()), 3),
+                                round(float(np.median(dr[m])), 3), round(float(df431(x[m]).mean()), 3),
+                                round(float(np.nanmean(p2(x[m]))), 3) if water == COAST else ""])
+    with OUT_STOREYS.open("w", newline="") as fh:
+        csv.writer(fh, lineterminator="\n").writerows(storeys)
+
     retrieved = (cache / "retrieved_at.txt").read_text().strip()
     manifest = {
         "source": "OpenFEMA FIMA NFIP Redacted Claims, dataset NfipClaims version 3",
@@ -226,5 +261,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("step", choices=["fetch", "compare"])
     ap.add_argument("--cache", type=Path, default=ROOT / "build/nfip_claims")
+    ap.add_argument("--refresh", action="store_true", help="fetch: re-download pulls that are already cached")
     a = ap.parse_args()
-    fetch(a.cache) if a.step == "fetch" else compare(a.cache)
+    fetch(a.cache, a.refresh) if a.step == "fetch" else compare(a.cache)

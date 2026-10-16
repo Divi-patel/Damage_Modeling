@@ -47,6 +47,8 @@ component evidence the way the solar and wind cells were.
 - [Profile binding](proposed/PROFILE_BINDING_flood_real_estate__model_v0_1__docs_r1.md): which record serves each Hazard reference profile r1, with
   the [binding table](proposed/PROFILE_BINDING_flood_real_estate__model_v0_1__docs_r1.csv) and
   [floor-height sensitivity](proposed/FLOOR_HEIGHT_SENSITIVITY_flood_real_estate__model_v0_1__docs_r1.csv)
+- [Office flood research](proposed/OFFICE_FLOOD_RESEARCH_flood_real_estate__model_v0_1__docs_r1.md): evidence for the three-storey office (curve candidates, FEMA's default,
+  claims by number of floors, coastal options); the office record is not yet added
 - [NFIP claims check](proposed/NFIP_CLAIMS_CHECK_flood_real_estate__model_v0_1__docs_r1.md): the curves against paid flood claims, with the
   [band table](proposed/NFIP_CLAIMS_COMPARISON_flood_real_estate__model_v0_1__docs_r1.csv),
   [sensitivity table](proposed/NFIP_CLAIMS_SENSITIVITY_flood_real_estate__model_v0_1__docs_r1.csv),

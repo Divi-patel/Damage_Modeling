@@ -18,7 +18,7 @@ Promotion gate: **blocked** (owner review).
 | `flood_real_estate__model_v0_1__docs_r1__capability.json` | `d0cd4c60c348424662ebda0bd5f16a4b7f859794034918c140722907a68cb2c5` |
 | `known_answer_tests_flood_real_estate__model_v0_1__docs_r1.json` | `681ac67507c19bd3429e744604a93b496382909170baf5da7a74822ba3cc4cc7` |
 | `CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv` (governed input) | `7a0e4e6a4689f3c186f9729683044f86d4086f4de84bfc0140fff3b22362918d` |
-| `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `d90f6a883ba6c8d509801386fbd355fa04fd9cc1c17b5e338c2d5bf94b58818b` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
+| `damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx` | `e9384c7c59ba17b1fa04b2cf443d64e46262fffb43a994f1f522232f0750bbb7` (workbook bytes change on every rebuild because the zip stores write times; its content is checked by sheet) |
 
 Built by `scripts/reference_helpers/build_flood_real_estate_v0_1_package.py`; the validator confirms the builder
 reproduces the artifact and test JSON exactly.
