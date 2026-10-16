@@ -81,7 +81,9 @@ business uses, not offices only; the claims are mostly Gulf states (FRE-S012).
 | Rooftop HVAC (roof at 39 ft) | Never reached within the curve's range (24 ft). The class average may include ground-level HVAC, so DF 431 may slightly overstate services damage for this building |
 | Upper floors (13 ft, 26 ft) | Reached only above 13 ft of water; the whole-building curve already spreads damage over the building, which is the source of the height question in §4 |
 
-## 6. Proposal (open for decision)
+## 6. Proposal
+
+**Decided 2026-10-16: freshwater option A (D-FRE-27).** Coastal is decided with D-FRE-18.
 
 **Freshwater.** Options:
 
