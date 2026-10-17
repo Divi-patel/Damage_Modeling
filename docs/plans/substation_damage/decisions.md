@@ -42,3 +42,13 @@ This admits the bounded first screening delivery, not component heights, full ph
 calibration or portfolio aggregation. The read-only validator and Hazard annual tests provide
 execution proof; the CSV audit set is a documented Cell Package Standard §6 deviation for
 an inherited one-table response with no fit or workbook calculation.
+
+
+## SD-D24 — unchanged Hurricane assembly response, explicit station consumer
+
+October 16, owner-directed assembly-screening sequence and agent-qualified implementation. The
+[Hurricane binding](../../contracts/hazard_handoff/substation_hurricane_screening_v1/README.md) selects
+canonical Solar v2.1/docs r2 `PV_GSU_SUBSTATION`, its squared-gust pressure axis and existing conditional
+annual-consumer capability. It keeps the same $27.353M fenced value, declares GSU-to-transmission-yard
+T4 transfer and regional design policy, and introduces no new intrinsic curve/cell or package revision.
+Hazard owns and has executed the bounded annual/spatial pilot; national delivery remains its next step.

@@ -33,3 +33,10 @@ The canonical `wildfire_solar_model_v1_0_hazard_migration.md` supersedes that ce
 instruction for execution; its v0.1 file remains the research and promotion audit. For every explicitly
 noncanonical v1 proposal listed above, the corresponding v0.1 boundary remains the operational execution
 rule until a separate canonical promotion and cutover decision.
+
+
+## Standalone Hurricane station consumer
+
+[Substation Hurricane wind screening binding](substation_hurricane_screening_v1/README.md) qualifies
+the unchanged canonical GSU response, pressure bridge, fenced value and annual-consumer interface.
+It adds no intrinsic cell/curve; Hazard owns the executed pilot and subsequent national run.

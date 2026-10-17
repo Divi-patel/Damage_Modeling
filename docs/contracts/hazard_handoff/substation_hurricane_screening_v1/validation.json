@@ -1,0 +1,13 @@
+{
+  "artifact_sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+  "assembly_rows": 27,
+  "assembly_usd": "27353236.37",
+  "binding_sha256": "4a5e994b4ef8cde8629bba765f1643190ce49e31cf045dbcf36adaf05a8f4773",
+  "canonical_curve_changed": false,
+  "hazard_resource_bytes_identical": true,
+  "new_cell_created": false,
+  "scope": "source/accounting/packaging; Hazard owns numerical and annual proof",
+  "status": "passed",
+  "unmodeled_usd": "3061823.44",
+  "value_rows": 31
+}
