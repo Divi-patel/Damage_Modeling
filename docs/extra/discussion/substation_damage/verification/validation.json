@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "date": "2026-10-16",
+  "new_markdown_files": 8,
+  "reviewed_markdown_files": 20,
+  "local_links_checked": 103,
+  "errors": [],
+  "numerical_cases_passed": 93,
+  "wrong_sha_rejected": true,
+  "value_rows": 31,
+  "scope": "Research reproducibility/document integrity only; applicability and admission remain open"
+}

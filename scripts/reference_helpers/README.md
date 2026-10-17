@@ -16,6 +16,9 @@ These files are reference implementations for downstream notebooks/services. The
 | `tropical_cyclone_wind_wind_curve_eval.py` | Exact selector/range/value fail-closed evaluator for the noncanonical TC-wind × wind model-v1.0 Jaimes source-family proposal. |
 | `validate_tropical_cyclone_wind_wind_v1_proposal.py` | Bundle/schema/KAT/register/value/workbook/QA/link/index validator for the TC-wind × wind model-v1.0 proposal. |
 | `validate_flood_wind_v0_1_scaffold.py` | Fail-closed package plus shared flood-electrical substrate validator for flood × wind model v0.1. |
+| `review_substation_flood_reuse.py` | Research-only exact-commit reproduction of the Flood/Wind assembly response and the standalone station value ledger. Writes review receipts, never a new cell or loss result. |
+| `review_substation_flood_binding.py` | Executes a pinned, non-runtime station-binding candidate and complete value crosswalk; emits labeled audit arithmetic while reportable and annual losses remain null. |
+| `validate_substation_flood_binding.py` | Sixteen test methods covering candidate value accounting, source parity, input/hash/domain failures, double counting and rejection of unadmitted metrics. |
 | `flood_wind_curve_eval.py` | Exact source-knot, axis-bridge, selector/conditioner, range, unit, and artifact-pin evaluator for the noncanonical flood × wind whole-substation model-v1 proposal. |
 | `validate_flood_wind_v1_proposal.py` | Schema/semantic-curve/KAT/register/value/shared-substrate/workbook/link/index validator for the flood × wind model-v1 proposal. |
 | `build_flood_wind_v1_workbook.mjs` | `@oai/artifact-tool` builder, renderer, and QA inspector for the governed model-v1 review workbook. |
@@ -35,3 +38,5 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
+
+`validate_flood_substation_v1.py` validates the standalone cell schema, inherited knots, value partition and evidence paths.

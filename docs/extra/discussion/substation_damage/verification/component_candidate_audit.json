@@ -1,0 +1,62 @@
+{
+  "schema": "substation_component_feasibility_audit.v1",
+  "runtime_admitted": false,
+  "change_class": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "budget_rows": 31,
+  "all_rows_once": true,
+  "full_budget_usd": "30415059.81",
+  "group_totals_usd": {
+    "controls_and_auxiliaries": "3194667",
+    "main_transformers": "4623360",
+    "yard_breakers_and_disconnects": "6951567",
+    "cables_conduits_trenches": "2039984.7",
+    "building": "1339840.89",
+    "remaining_yard_and_civil": "9203816.78",
+    "outside_current_response": "3061823.44"
+  },
+  "group_totals_are_not_qualified_value_coverage": true,
+  "inputs": {
+    "solar_artifact": {
+      "path": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+      "repository": "damage_modeling",
+      "sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d"
+    },
+    "binding_value": {
+      "path": "docs/contracts/hazard_handoff/substation_flood_screening_v1/value_crosswalk.csv",
+      "repository": "damage_modeling",
+      "sha256": "107c0585f9fa0609f7e8360c9585523b648fa032015d8d24899f2b7bf866fe33"
+    },
+    "profile": {
+      "path": "docs/plans/_cross_cutting/substation_conus/asset_model.json",
+      "repository": "Hazard_modeling",
+      "sha256": "1f1563a688b34f0acbcd3394ce9a1fb15adcd34a806047b6d0f9de4c50701f52"
+    },
+    "pluvial_method": {
+      "path": "perils/flood/src/flood/pluvial/ponding.py",
+      "repository": "Hazard_modeling",
+      "sha256": "c82c0710e9545866796f714d65d6f08f6cb024239958121f51c501899fea1f58"
+    },
+    "audit_helper": {
+      "path": "scripts/reference_helpers/audit_substation_component_candidates.py",
+      "repository": "damage_modeling",
+      "sha256": "9734994b6db80748cbd490977c419a518b905003d618640e10a1b0422d06dcee"
+    }
+  },
+  "datum_checks": [
+    {
+      "target": "control_house_floor_as_overtopping_threshold_only",
+      "datum_above_local_grade_m": 0.3,
+      "max_model_depth_m": 0.3,
+      "max_positive_depth_above_datum_m": 0,
+      "limitation": "floor is not a proven barrier to conduit or other ingress; no whole-station zero"
+    },
+    {
+      "target": "transformer_control_cabinet",
+      "datum_above_local_grade_m": 1.0,
+      "max_model_depth_m": 0.3,
+      "max_positive_depth_above_datum_m": 0,
+      "limitation": "direct overtopping only; not whole-transformer or auxiliary coverage"
+    }
+  ],
+  "numerical_response_selection": "none; existing assembly and Solar artifacts unchanged"
+}

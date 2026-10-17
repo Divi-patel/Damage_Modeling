@@ -1,0 +1,523 @@
+{
+  "schema_id": "substation_cross_hazard_inventory.research.v1",
+  "author": "owner-directed (Divy) \u00b7 agent-researched",
+  "created": "2026-10-16",
+  "updated": "2026-10-16",
+  "status": "done",
+  "scope": "Repository inspection, not numerical qualification or runtime admission",
+  "runtime_admitted": false,
+  "repository_heads": {
+    "Hazard_modeling": "509bf435e1990a5d04d59c0c34621cc2d9a82fdb",
+    "damage_modeling": "02eba9be57e40ae5301fa02a45c7a49d5e86b204"
+  },
+  "current_artifacts": [
+    {
+      "path": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+      "sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d",
+      "cell_id": "flood_solar",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r4",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "FS_INV",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "FS_SWG",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "FS_XFMR",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "FS_COMB",
+          "treatment": "primary_secondary"
+        },
+        {
+          "id": "FS_SCADA",
+          "treatment": "secondary"
+        },
+        {
+          "id": "FS_CABLE",
+          "treatment": "conditional_secondary"
+        },
+        {
+          "id": "FS_PVMOD",
+          "treatment": "conditional_secondary"
+        },
+        {
+          "id": "FS_FOUND",
+          "treatment": "conditional_secondary"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+      "sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1",
+      "cell_id": "flood_wind",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r1",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "FW_GSU_SWITCHGEAR",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_GSU_TRANSFORMER_MAIN",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_GSU_TRANSFORMER_AUX_CONTROLS",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_GSU_PROTECTION_SCADA",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_GSU_STATION_SERVICE_DC",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_GSU_CABLE_TERMINATIONS",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_TURBINE_BASE_ELECTRICAL",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_PADMOUNT_STEPUP_TRANSFORMER",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_COLLECTION_CABLE_TERMINATIONS",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_TURBINE_FOUNDATION",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_CIVIL_ACCESS_DRAINAGE",
+          "treatment": "withheld"
+        },
+        {
+          "id": "FW_ELEVATED_TURBINE_EQUIPMENT",
+          "treatment": "withheld"
+        },
+        {
+          "id": "SUPPORT_FIELDWORK",
+          "treatment": "withheld"
+        },
+        {
+          "id": "SUPPORT_TRANSPORT_LOGISTICS",
+          "treatment": "withheld"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/hail_solar/current/hail_solar__model_v1_0__docs_r7__curve_artifact.json",
+      "sha256": "8c52f3442eb606f55aa0502fbb2738df70076f8a181de463c029061020b3cf32",
+      "cell_id": "hail_solar",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r7",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "PV_MODULE_GLASS_CELL",
+          "treatment": "primary_nonzero"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/strong_wind_solar/current/strong_wind_solar__model_v1_0__docs_r3__curve_artifact.json",
+      "sha256": "832f47d69372ec54723a61b8a956addccef07bb39338c3ec99907e116f1855ca",
+      "cell_id": "strong_wind_solar",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r3",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "SWS_TRACKER_STRUCT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "SWS_RACKING_STRUCT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "SWS_MODULE_ATTACH",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "SWS_FOUNDATION_UPLIFT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "SWS_SCADA_EXPOSED",
+          "treatment": "secondary"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json",
+      "sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+      "cell_id": "tropical_cyclone_wind_solar",
+      "model_version": "model v2.1",
+      "docs_revision": "docs r2",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "PV_PERRY_GROUND_FIXED_VISIBLE_MODULE_HARDWARE_SOURCE_UNIT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "PV_FIXED_TILT_MODULE_FIELD",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "PV_TRACKER_MODULE_FIELD",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "PV_TRACKER_SBOS_ASSEMBLY",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "PV_FOUNDATION",
+          "treatment": "secondary_conditional"
+        },
+        {
+          "id": "PV_POWER_CONVERSION_AND_COLLECTION",
+          "treatment": "secondary_conditional"
+        },
+        {
+          "id": "PV_GSU_SUBSTATION",
+          "treatment": "secondary_conditional"
+        },
+        {
+          "id": "PV_SCADA_COMMUNICATIONS",
+          "treatment": "secondary_conditional"
+        },
+        {
+          "id": "PV_CIVIL_INFRA",
+          "treatment": "secondary_conditional"
+        },
+        {
+          "id": "PV_REPLACEMENT_SUPPORT",
+          "treatment": "exposure_modifier"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/tropical_cyclone_wind_wind/current/tropical_cyclone_wind_wind__model_v1_2__docs_r2__curve_artifact.json",
+      "sha256": "009996c07eb8150f79f11741d42b6cd37562d655ee336f82f178ccdeb987c992",
+      "cell_id": "tropical_cyclone_wind_wind",
+      "model_version": "model v1.2",
+      "docs_revision": "docs r2",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "WT_JAIMES_TURBINE_TOWER_EXPOSURE_UNIT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_TURBINE_EQUIPMENT_ASSEMBLY",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_FOUNDATION",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_PAD_MOUNTED_ELECTRICAL",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_COLLECTION_SYSTEM",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_GSU_SUBSTATION",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_CONTROL_BUILDING_AND_SCADA",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_CIVIL_INFRA",
+          "treatment": "withheld"
+        },
+        {
+          "id": "SUPPORT_FIELDWORK",
+          "treatment": "withheld"
+        },
+        {
+          "id": "SUPPORT_TRANSPORT_LOGISTICS",
+          "treatment": "withheld"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/wildfire_solar/current/wildfire_solar__model_v1_0__docs_r3__curve_artifact.json",
+      "sha256": "598512fbe2f0a3c8db48df69fdb2cd00ca5e0cc8e7ef761555837a3d76d166d8",
+      "cell_id": "wildfire_solar",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r3",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "WSV1_MODULE_THERMAL",
+          "treatment": "primary_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_RACKING_THERMAL",
+          "treatment": "secondary_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_FOUNDATION_THERMAL",
+          "treatment": "reviewed_low_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_INVERTER_THERMAL",
+          "treatment": "primary_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_COMBINER_THERMAL",
+          "treatment": "primary_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_CABLE_EXPOSED",
+          "treatment": "primary_nonzero_reference_profile_exposed"
+        },
+        {
+          "id": "WSV1_MV_EQUIPMENT_THERMAL",
+          "treatment": "primary_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_GROUNDING_THERMAL",
+          "treatment": "reviewed_low_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_SCADA_THERMAL",
+          "treatment": "secondary_nonzero_screening_proxy"
+        },
+        {
+          "id": "WSV1_CIVIL_DIRECT",
+          "treatment": "mixed_bucket_screening_proxy"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/wildfire_wind/current/wildfire_wind__model_v1_0__docs_r1__curve_artifact.json",
+      "sha256": "3f923f506a2082dd2f074c8b3cc3d696288097072eb8b6f803f3eb7d3f2b4e0d",
+      "cell_id": "wildfire_wind",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r1",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "WT_PAD_ELECTRICAL",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_GSU_PROTECTION_CONTROL_DC",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_TURBINE_FIRE_ASSEMBLY",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_COLLECTION_NETWORK",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_GSU_MAIN_TRANSFORMER",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_GSU_SWITCHGEAR_BUS",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_GSU_CABLE_TERMINATIONS",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_CONTROL_MET_OM",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_FOUNDATION",
+          "treatment": "withheld"
+        },
+        {
+          "id": "WT_CIVIL_INFRA",
+          "treatment": "withheld"
+        },
+        {
+          "id": "SUPPORT_FIELDWORK",
+          "treatment": "withheld"
+        },
+        {
+          "id": "SUPPORT_TRANSPORT_LOGISTICS",
+          "treatment": "withheld"
+        }
+      ]
+    },
+    {
+      "path": "docs/cells/wind_tornado_wind/current/wind_tornado_wind__model_v1_0__docs_r4__curve_artifact.json",
+      "sha256": "908f386953d062a62a33b6714020374b9b9d8a4538006e80d37047686c2c127a",
+      "cell_id": "wind_tornado_wind",
+      "model_version": "model v1.0",
+      "docs_revision": "docs r4",
+      "canonical_runtime_artifact": true,
+      "failure_units": [
+        {
+          "id": "WT_BLADE_STRUCT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_TOWER_STRUCT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_NACELLE_CONSEQ",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_FOUNDATION_OT",
+          "treatment": "primary_nonzero"
+        },
+        {
+          "id": "WT_POWER_ELEC_ACCEL",
+          "treatment": "secondary_conditional_open_seam"
+        }
+      ]
+    }
+  ],
+  "proposed_artifacts": [
+    {
+      "path": "docs/cells/hail_wind/proposed/hail_wind__model_v0_1__docs_r1__curve_artifact.json",
+      "sha256": "9872c601c15770c4e830fc473d3728f1dce0b44e515c2cdef8e3bcf85962401e",
+      "cell_id": "hail_wind",
+      "model_version": "model v0.1",
+      "canonical_runtime_artifact": false
+    },
+    {
+      "path": "docs/cells/strong_wind_solar/proposed/strong_wind_solar__model_v2_0__docs_r1__curve_artifact.json",
+      "sha256": "32fe982548139cda846fb2e1da63568bcdcc689a87d6b21bd0110f23676c58fb",
+      "cell_id": "strong_wind_solar",
+      "model_version": "model v2.0",
+      "canonical_runtime_artifact": false
+    },
+    {
+      "path": "docs/cells/wind_tornado_wind/proposed/wind_tornado_wind__model_v2_0__docs_r1__curve_artifact.json",
+      "sha256": "736ffa95a4ae4afd05e54d2a4256ab3712f921bcd334af89a8ac28b8cf859bcd",
+      "cell_id": "wind_tornado_wind",
+      "model_version": "model v2.0",
+      "canonical_runtime_artifact": false
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "repository": "Hazard_modeling",
+      "path": "drivers/conus_grid/src/conus_grid/asset_reference.py",
+      "sha256": "e734f92c875b052d78e80a5901617f09aeb698d70823fcc2da15e80ee6c8ef12",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "drivers/conus_grid/src/conus_grid/flood/reference.py",
+      "sha256": "e15e81a8794175786d76bf04d6bf4589c27468bc3419192492f62bb41b469bda",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "drivers/conus_grid/src/conus_grid/hurricane/reference_values.py",
+      "sha256": "9cccb3dab85081f808660acdc759cd98608598838362dff1cec5a24eac720bc8",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "drivers/conus_grid/src/conus_grid/wildfire/reference.py",
+      "sha256": "a0ea486f9af99e9e07651b5efcb1ff6e4f08ce3056a8b6e1041d78104064ee9c",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "perils/hurricane/src/hurricane/damage_v21.py",
+      "sha256": "b84ba472758e7846a1db81a28aee99e52cfd7fb166f54e128f44b791027f9b8e",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "perils/convective_wind/src/convective_wind/damage.py",
+      "sha256": "311ba2189d6dea49429e5f35c7d34e13b61b7c2545427c284d014aef84857929",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "drivers/conus_grid/src/conus_grid/total_hazard_screening.py",
+      "sha256": "ce4efd5cea9e1cfc131b80e3cf904eaf00ae49ffa8ae202f897bd97f65906785",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "drivers/conus_grid/src/conus_grid/total_wind_farm_screening.py",
+      "sha256": "38a1eb03610b6c3dada4a0076566921a5193937fe730d900ce1c9cc729a8ca8b",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "docs/data_governance/delivery_manifest/current.delivery.yml",
+      "sha256": "836765f732bf039359cc90baa1f5ae2552c86733ffc24d1e3c10d21b9689a8d6",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "dashboard/lib/server/cell-delivery-data.ts",
+      "sha256": "2a273be34f948d83294730303d3bf62ad34b8c9df7e1f2b3aa14ae7442647af3",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "Hazard_modeling",
+      "path": "dashboard/lib/server/delivery-data.ts",
+      "sha256": "c9206f72295d8e310669186ccf747784e6e3e8cd9e131cc65669e341c12c68b2",
+      "matches_repository_head": true
+    },
+    {
+      "repository": "damage_modeling",
+      "path": "docs/cells/wind_tornado_wind/proposed/LEGACY_NUMERICAL_AUDIT_wind_tornado_wind__model_v2_0__docs_r1.md",
+      "sha256": "88e6a0f738dcb9514e7d0209890bd5b20b8445ecb7858437c872f1de53f3f6d4",
+      "matches_repository_head": true
+    }
+  ],
+  "current_hazard_families": [
+    "flood",
+    "hurricane",
+    "wildfire",
+    "convective_wind",
+    "hail"
+  ],
+  "inspection_limits": [
+    "Local current artifacts and selected proposals, not every remote branch or archived notebook",
+    "No new numerical evaluator run; existing Flood 93-case receipt is separate",
+    "No new GCS or live dashboard readback",
+    "Whole-station runtime, annual admission and Total remain pending"
+  ]
+}

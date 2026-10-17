@@ -1,0 +1,14 @@
+{
+  "created": "2026-10-16",
+  "author": "agent validation",
+  "scope": "Substation multi-hazard documentation and inventory checkpoint",
+  "status": "pass",
+  "markdown_files": 21,
+  "local_links": 164,
+  "source_hashes_verified": 24,
+  "errors": [],
+  "limits": [
+    "No production code or curve changed",
+    "No numerical grid, Total run or live readback performed"
+  ]
+}

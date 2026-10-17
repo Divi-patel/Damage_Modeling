@@ -45,6 +45,7 @@ artifact index, the cell changelog, package releases, and Hazard runtime remain 
 
 | Cell folder | Current semantic damage-model version | Human / runtime docs revision | Current status | Repository-current contract note |
 |---|---:|---:|---|---|
+| `flood_substation` | **model v1.0** | docs r1 | Current standalone depth-only screening | Exact inherited assembly response; explicit Coastal T4 transfer; conditional consumer annual metrics, full same-station value cap and unavailable-depth tags. |
 | `hail_solar` | **model v1.0** | human docs r8; runtime docs r7 | Current; source docs retain `v1_3` labels | Docs r8 adds the three-file basics set. Runtime docs r7 still own the denominator/value profiles, strict logistic payload validation, KATs, and consumer-scoped tail capability. |
 | `flood_solar` | **model v1.0** | human docs r5; runtime docs r4 | Current | Docs r5 adds the three-file flood/elevation basics set; runtime docs r4 remain canonical. |
 | `wind_tornado_wind` | **model v1.0** | human docs r5; runtime docs r4 | Current | Docs r5 adds the three-file basics set and keeps the noncanonical v2 proposal separate; runtime docs r4 remain canonical. |

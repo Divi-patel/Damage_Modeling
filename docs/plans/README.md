@@ -28,3 +28,5 @@ discussion note
 
 Planning docs are not raw research and are not runtime artifacts. They are the build-facing record of what we
 intend to change, why, and how we will verify it.
+
+| **2026-10-16** | [`substation_damage/`](substation_damage/README.md) | owner-directed (Divy) · agent-researched | Divy / Hazard | active | Qualify existing Flood substation response, repair-value scope, governed standalone candidate and conditional/annual consumer proofs; numerical review complete, proxy and denominator unresolved. |

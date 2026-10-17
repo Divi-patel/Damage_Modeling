@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "date": "2026-10-16",
+  "binding_sha256": "f0491594d67780eef27a1c19e6232f9bf49f1fbb5d1f5914d815b3c4679a04cb",
+  "source_artifact_sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1",
+  "value_rows": 31,
+  "exact_hazard_resource_copies": true,
+  "existing_source_pins_unchanged": true,
+  "damage_cell_model_or_capability_changed": false,
+  "annual_metrics": "withheld"
+}

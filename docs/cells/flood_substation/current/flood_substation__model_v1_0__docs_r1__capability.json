@@ -1,0 +1,78 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "flood_substation",
+  "canonical_runtime_artifact": true,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "flood_inundation_contact",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "supported_with_explicit_failure_unit_value_and_exposure_basis",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "one canonical 150 by 178 m 345/138 kV station; not an observed insured asset",
+        "same-unit fenced replacement-value proxy; no MW scaling",
+        "direct facility-grade depth in feet; no equipment-height or pondable-area multiplier",
+        "0 through 10 ft source range; deeper or missing demand withholds DR",
+        "coastal source uses an explicit Tier-4 depth-only response transfer; it does not identify water as freshwater",
+        "whole assembly once; do not add overlapping component responses"
+      ],
+      "limitation_flags": [
+        "SCREENING_LEGACY_FEMA_ASSEMBLY_PROXY",
+        "FACILITY_POINT_NOT_COMPONENT_HYDRAULICS",
+        "NO_INTRINSIC_DAMAGE_SPREAD",
+        "NO_FIELD_OR_CLAIMS_CALIBRATION",
+        "SOURCE_DOMAIN_0_TO_10_FT",
+        "COASTAL_DEPTH_RESPONSE_TRANSFER_T4",
+        "SALINITY_CONTAMINATION_WAVE_SCOUR_EXCLUDED",
+        "INCOMPLETE_SUPPORT_ZERO_CONTRIBUTION_TAGGED",
+        "FEMA_CURRENT_ELECTRIC_POWER_LOSS_DISABLED"
+      ],
+      "withheld_failure_units": []
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+    "prerequisites": [
+      "exact canonical artifact and same-station value pins",
+      "reuse validated inland annual-maximum and Coastal event-rate methods",
+      "retain original eligible placement mass, native missing states and response-domain missing mass",
+      "cap aggregate annual station loss at its bound replacement value; curve endpoint is not a physical vulnerable-value cap",
+      "validate tail metrics from annual distributions; parent metrics from weighted mixtures, never average child tail statistics",
+      "combined EAL sum and metric-wise tail maximum labeled screening composite, not joint distribution or complete risk"
+    ],
+    "limitation_flags": [
+      "SCREENING_LEGACY_FEMA_ASSEMBLY_PROXY",
+      "FACILITY_POINT_NOT_COMPONENT_HYDRAULICS",
+      "NO_INTRINSIC_DAMAGE_SPREAD",
+      "NO_FIELD_OR_CLAIMS_CALIBRATION",
+      "SOURCE_DOMAIN_0_TO_10_FT",
+      "COASTAL_DEPTH_RESPONSE_TRANSFER_T4",
+      "SALINITY_CONTAMINATION_WAVE_SCOUR_EXCLUDED",
+      "INCOMPLETE_SUPPORT_ZERO_CONTRIBUTION_TAGGED",
+      "FEMA_CURRENT_ELECTRIC_POWER_LOSS_DISABLED"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "once-only same-station value",
+      "annual loss between zero and same-station replacement value",
+      "explicit zero-contribution mask for unavailable hazard/response states",
+      "no automatic Total or portfolio admission"
+    ],
+    "action_if_fail": "withhold affected financial calculation and record failure"
+  },
+  "promotion_gate": {
+    "status": "passed",
+    "required_before_canonical_use": [
+      "schema, source-knot and seven-step audit validation",
+      "Hazard consumer tests, probability/cap/coverage validation before annual financial use"
+    ]
+  }
+}

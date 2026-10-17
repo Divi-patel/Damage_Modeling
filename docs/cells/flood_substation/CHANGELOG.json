@@ -1,0 +1,20 @@
+{
+  "schema_version": "cell_runtime_changelog.v1",
+  "cell_id": "flood_substation",
+  "current_pin": "flood_substation@model_v1_0__docs_r1",
+  "entries": [
+    {
+      "consumer_pin": "flood_substation@model_v1_0__docs_r1",
+      "semantic_damage_model_version": "model v1.0",
+      "documentation_revision": "docs r1",
+      "artifact_schema_version": "damage_curve_record_bundle.v3",
+      "capability_schema_version": "capability_declaration.v3",
+      "published_on": "2026-10-16",
+      "artifact_path": "docs/cells/flood_substation/current/flood_substation__model_v1_0__docs_r1__curve_artifact.json",
+      "runtime_behavior_changed": true,
+      "contract_changed": true,
+      "summary": "Standalone canonical station screening: exact legacy Hazus assembly table; explicit Coastal depth-only T4 transfer; annual consumer capability conditional on frequency, value, cap and missing-mass proof.",
+      "consumer_action": "Pin artifact and annual binding; retain unavailable depths above 10 ft; apply full fenced replacement cap; preserve zero-contribution tags and original eligible mass; no component elevation benefit, complete-risk or portfolio claim."
+    }
+  ]
+}

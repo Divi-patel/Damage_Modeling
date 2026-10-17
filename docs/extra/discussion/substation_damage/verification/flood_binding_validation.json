@@ -1,0 +1,12 @@
+{
+  "created": "2026-10-16",
+  "status": "pass",
+  "scope": "Candidate binding audit helper; not scientific or annual admission",
+  "test_methods": 16,
+  "failures": 0,
+  "errors": 0,
+  "binding_path": "docs/plans/substation_damage/flood_binding_candidate.json",
+  "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+  "review_helper_sha256": "1c39feda6686ffe7b23210371e36f2dbe687ed78a22c18f410b41388e7b45c9d",
+  "validator_sha256": "0774974447489ab9cd129a43dfcf1d545572b81c4ed031a486e965d8100c6571"
+}

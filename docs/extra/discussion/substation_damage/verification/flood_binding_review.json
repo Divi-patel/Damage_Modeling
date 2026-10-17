@@ -1,0 +1,455 @@
+{
+  "status": "proposed_binding_review",
+  "runtime_admitted": false,
+  "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+  "review_helper_sha256": "1c39feda6686ffe7b23210371e36f2dbe687ed78a22c18f410b41388e7b45c9d",
+  "source_inputs": {
+    "damage_artifact": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+      "sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1"
+    },
+    "damage_capability": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__capability.json",
+      "sha256": "9037e4558a0352cdc55c0c66241d869cf5c13e85edccd8b103387e8579cf4b6b"
+    },
+    "damage_evaluator": {
+      "repository": "damage_modeling",
+      "path": "scripts/reference_helpers/flood_wind_curve_eval.py",
+      "sha256": "d97c702412e4232451882debf0ce98b57336ae5ce1e790734c9e40c6e9066f9d"
+    },
+    "hazard_profile": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/asset_model.json",
+      "sha256": "1f1563a688b34f0acbcd3394ce9a1fb15adcd34a806047b6d0f9de4c50701f52"
+    },
+    "hazard_budget": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget.csv",
+      "sha256": "831a020a5714cabe26d2b822280aaac22256af96fb3122f48db7c6096cc52129"
+    },
+    "hazard_budget_summary": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget_summary.json",
+      "sha256": "849e31f998c088faab9951fac7143081a978f779400b2e7fb36ac70ae0be2433"
+    },
+    "valuation_source_receipt": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/valuation_source_receipt.json",
+      "sha256": "ecb6933d9d08892281b431d8ed3cf70ec1cf36b1bb5b2f19e5f03f89485254ac"
+    }
+  },
+  "candidate_assembly_usd": "27353236.37",
+  "full_candidate_budget_usd": "30415059.81",
+  "outside_candidate_assembly_usd": "3061823.44",
+  "station_count": 1,
+  "value_rows": 31,
+  "examples": [
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 0,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.0,
+        "audit_candidate_assembly_loss_usd": 0.0,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 0.0,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 1,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.02,
+        "audit_candidate_assembly_loss_usd": 547064.73,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 1.0,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 3,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.06,
+        "audit_candidate_assembly_loss_usd": 1641194.18,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 3.0,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 4,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.07,
+        "audit_candidate_assembly_loss_usd": 1914726.55,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 4.0,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 5.5,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.08499999999999999,
+        "audit_candidate_assembly_loss_usd": 2325025.09,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 5.5,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 7,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.1,
+        "audit_candidate_assembly_loss_usd": 2735323.64,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 7.0,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 10,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "audit_arithmetic_only",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": 0.15,
+        "audit_candidate_assembly_loss_usd": 4102985.46,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 10.0,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    },
+    {
+      "input": {
+        "flood_depth_above_substation_grade_ft": 10.01,
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "result": {
+        "status": "withheld",
+        "runtime_admitted": false,
+        "binding_sha256": "37f53980a646dff95f4f5505e34d82db07a81bf9c4bf11070c837d059c2f0f38",
+        "source_dr": null,
+        "audit_candidate_assembly_loss_usd": null,
+        "scenario_loss_usd": null,
+        "whole_station_loss_usd": null,
+        "annual_metrics": {
+          "eal_usd": null,
+          "pml_usd": null,
+          "var_usd": null,
+          "tvar_usd": null
+        },
+        "reason_codes": [
+          "ABOVE_SOURCE_VALID_RANGE"
+        ],
+        "flags": [
+          "RESEARCH_ONLY",
+          "TARGET_TRANSFER_NOT_ADMITTED",
+          "CANDIDATE_VALUE_POLICY_T4",
+          "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+          "NOT_NATIVE_HAZARD_COUPLING",
+          "FULL_STATION_LOSS_WITHHELD",
+          "CANONICAL_SCREENING_RELEASE",
+          "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+          "FEMA_HAZUS_ELECTRIC_POWER_LOSS_DISABLED_IN_CURRENT_VERSION",
+          "WHOLE_SUBSTATION_SOURCE_ATOM",
+          "PARTIAL_FAILURE_UNIT_COVERAGE",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "SOURCE_ASSUMPTION_SET_ACKNOWLEDGED",
+          "FLOOD_PROTECTION_HANDLED_IN_DELIVERED_DEPTH",
+          "FLOOD_DURATION_NOT_MODELED"
+        ],
+        "hazard_input_used": {
+          "axis_id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+          "input_mode": "direct_depth_ft",
+          "input_field": "flood_depth_above_substation_grade_ft",
+          "value": 10.01,
+          "unit": "ft"
+        },
+        "source_helper_scenario_loss_status": "withheld_noncanonical_proposal"
+      }
+    }
+  ],
+  "limitations": [
+    "Physical target retains 345/138 kV two-transformer design; source transfer is an unadmitted screening proxy.",
+    "Source control-room and switchgear elevations differ from target facts; no height shift or resilience benefit is modeled.",
+    "All 27 fenced-station budget rows are retained in the candidate denominator; external access and support remain outside this arithmetic, not zero-loss claims.",
+    "MISO installed new-build rates are a fixed-vintage replacement proxy; scope membership is our engineering interpretation.",
+    "Only 0\u201310 ft station-grade depth, with explicit source-compatible water and delivered-depth states; no extrapolation.",
+    "Conditional hypothetical uniform local-depth cases are not native M2 or annual hazard outputs.",
+    "Current parent annual withholding is preserved.",
+    "Current reference helper contains historical proposal scenario-loss metadata; preserved and disclosed, not used as a permission.",
+    "No shared runtime promotion, Solar/Wind pin change, new canonical cell or publication."
+  ]
+}

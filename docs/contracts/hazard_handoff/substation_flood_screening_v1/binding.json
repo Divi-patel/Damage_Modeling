@@ -1,0 +1,443 @@
+{
+  "schema": "substation-flood-screening-binding/v1",
+  "binding_id": "SUBSTATION_FLOOD_FACILITY_POINT_SCREENING_V1",
+  "created": "2026-10-16",
+  "status": "qualified_for_conditional_point_screening",
+  "publication_status": "local_unpublished",
+  "owner_scope_decision": "2026-10-16: owner explicitly accepted screening first after explanation of the point/whole-station distinction",
+  "target": {
+    "asset_type": "Substation",
+    "reference_kind": "canonical_class_template",
+    "observed_asset": false,
+    "station_count": 1,
+    "voltage_kv": [
+      345,
+      138
+    ],
+    "transformers": {
+      "count": 2,
+      "rating_mva_each": 336
+    },
+    "boundary_dimensions_m": [
+      150,
+      178
+    ],
+    "loss_interest": "one_complete_hypothetical_fenced_station",
+    "actual_ownership_or_insured_interest_asserted": false
+  },
+  "source_pin": {
+    "cell_id": "flood_wind",
+    "semantic_damage_model_version": "model v1.0",
+    "documentation_revision": "docs r1",
+    "schema_version": "damage_curve_record_bundle.v3",
+    "artifact_sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1"
+  },
+  "source_inputs": {
+    "damage_artifact": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+      "sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1"
+    },
+    "damage_capability": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__capability.json",
+      "sha256": "9037e4558a0352cdc55c0c66241d869cf5c13e85edccd8b103387e8579cf4b6b"
+    },
+    "damage_evaluator": {
+      "repository": "damage_modeling",
+      "path": "scripts/reference_helpers/flood_wind_curve_eval.py",
+      "sha256": "d97c702412e4232451882debf0ce98b57336ae5ce1e790734c9e40c6e9066f9d"
+    },
+    "hazard_profile": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/asset_model.json",
+      "sha256": "1f1563a688b34f0acbcd3394ce9a1fb15adcd34a806047b6d0f9de4c50701f52"
+    },
+    "hazard_budget": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget.csv",
+      "sha256": "831a020a5714cabe26d2b822280aaac22256af96fb3122f48db7c6096cc52129"
+    },
+    "hazard_budget_summary": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget_summary.json",
+      "sha256": "849e31f998c088faab9951fac7143081a978f779400b2e7fb36ac70ae0be2433"
+    },
+    "valuation_source_receipt": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/valuation_source_receipt.json",
+      "sha256": "ecb6933d9d08892281b431d8ed3cf70ec1cf36b1bb5b2f19e5f03f89485254ac"
+    }
+  },
+  "response": {
+    "pathway_id": "flood_inundation_contact",
+    "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+    "selectors": {
+      "substation_hazus_class": "ESSM",
+      "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION"
+    },
+    "response_grain": "whole_substation_assembly",
+    "component_responses_added": [],
+    "exposure_fraction": 1.0,
+    "exposure_fraction_meaning": "one_complete_facility_proxy_at_the_reference_depth_not_a_claim_of_whole_yard_inundation",
+    "subtract_profile_equipment_heights": false,
+    "multiply_by_pondable_area_fraction": false
+  },
+  "spatial_policy": {
+    "reference_point": "geometric_centre_of_150_by_178_m_fence",
+    "depth_sampling": "containing_working_pixel_no_interpolation",
+    "edge_tie": "increasing_row_and_column",
+    "depth_basis": "station_grade_ft",
+    "support_required": "complete_valid_buildable_footprint_and_valid_point_shallow_domain",
+    "mixed_yard": "numeric_point_proxy_with_flag_whole_station_loss_unknown",
+    "no_spatial_reweighting": true
+  },
+  "value": {
+    "currency": "USD",
+    "basis": "physical_replaceable_value",
+    "estimate_kind": "installed_new_build_cost_proxy",
+    "value_profile_id": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+    "source_date": "2024-05-01",
+    "price_basis_note": "Published table amounts used as-is. Page 1 says 2023 USD and also says escalated to 2024 USD by 5%; no second uplift and no claim of 2026 replacement prices.",
+    "assembly_usd": "27353236.37",
+    "external_access_road_usd": "296818.00",
+    "unmodeled_support_usd": "2765005.44",
+    "full_reference_budget_usd": "30415059.81",
+    "unmodeled_budget_usd": "3061823.44",
+    "membership_tier": "T4_engineering_interpretation",
+    "ledger": [
+      {
+        "row_id": "345_breaker_count",
+        "item": "345 kV Circuit breakers",
+        "amount_usd": "3857769",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "345_three_phase_disconnect_count",
+        "item": "345 kV Three-phase disconnects",
+        "amount_usd": "1908666",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "345_three_phase_bus_support_count",
+        "item": "345 kV Three-phase bus supports and fittings",
+        "amount_usd": "1198900",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "345_three_phase_voltage_transformer_set_count",
+        "item": "345 kV Voltage transformers sets of three",
+        "amount_usd": "768200",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "345_line_deadend_count",
+        "item": "345 kV Angled deadends",
+        "amount_usd": "1659576",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "138_breaker_count",
+        "item": "138 kV Circuit breakers",
+        "amount_usd": "555252",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "138_three_phase_disconnect_count",
+        "item": "138 kV Three-phase disconnects",
+        "amount_usd": "629880",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "138_three_phase_bus_support_count",
+        "item": "138 kV Three-phase bus supports and fittings",
+        "amount_usd": "525196",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "138_three_phase_voltage_transformer_set_count",
+        "item": "138 kV Voltage transformers sets of three",
+        "amount_usd": "322230",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "138_line_deadend_count",
+        "item": "138 kV Angled deadends",
+        "amount_usd": "807280",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "hv_arresters",
+        "item": "345 kV arresters sets of three",
+        "amount_usd": "360000",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "transformers",
+        "item": "Two 336 MVA 345/138 kV autotransformers",
+        "amount_usd": "4623360",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "containment",
+        "item": "Oil containment and firewall for two units",
+        "amount_usd": "700000",
+        "role": "assembly_denominator",
+        "rationale_id": "V-STATION-CIVIL",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "relays_345",
+        "item": "345 kV relay panels",
+        "amount_usd": "1910040",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "relays_138",
+        "item": "138 kV relay panels",
+        "amount_usd": "833464",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "control_house",
+        "item": "Control house and foundation scaled from 500 sqft",
+        "amount_usd": "1339840.89",
+        "role": "assembly_denominator",
+        "rationale_id": "V-HOUSE",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "battery",
+        "item": "Station battery and charger",
+        "amount_usd": "118727",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "comms",
+        "item": "SCADA and communications",
+        "amount_usd": "178091",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "station_service",
+        "item": "Station service power",
+        "amount_usd": "154345",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "cable_345",
+        "item": "345 kV yard control cable",
+        "amount_usd": "769320.0",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "conduit_345",
+        "item": "345 kV yard control conduit",
+        "amount_usd": "275686.2",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "trench_345",
+        "item": "345 kV yard control trench",
+        "amount_usd": "106560",
+        "role": "assembly_denominator",
+        "rationale_id": "V-TRENCH",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "cable_138",
+        "item": "138 kV yard control cable",
+        "amount_usd": "569880.0",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "conduit_138",
+        "item": "138 kV yard control conduit",
+        "amount_usd": "229738.5",
+        "role": "assembly_denominator",
+        "rationale_id": "V-EQUIPMENT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "trench_138",
+        "item": "138 kV yard control trench",
+        "amount_usd": "88800",
+        "role": "assembly_denominator",
+        "rationale_id": "V-TRENCH",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "site",
+        "item": "Level-ground lightly vegetated site work",
+        "amount_usd": "2662434.78",
+        "role": "assembly_denominator",
+        "rationale_id": "V-SITE",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "road",
+        "item": "External station access road allowance",
+        "amount_usd": "296818.0",
+        "role": "outside_response_boundary",
+        "rationale_id": "V-ROAD",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "misc_civil",
+        "item": "Minor drainage and lightning shielding allowance",
+        "amount_usd": "200000",
+        "role": "assembly_denominator",
+        "rationale_id": "V-STATION-CIVIL",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "project_management",
+        "item": "project_management",
+        "amount_usd": "1520752.99",
+        "role": "repair_support_not_modeled",
+        "rationale_id": "V-SUPPORT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "administrative_general",
+        "item": "administrative_general",
+        "amount_usd": "414750.82",
+        "role": "repair_support_not_modeled",
+        "rationale_id": "V-SUPPORT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      },
+      {
+        "row_id": "engineering_testing_commissioning",
+        "item": "engineering_testing_commissioning",
+        "amount_usd": "829501.63",
+        "role": "repair_support_not_modeled",
+        "rationale_id": "V-SUPPORT",
+        "source_currency": "USD",
+        "rate_source": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+        "component_dr_assigned": false
+      }
+    ],
+    "support_policy": "excluded_from_this_loss_scope_not_immune_not_independent_fragility"
+  },
+  "permitted_output": "conditional_facility_point_proxy_loss_usd",
+  "whole_station_loss": "withheld",
+  "annual_metrics": "withheld_by_source_capability",
+  "portfolio_total_eligible": false,
+  "limitations": [
+    "SCREENING_SOURCE_NATIVE_LEGACY_FEMA_PROXY",
+    "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+    "FACILITY_POINT_PROXY_NOT_EQUIPMENT_RESOLVED",
+    "SOURCE_PROFILE_HEIGHTS_DIFFER_NO_HEIGHT_CREDIT",
+    "FIXED_VINTAGE_INSTALLED_COST_PROXY",
+    "FENCED_VALUE_MEMBERSHIP_T4",
+    "ROAD_AND_REPAIR_SUPPORT_NOT_MODELED",
+    "WHOLE_STATION_LOSS_UNKNOWN",
+    "ANNUAL_AND_TAIL_METRICS_WITHHELD",
+    "CURVE_INTRINSIC_SPREAD_NOT_CARRIED"
+  ],
+  "revisit_triggers": [
+    "qualified component curves or equipment exposure locations",
+    "new physical/value reference",
+    "qualified annual consumer and governed Damage capability change"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "author": "agent validation",
+  "created": "2026-10-16",
+  "status": "pass",
+  "scope": "Candidate-binding documentation, source preservation and deterministic reproduction",
+  "markdown_files": 23,
+  "local_links": 186,
+  "exact_input_hashes": 7,
+  "byte_identical_reproductions": [
+    "flood_binding_review.json",
+    "flood_binding_value_crosswalk.csv"
+  ],
+  "errors": [],
+  "runtime_admitted": false,
+  "limitations": [
+    "Not source-to-target scientific approval",
+    "Not native M2 or M0\u2013M4/annual validation",
+    "No publication or live serving change"
+  ]
+}

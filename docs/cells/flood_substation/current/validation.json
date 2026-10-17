@@ -1,0 +1,18 @@
+{
+  "schema": "substation-damage-release-validation/v1",
+  "date": "2026-10-16",
+  "artifact_sha256": "f001eb0191439a1345a7a794995c684ef731f777c4b3e1eff0298de592999f30",
+  "capability_sha256": "9f6d1a1a6b7598fd371d2047735e23d4db5222b9545c23f8b9971a2d745ba7ff",
+  "checks": {
+    "bundle_v3_schema": true,
+    "capability_v3_schema": true,
+    "source_artifact_sha": true,
+    "eleven_source_knots_exact": true,
+    "value_binding_sha_and_31_row_partition": true,
+    "value_crosswalk_byte_parity": true,
+    "six_evidence_paths_exist": true
+  },
+  "coastal_transfer_grade": "T4 engineering judgment, not calibrated",
+  "annual_capability": "conditional on downstream frequency/value/cap/coverage proof",
+  "full_risk_or_portfolio_eligible": false
+}

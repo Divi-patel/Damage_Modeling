@@ -1,0 +1,32 @@
+row_id,item,amount_usd,disposition,rationale_id,runtime_admitted
+345_breaker_count,345 kV Circuit breakers,3857769.00,candidate_assembly_denominator,V-EQUIPMENT,False
+345_three_phase_disconnect_count,345 kV Three-phase disconnects,1908666.00,candidate_assembly_denominator,V-EQUIPMENT,False
+345_three_phase_bus_support_count,345 kV Three-phase bus supports and fittings,1198900.00,candidate_assembly_denominator,V-EQUIPMENT,False
+345_three_phase_voltage_transformer_set_count,345 kV Voltage transformers sets of three,768200.00,candidate_assembly_denominator,V-EQUIPMENT,False
+345_line_deadend_count,345 kV Angled deadends,1659576.00,candidate_assembly_denominator,V-EQUIPMENT,False
+138_breaker_count,138 kV Circuit breakers,555252.00,candidate_assembly_denominator,V-EQUIPMENT,False
+138_three_phase_disconnect_count,138 kV Three-phase disconnects,629880.00,candidate_assembly_denominator,V-EQUIPMENT,False
+138_three_phase_bus_support_count,138 kV Three-phase bus supports and fittings,525196.00,candidate_assembly_denominator,V-EQUIPMENT,False
+138_three_phase_voltage_transformer_set_count,138 kV Voltage transformers sets of three,322230.00,candidate_assembly_denominator,V-EQUIPMENT,False
+138_line_deadend_count,138 kV Angled deadends,807280.00,candidate_assembly_denominator,V-EQUIPMENT,False
+hv_arresters,345 kV arresters sets of three,360000.00,candidate_assembly_denominator,V-EQUIPMENT,False
+transformers,Two 336 MVA 345/138 kV autotransformers,4623360.00,candidate_assembly_denominator,V-EQUIPMENT,False
+containment,Oil containment and firewall for two units,700000.00,candidate_assembly_denominator,V-STATION-CIVIL,False
+relays_345,345 kV relay panels,1910040.00,candidate_assembly_denominator,V-EQUIPMENT,False
+relays_138,138 kV relay panels,833464.00,candidate_assembly_denominator,V-EQUIPMENT,False
+control_house,Control house and foundation scaled from 500 sqft,1339840.89,candidate_assembly_denominator,V-HOUSE,False
+battery,Station battery and charger,118727.00,candidate_assembly_denominator,V-EQUIPMENT,False
+comms,SCADA and communications,178091.00,candidate_assembly_denominator,V-EQUIPMENT,False
+station_service,Station service power,154345.00,candidate_assembly_denominator,V-EQUIPMENT,False
+cable_345,345 kV yard control cable,769320.00,candidate_assembly_denominator,V-EQUIPMENT,False
+conduit_345,345 kV yard control conduit,275686.20,candidate_assembly_denominator,V-EQUIPMENT,False
+trench_345,345 kV yard control trench,106560.00,candidate_assembly_denominator,V-TRENCH,False
+cable_138,138 kV yard control cable,569880.00,candidate_assembly_denominator,V-EQUIPMENT,False
+conduit_138,138 kV yard control conduit,229738.50,candidate_assembly_denominator,V-EQUIPMENT,False
+trench_138,138 kV yard control trench,88800.00,candidate_assembly_denominator,V-TRENCH,False
+site,Level-ground lightly vegetated site work,2662434.78,candidate_assembly_denominator,V-SITE,False
+road,External station access road allowance,296818.00,outside_assembly,V-ROAD,False
+misc_civil,Minor drainage and lightning shielding allowance,200000.00,candidate_assembly_denominator,V-STATION-CIVIL,False
+project_management,project_management,1520752.99,support_treatment_unresolved,V-SUPPORT,False
+administrative_general,administrative_general,414750.82,support_treatment_unresolved,V-SUPPORT,False
+engineering_testing_commissioning,engineering_testing_commissioning,829501.63,support_treatment_unresolved,V-SUPPORT,False

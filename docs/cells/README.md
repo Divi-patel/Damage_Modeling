@@ -7,6 +7,7 @@ live under each cell folder.
 
 | Cell | Model / human docs / runtime docs | Damage code | Entry point |
 |---|---|---|---|
+| `flood_substation` | model v1.0 / docs r1; depth-only screening | `FLOOD_SUBSTATION_DEPTH_SCREENING_V1` | [`flood_substation/`](flood_substation/README.md) |
 | `hail_solar` | model v1.0 / human docs r8; runtime pin docs r7 | `HAIL_SOLAR_PV_MODULE_V1` | [`hail_solar/`](hail_solar/README.md) |
 | `flood_solar` | model v1.0 / human docs r5; runtime pin docs r4 | `FLOOD_SOLAR_ELECTRICAL_INUNDATION_V1` | [`flood_solar/`](flood_solar/README.md) |
 | `wind_tornado_wind` | model v1.0 / human docs r5; runtime pin docs r4 | `WIND_TORNADO_WIND_V1` | [`wind_tornado_wind/`](wind_tornado_wind/README.md) |

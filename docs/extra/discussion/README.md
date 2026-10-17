@@ -18,3 +18,6 @@ Use this progression:
     discussion -> plan -> governed implementation -> validation -> task history
 
 A discussion can recommend a change. Only the applicable method standard, cell package, contract, or released artifact can authorize it.
+
+| **2026-10-16** | [`substation_damage/`](substation_damage/README.md) | owner-directed (Divy) · agent-researched | Divy / Hazard | active | Pinned Flood assembly reuse review, 93 numerical cases, 31-row value accounting, open source/profile/denominator qualification and skill 0.8. |
+| 2026-07-28 | [`flood_wind_shared_electrical/`](flood_wind_shared_electrical/README.md) | Divi-patel | — | *active decision record* | Frame flood × wind, GSU/substation reuse, ownership, value, and the non-runtime shared electrical substrate. |

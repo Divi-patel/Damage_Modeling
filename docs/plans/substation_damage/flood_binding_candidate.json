@@ -1,0 +1,154 @@
+{
+  "schema_id": "substation_flood_binding.research.v1",
+  "author": "owner-directed (Divy) \u00b7 agent-researched",
+  "created": "2026-10-16",
+  "updated": "2026-10-16",
+  "status": "proposed",
+  "scope": "Executable candidate binding review, not a runtime Damage cell or admitted station loss",
+  "binding_id": "SUBSTATION_HAZUS_FRESHWATER_SCREENING_CANDIDATE_R1",
+  "runtime_admitted": false,
+  "target_transfer_status": "proposed_screening_proxy_not_admitted",
+  "station_count": 1,
+  "response_grain": "whole_substation_assembly",
+  "component_responses_added": [],
+  "pathway_id": "flood_inundation_contact",
+  "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+  "selectors": {
+    "substation_hazus_class": "ESSM",
+    "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION"
+  },
+  "inputs": {
+    "damage_artifact": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+      "sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1"
+    },
+    "damage_capability": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__capability.json",
+      "sha256": "9037e4558a0352cdc55c0c66241d869cf5c13e85edccd8b103387e8579cf4b6b"
+    },
+    "damage_evaluator": {
+      "repository": "damage_modeling",
+      "path": "scripts/reference_helpers/flood_wind_curve_eval.py",
+      "sha256": "d97c702412e4232451882debf0ce98b57336ae5ce1e790734c9e40c6e9066f9d"
+    },
+    "hazard_profile": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/asset_model.json",
+      "sha256": "1f1563a688b34f0acbcd3394ce9a1fb15adcd34a806047b6d0f9de4c50701f52"
+    },
+    "hazard_budget": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget.csv",
+      "sha256": "831a020a5714cabe26d2b822280aaac22256af96fb3122f48db7c6096cc52129"
+    },
+    "hazard_budget_summary": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget_summary.json",
+      "sha256": "849e31f998c088faab9951fac7143081a978f779400b2e7fb36ac70ae0be2433"
+    },
+    "valuation_source_receipt": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/substation_conus/valuation_source_receipt.json",
+      "sha256": "ecb6933d9d08892281b431d8ed3cf70ec1cf36b1bb5b2f19e5f03f89485254ac"
+    }
+  },
+  "damage_pin": {
+    "cell_id": "flood_wind",
+    "semantic_damage_model_version": "model v1.0",
+    "documentation_revision": "docs r1",
+    "schema_version": "damage_curve_record_bundle.v3",
+    "artifact_sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1"
+  },
+  "primary_source_verification": {
+    "state": "inherited_governed_source_context",
+    "source_id": "FW-S011",
+    "source_pdf_sha256_recorded_by_parent": "476726f194ed7e0702e8d6b47ad62616c8ca78214e56e9efc848f3bd547ae669",
+    "fresh_pdf_verified": false,
+    "fresh_attempt": "2026-10-16 official FEMA PDF returned HTTP 403; indexed official facility valuation text corroborates context but does not verify the full PDF bytes",
+    "source_url": "https://www.fema.gov/sites/default/files/2020-09/fema_hazus_flood-model_technical-manual_2.1.pdf"
+  },
+  "value_policy": {
+    "candidate_assembly_row_ids": [
+      "345_breaker_count",
+      "345_three_phase_disconnect_count",
+      "345_three_phase_bus_support_count",
+      "345_three_phase_voltage_transformer_set_count",
+      "345_line_deadend_count",
+      "138_breaker_count",
+      "138_three_phase_disconnect_count",
+      "138_three_phase_bus_support_count",
+      "138_three_phase_voltage_transformer_set_count",
+      "138_line_deadend_count",
+      "hv_arresters",
+      "transformers",
+      "containment",
+      "relays_345",
+      "relays_138",
+      "control_house",
+      "battery",
+      "comms",
+      "station_service",
+      "cable_345",
+      "conduit_345",
+      "trench_345",
+      "cable_138",
+      "conduit_138",
+      "trench_138",
+      "site",
+      "misc_civil"
+    ],
+    "outside_assembly_row_ids": [
+      "road"
+    ],
+    "support_policy": "unresolved_not_automatically_multiplied_by_assembly_DR",
+    "row_rationale_ids": {
+      "345_breaker_count": "V-EQUIPMENT",
+      "345_three_phase_disconnect_count": "V-EQUIPMENT",
+      "345_three_phase_bus_support_count": "V-EQUIPMENT",
+      "345_three_phase_voltage_transformer_set_count": "V-EQUIPMENT",
+      "345_line_deadend_count": "V-EQUIPMENT",
+      "138_breaker_count": "V-EQUIPMENT",
+      "138_three_phase_disconnect_count": "V-EQUIPMENT",
+      "138_three_phase_bus_support_count": "V-EQUIPMENT",
+      "138_three_phase_voltage_transformer_set_count": "V-EQUIPMENT",
+      "138_line_deadend_count": "V-EQUIPMENT",
+      "hv_arresters": "V-EQUIPMENT",
+      "transformers": "V-EQUIPMENT",
+      "containment": "V-STATION-CIVIL",
+      "relays_345": "V-EQUIPMENT",
+      "relays_138": "V-EQUIPMENT",
+      "control_house": "V-HOUSE",
+      "battery": "V-EQUIPMENT",
+      "comms": "V-EQUIPMENT",
+      "station_service": "V-EQUIPMENT",
+      "cable_345": "V-EQUIPMENT",
+      "conduit_345": "V-EQUIPMENT",
+      "trench_345": "V-TRENCH",
+      "cable_138": "V-EQUIPMENT",
+      "conduit_138": "V-EQUIPMENT",
+      "trench_138": "V-TRENCH",
+      "site": "V-SITE",
+      "road": "V-ROAD",
+      "misc_civil": "V-STATION-CIVIL"
+    },
+    "membership_tier": "T4_placeholder_or_expert_judgment",
+    "interpretation": "The complete fenced station assembly includes related fixed works in its replacement denominator; this does not assign them independent vulnerability or claim FEMA supplied this BOM."
+  },
+  "expected_candidate_assembly_usd": "27353236.37",
+  "annual_metrics_status": "withheld",
+  "scenario_loss_status": "withheld_pending_target_and_value_admission",
+  "allowed_review_output": "source DR and explicitly labeled candidate-denominator audit arithmetic",
+  "limitations": [
+    "Physical target retains 345/138 kV two-transformer design; source transfer is an unadmitted screening proxy.",
+    "Source control-room and switchgear elevations differ from target facts; no height shift or resilience benefit is modeled.",
+    "All 27 fenced-station budget rows are retained in the candidate denominator; external access and support remain outside this arithmetic, not zero-loss claims.",
+    "MISO installed new-build rates are a fixed-vintage replacement proxy; scope membership is our engineering interpretation.",
+    "Only 0\u201310 ft station-grade depth, with explicit source-compatible water and delivered-depth states; no extrapolation.",
+    "Conditional hypothetical uniform local-depth cases are not native M2 or annual hazard outputs.",
+    "Current parent annual withholding is preserved.",
+    "Current reference helper contains historical proposal scenario-loss metadata; preserved and disclosed, not used as a permission.",
+    "No shared runtime promotion, Solar/Wind pin change, new canonical cell or publication."
+  ]
+}

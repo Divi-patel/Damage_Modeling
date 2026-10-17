@@ -1,0 +1,7 @@
+claim_id,parameter_or_rule,source_id,reason,update_trigger
+SUB-C01,0–10 ft source knots,FW-S011,Exact same-grain whole-station response,Qualified updated economic source
+SUB-C02,No enabled current Hazus electric loss claim,FW-S012,Current-source restriction inherited,FEMA implementation change
+SUB-C03,Point and fenced value,SUB-A01,Minimal defined canonical product,Component inventory or observed asset
+SUB-C04,Coastal equal-depth response transfer,SUB-A02,Bounded common screening comparison without invented salt multiplier,Qualified coastal economic response
+SUB-C05,No above-domain curve,FW-S011,No invented rare-depth vulnerability tail,Qualified extended depth table
+SUB-C06,Annual calculation conditional,SUB-A01,Hazard frequency and annual support qualify deterministic DR,Consumer probability/cap failure

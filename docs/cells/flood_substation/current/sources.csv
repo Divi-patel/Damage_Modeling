@@ -1,0 +1,5 @@
+source_id,location,claim,limit
+FW-S011,https://www.fema.gov/sites/default/files/2020-09/fema_hazus_flood-model_technical-manual_2.1.pdf,Table 7.9 pp7-20–7-21 exact assembly knots; source proof in flood_wind dossier,Legacy table; not component or saline calibration
+FW-S012,docs/cells/flood_wind/current/SOURCE_REGISTER_flood_wind__model_v1_0__docs_r1.csv,Hazus7 electric-power losses disabled; inherited pinned evidence,Does not establish current enabled Hazus loss model
+SUB-A01,docs/contracts/hazard_handoff/substation_flood_screening_v1/binding.json,Existing canonical point/value selection,"Engineering proxy, not observed asset"
+SUB-A02,derivation.md,Owner-selected screening scope; engineering-selected equal depth response for Coastal,"T4 assumption; salinity/wave/contamination effects unknown, not zero damage"

@@ -27,6 +27,7 @@ These notes are the implementation-side contract for external M2/M3 notebooks. T
 | `m3_to_m4_distribution_ready_emit.md` | Ensure the parquet/schema seam can carry scalar and distribution emit objects. |
 | `wildfire_solar_research_to_runtime_handoff__model_v0_1__docs_r2.md` | Keep FSim wildfire screening separate from physical solar loss; isolate the current legacy proxy and fail closed until a canonical wildfire_solar model is released. |
 | `wildfire_solar_model_v1_0_hazard_migration.md` | Replace the legacy midpoint/Byram/logistic proxy with the canonical exact-FSim-state screening model, explicit value linkage, KATs, SHA pin, and limitation flags. |
+| 01 | 2026-10-16 | owner-directed (Divy) · agent-drafted | Hazard | [Substation Flood conditional binding](substation_flood_screening_v1/README.md) | Unchanged canonical assembly response, 31-row value/exposure binding and conditional point-proxy guards; annual withholding retained |
 
 The canonical `wildfire_solar_model_v1_0_hazard_migration.md` supersedes that cell's v0.1 no-runtime
 instruction for execution; its v0.1 file remains the research and promotion audit. For every explicitly

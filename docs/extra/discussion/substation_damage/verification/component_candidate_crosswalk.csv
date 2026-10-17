@@ -1,0 +1,32 @@
+row_id,amount_usd,existing_role,research_group,candidate_and_limit,component_runtime_admitted
+345_breaker_count,3857769,assembly_denominator,yard_breakers_and_disconnects,FS_SWG: transmission AIS transfer unresolved,False
+345_three_phase_disconnect_count,1908666,assembly_denominator,yard_breakers_and_disconnects,FS_SWG: transmission AIS transfer unresolved,False
+345_three_phase_bus_support_count,1198900,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+345_three_phase_voltage_transformer_set_count,768200,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+345_line_deadend_count,1659576,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+138_breaker_count,555252,assembly_denominator,yard_breakers_and_disconnects,FS_SWG: transmission AIS transfer unresolved,False
+138_three_phase_disconnect_count,629880,assembly_denominator,yard_breakers_and_disconnects,FS_SWG: transmission AIS transfer unresolved,False
+138_three_phase_bus_support_count,525196,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+138_three_phase_voltage_transformer_set_count,322230,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+138_line_deadend_count,807280,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+hv_arresters,360000,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+transformers,4623360,assembly_denominator,main_transformers,FS_XFMR: controls-to-whole-transformer denominator unresolved,False
+containment,700000,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+relays_345,1910040,assembly_denominator,controls_and_auxiliaries,FS_SCADA: electronics only; auxiliary transfer unresolved,False
+relays_138,833464,assembly_denominator,controls_and_auxiliaries,FS_SCADA: electronics only; auxiliary transfer unresolved,False
+control_house,1339840.89,assembly_denominator,building,no building-shell candidate selected in this audit,False
+battery,118727,assembly_denominator,controls_and_auxiliaries,FS_SCADA: electronics only; auxiliary transfer unresolved,False
+comms,178091,assembly_denominator,controls_and_auxiliaries,FS_SCADA: electronics only; auxiliary transfer unresolved,False
+station_service,154345,assembly_denominator,controls_and_auxiliaries,FS_SCADA: electronics only; auxiliary transfer unresolved,False
+cable_345,769320.0,assembly_denominator,cables_conduits_trenches,FS_CABLE: cable-only candidate; route/termination exposure unresolved,False
+conduit_345,275686.2,assembly_denominator,cables_conduits_trenches,FS_CABLE: cable-only candidate; route/termination exposure unresolved,False
+trench_345,106560,assembly_denominator,cables_conduits_trenches,FS_CABLE: cable-only candidate; route/termination exposure unresolved,False
+cable_138,569880.0,assembly_denominator,cables_conduits_trenches,FS_CABLE: cable-only candidate; route/termination exposure unresolved,False
+conduit_138,229738.5,assembly_denominator,cables_conduits_trenches,FS_CABLE: cable-only candidate; route/termination exposure unresolved,False
+trench_138,88800,assembly_denominator,cables_conduits_trenches,FS_CABLE: cable-only candidate; route/termination exposure unresolved,False
+site,2662434.78,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+road,296818.0,outside_response_boundary,outside_current_response,retain existing outside-response disposition,False
+misc_civil,200000,assembly_denominator,remaining_yard_and_civil,no blanket residual damage rule selected,False
+project_management,1520752.99,repair_support_not_modeled,outside_current_response,retain existing outside-response disposition,False
+administrative_general,414750.82,repair_support_not_modeled,outside_current_response,retain existing outside-response disposition,False
+engineering_testing_commissioning,829501.63,repair_support_not_modeled,outside_current_response,retain existing outside-response disposition,False

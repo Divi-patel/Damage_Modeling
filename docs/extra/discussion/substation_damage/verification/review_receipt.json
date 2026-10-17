@@ -1,0 +1,1837 @@
+{
+  "author": "owner-directed (Divy); agent-researched",
+  "review_date": "2026-10-16",
+  "status": "passed_reproducibility_and_accounting_only",
+  "standalone_substation_runtime_admitted": false,
+  "fresh_primary_table_verified": false,
+  "selected_damage_denominator_usd": null,
+  "review_script_sha256": "59448ae0ab715d74f998a3bf20a4f4961820b7ee943eccb310546289ba3399e6",
+  "input_receipts": [
+    {
+      "repository": "Damage_Modeling",
+      "commit": "02eba9be57e40ae5301fa02a45c7a49d5e86b204",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+      "sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1",
+      "bytes": 33123
+    },
+    {
+      "repository": "Damage_Modeling",
+      "commit": "02eba9be57e40ae5301fa02a45c7a49d5e86b204",
+      "path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__capability.json",
+      "sha256": "9037e4558a0352cdc55c0c66241d869cf5c13e85edccd8b103387e8579cf4b6b",
+      "bytes": 6550
+    },
+    {
+      "repository": "Damage_Modeling",
+      "commit": "02eba9be57e40ae5301fa02a45c7a49d5e86b204",
+      "path": "docs/cells/flood_wind/current/flood_wind_curve_derivation_dossier__model_v1_0__docs_r1.md",
+      "sha256": "9d6d9185efeb05f65095e4c6f9a83cd6c357f5581bd9cc6f7f042c0e2efc5b80",
+      "bytes": 10245
+    },
+    {
+      "repository": "Damage_Modeling",
+      "commit": "02eba9be57e40ae5301fa02a45c7a49d5e86b204",
+      "path": "docs/cells/flood_wind/current/SOURCE_REGISTER_flood_wind__model_v1_0__docs_r1.csv",
+      "sha256": "65bff4eadd5d914f25c46d5fbc1dbe65ac7afb12da6eeed19d7942d9c4e007b7",
+      "bytes": 14633
+    },
+    {
+      "repository": "Damage_Modeling",
+      "commit": "02eba9be57e40ae5301fa02a45c7a49d5e86b204",
+      "path": "scripts/reference_helpers/flood_wind_curve_eval.py",
+      "sha256": "d97c702412e4232451882debf0ce98b57336ae5ce1e790734c9e40c6e9066f9d",
+      "bytes": 19803
+    },
+    {
+      "repository": "Hazard_modeling",
+      "commit": "509bf435e1990a5d04d59c0c34621cc2d9a82fdb",
+      "path": "docs/plans/_cross_cutting/substation_conus/asset_model.json",
+      "sha256": "1f1563a688b34f0acbcd3394ce9a1fb15adcd34a806047b6d0f9de4c50701f52",
+      "bytes": 173353
+    },
+    {
+      "repository": "Hazard_modeling",
+      "commit": "509bf435e1990a5d04d59c0c34621cc2d9a82fdb",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget.csv",
+      "sha256": "831a020a5714cabe26d2b822280aaac22256af96fb3122f48db7c6096cc52129",
+      "bytes": 7328
+    },
+    {
+      "repository": "Hazard_modeling",
+      "commit": "509bf435e1990a5d04d59c0c34621cc2d9a82fdb",
+      "path": "docs/plans/_cross_cutting/substation_conus/reference_budget_summary.json",
+      "sha256": "849e31f998c088faab9951fac7143081a978f779400b2e7fb36ac70ae0be2433",
+      "bytes": 1451
+    }
+  ],
+  "source_table_basis": "retained governed Flood/Wind dossier; primary PDF fresh retrieval unavailable",
+  "curve_case_count": 93,
+  "curve_cases": [
+    {
+      "case_id": "ESSL_knot_0",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 0
+      },
+      "expected_dr": 0.0,
+      "expected_reason": null,
+      "actual_dr": 0.0,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 1
+      },
+      "expected_dr": 0.02,
+      "expected_reason": null,
+      "actual_dr": 0.02,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_2",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 2
+      },
+      "expected_dr": 0.04,
+      "expected_reason": null,
+      "actual_dr": 0.04,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_3",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 3
+      },
+      "expected_dr": 0.06,
+      "expected_reason": null,
+      "actual_dr": 0.06,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_4",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4
+      },
+      "expected_dr": 0.07,
+      "expected_reason": null,
+      "actual_dr": 0.07,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_5",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 5
+      },
+      "expected_dr": 0.08,
+      "expected_reason": null,
+      "actual_dr": 0.08,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_6",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 6
+      },
+      "expected_dr": 0.09,
+      "expected_reason": null,
+      "actual_dr": 0.09,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_7",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 7
+      },
+      "expected_dr": 0.1,
+      "expected_reason": null,
+      "actual_dr": 0.1,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_8",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 8
+      },
+      "expected_dr": 0.12,
+      "expected_reason": null,
+      "actual_dr": 0.12,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_9",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 9
+      },
+      "expected_dr": 0.14,
+      "expected_reason": null,
+      "actual_dr": 0.14,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_knot_10",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 10
+      },
+      "expected_dr": 0.15,
+      "expected_reason": null,
+      "actual_dr": 0.15,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_0",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 0.5
+      },
+      "expected_dr": 0.01,
+      "expected_reason": null,
+      "actual_dr": 0.01,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 1.5
+      },
+      "expected_dr": 0.03,
+      "expected_reason": null,
+      "actual_dr": 0.03,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_2",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 2.5
+      },
+      "expected_dr": 0.05,
+      "expected_reason": null,
+      "actual_dr": 0.05,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_3",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 3.5
+      },
+      "expected_dr": 0.065,
+      "expected_reason": null,
+      "actual_dr": 0.065,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_4",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.5
+      },
+      "expected_dr": 0.075,
+      "expected_reason": null,
+      "actual_dr": 0.07500000000000001,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_5",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 5.5
+      },
+      "expected_dr": 0.085,
+      "expected_reason": null,
+      "actual_dr": 0.08499999999999999,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_6",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 6.5
+      },
+      "expected_dr": 0.095,
+      "expected_reason": null,
+      "actual_dr": 0.095,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_7",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 7.5
+      },
+      "expected_dr": 0.11,
+      "expected_reason": null,
+      "actual_dr": 0.11,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_8",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 8.5
+      },
+      "expected_dr": 0.13,
+      "expected_reason": null,
+      "actual_dr": 0.13,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSL_midpoint_9",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSL",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 9.5
+      },
+      "expected_dr": 0.145,
+      "expected_reason": null,
+      "actual_dr": 0.14500000000000002,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_0",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 0
+      },
+      "expected_dr": 0.0,
+      "expected_reason": null,
+      "actual_dr": 0.0,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 1
+      },
+      "expected_dr": 0.02,
+      "expected_reason": null,
+      "actual_dr": 0.02,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_2",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 2
+      },
+      "expected_dr": 0.04,
+      "expected_reason": null,
+      "actual_dr": 0.04,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_3",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 3
+      },
+      "expected_dr": 0.06,
+      "expected_reason": null,
+      "actual_dr": 0.06,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_4",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4
+      },
+      "expected_dr": 0.07,
+      "expected_reason": null,
+      "actual_dr": 0.07,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_5",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 5
+      },
+      "expected_dr": 0.08,
+      "expected_reason": null,
+      "actual_dr": 0.08,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_6",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 6
+      },
+      "expected_dr": 0.09,
+      "expected_reason": null,
+      "actual_dr": 0.09,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_7",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 7
+      },
+      "expected_dr": 0.1,
+      "expected_reason": null,
+      "actual_dr": 0.1,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_8",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 8
+      },
+      "expected_dr": 0.12,
+      "expected_reason": null,
+      "actual_dr": 0.12,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_9",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 9
+      },
+      "expected_dr": 0.14,
+      "expected_reason": null,
+      "actual_dr": 0.14,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_knot_10",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 10
+      },
+      "expected_dr": 0.15,
+      "expected_reason": null,
+      "actual_dr": 0.15,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_0",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 0.5
+      },
+      "expected_dr": 0.01,
+      "expected_reason": null,
+      "actual_dr": 0.01,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 1.5
+      },
+      "expected_dr": 0.03,
+      "expected_reason": null,
+      "actual_dr": 0.03,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_2",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 2.5
+      },
+      "expected_dr": 0.05,
+      "expected_reason": null,
+      "actual_dr": 0.05,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_3",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 3.5
+      },
+      "expected_dr": 0.065,
+      "expected_reason": null,
+      "actual_dr": 0.065,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_4",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.5
+      },
+      "expected_dr": 0.075,
+      "expected_reason": null,
+      "actual_dr": 0.07500000000000001,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_5",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 5.5
+      },
+      "expected_dr": 0.085,
+      "expected_reason": null,
+      "actual_dr": 0.08499999999999999,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_6",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 6.5
+      },
+      "expected_dr": 0.095,
+      "expected_reason": null,
+      "actual_dr": 0.095,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_7",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 7.5
+      },
+      "expected_dr": 0.11,
+      "expected_reason": null,
+      "actual_dr": 0.11,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_8",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 8.5
+      },
+      "expected_dr": 0.13,
+      "expected_reason": null,
+      "actual_dr": 0.13,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSM_midpoint_9",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 9.5
+      },
+      "expected_dr": 0.145,
+      "expected_reason": null,
+      "actual_dr": 0.14500000000000002,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_0",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 0
+      },
+      "expected_dr": 0.0,
+      "expected_reason": null,
+      "actual_dr": 0.0,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 1
+      },
+      "expected_dr": 0.02,
+      "expected_reason": null,
+      "actual_dr": 0.02,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_2",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 2
+      },
+      "expected_dr": 0.04,
+      "expected_reason": null,
+      "actual_dr": 0.04,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_3",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 3
+      },
+      "expected_dr": 0.06,
+      "expected_reason": null,
+      "actual_dr": 0.06,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_4",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4
+      },
+      "expected_dr": 0.07,
+      "expected_reason": null,
+      "actual_dr": 0.07,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_5",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 5
+      },
+      "expected_dr": 0.08,
+      "expected_reason": null,
+      "actual_dr": 0.08,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_6",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 6
+      },
+      "expected_dr": 0.09,
+      "expected_reason": null,
+      "actual_dr": 0.09,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_7",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 7
+      },
+      "expected_dr": 0.1,
+      "expected_reason": null,
+      "actual_dr": 0.1,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_8",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 8
+      },
+      "expected_dr": 0.12,
+      "expected_reason": null,
+      "actual_dr": 0.12,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_9",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 9
+      },
+      "expected_dr": 0.14,
+      "expected_reason": null,
+      "actual_dr": 0.14,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_knot_10",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 10
+      },
+      "expected_dr": 0.15,
+      "expected_reason": null,
+      "actual_dr": 0.15,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_0",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 0.5
+      },
+      "expected_dr": 0.01,
+      "expected_reason": null,
+      "actual_dr": 0.01,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 1.5
+      },
+      "expected_dr": 0.03,
+      "expected_reason": null,
+      "actual_dr": 0.03,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_2",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 2.5
+      },
+      "expected_dr": 0.05,
+      "expected_reason": null,
+      "actual_dr": 0.05,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_3",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 3.5
+      },
+      "expected_dr": 0.065,
+      "expected_reason": null,
+      "actual_dr": 0.065,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_4",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.5
+      },
+      "expected_dr": 0.075,
+      "expected_reason": null,
+      "actual_dr": 0.07500000000000001,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_5",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 5.5
+      },
+      "expected_dr": 0.085,
+      "expected_reason": null,
+      "actual_dr": 0.08499999999999999,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_6",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 6.5
+      },
+      "expected_dr": 0.095,
+      "expected_reason": null,
+      "actual_dr": 0.095,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_7",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 7.5
+      },
+      "expected_dr": 0.11,
+      "expected_reason": null,
+      "actual_dr": 0.11,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_8",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 8.5
+      },
+      "expected_dr": 0.13,
+      "expected_reason": null,
+      "actual_dr": 0.13,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "ESSH_midpoint_9",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSH",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 9.5
+      },
+      "expected_dr": 0.145,
+      "expected_reason": null,
+      "actual_dr": 0.14500000000000002,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "same_datum_metres_5p5ft",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "water_surface_elevation_m": 101.6764,
+        "substation_grade_elevation_m": 100,
+        "water_surface_vertical_datum_id": "NAVD88",
+        "substation_grade_vertical_datum_id": "NAVD88"
+      },
+      "expected_dr": 0.085,
+      "expected_reason": null,
+      "actual_dr": 0.08500000000000002,
+      "actual_reasons": [],
+      "outcome": "conditional",
+      "passed": true
+    },
+    {
+      "case_id": "datum_mismatch",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "water_surface_elevation_m": 101.6764,
+        "substation_grade_elevation_m": 100,
+        "water_surface_vertical_datum_id": "NAVD88",
+        "substation_grade_vertical_datum_id": "NGVD29"
+      },
+      "expected_dr": null,
+      "expected_reason": "VERTICAL_DATUM_MISMATCH",
+      "actual_dr": null,
+      "actual_reasons": [
+        "VERTICAL_DATUM_MISMATCH"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "both_axes",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "water_surface_elevation_m": 101.6764,
+        "substation_grade_elevation_m": 100,
+        "water_surface_vertical_datum_id": "NAVD88",
+        "substation_grade_vertical_datum_id": "NAVD88",
+        "flood_depth_above_substation_grade_ft": 4
+      },
+      "expected_dr": null,
+      "expected_reason": "AXIS_PAYLOAD_AMBIGUOUS",
+      "actual_dr": null,
+      "actual_reasons": [
+        "AXIS_PAYLOAD_AMBIGUOUS"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "depth_-0.1",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": -0.1
+      },
+      "expected_dr": null,
+      "expected_reason": "AXIS_OUTSIDE_VALID_RANGE",
+      "actual_dr": null,
+      "actual_reasons": [
+        "AXIS_OUTSIDE_VALID_RANGE"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "depth_10.01",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 10.01
+      },
+      "expected_dr": null,
+      "expected_reason": "ABOVE_SOURCE_VALID_RANGE",
+      "actual_dr": null,
+      "actual_reasons": [
+        "ABOVE_SOURCE_VALID_RANGE"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "water_freshwater_contaminated",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN",
+      "actual_dr": null,
+      "actual_reasons": [
+        "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "water_brackish",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "brackish",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN",
+      "actual_dr": null,
+      "actual_reasons": [
+        "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "water_saltwater",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "saltwater",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN",
+      "actual_dr": null,
+      "actual_reasons": [
+        "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "water_chemically_contaminated",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "chemically_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN",
+      "actual_dr": null,
+      "actual_reasons": [
+        "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "water_unknown",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "unknown",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN",
+      "actual_dr": null,
+      "actual_reasons": [
+        "WATER_QUALITY_OUTSIDE_SCREENING_DOMAIN"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "missing_water_quality_class",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "WATER_QUALITY_CLASS_REQUIRED",
+      "actual_dr": null,
+      "actual_reasons": [
+        "WATER_QUALITY_CLASS_REQUIRED"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "missing_source_assumption_set_id",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "SOURCE_ASSUMPTION_SET_REQUIRED",
+      "actual_dr": null,
+      "actual_reasons": [
+        "SOURCE_ASSUMPTION_SET_REQUIRED"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "missing_flood_depth_above_substation_grade_ft",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth"
+      },
+      "expected_dr": null,
+      "expected_reason": "AXIS_PAYLOAD_REQUIRED",
+      "actual_dr": null,
+      "actual_reasons": [
+        "AXIS_PAYLOAD_REQUIRED"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "wrong_pathway",
+      "request": {
+        "pathway_id": "flood_scour",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "PATHWAY_ID_UNKNOWN",
+      "actual_dr": null,
+      "actual_reasons": [
+        "PATHWAY_ID_UNKNOWN"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "wrong_class",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "HV",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "SUBSTATION_HAZUS_CLASS_UNSUPPORTED",
+      "actual_dr": null,
+      "actual_reasons": [
+        "SUBSTATION_HAZUS_CLASS_UNSUPPORTED"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "wrong_assumptions",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "our_exact_station",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "SOURCE_ASSUMPTION_SET_UNSUPPORTED",
+      "actual_dr": null,
+      "actual_reasons": [
+        "SOURCE_ASSUMPTION_SET_UNSUPPORTED"
+      ],
+      "outcome": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_GSU_SWITCHGEAR",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_GSU_SWITCHGEAR",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "COMPONENT_LEVEL_ECONOMIC_RESPONSE_NOT_CALIBRATED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_GSU_TRANSFORMER_MAIN",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_GSU_TRANSFORMER_MAIN",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "TRANSFORMER_MAIN_AUXILIARY_STATE_MODEL_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_GSU_TRANSFORMER_AUX_CONTROLS",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_GSU_TRANSFORMER_AUX_CONTROLS",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "DEPENDENCY_SAFE_VALUE_SPLIT_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_GSU_PROTECTION_SCADA",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_GSU_PROTECTION_SCADA",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "PROTECTION_CONTROL_ECONOMIC_RESPONSE_NOT_CALIBRATED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_GSU_STATION_SERVICE_DC",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_GSU_STATION_SERVICE_DC",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "STATION_SERVICE_DC_DECOMPOSITION_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_GSU_CABLE_TERMINATIONS",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_GSU_CABLE_TERMINATIONS",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "CABLE_BODY_TERMINATION_PATHWAY_SPLIT_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_TURBINE_BASE_ELECTRICAL",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_TURBINE_BASE_ELECTRICAL",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "WIND_SPECIFIC_EQUIPMENT_DECOMPOSITION_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_PADMOUNT_STEPUP_TRANSFORMER",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_PADMOUNT_STEPUP_TRANSFORMER",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "PAD_TRANSFORMER_CONSTRUCTION_AND_VALUE_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_COLLECTION_CABLE_TERMINATIONS",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_COLLECTION_CABLE_TERMINATIONS",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "LINE_NETWORK_EXPOSURE_AND_VALUE_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_TURBINE_FOUNDATION",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_TURBINE_FOUNDATION",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "SEPARATE_FLOOD_SCOUR_EROSION_PATHWAY_REQUIRED"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_CIVIL_ACCESS_DRAINAGE",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_CIVIL_ACCESS_DRAINAGE",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "MIXED_CIVIL_BUCKET_REQUIRES_SPLIT"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_FW_ELEVATED_TURBINE_EQUIPMENT",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FW_ELEVATED_TURBINE_EQUIPMENT",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "GEOMETRY_SCREENED_NOT_UNIVERSAL_ZERO"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_SUPPORT_FIELDWORK",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "SUPPORT_FIELDWORK",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "SUPPORT_COST_ALLOCATE_ONCE_AFTER_DISPOSITION",
+        "NO_INDEPENDENT_FRAGILITY"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    },
+    {
+      "case_id": "withheld_SUPPORT_TRANSPORT_LOGISTICS",
+      "request": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "SUPPORT_TRANSPORT_LOGISTICS",
+        "substation_hazus_class": "ESSM",
+        "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION",
+        "water_quality_class": "freshwater_non_contaminated",
+        "delivered_depth_basis": "unprotected_or_internal_post_bypass_depth",
+        "flood_depth_above_substation_grade_ft": 4.0
+      },
+      "expected_dr": null,
+      "expected_reason": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+      "actual_dr": null,
+      "actual_reasons": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "SUPPORT_COST_ALLOCATE_ONCE_AFTER_DISPOSITION",
+        "NO_INDEPENDENT_FRAGILITY"
+      ],
+      "outcome": "withheld",
+      "passed": true
+    }
+  ],
+  "wrong_pin_rejected": true,
+  "value_row_count": 31,
+  "budget_total_usd": "30415059.81",
+  "research_disposition_totals_usd": {
+    "candidate_assembly_member": "22255600.7",
+    "scope_unresolved": "5097635.67",
+    "outside_assembly": "296818.0",
+    "support_unallocated": "2765005.44"
+  },
+  "annual_metrics": "withheld_by_existing_capability",
+  "reference_helper_limitation": "Retains historical scenario_loss_status=withheld_noncanonical_proposal; this probe tests DR only, not production admission or dollar loss."
+}

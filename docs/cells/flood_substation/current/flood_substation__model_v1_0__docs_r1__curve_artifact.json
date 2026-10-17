@@ -1,0 +1,354 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "released",
+  "package_baseline": "library v2.5",
+  "cell_id": "flood_substation",
+  "damage_code_id": "FLOOD_SUBSTATION_DEPTH_SCREENING_V1",
+  "semantic_damage_model_version": "model v1.0",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "released_v1_0",
+  "promotion_status": "released",
+  "review_status": "agent_reviewed_screening_under_owner_delivery_direction",
+  "model_grade": "T3_source_curve_T4_canonical_and_coastal_transfer",
+  "package_release": "unreleased",
+  "package_inclusion_status": "repository_canonical_not_in_portable_package",
+  "canonical_runtime_artifact": true,
+  "source_dossier": "docs/cells/flood_substation/current/derivation.md",
+  "source_workbook": "docs/cells/flood_substation/current/curve_audit.csv",
+  "known_answer_tests": "docs/cells/flood_substation/current/known_answers.json",
+  "source_register": "docs/cells/flood_substation/current/sources.csv",
+  "claim_parameter_register": "docs/cells/flood_substation/current/claims.csv",
+  "value_crosswalk": "docs/cells/flood_substation/current/value_crosswalk.csv",
+  "failure_units": [
+    {
+      "id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+      "subsystem": "FACILITY_GSU_SUBSTATION_SOURCE_NATIVE",
+      "component": "HAZUS_SUBSTATION_CONTROL_ROOM_CABLING_AND_INCIDENTAL_TRANSFORMER_SWITCHGEAR_ASSEMBLY",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "full direct replacement value of the same facility-level substation assembly",
+      "exposure_grain": "one canonical fenced station at a facility reference point",
+      "mutually_exclusive_with": [],
+      "source_atom_note": "This is the FEMA Hazus whole-substation facility atom, not an aggregate alias for independently evaluated component records."
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "flood_inundation_contact",
+      "hazard_scope": {
+        "included": [
+          "Pluvial and Riverine facility-grade direct inundation screening",
+          "Coastal depth-only assembly proxy under explicit T4 transfer"
+        ],
+        "excluded": [
+          "salinity and contamination effects",
+          "wave loading, debris, scour and erosion",
+          "outage and business interruption",
+          "component/elevation improvement quantification"
+        ],
+        "compound_event_rule": "separate physical branches; CONUS screening composite does not resolve joint events; no portfolio Total permission"
+      },
+      "hazard_axis": {
+        "id": "FLOOD_DEPTH_ABOVE_SUBSTATION_GRADE_FT_HAZUS",
+        "preferred_input_field": "flood_depth_above_substation_grade_ft",
+        "permitted_proxy_fields": [
+          "water_surface_elevation_m",
+          "substation_grade_elevation_m"
+        ],
+        "unit": "ft",
+        "source_native_unit": "ft",
+        "valid_range": [
+          0,
+          10
+        ],
+        "extrapolation_policy": "negative depth rejects; 0 through 10 ft evaluates by linear interpolation; depth above 10 ft withholds",
+        "source_table_knots_ft": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "physics_bridge": "Optional bridge: (water_surface_elevation_m - substation_grade_elevation_m) * 3.280839895013123, with exact matching vertical datums; direct-depth and WSE payloads are mutually exclusive.",
+        "datum_basis": "substation facility grade used by the source-native Hazus class, not a component contact datum"
+      },
+      "selector_logic": [
+        {
+          "field": "substation_hazus_class",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "ESSL",
+            "ESSM",
+            "ESSH"
+          ],
+          "effect": "Exact source-class acknowledgement; Table 7.9 publishes the same ordinates for all three classes."
+        },
+        {
+          "field": "source_assumption_set_id",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION"
+          ],
+          "effect": "Acknowledges the legacy source atom, full-substation denominator, and screening limitations."
+        }
+      ],
+      "conditioner_logic": [
+        {
+          "field": "sub_peril",
+          "required": true,
+          "allowed": [
+            "pluvial",
+            "riverine",
+            "coastal"
+          ],
+          "effect": "Coastal adds T4 depth-response transfer flag; same source knots; no salinity multiplier"
+        }
+      ],
+      "exposure_contract": {
+        "required_subject_grain": "one canonical complete fenced substation at one alternative location",
+        "exposure_fraction": 1,
+        "no_equipment_height_shift": true,
+        "no_area_multiplier": true,
+        "assembly_component_overlap": "prohibited"
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+          "status": "conditional_numeric_screening_curve",
+          "reason_codes": []
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "FW_HAZUS_2_1_SUBSTATION_SCREENING_PWL",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_substation_grade_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0.02
+              ],
+              [
+                2,
+                0.04
+              ],
+              [
+                3,
+                0.06
+              ],
+              [
+                4,
+                0.07
+              ],
+              [
+                5,
+                0.08
+              ],
+              [
+                6,
+                0.09
+              ],
+              [
+                7,
+                0.1
+              ],
+              [
+                8,
+                0.12
+              ],
+              [
+                9,
+                0.14
+              ],
+              [
+                10,
+                0.15
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            10
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "withhold outside 0 through 10 ft; no endpoint clamp",
+          "selector_match": {
+            "substation_hazus_classes": [
+              "ESSL",
+              "ESSM",
+              "ESSH"
+            ],
+            "source_assumption_set_id": "FEMA_HAZUS_MH_2_1_TABLE_7_9_UNPROTECTED_SUBSTATION"
+          },
+          "source_parameter_refs": [
+            "FW-S011#Table_7_9"
+          ],
+          "metadata_flags": [
+            "SCREENING_LEGACY_FEMA_ASSEMBLY_PROXY",
+            "FACILITY_POINT_NOT_COMPONENT_HYDRAULICS",
+            "NO_INTRINSIC_DAMAGE_SPREAD",
+            "NO_FIELD_OR_CLAIMS_CALIBRATION",
+            "SOURCE_DOMAIN_0_TO_10_FT",
+            "COASTAL_DEPTH_RESPONSE_TRANSFER_T4",
+            "SALINITY_CONTAMINATION_WAVE_SCOUR_EXCLUDED",
+            "INCOMPLETE_SUPPORT_ZERO_CONTRIBUTION_TAGGED",
+            "FEMA_CURRENT_ELECTRIC_POWER_LOSS_DISABLED"
+          ]
+        }
+      ]
+    }
+  ],
+  "value_linkage": {
+    "curve_denominator": "full replacement value of the same fenced station",
+    "value_usd": "27353236.37",
+    "value_basis_id": "MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE",
+    "value_binding_sha256": "f0491594d67780eef27a1c19e6232f9bf49f1fbb5d1f5914d815b3c4679a04cb",
+    "value_binding_path": "docs/contracts/hazard_handoff/substation_flood_screening_v1/binding.json",
+    "outside_response_value_usd": "3061823.44",
+    "formula": "DR(depth) * same_fenced_station_value; no extra component terms"
+  },
+  "parameter_tier_table": [
+    {
+      "parameter": "source knots and linear interpolation",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source": "FW-S011",
+      "value": "unchanged 0\u201310 ft source table"
+    },
+    {
+      "parameter": "canonical station and point exposure",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source": "SUB-A01",
+      "value": "existing author-selected profile/value binding"
+    },
+    {
+      "parameter": "coastal depth-response transfer",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source": "SUB-A02",
+      "value": "same inundation-only curve, no salinity/wave modifier; no full surge claim"
+    }
+  ],
+  "evaluation_contract": {
+    "inputs": [
+      "sub_peril",
+      "flood_depth_above_substation_grade_ft"
+    ],
+    "finite_nonnegative_depth_required": true,
+    "missing": "null DR and SOURCE_UNAVAILABLE",
+    "above_10_ft": "null DR and DAMAGE_DEPTH_OUTSIDE_SOURCE_DOMAIN",
+    "interpolation": "linear_between_source_knots",
+    "annual_owner": "Hazard",
+    "no_damage_spread_invented": true
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean"
+    ],
+    "output": "failure-unit DR plus scope/source flags; frequency and financial metrics remain Hazard-owned"
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "flood_substation",
+    "canonical_runtime_artifact": true,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "supported_with_explicit_failure_unit_value_and_exposure_basis",
+        "curve_intrinsic_spread": "not_carried",
+        "populated_emit_modes": [
+          "scalar_mean"
+        ],
+        "conditions": [
+          "one canonical 150 by 178 m 345/138 kV station; not an observed insured asset",
+          "same-unit fenced replacement-value proxy; no MW scaling",
+          "direct facility-grade depth in feet; no equipment-height or pondable-area multiplier",
+          "0 through 10 ft source range; deeper or missing demand withholds DR",
+          "coastal source uses an explicit Tier-4 depth-only response transfer; it does not identify water as freshwater",
+          "whole assembly once; do not add overlapping component responses"
+        ],
+        "limitation_flags": [
+          "SCREENING_LEGACY_FEMA_ASSEMBLY_PROXY",
+          "FACILITY_POINT_NOT_COMPONENT_HYDRAULICS",
+          "NO_INTRINSIC_DAMAGE_SPREAD",
+          "NO_FIELD_OR_CLAIMS_CALIBRATION",
+          "SOURCE_DOMAIN_0_TO_10_FT",
+          "COASTAL_DEPTH_RESPONSE_TRANSFER_T4",
+          "SALINITY_CONTAMINATION_WAVE_SCOUR_EXCLUDED",
+          "INCOMPLETE_SUPPORT_ZERO_CONTRIBUTION_TAGGED",
+          "FEMA_CURRENT_ELECTRIC_POWER_LOSS_DISABLED"
+        ],
+        "withheld_failure_units": []
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+      "prerequisites": [
+        "exact canonical artifact and same-station value pins",
+        "reuse validated inland annual-maximum and Coastal event-rate methods",
+        "retain original eligible placement mass, native missing states and response-domain missing mass",
+        "cap aggregate annual station loss at its bound replacement value; curve endpoint is not a physical vulnerable-value cap",
+        "validate tail metrics from annual distributions; parent metrics from weighted mixtures, never average child tail statistics",
+        "combined EAL sum and metric-wise tail maximum labeled screening composite, not joint distribution or complete risk"
+      ],
+      "limitation_flags": [
+        "SCREENING_LEGACY_FEMA_ASSEMBLY_PROXY",
+        "FACILITY_POINT_NOT_COMPONENT_HYDRAULICS",
+        "NO_INTRINSIC_DAMAGE_SPREAD",
+        "NO_FIELD_OR_CLAIMS_CALIBRATION",
+        "SOURCE_DOMAIN_0_TO_10_FT",
+        "COASTAL_DEPTH_RESPONSE_TRANSFER_T4",
+        "SALINITY_CONTAMINATION_WAVE_SCOUR_EXCLUDED",
+        "INCOMPLETE_SUPPORT_ZERO_CONTRIBUTION_TAGGED",
+        "FEMA_CURRENT_ELECTRIC_POWER_LOSS_DISABLED"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "once-only same-station value",
+        "annual loss between zero and same-station replacement value",
+        "explicit zero-contribution mask for unavailable hazard/response states",
+        "no automatic Total or portfolio admission"
+      ],
+      "action_if_fail": "withhold affected financial calculation and record failure"
+    },
+    "promotion_gate": {
+      "status": "passed",
+      "required_before_canonical_use": [
+        "schema, source-knot and seven-step audit validation",
+        "Hazard consumer tests, probability/cap/coverage validation before annual financial use"
+      ]
+    }
+  },
+  "derivation_rationale": {
+    "source_artifact_path": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+    "source_artifact_sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1",
+    "changes": "standalone asset capability with explicit coastal depth-only proxy and conditional downstream annual use; source response unchanged",
+    "source_cell_annual_policy": "flood_wind remains annual-withheld and is not overridden for its consumers"
+  },
+  "legacy_comparison": {
+    "source_knots_identical": true,
+    "source_unit_id_retained": "FW_HAZUS_GSU_SUBSTATION_ASSEMBLY",
+    "source_host_name_does_not_restrict_physical_unit_to_wind": true
+  }
+}

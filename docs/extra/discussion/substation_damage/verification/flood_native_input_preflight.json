@@ -1,0 +1,118 @@
+{
+  "author": "owner-directed (Divy) \u00b7 agent-measured",
+  "created": "2026-10-16",
+  "status": "done",
+  "scope": "Read-only cache preflight, not a substation exposure or annual risk result",
+  "runtime_admitted": false,
+  "selected_parent_manifest": {
+    "path": "data/flood/reference_revision/20260930_solar_riverine_reference_national_r2/manifest.json",
+    "sha256": "2743379874390afb0166cf380fa286120af0fe518c47cce5037453a89870cb65"
+  },
+  "inputs": [
+    {
+      "role": "riverine_m1_cells",
+      "path": "data/task_cache/flood_riverine_dashboard_v1_1/m1_cells.parquet",
+      "sha256": "742e640dd32f688d81ee95e7798cbfdcb3b1aca737ee326b3c9de3ce8b66a978",
+      "matched_selected_reference_manifest": true,
+      "rows": 39255,
+      "columns": [
+        "cell_id",
+        "lat_center",
+        "lon_center",
+        "rp",
+        "riverine_method",
+        "flooded_fraction",
+        "depth_max_ft",
+        "band1_px",
+        "band2_px",
+        "band3_px",
+        "band4_px",
+        "band5_px",
+        "band6_px",
+        "band7_px",
+        "band8_px",
+        "qa_rp_monotone",
+        "m1_task_index",
+        "m1_task_ordinal"
+      ]
+    },
+    {
+      "role": "riverine_m1_placements",
+      "path": "data/task_cache/flood_riverine_dashboard_v1_1/m1_placements.parquet",
+      "sha256": "8d27587998118f4c8d8c316f718fd370299224ab5a8b5254fef7ec39079c760b",
+      "matched_selected_reference_manifest": true,
+      "rows": 39255,
+      "columns": [
+        "cell_id",
+        "mw",
+        "rp",
+        "n_placements",
+        "expo",
+        "depth_ft",
+        "m1_task_index",
+        "m1_task_ordinal"
+      ]
+    },
+    {
+      "role": "riverine_parent_support",
+      "path": "data/task_cache/flood_riverine_dashboard_v1_1/parent_support_state.parquet",
+      "sha256": "f8ca81a188d73a04d3d73bb6f4d9d41a8768d26454aba3764cfdf67e29ed9710",
+      "matched_selected_reference_manifest": true,
+      "rows": 39255,
+      "columns": [
+        "cell_id",
+        "rp",
+        "valid_wet",
+        "valid_modeled_dry",
+        "missing_huc6_package",
+        "missing_hand",
+        "missing_reach_identity",
+        "missing_discharge",
+        "missing_rating",
+        "ownership_gap_or_overlap",
+        "total_pixels",
+        "supported_pixels",
+        "unsupported_pixels",
+        "supported_fraction",
+        "unsupported_fraction",
+        "support_label",
+        "has_partial_support",
+        "m1_task_index",
+        "m1_task_ordinal"
+      ]
+    }
+  ],
+  "measurements": {
+    "unique_cells": 13085,
+    "return_periods": [
+      10,
+      100,
+      500
+    ],
+    "cached_placement_sizes_mw": [
+      100
+    ],
+    "cached_placements_per_row": [
+      256
+    ],
+    "parent_depth_max_gt_10ft_rows": 21213,
+    "cells_with_any_parent_depth_max_gt_10ft": 10793,
+    "support_labels": {
+      "partial": 30787,
+      "complete": 8207,
+      "none": 261
+    }
+  },
+  "conclusions": [
+    "Reuse underlying hazard field/support and source receipts; rebuild station exposure instead of reusing 100 MW Solar placement summaries.",
+    "Parent maxima above ten feet prove the source-domain problem is real in these inputs, not how many station placements will be unsupported.",
+    "A later Substation M2 must separately measure its actual event-depth domain and preserve missing source support.",
+    "Current Pluvial source/terrain transforms are asset-free, while the installed placement calculation is Solar-specific."
+  ],
+  "implementation_files": [
+    "perils/flood/src/flood/riverine/working_field_m1.py",
+    "drivers/conus_grid/src/conus_grid/flood/riverine_working_field_m1.py",
+    "perils/flood/src/flood/pluvial/ponding.py",
+    "perils/flood/src/flood/pluvial/placement.py"
+  ]
+}
