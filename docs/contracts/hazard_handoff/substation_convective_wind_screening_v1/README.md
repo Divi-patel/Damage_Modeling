@@ -67,3 +67,8 @@ Hurricane remains a downstream Total decision. No BI, service interruption or po
 [Hazard plan and proof](https://github.com/aamani-ai/Hazard_Modeling/blob/codex/substation-conus/docs/plans/_cross_cutting/substation_conus/22_convective_wind_grid.md)
 records the consumer implementation and measured checks. Replace this proxy when an admitted station-specific
 response materially improves the current screening scope; preserve this exact binding for reproduction.
+
+Read-only package check:
+`python scripts/reference_helpers/validate_substation_convective_wind_binding.py` verifies source, profile,
+31-row accounting and exact Hazard-installed bytes. The Hazard proof includes all-unit predecessor equality,
+finite-footprint analytic control, annual count-law/Monte Carlo checks and the national cell reconciliation.

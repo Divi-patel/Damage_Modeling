@@ -75,3 +75,13 @@ No curve ordinates, capabilities, scientific versions, canonical indices or cons
 review. Numerical responses outside the existing Flood reproduction were inspected, not re-executed or
 newly validated. Current/proposed files and production source were reviewed; the search is not a claim
 that every archived notebook, remote branch or unpublished analysis has been exhaustively inspected.
+
+## October 17 follow-through
+
+The preceding inventory remains the October 16 source-discovery checkpoint. Subsequent target qualification
+is recorded separately: [Hurricane station binding](../../../contracts/hazard_handoff/substation_hurricane_screening_v1/README.md),
+[Wildfire electrical binding](../../../contracts/hazard_handoff/substation_wildfire_screening_v1/README.md), and
+[Strong Wind / Tornado direct-wind binding](../../../contracts/hazard_handoff/substation_convective_wind_screening_v1/README.md).
+The last is an explicit T4 cross-hazard mechanism transfer with Tornado-only mechanisms withheld; it does
+not revive rejected legacy logistics or create intrinsic source calibration. Existing canonical curves
+remain unchanged. The owner excluded Hail from the first delivery; missing station Hail evidence is not zero risk.

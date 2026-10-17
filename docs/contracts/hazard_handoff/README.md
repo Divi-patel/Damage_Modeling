@@ -47,3 +47,12 @@ It adds no intrinsic cell/curve; Hazard owns the executed pilot and subsequent n
 [Substation Wildfire electrical-assembly binding](substation_wildfire_screening_v1/README.md)
 qualifies the unchanged FSim categorical equipment response against $13.025 million of station
 electrical value (47.62% of fenced TIV); other station value remains uncovered.
+
+
+## Standalone station Convective Wind — October 17
+
+[Strong Wind and Tornado direct-wind binding](substation_convective_wind_screening_v1/README.md)
+qualifies an explicit T4 mechanism transfer of the unchanged source GSU response. The station value and
+profile remain fixed; Tornado-specific missing mechanisms and source-domain gaps remain visible.
+Run `python scripts/reference_helpers/validate_substation_convective_wind_binding.py` for the source,
+accounting and installed-byte check. Hazard owns the national annual and geographic proof.
