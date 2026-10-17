@@ -1,0 +1,32 @@
+row_id,item,amount_usd,role,rationale_id,source_currency,rate_source,component_dr_assigned,fenced_reference_member
+345_breaker_count,345 kV Circuit breakers,3857769,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+345_three_phase_disconnect_count,345 kV Three-phase disconnects,1908666,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+345_three_phase_bus_support_count,345 kV Three-phase bus supports and fittings,1198900,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+345_three_phase_voltage_transformer_set_count,345 kV Voltage transformers sets of three,768200,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+345_line_deadend_count,345 kV Angled deadends,1659576,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+138_breaker_count,138 kV Circuit breakers,555252,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+138_three_phase_disconnect_count,138 kV Three-phase disconnects,629880,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+138_three_phase_bus_support_count,138 kV Three-phase bus supports and fittings,525196,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+138_three_phase_voltage_transformer_set_count,138 kV Voltage transformers sets of three,322230,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+138_line_deadend_count,138 kV Angled deadends,807280,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+hv_arresters,345 kV arresters sets of three,360000,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+transformers,Two 336 MVA 345/138 kV autotransformers,4623360,modeled_electrical_assembly,W-V-ELECTRICAL-T4,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+containment,Oil containment and firewall for two units,700000,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+relays_345,345 kV relay panels,1910040,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+relays_138,138 kV relay panels,833464,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+control_house,Control house and foundation scaled from 500 sqft,1339840.89,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+battery,Station battery and charger,118727,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+comms,SCADA and communications,178091,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+station_service,Station service power,154345,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+cable_345,345 kV yard control cable,769320.0,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+conduit_345,345 kV yard control conduit,275686.2,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+trench_345,345 kV yard control trench,106560,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+cable_138,138 kV yard control cable,569880.0,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+conduit_138,138 kV yard control conduit,229738.5,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+trench_138,138 kV yard control trench,88800,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+site,Level-ground lightly vegetated site work,2662434.78,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+road,External station access road allowance,296818.0,outside_fenced_reference,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,False
+misc_civil,Minor drainage and lightning shielding allowance,200000,withheld_fenced_value,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,True
+project_management,project_management,1520752.99,outside_fenced_reference,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,False
+administrative_general,administrative_general,414750.82,outside_fenced_reference,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,False
+engineering_testing_commissioning,engineering_testing_commissioning,829501.63,outside_fenced_reference,W-V-UNSUPPORTED-SCOPE,USD,MISO_MTEP24_PUBLISHED_TABLES_UNESCALATED_REFERENCE,False,False

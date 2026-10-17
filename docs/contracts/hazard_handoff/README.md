@@ -40,3 +40,10 @@ rule until a separate canonical promotion and cutover decision.
 [Substation Hurricane wind screening binding](substation_hurricane_screening_v1/README.md) qualifies
 the unchanged canonical GSU response, pressure bridge, fenced value and annual-consumer interface.
 It adds no intrinsic cell/curve; Hazard owns the executed pilot and subsequent national run.
+
+
+## Standalone Wildfire station consumer
+
+[Substation Wildfire electrical-assembly binding](substation_wildfire_screening_v1/README.md)
+qualifies the unchanged FSim categorical equipment response against $13.025 million of station
+electrical value (47.62% of fenced TIV); other station value remains uncovered.

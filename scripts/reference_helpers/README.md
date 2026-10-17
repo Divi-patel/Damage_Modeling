@@ -40,3 +40,6 @@ These files are reference implementations for downstream notebooks/services. The
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
 
 `validate_flood_substation_v1.py` validates the standalone cell schema, inherited knots, value partition and evidence paths.
+
+`validate_substation_wildfire_binding.py` checks the standalone Wildfire electrical binding,
+unchanged canonical categorical response, 31-row value partition and installed Hazard pins.
