@@ -56,6 +56,6 @@ Allowed use is a relative Wildfire electrical-equipment screening contribution a
 Complete station loss, observed-site engineering, pricing, claims calibration, resilience benefit and
 portfolio Total are outside this binding. No new component research is required for this bounded reuse.
 
-[Hazard work and proof](../../../../../Hazard_modeling/docs/plans/_cross_cutting/substation_conus/20_wildfire_native_grid.md)
+[Hazard work and proof](https://github.com/aamani-ai/Hazard_Modeling/blob/codex/substation-conus/docs/plans/_cross_cutting/substation_conus/20_wildfire_native_grid.md)
 records source pins, tests, pilot, cloud execution and remaining checkpoints. Recheck source/value/install
 identity with `python scripts/reference_helpers/validate_substation_wildfire_binding.py`.
