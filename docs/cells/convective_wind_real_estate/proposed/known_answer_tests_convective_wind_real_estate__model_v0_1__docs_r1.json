@@ -1,0 +1,2303 @@
+{
+  "schema_version": "known_answer_tests.v3",
+  "cell_id": "convective_wind_real_estate",
+  "semantic_damage_model_version": "model v0.1",
+  "documentation_revision": "docs r1",
+  "artifact_schema_version": "damage_curve_record_bundle.v3",
+  "artifact_status": "noncanonical_proposal",
+  "absolute_tolerance": 1e-12,
+  "equation": {
+    "runtime": "straight lines between the 1-mph knots of the selected record",
+    "axis": "3-second gust at 10 m, open terrain, mph; each pathway reads its own field",
+    "ranges": "0 to 255 mph evaluates; above 255 mph withholds; negative is an error"
+  },
+  "formula_known_answer_tests": [
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_0MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_60MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_80MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_96MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_100MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.019812
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_110MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 110.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.11211
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_120MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 120.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.318039
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_130MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.602244
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_140MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 140.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.833859
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_150MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.950839
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_160MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 160.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.989489
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_180MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 180.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999791
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_200MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 200.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999998
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_220MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 220.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_KNOT_255MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 255.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_75MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_98MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 98.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.009258
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_123MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 123.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.40063
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_150.5MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 150.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.9540535
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_183MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 183.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999893
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_227MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 227.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_96.5MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 96.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.002245
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_AT_252.8MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 252.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_0MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_60MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.002793
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_80MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.018367
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_96MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.060614
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_100MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.079225
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_110MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 110.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.165929
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_120MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 120.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.359375
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_130MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.626354
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_140MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 140.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.84393
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_150MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.953819
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_160MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 160.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.990126
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_180MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 180.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.999804
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_200MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 200.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.999998
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_220MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 220.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_KNOT_255MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 255.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_75MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.013059
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_98MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 98.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.06931
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_123MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 123.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.43696
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_150.5MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 150.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.9568384999999999
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_183MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 183.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.9999
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_227MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 227.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_96.5MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 96.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 0.062723
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_AT_252.8MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 252.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_TORNADO",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "RE_RES_SFD_1S_SLAB_STRAIGHT_LINE_ZERO_AT_ONSET",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NO_DAMAGE_BELOW_96_MPH_ONSET"
+        ]
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_0MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_60MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_80MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_96MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_100MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.027412
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_110MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 110.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.140824
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_120MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 120.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.30783
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_130MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.488865
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_140MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 140.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.668518
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_150MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.82406
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_160MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 160.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.926217
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_180MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 180.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.993412
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_200MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 200.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999721
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_220MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 220.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999993
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_KNOT_255MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 255.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_75MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_98MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 98.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.012651
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_123MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 123.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.361829
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_150.5MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 150.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.830507
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_183MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 183.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.995721
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_227MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 227.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999998
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_96.5MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 96.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0030415
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_AT_252.8MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 252.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_0MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_60MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.002012
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_80MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.01843
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_96MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.071323
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_100MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.09678
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_110MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 110.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.202103
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_120MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 120.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.357198
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_130MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.525321
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_140MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 140.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.69216
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_150MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.836608
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_160MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 160.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.931479
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_180MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 180.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.993882
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_200MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 200.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.999741
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_220MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 220.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.999994
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_KNOT_255MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 255.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_75MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.011517
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_98MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 98.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.083071
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_123MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 123.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.407345
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_150.5MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 150.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.8425955
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_183MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 183.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.996027
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_227MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 227.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.999998
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_96.5MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 96.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 0.0741475
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_AT_252.8MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 252.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_TORNADO",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "RE_IND_WAREHOUSE_STRAIGHT_LINE_ZERO_AT_ONSET",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NO_DAMAGE_BELOW_96_MPH_ONSET"
+        ]
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_0MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_60MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_80MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_96MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_100MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.012633
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_110MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 110.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.049164
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_120MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 120.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.112886
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_130MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.226927
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_140MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 140.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.351403
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_150MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.435909
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_160MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 160.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.488819
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_180MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 180.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.646479
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_200MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 200.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.863706
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_220MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 220.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.973144
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_KNOT_255MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 255.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.999595
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_75MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_98MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 98.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.006178
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_123MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 123.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.142304
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_150.5MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 150.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.438957
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_183MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 183.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.680167
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_227MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 227.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.986844
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_96.5MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 96.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.001524
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_AT_252.8MPH",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 252.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.9994502
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_0MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_60MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.001724
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_80MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.015531
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_96MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.045335
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_100MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.057395
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_110MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 110.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.09227
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_120MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 120.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.153103
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_130MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.261974
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_140MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 140.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.380807
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_150MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.461482
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_160MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 160.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.511994
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_180MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 180.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.662506
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_200MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 200.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.869884
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_220MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 220.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.974362
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_KNOT_255MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 255.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.999614
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_75MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.011256
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_98MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 98.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.051233
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_123MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 123.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.181188
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_150.5MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 150.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.464392
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_183MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 183.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.694667
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_227MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 227.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.987441
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_96.5MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 96.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.04679
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_AT_252.8MPH",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 252.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_TORNADO",
+        "failure_unit_damage_ratio": 0.999475
+      }
+    },
+    {
+      "test_id": "RE_COM_OFFICE_3S_SLAB_STRAIGHT_LINE_ZERO_AT_ONSET",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 96.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NO_DAMAGE_BELOW_96_MPH_ONSET"
+        ]
+      }
+    }
+  ],
+  "withheld_tests": [
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 255.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 255.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "CWRE_RES_EF_FR12_TORNADO_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 255.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 255.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "CWRE_IND_EF_MBS_TORNADO_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 255.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 255.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "CWRE_OFF_EF_LRB_TORNADO_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    }
+  ],
+  "error_tests": [
+    {
+      "test_id": "PATHWAY_REQUIRED",
+      "input": {
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "PATHWAY_ID_REQUIRED"
+    },
+    {
+      "test_id": "PATHWAY_UNKNOWN",
+      "input": {
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "PATHWAY_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_REQUIRED",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_REQUIRED"
+    },
+    {
+      "test_id": "BUILDING_UNKNOWN",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_PROFILE_ID_NOT_A_SELECTOR",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "re_office_3s_slab",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "AXIS_REQUIRED",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB"
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "AXIS_OF_OTHER_PATHWAY",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "tornado_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "TORNADO_EF_RATING_NOT_A_GUST",
+      "input": {
+        "pathway_id": "tornado_direct_hit",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "ef_rating": "EF2"
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "AXIS_NOT_NUMBER",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": "130"
+      },
+      "expected_error_code": "AXIS_VALUE_INVALID"
+    },
+    {
+      "test_id": "AXIS_BOOLEAN",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": true
+      },
+      "expected_error_code": "AXIS_VALUE_INVALID"
+    },
+    {
+      "test_id": "AXIS_NEGATIVE",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": -5.0
+      },
+      "expected_error_code": "AXIS_OUTSIDE_VALID_RANGE"
+    },
+    {
+      "test_id": "UNIT_REQUIRED",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_REQUIRED"
+    },
+    {
+      "test_id": "UNIT_UNKNOWN",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "CWRE_ROOF",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "convective_gust_3s_10m_mph": 130.0
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_UNKNOWN"
+    }
+  ],
+  "contract_assertions": [
+    {
+      "assertion_id": "CWRE_TWO_GOVERNED_PATHWAYS",
+      "expected": "tornado and straight-line wind are separate pathways with separate records, not a shifted copy"
+    },
+    {
+      "assertion_id": "CWRE_EF_RATING_NEVER_EVALUATED",
+      "expected": "an EF rating without a gust is an error"
+    },
+    {
+      "assertion_id": "CWRE_NO_DOLLARS",
+      "expected": "no scenario dollars until the consumer qualifies the building value"
+    },
+    {
+      "assertion_id": "CWRE_CONTENTS_WITHHELD_NOT_ZERO",
+      "expected": "contents are withheld, never reported as zero"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+reference_building_id,ef_damage_indicator,ef_di_number,dod,damage_description,expected_mph,lower_bound_mph,upper_bound_mph,hazus_damage_state,cost_ratio,cost_basis,source_ids
+RE_RES_SFD_1S_SLAB,FR12,2,1,Threshold of visible damage,65,53,80,below_slight,0.01,"Below Hazus Slight (2%); half of Slight, judgment (D-CWRE-07)",CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,2,"Loss of roof covering material (<20%), gutters and/or awning; loss of vinyl or metal siding",79,63,97,slight,0.02,Hazus Table 5-44 Slight (roof cover loss >2% to 15%); Slight = 2%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,3,Broken glass in doors and windows,96,79,114,slight_to_moderate,0.05,"Hazus Table 5-44: one opening = Slight, more than one = Moderate; 5% is the Hazus interpolation breakpoint between 2% and 10%",CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,4,"Uplift of roof deck and loss of significant roof covering material (>20%); collapse of chimney; garage doors collapse inward; failure of porch or carport",97,81,116,moderate,0.10,Hazus Table 5-44 Moderate (roof cover >15% to 50%; 1 to 3 deck panels); Moderate = 10%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,5,Entire house shifts off foundation,121,103,141,extensive,0.50,"Not a Hazus Table 5-44 criterion; read as Extensive (not livable, repairable); Complete tested as sensitivity (D-CWRE-07)",CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,6,Large sections of roof structure removed; most walls remain standing,122,104,142,extensive,0.50,Hazus Table 5-44 Extensive (roof deck loss >3 panels to 25%); Extensive = 50%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,7,Exterior walls collapsed,132,113,153,complete,1.00,Hazus Table 5-44 Destruction (wall structure failure); Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,8,"Most walls collapsed, except small interior rooms",152,127,178,complete,1.00,Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,9,All walls,170,142,198,complete,1.00,Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_RES_SFD_1S_SLAB,FR12,2,10,Destruction of engineered and/or well constructed residence; slab swept clean,200,165,220,complete,1.00,Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,1,Threshold of visible damage,67,54,83,below_slight,0.01,"Below Hazus Slight (2%); half of Slight, judgment (D-CWRE-07)",CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,2,Inward or outward collapse of overhead doors,89,75,108,slight,0.02,Hazus Table 5-74 Slight (one door); Slight = 2%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,3,Metal roof or wall panels pulled from the building,95,78,120,moderate,0.10,Hazus Table 5-74 Moderate (roof or wall panel failures); Moderate = 10%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,4,Column anchorage failed,117,96,135,extensive,0.50,Hazus Table 5-74 Extensive (frame damage likely); Extensive = 50%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,5,Buckling of roof purlins,118,95,138,extensive,0.50,Extensive = 50%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,6,Failure of X-braces in the lateral load resisting system,138,118,158,extensive,0.50,Extensive = 50%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,7,Progressive collapse of rigid frames,143,120,168,complete,1.00,Hazus Table 5-74 Destruction; Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_IND_WAREHOUSE,MBS,21,8,Total destruction of building,155,132,178,complete,1.00,Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,1,Threshold of visible damage,68,55,83,below_slight,0.01,"Below Hazus Slight (2%); half of Slight, judgment (D-CWRE-07)",CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,2,Loss of roof covering (<20%),80,67,103,slight,0.02,Hazus Table 5-78 Slight; Slight = 2%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,3,Uplift of metal roof decking at eaves and roof corners; significant loss of roofing material (>20%),101,83,120,moderate,0.10,Hazus Table 5-78 Moderate (slight roof deck failures); Moderate = 10%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,4,"Broken glass in windows, entryways or atriums",101,83,122,moderate,0.10,Hazus Table 5-78 Moderate (moderate window failures); Moderate = 10%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,5,Uplift of lightweight roof structure,133,114,157,extensive,0.50,Hazus Table 5-78 Extensive (roof deck loss); Extensive = 50%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,6,Significant damage to exterior walls and some interior walls,143,122,167,extensive,0.50,Extensive = 50%,CWRE-S001;CWRE-S002;CWRE-S003
+RE_COM_OFFICE_3S_SLAB,LRB,17,7,Complete destruction of all or a large section of building,188,161,221,complete,1.00,Hazus Table 5-78 Destruction; Complete = 100%,CWRE-S001;CWRE-S002;CWRE-S003

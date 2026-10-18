@@ -1,0 +1,42 @@
+reference_building_id,pathway_id,variant,role,dr_80mph,dr_100mph,dr_120mph,dr_140mph,dr_160mph
+RE_RES_SFD_1S_SLAB,straight_line_convective,reference,reference,0.0000,0.0198,0.3180,0.8339,0.9895
+RE_RES_SFD_1S_SLAB,straight_line_convective,bounds read as +/-1 sigma (68% range),spread_reading,0.0000,0.0358,0.3538,0.7278,0.9268
+RE_RES_SFD_1S_SLAB,straight_line_convective,bounds read as +/-1.96 sigma (95% range),spread_reading,0.0000,0.0179,0.2962,0.8669,0.9965
+RE_RES_SFD_1S_SLAB,straight_line_convective,light-damage costs (5% or less) x0.5,cost_assumption,0.0000,0.0212,0.3218,0.8348,0.9896
+RE_RES_SFD_1S_SLAB,straight_line_convective,light-damage costs (5% or less) x2,cost_assumption,0.0000,0.0171,0.3105,0.8319,0.9894
+RE_RES_SFD_1S_SLAB,straight_line_convective,house shifted off foundation = complete (100%),cost_assumption,0.0000,0.0275,0.4836,0.9391,0.9984
+RE_RES_SFD_1S_SLAB,straight_line_convective,straight-line onset 90 mph,onset,0.0000,0.0414,0.3330,0.8375,0.9897
+RE_RES_SFD_1S_SLAB,straight_line_convective,straight-line onset 100 mph,onset,0.0000,0.0000,0.3043,0.8305,0.9893
+RE_RES_SFD_1S_SLAB,straight_line_convective,no straight-line onset,onset,0.0184,0.0792,0.3594,0.8439,0.9901
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,reference,reference,0.0184,0.0792,0.3594,0.8439,0.9901
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,bounds read as +/-1 sigma (68% range),spread_reading,0.0275,0.1261,0.4144,0.7533,0.9337
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,bounds read as +/-1.96 sigma (95% range),spread_reading,0.0169,0.0750,0.3371,0.8746,0.9967
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,light-damage costs (5% or less) x0.5,cost_assumption,0.0111,0.0750,0.3591,0.8439,0.9901
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,light-damage costs (5% or less) x2,cost_assumption,0.0329,0.0877,0.3600,0.8439,0.9901
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,house shifted off foundation = complete (100%),cost_assumption,0.0184,0.0900,0.5169,0.9430,0.9985
+RE_IND_WAREHOUSE,straight_line_convective,reference,reference,0.0000,0.0274,0.3078,0.6685,0.9262
+RE_IND_WAREHOUSE,straight_line_convective,bounds read as +/-1 sigma (68% range),spread_reading,0.0000,0.0372,0.3094,0.6214,0.8425
+RE_IND_WAREHOUSE,straight_line_convective,bounds read as +/-1.96 sigma (95% range),spread_reading,0.0000,0.0235,0.3095,0.6719,0.9489
+RE_IND_WAREHOUSE,straight_line_convective,light-damage costs (5% or less) x0.5,cost_assumption,0.0000,0.0281,0.3100,0.6697,0.9265
+RE_IND_WAREHOUSE,straight_line_convective,light-damage costs (5% or less) x2,cost_assumption,0.0000,0.0261,0.3034,0.6661,0.9257
+RE_IND_WAREHOUSE,straight_line_convective,straight-line onset 90 mph,onset,0.0000,0.0545,0.3271,0.6777,0.9283
+RE_IND_WAREHOUSE,straight_line_convective,straight-line onset 100 mph,onset,0.0000,0.0000,0.2883,0.6592,0.9241
+RE_IND_WAREHOUSE,straight_line_convective,no straight-line onset,onset,0.0184,0.0968,0.3572,0.6922,0.9315
+RE_IND_WAREHOUSE,tornado_direct_hit,reference,reference,0.0184,0.0968,0.3572,0.6922,0.9315
+RE_IND_WAREHOUSE,tornado_direct_hit,bounds read as +/-1 sigma (68% range),spread_reading,0.0330,0.1444,0.3863,0.6635,0.8600
+RE_IND_WAREHOUSE,tornado_direct_hit,bounds read as +/-1.96 sigma (95% range),spread_reading,0.0154,0.0875,0.3547,0.6934,0.9523
+RE_IND_WAREHOUSE,tornado_direct_hit,light-damage costs (5% or less) x0.5,cost_assumption,0.0140,0.0940,0.3568,0.6921,0.9315
+RE_IND_WAREHOUSE,tornado_direct_hit,light-damage costs (5% or less) x2,cost_assumption,0.0273,0.1023,0.3579,0.6922,0.9315
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,reference,reference,0.0000,0.0126,0.1129,0.3514,0.4888
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,bounds read as +/-1 sigma (68% range),spread_reading,0.0000,0.0151,0.1418,0.3242,0.4983
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,bounds read as +/-1.96 sigma (95% range),spread_reading,0.0000,0.0140,0.1001,0.3668,0.4846
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,light-damage costs (5% or less) x0.5,cost_assumption,0.0000,0.0138,0.1181,0.3557,0.4922
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,light-damage costs (5% or less) x2,cost_assumption,0.0000,0.0103,0.1023,0.3427,0.4820
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,straight-line onset 90 mph,onset,0.0000,0.0281,0.1267,0.3615,0.4968
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,straight-line onset 100 mph,onset,0.0000,0.0000,0.1015,0.3431,0.4823
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,no straight-line onset,onset,0.0155,0.0574,0.1531,0.3808,0.5120
+RE_COM_OFFICE_3S_SLAB,tornado_direct_hit,reference,reference,0.0155,0.0574,0.1531,0.3808,0.5120
+RE_COM_OFFICE_3S_SLAB,tornado_direct_hit,bounds read as +/-1 sigma (68% range),spread_reading,0.0214,0.0714,0.1909,0.3629,0.5270
+RE_COM_OFFICE_3S_SLAB,tornado_direct_hit,bounds read as +/-1.96 sigma (95% range),spread_reading,0.0149,0.0565,0.1389,0.3941,0.5068
+RE_COM_OFFICE_3S_SLAB,tornado_direct_hit,light-damage costs (5% or less) x0.5,cost_assumption,0.0087,0.0523,0.1525,0.3808,0.5120
+RE_COM_OFFICE_3S_SLAB,tornado_direct_hit,light-damage costs (5% or less) x2,cost_assumption,0.0292,0.0677,0.1543,0.3808,0.5120

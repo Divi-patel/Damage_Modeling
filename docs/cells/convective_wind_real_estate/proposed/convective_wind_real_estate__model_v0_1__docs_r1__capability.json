@@ -1,0 +1,128 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "convective_wind_real_estate",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "straight_line_convective",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "reference_building_id must be one of the three Hazard reference profiles r1 buildings",
+        "convective_gust_3s_10m_mph is the 3-second gust at 10 m in open terrain, mph; no terrain or height adjustment in Damage",
+        "records are valid from 0 to 255 mph; above 255 withholds; a negative gust is rejected",
+        "straight-line damage is zero at or below 96 mph (fixed onset, not location-specific)",
+        "straight-line records are a T4 transfer of tornado-derived EF evidence",
+        "scenario dollars stay withheld until the consumer qualifies the building value",
+        "owner acceptance of the scope and selections is required before any canonical use"
+      ],
+      "limitation_flags": [
+        "NONCANONICAL_PROPOSAL",
+        "SCREENING_EF_EXPERT_ELICITED_DEGREES_OF_DAMAGE",
+        "WHOLE_BUILDING_SOURCE_ATOM",
+        "COST_RATIOS_ASSIGNED_THROUGH_HAZUS_DAMAGE_STATES",
+        "EF_GUST_AT_POINT_OF_DAMAGE_NOT_STATED_EXPOSURE_C",
+        "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+        "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+        "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+        "STRAIGHT_LINE_T4_TRANSFER_OF_TORNADO_EF_EVIDENCE",
+        "NO_DAMAGE_BELOW_96_MPH_ONSET",
+        "ONSET_FIXED_NOT_LOCATION_SPECIFIC",
+        "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+        "MULTI_PERIL_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ]
+    },
+    {
+      "pathway_id": "tornado_direct_hit",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "reference_building_id must be one of the three Hazard reference profiles r1 buildings",
+        "tornado_gust_3s_10m_mph is the 3-second gust at 10 m in open terrain, mph; no terrain or height adjustment in Damage",
+        "records are valid from 0 to 255 mph; above 255 withholds; a negative gust is rejected",
+        "an EF rating is not an input; Hazard's EF band midpoint gust is accepted as a damage-inferred gust",
+        "tornado-specific effects (pressure drop, rotation, debris) are inside the EF observations; no separate add-on",
+        "scenario dollars stay withheld until the consumer qualifies the building value",
+        "owner acceptance of the scope and selections is required before any canonical use"
+      ],
+      "limitation_flags": [
+        "NONCANONICAL_PROPOSAL",
+        "SCREENING_EF_EXPERT_ELICITED_DEGREES_OF_DAMAGE",
+        "WHOLE_BUILDING_SOURCE_ATOM",
+        "COST_RATIOS_ASSIGNED_THROUGH_HAZUS_DAMAGE_STATES",
+        "EF_GUST_AT_POINT_OF_DAMAGE_NOT_STATED_EXPOSURE_C",
+        "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+        "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+        "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+        "TORNADO_EF_DEGREE_OF_DAMAGE_EVIDENCE",
+        "TORNADO_SPECIFIC_EFFECTS_INSIDE_EF_OBSERVATIONS",
+        "EF_MIDPOINT_GUST_ACCEPTED_AS_T4_BRIDGE",
+        "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+        "MULTI_PERIL_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "CWRE_BUILDING_CONTENTS",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "owner acceptance of scope and curve selections",
+      "consumer-qualified replacement cost new for each reference building",
+      "Hazard straight-line frequency and tornado hit geometry reviewed (NRI check)",
+      "exact model/docs/schema/SHA pin"
+    ],
+    "limitation_flags": [
+      "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+      "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+      "NRI_CHECK_STRAIGHT_LINE_ABOVE_TORNADO_BELOW"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact model/docs/schema/SHA pin",
+      "record routing by pathway_id and reference_building_id",
+      "each pathway reads only its own gust field",
+      "a tornado-spawned or hurricane gust is routed to one pathway only (no double count)",
+      "all perils on one building in one event together at most 100% of structure value"
+    ],
+    "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "owner accepts D-CWRE-01 to D-CWRE-16",
+      "consumer value qualification of each reference budget (shared with flood_real_estate)",
+      "reviewer accepts the T4 straight-line transfer and the cost assignment",
+      "independent review of the package"
+    ]
+  }
+}
