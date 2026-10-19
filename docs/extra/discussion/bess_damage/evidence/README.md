@@ -8,7 +8,9 @@ scope: Reproducible BESS Flood source audits and explicitly unqualified hypothes
 
 # Evidence and audit files
 
-The latest [r3 grouped-value audit](r3/README.md) adds original cost inputs,
+The latest [r4 property/domain audit](r4/README.md) adds 70 checks, exact replay
+of the 43,800 prior local cases, remaining-property dispositions and explicit
+coastal hypotheses. The [r3 grouped-value audit](r3/README.md) adds original cost inputs,
 same-budget allocations and 31 checks. The [r2 hypothesis tests](r2/README.md)
 retain 52 checks and four primary sources. The root-level r1 audit remains the
 original source-reproduction record.

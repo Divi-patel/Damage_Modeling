@@ -8,7 +8,8 @@ scope: BESS Damage reasoning and evidence; no released BESS response
 
 # BESS Damage research
 
-Start with [the grouped-value review and BF-Q01](04_grouped_repair_and_value.md), then
+Start with [the remaining-property/domain review and BF-Q02](05_remaining_property_and_flood_domain.md), then
+[the grouped-value review and BF-Q01](04_grouped_repair_and_value.md),
 [the candidate pressure test](03_flood_candidate_pressure_test.md) and
 [the first evidence review](01_flood_evidence_and_reuse.md) for the original audit.
 The target is Hazard's selected **100 MW / 400 MWh usable-AC, outdoor LFP battery
@@ -29,10 +30,14 @@ uses the same candidate bytes: 43,800 unit × RP cases, 2,929 positive candidate
 costs and one illustrated single-enclosure loss. Remaining property and deeper
 water/coastal/annual applicability stay qualification tasks. This consumer
 evidence does not change the candidate model, value, capability or release.
-No national or canonical BESS result is released.
+The fourth bounded pass now records the residual-property disposition and 70
+research checks. Its deeper-water saturation comparison recovers 876 known-depth
+cases without modifying v0.1; coastal repair policy BF-Q02 is open. No national
+or canonical BESS result is released.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Remaining property and domain](05_remaining_property_and_flood_domain.md) | 70 checks, exact prior-case replay, capped depth extension and coastal policy comparison |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Grouped repair and value](04_grouped_repair_and_value.md) | Original cost inputs, same-budget allocation, one open repair-policy choice and 31 checks |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Candidate pressure test](03_flood_candidate_pressure_test.md) | OEM anatomy, immersion endpoint audit, conditional PCS and battery hypothesis checks |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Flood evidence and reuse](01_flood_evidence_and_reuse.md) | First seven-step review, numerical pressure test and immediate research choices |
@@ -40,7 +45,8 @@ No national or canonical BESS result is released.
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage | [Evidence registers](evidence/README.md) | Sources, claims, reuse, value and reproducible audit |
 
 Classification: `EVIDENCE_ONLY_NO_OUTPUT_CHANGE` plus planning documentation.
-The r1–r3 records are pre-cell research; the separately linked local candidate
+The r1–r3 records are pre-cell research; r4 is post-proof research with no output
+change. The separately linked local candidate
 is not a `flood_bess` release. The current artifact index and all existing cell outputs remain
 unchanged. A subsequent candidate/new-cell package follows the existing skill's
 new-cell and capability gates.

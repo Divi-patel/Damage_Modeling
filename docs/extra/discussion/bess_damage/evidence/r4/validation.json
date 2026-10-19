@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "relative_links_checked": 119,
+  "csv_shapes_and_ids": "pass",
+  "source_references": "pass",
+  "unmodeled_parent_budget_usd": 27289596.60297241,
+  "child_budgets_not_duplicated": true,
+  "audit_checks_passed": 70,
+  "current_runtime_unchanged": true,
+  "full_repository_suite_run": false,
+  "reason": "Evidence and docs only; no production code changed",
+  "owner_coastal_policy": "OPEN_BF_Q02"
+}

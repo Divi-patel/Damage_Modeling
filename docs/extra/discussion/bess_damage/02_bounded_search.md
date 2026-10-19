@@ -109,3 +109,26 @@ Exact unadopted leads for a future targeted pass:
 depth-to-affected-module/service mapping still is not. Resolve
 [BF-Q01's explicit policy choice](04_grouped_repair_and_value.md) rather than
 restart a broad search or silently insert a central damage estimate.
+
+## Fourth bounded pass — remaining property and water conditions, 2026-10-18
+
+Follow the successful local Riverine proof with three questions only: can the
+remaining budget support compatible electrical curves, can the existing cost
+ceiling continue into deeper water, and what coastal repair policy is justified?
+Sources BF-S16–S19 and claims BF-C23–C29 record the outcome. Public primary
+sources and the already pinned source/twin code were reviewed; no claims
+database or private OEM service information was available in this pass.
+
+| Retrieval / search family | Result and disposition |
+|---|---|
+| Water-damaged switchgear, liquid-filled transformer and controls replacement; official NEMA, Schneider and Eaton guidance | Schneider FAQ FA123082 (updated February 2026) links bulletin 0110DB0401R07/11 (August 2011). All three PDF pages read through the web reader; direct local download returned HTTP503. Retain equipment-specific repair distinctions, no new DR ordinates. Eaton's hosted guide is a NEMA copy, not independent calibration. |
+| Current NEMA evaluating water-damaged equipment guide | Official May 28, 2026 announcement names CS70006-2026. The linked store returned an internal error on two attempts; direct announcement download returned HTTP403. Full new edition not inspected. Keep historical GD1-2016 findings dated and retain an explicit edition-review task. |
+| Standalone utility BESS balance-of-plant cost breakdown | Followed NREL's EIA capital-cost reference. Downloaded EIA/Sargent & Lundy report; read Case19 pp113–116 and visually checked Table19-1 p116. BOP includes inverters, MV transformers, cables, foundations and controls in one amount; it cannot directly allocate our electrical-only balance. |
+| Original PVSCM EBOS and Digital Twin BESS cost code/cards | Re-read the original cost-input rows and twin estimates. PV donor includes excluded/solar-specific equipment; twin's EMS card and aggregate allocation disagree in scope/value. No exact target split adopted. |
+| Existing saturated source curve and saved local depths | Replayed all 43,800 Riverine cases and compared a constant replacement ceiling beyond the previous test limit. No new hazard data or numerical salinity multiplier introduced. |
+
+**Stop condition reached:** the remaining-property disposition and explicit
+depth/coastal alternatives are concrete enough for the next candidate. Do not
+launch another general literature search to fill every budget row. Continue the
+partial-scope proof, retain targeted component work for a complete-property
+claim, and resolve [BF-Q02](05_remaining_property_and_flood_domain.md#4-bf-q02-one-coastal-policy-choice).
