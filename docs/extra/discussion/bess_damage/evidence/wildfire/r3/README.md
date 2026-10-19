@@ -13,3 +13,8 @@ proof. [Authoring and validator](release.py) preserves all conditional records,
 values, source/claim tables and known answers, validates existing v3 schemas,
 and adds one current index row. This utility is not a Hazard runtime dependency.
 [Release record](../../../11_wildfire_annual_qualification.md).
+
+[Completed consumer readback](consumer_readback.json) retains exact numerical
+package parity, final test scope, actual wheel imports and executed-notebook
+identities. It supplements the original admission proof without changing its
+frozen response/capability/value payloads.

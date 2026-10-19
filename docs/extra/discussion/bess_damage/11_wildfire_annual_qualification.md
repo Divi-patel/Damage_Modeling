@@ -52,7 +52,12 @@ source exposure, event dependence, original support, separate physical-unit caps
 and annual distributions before reporting EAL/PML/VaR/TVaR. Local admission does
 not imply national execution, canonical Hazard publication or recipient selection.
 [Hazard plan/proof](../../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/20_wildfire_annual_proof.md)
-owns the executable consumer and later old/new annual-array verification.
+owns the executable consumer. [Completed readback](evidence/wildfire/r3/consumer_readback.json)
+now verifies all 84 NPZ packages / 588 arrays byte for byte before/after
+admission, 28 new annual controls, 64 current BESS tests and an executed
+notebook with two inspected figures. The selected Hazard suite has 229 passes
+and the same inherited Convective Wind architecture failure. National support
+and publication remain separate.
 
 ## Change record
 
