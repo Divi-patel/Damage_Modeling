@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "source reproduction and research evidence only",
+  "source_records": 9,
+  "claim_records": 8,
+  "source_dr_checks": 135,
+  "source_scenario_ordering_checks": 45,
+  "invalid_axis_controls": 3,
+  "pressure_speed_equivalence_controls": 5,
+  "budget_rows_reconciled": 10,
+  "included_value_usd": 109800000.0,
+  "excluded_source_value_usd": 23400000.0,
+  "independent_dr_max_abs_delta": 2.220446049250313e-16,
+  "bess_wind_response_admitted": false,
+  "curve_or_schema_version_changed": false
+}

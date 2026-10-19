@@ -1,12 +1,18 @@
 <!--
 author: owner-directed (Divy) · agent-researched
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 status: active
 scope: BESS Damage research history and current conditional-release links
 -->
 
 # BESS Damage research
+
+**Next hazard:** [Hurricane-wind intake](06_hurricane_wind_intake.md) now records
+nine sources, eight claims, 135 source-only response checks and the next enclosure/
+PCS research target. No BESS wind curve is admitted by that first pass. The local
+curation skill passes 106-file validation and eight governance self-tests; the
+record distinguishes committed improvements from broader uncommitted guidance.
 
 Start with [the remaining-property/domain review and BF-Q02](05_remaining_property_and_flood_domain.md), then
 [the grouped-value review and BF-Q01](04_grouped_repair_and_value.md),
@@ -30,6 +36,7 @@ remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Hurricane-wind intake](06_hurricane_wind_intake.md) | Seven-step audit; source/claim/reuse registers; actual OEM/drawing review; source-only numerical reproduction and skill status |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Remaining property and domain](05_remaining_property_and_flood_domain.md) | 70 checks, exact prior-case replay, capped depth extension and coastal policy comparison |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Grouped repair and value](04_grouped_repair_and_value.md) | Original cost inputs, same-budget allocation, one open repair-policy choice and 31 checks |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Candidate pressure test](03_flood_candidate_pressure_test.md) | OEM anatomy, immersion endpoint audit, conditional PCS and battery hypothesis checks |
