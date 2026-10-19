@@ -1,0 +1,110 @@
+{
+  "entry_id": "wildfire_wind",
+  "kind": "cell",
+  "asset": "Wind farm",
+  "hazard": "Wildfire",
+  "artifact": "docs/cells/wildfire_wind/current/wildfire_wind__model_v1_0__docs_r1__curve_artifact.json",
+  "artifact_sha256": "3f923f506a2082dd2f074c8b3cc3d696288097072eb8b6f803f3eb7d3f2b4e0d",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and release decision",
+  "input": "USFS FSim conditional flame-length class (RDS-2016-0034-3, 270 m), exact integer 1 to 6 (0 = no-event control); a class, not equipment heat flux",
+  "not_covered": [
+    "Turbine fire assembly: blades, nacelle, tower (withheld, not zero)",
+    "Collection network, GSU main transformer, GSU switchgear and bus, GSU cable terminations (withheld)",
+    "Control, met-station and O&M buildings; foundation; civil (withheld)",
+    "Fieldwork and transport support (allocated once after repair scope; no fragility)"
+  ],
+  "out_of_scope": [
+    "Internal turbine or electrical fire, lightning and maintenance fires",
+    "Business interruption, revenue, PSPS and shutdown",
+    "Post-fire erosion, flood and landslide",
+    "Soft, sunk and non-physical costs"
+  ],
+  "missing_mechanisms": [
+    "Firebrand attack and destructive residue or soot (separate deferred pathways)",
+    "Mitigation or clearance credit and operating state (captured, no numeric effect)"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Direct replacement value of the same named unit (one pad's electrical equipment, or the one shared GSU protection-control-DC package)",
+    "outputs": {
+      "single_event": "conditional: exact FSim product ID, exact integer class 1 to 6, and the Tier-4 screening assumption-set ID",
+      "scenario_dollars": "conditional: only with an explicit same-unit replacement value and local exposure fraction",
+      "yearly_loss": "withheld for this partial screening release"
+    },
+    "conditions": [
+      "screening_assumption_set_id must equal WW_T4_PARTIAL_ELECTRICAL_SCREENING_2026_08_08",
+      "Non-integer, unknown or out-of-range classes are rejected",
+      "No full-project TIV, mixed 72 USD/kW row or whole-farm damage ratio",
+      "The shared GSU package is counted once",
+      "Covered value share not stated by the cell; the mixed 72 USD/kW electrical row must be split by the site"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Cell-local Tier-4 screening points per FSim flame-length class, adopted under owner direction; research supports the mechanism and relative ordering, not the numbers"
+  },
+  "key_sources": [
+    "USFS, Spatial datasets of probabilistic wildfire risk components for the US (270 m), 3rd ed., RDS-2016-0034-3 (2023) (WW1-S001)",
+    "Assessing wildfire risk to critical infrastructure in central Chile: an electrical substation, Int. J. Wildland Fire (2024) (WW1-S002)",
+    "NEMA GD 2-2016, Evaluating Fire- and Heat-Damaged Electrical Equipment (WW1-S003)",
+    "USFS, Wildfire vulnerability of power transmission and distribution infrastructure (2015) (WW1-S004)",
+    "Owner direction to represent wildfire-wind risk for one or two subsystems (WW1-A001; business decision)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Pad electrical damage points per flame-length class are a Tier-4 screening assumption",
+    "GSU protection-control-DC damage points per flame-length class are a Tier-4 screening assumption",
+    "Non-integer and out-of-range classes are rejected rather than interpolated",
+    "Curve spread is not carried"
+  ],
+  "checks": [],
+  "open_items": [
+    "Validated bridge from FSim class to the heat and firebrand attack an asset actually receives",
+    "Inspected repair-or-replace outcomes and same-unit costs",
+    "Exogenous fire separated from internal, lightning and maintenance fires",
+    "No curve yet for the turbine fire assembly or the other GSU parts"
+  ],
+  "files": {
+    "write_up": "docs/cells/wildfire_wind/current/wildfire_wind_curve_derivation_dossier__model_v1_0__docs_r1.md",
+    "decisions": "docs/cells/wildfire_wind/current/RELEASE_DECISION_wildfire_wind__model_v1_0__docs_r1.md",
+    "validation": "docs/cells/wildfire_wind/current/VALIDATION_REPORT_wildfire_wind__model_v1_0__docs_r1.md",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Pad electrical",
+      "curves": [
+        "WWV1_PAD_ELECTRICAL_FSIM_T4"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Tier-4 point array per flame-length class",
+      "cost": "T4",
+      "cost_basis": "Same T4 point array sets the damage level as a share of the unit's value; no separate cost table",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Numbers match a wildfire_solar profile; the cell treats that as an audit comparison only"
+        }
+      ]
+    },
+    {
+      "part": "GSU protection, control and DC",
+      "curves": [
+        "WWV1_GSU_PROTECTION_CONTROL_DC_FSIM_T4"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Tier-4 point array per flame-length class; T3 support for ranking controls above steel-enclosed gear",
+      "cost": "T4",
+      "cost_basis": "Same T4 point array sets the damage level as a share of the unit's value; no separate cost table",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "One shared package per site, counted once"
+        }
+      ]
+    }
+  ]
+}

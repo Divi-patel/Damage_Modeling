@@ -1,0 +1,177 @@
+{
+  "entry_id": "hail_real_estate",
+  "kind": "cell",
+  "asset": "Real estate",
+  "hazard": "Hail",
+  "artifact": "docs/cells/hail_real_estate/proposed/hail_real_estate__model_v0_1__docs_r1__curve_artifact.json",
+  "artifact_sha256": "52cf865d4dfb8b4c593736fb05b5d3e7c341bad2a2441b89499d7e88605fef20",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and decision log",
+  "input": "Hazard's MESH75 hail diameter (mm), read as the largest hailstone at the building, 0 to 203.2 mm",
+  "not_covered": [
+    "Outdoor equipment: AC condenser, rooftop units (whether it sits in the profile value is an open question)"
+  ],
+  "out_of_scope": [
+    "Contents (declared as a withheld placeholder part)",
+    "Wind and flooding from the same storm (other cells)"
+  ],
+  "missing_mechanisms": [
+    "Rain entering after a roof breach",
+    "Cosmetic denting",
+    "Wear from repeated small hail"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Each part's own replacement value (roof cover; walls and windows); building share = unit damage x the part's share of structure replacement cost",
+    "outputs": {
+      "single_event": "conditional: proposal, not in the runtime index; part and building required",
+      "scenario_dollars": "withheld until the building value is qualified",
+      "yearly_loss": "withheld before promotion (computed by the consumer afterwards)"
+    },
+    "conditions": [
+      "The walls-and-windows unit answers only with the acknowledgement HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18",
+      "Above 203.2 mm withholds"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Published hail-damage thresholds by roofing material (onset and full failure) turned into a replacement probability, times the roof's share of building cost"
+  },
+  "key_sources": [
+    "Haag Engineering, hail damage threshold sizes for common roofing (HRE-S001)",
+    "Haag Engineering, low-slope roof systems and hail (HRE-S002)",
+    "IIBEC, ice-ball impact resistance of heat-aged TPO membranes (HRE-S005)",
+    "FEMA, Hazus 7.0 Hurricane Technical Manual, building cost ratios (HRE-S006)",
+    "FEMA National Risk Index, Dec 2025 (HRE-S012; check only)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Hazard's MESH75 size read as the hailstone at the building",
+    "Threshold band read as a 5%-95% range",
+    "Warehouse roof share 12% of building cost (range 9-15%)",
+    "Walls and windows thresholds, exposure and costs (no published thresholds)",
+    "Outdoor equipment withheld"
+  ],
+  "checks": [
+    {
+      "kind": "curve",
+      "name": "FEMA National Risk Index: yearly roof loss on Hazard's grid",
+      "link": "docs/cells/hail_real_estate/proposed/NRI_CHECK_hail_real_estate__model_v0_1__docs_r1.csv"
+    }
+  ],
+  "open_items": [
+    "Hazard's MESH75 floor (every severe pixel at least 1.5 in) drives most of the gap to NRI",
+    "Shingle type and office membrane attachment not in the profiles",
+    "Whether outdoor equipment sits in the profile value (for the reviewer)"
+  ],
+  "files": {
+    "write_up": "docs/cells/hail_real_estate/proposed/hail_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md",
+    "decisions": "docs/cells/hail_real_estate/proposed/DECISION_LOG_hail_real_estate__model_v0_1__docs_r1.md",
+    "validation": "docs/cells/hail_real_estate/proposed/VALIDATION_REPORT_hail_real_estate__model_v0_1__docs_r1.md",
+    "notebooks": "notebooks/hail/real_estate/"
+  },
+  "rows": [
+    {
+      "part": "House roof (asphalt shingles)",
+      "curves": [
+        "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "Haag field threshold 1.25-2.0 in",
+      "cost": "T3",
+      "cost_basis": "Hazus roofing 3% x 1.25 = 3.75% of building cost",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Laminated shingles assumed (3-tab: +42% yearly loss in the NRI check)"
+        }
+      ]
+    },
+    {
+      "part": "Warehouse roof (standing-seam steel)",
+      "curves": [
+        "HRE_IND_ROOF_STANDING_SEAM_STEEL"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "Haag onset 2.5 in (T3); full at 3.5 in is judgment (T4)",
+      "cost": "T4",
+      "cost_basis": "12% roof share (judgment)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Cosmetic dents not counted"
+        }
+      ]
+    },
+    {
+      "part": "Office roof (TPO membrane and insulation)",
+      "curves": [
+        "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "Haag and IIBEC threshold 1.0-2.0 in",
+      "cost": "T3",
+      "cost_basis": "Hazus roof cover and insulation (1.1% + 0.7%) x 1.25 x 1.20 = 2.7%",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Mechanically attached membrane assumed (adhered on a cover board: -72% yearly loss)"
+        }
+      ]
+    },
+    {
+      "part": "House walls and windows",
+      "curves": [
+        "HRE_RES_WALLS_WINDOWS_T4"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "judgment thresholds for siding and glass",
+      "cost": "T4",
+      "cost_basis": "judgment unit costs",
+      "notes": [
+        {
+          "type": "opt_in_only",
+          "text": "Needs the walls-and-windows acknowledgement code"
+        }
+      ]
+    },
+    {
+      "part": "Warehouse windows",
+      "curves": [
+        "HRE_IND_WINDOWS_T4"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "judgment glass threshold",
+      "cost": "T4",
+      "cost_basis": "judgment unit cost",
+      "notes": [
+        {
+          "type": "opt_in_only",
+          "text": "Needs the walls-and-windows acknowledgement code"
+        }
+      ]
+    },
+    {
+      "part": "Office windows",
+      "curves": [
+        "HRE_OFF_WINDOWS_T4"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "judgment glass threshold",
+      "cost": "T4",
+      "cost_basis": "judgment unit cost",
+      "notes": [
+        {
+          "type": "opt_in_only",
+          "text": "Needs the walls-and-windows acknowledgement code"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "entry_id": "substation_convective_wind_screening_v1",
+  "kind": "binding",
+  "asset": "Substation",
+  "hazard": "Convective wind",
+  "artifact": "docs/contracts/hazard_handoff/substation_convective_wind_screening_v1/binding.json",
+  "artifact_sha256": "5afa3f9cd31ee52092762bdb505fbc4c24c02ed2420d1be67c448e6441383be0",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the binding README, binding.json and the source cell's tier table",
+  "input": "Pressure ratio: (event 3-second gust / ASCE MRI300 reference design gust, 10 m, Exposure C) squared, valid 0 to 2; Strong Wind uses ASCE 3-second gusts, Tornado uses the EF-band midpoint gust; outside the range is unavailable, not clamped",
+  "not_covered": [],
+  "out_of_scope": [
+    "External access road and project support allowances ($3.06M, outside the fenced value)",
+    "Business interruption and service interruption",
+    "Overlap with Hurricane wind (not deduplicated; a downstream Total decision)"
+  ],
+  "missing_mechanisms": [
+    "Tornado-only mechanisms: windborne debris, pressure change, rotation and duration",
+    "Cascading electrical failures"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Replacement value of the same fenced station, $27,353,236.37 (MISO MTEP24 published table amounts), applied once",
+    "outputs": {
+      "single_event": "conditional: whole-station direct-wind damage ratio for a pressure ratio of 0 to 2 and an explicit resistance scenario",
+      "scenario_dollars": "conditional: same conditions, damage ratio times the $27.35M fenced value",
+      "yearly_loss": "conditional: Hazard supplies frequency, tornado footprint contact, severity and count law, then one station cap; direct-wind screening contribution only"
+    },
+    "conditions": [
+      "Pin the source artifact (tropical_cyclone_wind_solar v2.1 docs r2) and this binding by hash",
+      "No hurricane duration conversion; inputs are already 3-second gusts",
+      "Resistance scenarios are unweighted sensitivities, not probabilities",
+      "Strong Wind and Tornado run as independent yearly streams, then one cap of $27,353,236.37",
+      "Not a complete tornado loss; unknown event mass kept with tags"
+    ]
+  },
+  "method": {
+    "type": "reused",
+    "summary": "Same station assembly and same direct aerodynamic loading on a squared 3-second gust ratio, so the hurricane GSU/substation curve is reused as a T4 cross-hazard proxy for direct wind only (see docs/contracts/hazard_handoff/substation_convective_wind_screening_v1/README.md)"
+  },
+  "key_sources": [
+    "Canonical tropical_cyclone_wind_solar model v2.1 docs r2, curve TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES",
+    "NIST, design guide for the new tornado load requirements in ASCE 7-22",
+    "NIST, explanation of tornado loading (2024), incl. Joplin substation damage",
+    "NWS Enhanced Fujita scale wind bands",
+    "Substation Hurricane screening binding (station and value qualification)"
+  ],
+  "sources_from": "write-up",
+  "judgment": [
+    "Hurricane-to-non-hurricane direct-wind transfer",
+    "Tornado EF-midpoint gust used on the pressure axis",
+    "Equivalent-square footprint, uniform value and parallel path overlap for tornado contact",
+    "GSU-to-transmission-yard transfer and fenced civil membership carried from the Hurricane binding"
+  ],
+  "checks": [],
+  "open_items": [
+    "A complete tornado response needs the deferred component and pathway research",
+    "Regional Fano factor kept after contact thinning (not an exact derivation)",
+    "Strong Wind and Hurricane overlap left to a downstream Total decision"
+  ],
+  "files": {
+    "write_up": "docs/contracts/hazard_handoff/substation_convective_wind_screening_v1/README.md",
+    "decisions": "docs/plans/substation_damage/decisions.md",
+    "validation": null,
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Whole station (fenced assembly)",
+      "curves": [
+        "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES"
+      ],
+      "variants": "pathway: strong wind or tornado direct loading; resistance: lower, central or upper (unweighted)",
+      "shape": "T4",
+      "shape_basis": "Source medians and beta are T4; the cross-hazard transfer is also T4",
+      "cost": "T4",
+      "cost_basis": "Source state costs 0 / 0.08 / 0.35 / 1 are T4; fenced value membership is T4",
+      "notes": [
+        {
+          "type": "reused_from",
+          "text": "tropical_cyclone_wind_solar v2.1 docs r2 (TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES)"
+        },
+        {
+          "type": "known_bias",
+          "text": "Direct wind only; tornado debris and pressure-change damage left out"
+        }
+      ]
+    }
+  ]
+}

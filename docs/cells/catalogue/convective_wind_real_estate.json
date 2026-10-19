@@ -1,0 +1,114 @@
+{
+  "entry_id": "convective_wind_real_estate",
+  "kind": "cell",
+  "asset": "Real estate",
+  "hazard": "Convective wind",
+  "artifact": "docs/cells/convective_wind_real_estate/proposed/convective_wind_real_estate__model_v0_1__docs_r1__curve_artifact.json",
+  "artifact_sha256": "e676fb077ca3fb96a1d0efce7b1e408c2a82265ec97ea2eb4ebbef7e5aeeef3d",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and decision log",
+  "input": "3-second gust at 10 m (mph), 0 to 255 mph; separate fields for storm wind and tornado (tornado: Hazard's EF band midpoint gust)",
+  "not_covered": [],
+  "out_of_scope": [
+    "Contents (declared as a withheld placeholder part)",
+    "Land, site works, business interruption",
+    "Hurricane wind (hurricane cell)"
+  ],
+  "missing_mechanisms": [],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Structure replacement cost new of the same building",
+    "outputs": {
+      "single_event": "conditional: proposal, not in the runtime index; pathway and building required",
+      "scenario_dollars": "withheld until the building value is qualified",
+      "yearly_loss": "withheld before promotion (computed by the consumer afterwards)"
+    },
+    "conditions": [
+      "Each pathway reads only its own gust field; an EF rating is never accepted as a speed",
+      "Storm-wind damage is zero at or below 96 mph",
+      "A tornado spawned by a hurricane is priced in one cell only"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "EF tornado-scale damage steps for each building type, each priced on FEMA's Hazus damage-state cost ladder; tornado used directly, storm wind as a transfer starting at 96 mph"
+  },
+  "key_sources": [
+    "Texas Tech WSEC, A Recommendation for an Enhanced Fujita Scale, Rev 2 (2006) (CWRE-S001)",
+    "NOAA Storm Prediction Center, EF scale damage indicators FR12, MBS, LRB (CWRE-S002)",
+    "FEMA, Hazus 7.0 Hurricane Technical Manual, damage-state costs and definitions (CWRE-S003)",
+    "FEMA National Risk Index, Dec 2025 (CWRE-S006; check only)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Which FEMA damage level each EF damage step belongs to (incl. house foundation shift = 50%, kept for now)",
+    "Light damage priced at 1%",
+    "EF speed range read as a 90% spread",
+    "Storm wind starts at 96 mph",
+    "Storm wind uses tornado-derived evidence",
+    "EF speeds taken as 10 m open-terrain gusts; no terrain adjustment"
+  ],
+  "checks": [
+    {
+      "kind": "curve",
+      "name": "FEMA National Risk Index: yearly loss on Hazard's grid (storm wind and tornado)",
+      "link": "docs/cells/convective_wind_real_estate/proposed/NRI_CHECK_convective_wind_real_estate__model_v0_1__docs_r1.csv"
+    }
+  ],
+  "open_items": [
+    "Storm-wind yearly loss reads well above the NRI level (largely Hazard's storm frequency)",
+    "Alternative route for the reviewer: reuse the hurricane building curves"
+  ],
+  "files": {
+    "write_up": "docs/cells/convective_wind_real_estate/proposed/convective_wind_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md",
+    "decisions": "docs/cells/convective_wind_real_estate/proposed/DECISION_LOG_convective_wind_real_estate__model_v0_1__docs_r1.md",
+    "validation": "docs/cells/convective_wind_real_estate/proposed/VALIDATION_REPORT_convective_wind_real_estate__model_v0_1__docs_r1.md",
+    "notebooks": "notebooks/convective_wind/real_estate/"
+  },
+  "rows": [
+    {
+      "part": "House",
+      "curves": [
+        "CWRE_RES_EF_FR12_STRAIGHT_LINE_ONSET96",
+        "CWRE_RES_EF_FR12_TORNADO"
+      ],
+      "variants": "pathway: storm wind (from 96 mph) / tornado",
+      "shape": "T3",
+      "shape_basis": "EF FR12 damage-step speeds (expert elicitation)",
+      "cost": "T4",
+      "cost_basis": "our placement of each step on the Hazus cost ladder",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "House shifted off foundation priced at 50% (100% would raise 120 mph damage by 16 points)"
+        }
+      ]
+    },
+    {
+      "part": "Warehouse",
+      "curves": [
+        "CWRE_IND_EF_MBS_STRAIGHT_LINE_ONSET96",
+        "CWRE_IND_EF_MBS_TORNADO"
+      ],
+      "variants": "pathway: storm wind (from 96 mph) / tornado",
+      "shape": "T3",
+      "shape_basis": "EF MBS damage-step speeds",
+      "cost": "T4",
+      "cost_basis": "our placement of each step on the Hazus cost ladder",
+      "notes": []
+    },
+    {
+      "part": "Office",
+      "curves": [
+        "CWRE_OFF_EF_LRB_STRAIGHT_LINE_ONSET96",
+        "CWRE_OFF_EF_LRB_TORNADO"
+      ],
+      "variants": "pathway: storm wind (from 96 mph) / tornado",
+      "shape": "T3",
+      "shape_basis": "EF LRB damage-step speeds",
+      "cost": "T4",
+      "cost_basis": "our placement of each step on the Hazus cost ladder",
+      "notes": []
+    }
+  ]
+}

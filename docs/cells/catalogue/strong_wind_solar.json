@@ -1,0 +1,138 @@
+{
+  "entry_id": "strong_wind_solar",
+  "kind": "cell",
+  "asset": "Solar farm",
+  "hazard": "Convective wind",
+  "artifact": "docs/cells/strong_wind_solar/current/strong_wind_solar__model_v1_0__docs_r3__curve_artifact.json",
+  "artifact_sha256": "832f47d69372ec54723a61b8a956addccef07bb39338c3ec99907e116f1855ca",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and capability declaration",
+  "input": "3-second gust at array height (mph), 0 to 200 (warn or clamp), turned into a demand ratio: (gust / design gust) squared times stow and zone multipliers",
+  "not_covered": [
+    "The other 36% of the reference physical base (parts not named by the cell) has no curve or value share; the cell says this is not an automatic zero"
+  ],
+  "out_of_scope": [
+    "Tornado and windborne debris (deferred to a separate pathway)",
+    "Yearly and tail loss metrics (computed by the consumer, not the cell)"
+  ],
+  "missing_mechanisms": [
+    "Cascade between racking or tracker failure and module detachment (no dependency rule)"
+  ],
+  "next_version": "Proposed model v2.0 (docs r1): straight-line convective wind only, separate fixed-tilt and qualified single-axis-tracker records with architecture-specific demand axes, bounded cascade, explicit value linkage and known-answer tests; T4 screening proxy, not canonical",
+  "how_to_use": {
+    "share_of": "Replacement value of the same part, as a share of the physical replaceable base (default shares are illustrative)",
+    "outputs": {
+      "single_event": "allowed: per-part damage ratio",
+      "scenario_dollars": "conditional: needs an explicit value and exposure basis",
+      "yearly_loss": "conditional: computed by the consumer from a frequency-driven loss simulation with caps applied; curve spread not carried"
+    },
+    "conditions": [
+      "design_gust_mph and mounting_type are required",
+      "Compute the demand ratio once; do not apply zone or terrain multipliers twice",
+      "Multiply each damage ratio only by the same part's non-overlapping value",
+      "Tornado and debris damage are not in this aerodynamic curve"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Thresholded logistic curves on a design-normalised demand ratio; axis from wind-pressure physics, all numeric parameters set by engineering judgment from PV wind-load and storm-resilience sources"
+  },
+  "key_sources": [
+    "Wind-pressure physics, pressure scales with speed squared (WIND_PRESSURE_PHYSICS)",
+    "CPP, utility-scale PV wind-load paper (CPP_PV_WIND_LOAD)",
+    "CPP, torsional instability of single-axis trackers (CPP_TORSIONAL_TRACKER)",
+    "DOE/FEMP, severe-weather PV design guidance (DOE_FEMP_SEVERE_WEATHER_PV)",
+    "NREL, storm-resilience and storm-hardening reports (NREL_STORM_RESILIENCE)"
+  ],
+  "sources_from": "write-up",
+  "judgment": [
+    "Damage thresholds, midpoints and slopes for every part are engineering fits",
+    "Damage caps per part (15% to 80%) are engineering fits, not claims-calibrated",
+    "Default part value shares are illustrative",
+    "Stow multiplies demand by 0.80 (stowed) or 1.25 (unstowed or failed)"
+  ],
+  "checks": [],
+  "open_items": [
+    "Workbook stow selector defect: Dashboard!G7 reads B7 instead of B8 (not patched in v1)",
+    "No cell-specific known-answer test fixture for v1",
+    "No claims or forensic calibration; v2.0 promotion is blocked pending independent review and stronger calibration"
+  ],
+  "files": {
+    "write_up": "docs/cells/strong_wind_solar/current/strong_wind_solar_curve_derivation_dossier__model_v1_0__docs_r1.md",
+    "decisions": "docs/plans/strong_wind_solar_completion/decisions.md",
+    "validation": null,
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Tracker structure",
+      "curves": [
+        "SWS_TRACKER_STRUCT"
+      ],
+      "variants": "stow state: stowed / unstowed / probability blend; edge-zone multiplier",
+      "shape": "T4",
+      "shape_basis": "Threshold, midpoint and slope are engineering fits",
+      "cost": "T4",
+      "cost_basis": "80% cap and 8% default value share, both T4",
+      "notes": []
+    },
+    {
+      "part": "Racking structure",
+      "curves": [
+        "SWS_RACKING_STRUCT"
+      ],
+      "variants": "stow state: stowed / unstowed / probability blend; edge-zone multiplier",
+      "shape": "T4",
+      "shape_basis": "Threshold, midpoint and slope are engineering fits",
+      "cost": "T4",
+      "cost_basis": "75% cap and 6% default value share, both T4",
+      "notes": []
+    },
+    {
+      "part": "PV module attachment",
+      "curves": [
+        "SWS_MODULE_ATTACH"
+      ],
+      "variants": "stow state: stowed / unstowed / probability blend; edge-zone multiplier",
+      "shape": "T4",
+      "shape_basis": "Threshold, midpoint and slope are engineering fits",
+      "cost": "T4",
+      "cost_basis": "65% cap and 40% default value share, both T4",
+      "notes": [
+        {
+          "type": "known_bias",
+          "text": "No cascade rule with racking or tracker failure; summing can over-count"
+        }
+      ]
+    },
+    {
+      "part": "Foundations (uplift)",
+      "curves": [
+        "SWS_FOUNDATION_UPLIFT"
+      ],
+      "variants": "none (foundation type is a future variant)",
+      "shape": "T4",
+      "shape_basis": "Threshold, midpoint and slope are engineering fits",
+      "cost": "T4",
+      "cost_basis": "45% cap and 8% default value share, both T4",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Generic placeholder; pile and soil design are not modelled"
+        }
+      ]
+    },
+    {
+      "part": "Exposed SCADA and met station",
+      "curves": [
+        "SWS_SCADA_EXPOSED"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Threshold, midpoint and slope are engineering fits",
+      "cost": "T4",
+      "cost_basis": "15% cap and 2% default value share, both T4",
+      "notes": []
+    }
+  ]
+}

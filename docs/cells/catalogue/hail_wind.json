@@ -1,0 +1,18 @@
+{
+  "entry_id": "hail_wind",
+  "kind": "gap",
+  "asset": "Wind farm",
+  "hazard": "Hail",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell README and deep-curation decision",
+  "reason": "Model v0.1 is a fail-closed research scaffold with no curve records: no evidence yet links one hail event's impact on a blade to an inspected blade state and that blade's repair cost, and no hail-to-blade input axis is fixed (docs r2 deep curation kept it a strict no-go)",
+  "not_covered": [],
+  "out_of_scope": [],
+  "checks": [],
+  "files": {
+    "write_up": "docs/cells/hail_wind/proposed/hail_wind_curve_derivation_dossier__model_v0_1__docs_r1.md",
+    "decisions": "docs/cells/hail_wind/proposed/DEEP_CURATION_DECISION_hail_wind__model_v0_1__docs_r2.md",
+    "validation": "docs/cells/hail_wind/proposed/VALIDATION_REPORT_hail_wind__model_v0_1__docs_r2.md",
+    "notebooks": null
+  }
+}

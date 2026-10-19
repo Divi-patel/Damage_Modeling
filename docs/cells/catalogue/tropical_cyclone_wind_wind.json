@@ -1,0 +1,96 @@
+{
+  "entry_id": "tropical_cyclone_wind_wind",
+  "kind": "cell",
+  "asset": "Wind farm",
+  "hazard": "Hurricane wind",
+  "artifact": "docs/cells/tropical_cyclone_wind_wind/current/tropical_cyclone_wind_wind__model_v1_2__docs_r2__curve_artifact.json",
+  "artifact_sha256": "009996c07eb8150f79f11741d42b6cd37562d655ee336f82f178ccdeb987c992",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and decision log",
+  "input": "Peak 3-second gust at 10 m (km/h); zero at or below 90, evaluated 108 to 252; for the canonical 5 MW proxy 90 to 108 returns zero and above 252 returns the maximum (both flagged)",
+  "not_covered": [
+    "Rotor, nacelle, foundation, pad electrical, collection, GSU/substation, control building and SCADA, civil, fieldwork and transport (withheld, not zero)"
+  ],
+  "out_of_scope": [
+    "Storm surge, flood, scour, debris, rain ingress, lightning and fire",
+    "Business interruption"
+  ],
+  "missing_mechanisms": [
+    "Blade and other non-tower turbine failure modes (the curve is driven by tower damage states only)"
+  ],
+  "next_version": "Model v1.3 proposal: same curve, tower value re-based to 276 of 1,623 USD/kW (17.0% of a $162.3M physical TIV, $27.6M covered); not yet released",
+  "how_to_use": {
+    "share_of": "Tower value of the canonical 5 MW wind farm (0.16 of project TIV); source archetypes use the paper's own turbine/tower cost, which must not be multiplied by CWER values or site TIV",
+    "outputs": {
+      "single_event": "conditional: exact turbine archetype and source-assumption IDs; the canonical 5 MW route also needs the tower-proxy policy, asset-profile and value-basis IDs",
+      "scenario_dollars": "conditional: only with an explicit tower value and exposure; covered loss capped at 0.16 of project TIV per event",
+      "yearly_loss": "conditional: consumer-computed with validated hurricane frequency and intensity, 0.16 occurrence and annual caps, and disclosure that 0.84 is withheld"
+    },
+    "conditions": [
+      "Saffir-Simpson category and NHC one-minute sustained wind are not accepted inputs",
+      "No averaging-period, height, terrain or hub-height bridge is included",
+      "A known operating state that differs from the source assumption withholds",
+      "No 5/3.3 capacity scaling and no rotor or nacelle value binding",
+      "Covered value is the tower only: 0.16 of canonical project TIV ($22.4M of $140M); the other 0.84 is withheld"
+    ]
+  },
+  "method": {
+    "type": "adopted",
+    "summary": "Published fitted expected-damage curves for generic steel turbine towers (Wind Energy, 2020) used as published; the 3.3 MW / 100 m curve stands in for the canonical 5 MW turbine, tower value only"
+  },
+  "key_sources": [
+    "Probabilistic risk assessment on wind turbine towers subjected to cyclone-induced wind loads, Wind Energy 23(3), 528-546 (2020) (JAIMES_2020_TC_WIND_TURBINE / TCWW-S005)",
+    "Canonical wind-farm reference profile: 20 x 5 MW, $140M, tower share 0.16 (CONUS_WIND_FARM_REFERENCE_V1)",
+    "Owner scope correction authorizing the tower-only 0.16 binding (OWNER_SCOPE_CORRECTION_2026_08_14; governance, not evidence)",
+    "Hazard hurricane wind-farm EAL review that found the 0.63 value mismatch (HAZARD_HURRICANE_WIND_FARM_EAL_REVIEW_2026_08_14)",
+    "NREL, Cost of Wind Energy Review 2024 (TCWW-S010; comparison only)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "No damage at or below 90 km/h is a source assumption, not measured",
+    "Damage-state cost ratios (1 MW 2/43/100%, 2.5 MW 4/48/100%, 3.3 MW 5/50/100%) are the source authors' assumptions",
+    "The source's own cost denominator is ambiguous and is kept quarantined",
+    "All non-tower parts are withheld, not zero"
+  ],
+  "checks": [
+    {
+      "kind": "result",
+      "name": "Financial range check (Hazard repo): tower-value ceiling for wind-farm hurricane loss (shared lineage; no open industry loss figures found)",
+      "link": "https://github.com/aamani-ai/Hazard_Modeling/blob/main/docs/data_sources/financial_range_wind_farm_hurricane/profile.md"
+    }
+  ],
+  "open_items": [
+    "No target-matched 5 MW evidence",
+    "No separate rotor, blade, nacelle, foundation, electrical, substation, civil or support curves",
+    "Curve spread and damage-state probabilities not carried",
+    "No external financial-range validation of the annual results"
+  ],
+  "files": {
+    "write_up": "docs/cells/tropical_cyclone_wind_wind/current/tropical_cyclone_wind_wind_curve_derivation_dossier__model_v1_2__docs_r2.md",
+    "decisions": "docs/cells/tropical_cyclone_wind_wind/current/DECISION_LOG_tropical_cyclone_wind_wind__model_v1_2__docs_r2.md",
+    "validation": "docs/cells/tropical_cyclone_wind_wind/current/VALIDATION_REPORT_tropical_cyclone_wind_wind__model_v1_2__docs_r2.md",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Turbine tower",
+      "curves": [
+        "TCWW_JAIMES_1MW_44M_SCREENING",
+        "TCWW_JAIMES_2P5MW_80M_SCREENING",
+        "TCWW_JAIMES_3P3MW_100M_SCREENING",
+        "TCWW_JAIMES_3P3MW_AS_CANONICAL_5MW_TOWER_PROXY_V1"
+      ],
+      "variants": "source archetypes 1 MW / 44 m, 2.5 MW / 80 m, 3.3 MW / 100 m; canonical 5 MW / 100 m tower proxy (3.3 MW parameters unchanged)",
+      "shape": "T3",
+      "shape_basis": "Published fitted curve shape and archetype parameters",
+      "cost": "T4",
+      "cost_basis": "Damage-state cost ratios and the denominator quarantine are T4; the 0.16 tower share is owner-approved (no tier code)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "The 5 MW turbine uses the 3.3 MW curve unchanged; no capacity scaling"
+        }
+      ]
+    }
+  ]
+}

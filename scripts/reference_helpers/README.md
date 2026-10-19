@@ -12,6 +12,8 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_wind_tornado_v2_proposal.py` | Full research-package validator for the wind-turbine v2 proposal. |
 | `convective_solar_damage_curve_eval.py` | Reference evaluator and bounded cascade/salvage loss assembler for the noncanonical convective solar v2 proposal. |
 | `validate_strong_wind_solar_v2_proposal.py` | Schema/KAT/register/value/workbook/current-pin validator for the convective solar v2 proposal. |
+| `build_damage_curve_catalogue.py` | Builds `docs/cells/CATALOGUE.md` from the hand-written entries in `docs/cells/catalogue/` plus each cell's curve file and the runtime index; `--check` fails if the page is stale. |
+| `validate_damage_curve_catalogue.py` | Fails when a catalogue entry is malformed, its curve file changed since review (sha256), a curve ID is missing or invented, a cell or binding has no entry, a link is broken, or `CATALOGUE.md` is stale. |
 | `validate_runtime_contracts.py` | Validate the five repository-current canonical artifact/capability/KAT contracts. |
 | `validate_tropical_cyclone_wind_wind_v0_1_scaffold.py` | Fail-closed package validator for the noncanonical TC-wind × wind model-v0.1 scaffold. |
 | `tropical_cyclone_wind_wind_curve_eval.py` | Exact selector/range/value fail-closed evaluator for the noncanonical TC-wind × wind model-v1.0 Jaimes source-family proposal. |

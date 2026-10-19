@@ -1,0 +1,112 @@
+{
+  "entry_id": "tropical_cyclone_wind_bess",
+  "kind": "cell",
+  "asset": "Battery storage",
+  "hazard": "Hurricane wind",
+  "artifact": "docs/cells/tropical_cyclone_wind_bess/current/curve_artifact.json",
+  "artifact_sha256": "0a99b2f0efbe1628d1f0500e0801a24251cab9d3bc7c22f32de0a5c758945fed",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, capability and decision log",
+  "input": "Pressure ratio: (event 3-second gust / declared reference gust) squared, dimensionless, valid 0 to 2; outside the range is withheld, not clamped",
+  "not_covered": [
+    "Unit MV and shared electrical ($13.2M)",
+    "Civil works ($1.6M)",
+    "Fieldwork ($0.6M)"
+  ],
+  "out_of_scope": [
+    "Storm surge and rain flooding (Flood cell)",
+    "Convective wind and tornado (separate scope)",
+    "Autonomous internal failures",
+    "Collector station and export line",
+    "Business interruption"
+  ],
+  "missing_mechanisms": [
+    "Windborne debris",
+    "Wind-driven rain ingress",
+    "Triggered propagation between units"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Replacement value of the same physical unit, fixed 2024 dollars: $1.05M per integrated enclosure (80), $520,000 per PCS (20); $94.4M covered of $109.8M total",
+    "outputs": {
+      "single_event": "conditional: needs an explicit response choice (replacement or repair sensitivity), a resistance scenario and a declared comparable pressure reference",
+      "scenario_dollars": "conditional: same conditions, with the same-unit value; covered hardware only",
+      "yearly_loss": "conditional: Hazard computes it only after frequency, shared-event coupling, per-unit cap and annual-distribution checks pass; partial-property result only, complete-plant figures withheld"
+    },
+    "conditions": [
+      "Pin the exact model v1.0 / docs r1 artifact, value and capability",
+      "No default response: choose replacement or repair sensitivity, and lower, central or upper resistance (unweighted, not probabilities)",
+      "Declare the comparable pressure reference; the cell picks no national wind reference",
+      "Cap each unit's yearly cost at its value; no repair within the year",
+      "Keep unknown source and domain probability; the $15.4M unbound property is not zero"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Solar TC-wind ordered damage-state curves reused as a T4 hypothesis, with BESS enclosure state costs from a related NREL cost split and full replacement at major damage"
+  },
+  "key_sources": [
+    "Hazard BESS r1 selected profile and budget (BW-S01)",
+    "Solar TC-wind model v2.1 docs r2 (BW-S02)",
+    "SMA MVPS-S2-SCS-US system manual, storm mounting and anchorage (BW-S03)",
+    "Tesla Industrial Lithium-Ion Battery Emergency Response Guide rev 2.8 (BW-S11)",
+    "NREL PVSCM 2024 inputs and prior same-budget allocation (BW-S12)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Pressure axis is a squared gust ratio against a reference the consumer declares (BW-P01)",
+    "Curve shape and beta 0.35 borrowed from the solar TC-wind cell; no BESS data fitted (BW-P02)",
+    "Major damage means full enclosure replacement (owner-approved local policy BW-Q01)",
+    "Limited-damage cost of 20/141.3 of enclosure value from a related cost split (BW-P03)",
+    "PCS uses the solar TC-wind states and costs unchanged (BW-P07)"
+  ],
+  "checks": [],
+  "open_items": [
+    "No national wind reference selected (BW-P08); national placement support not yet qualified",
+    "Matched wind or anchorage tests and service outcomes still needed",
+    "$15.4M of plant value has no wind response yet"
+  ],
+  "files": {
+    "write_up": "docs/cells/tropical_cyclone_wind_bess/current/derivation.md",
+    "decisions": "docs/plans/bess_damage/decisions.md",
+    "validation": "docs/cells/tropical_cyclone_wind_bess/current/validation.json",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Integrated battery enclosure",
+      "curves": [
+        "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1",
+        "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1"
+      ],
+      "variants": "response: approved replacement / repair sensitivity; resistance: lower, central or upper (unweighted)",
+      "shape": "T4",
+      "shape_basis": "State medians and beta transferred from the solar TC-wind curve, not fitted (BW-P02)",
+      "cost": "T4",
+      "cost_basis": "State costs 0 / 0.14 / 1 / 1 (repair sensitivity 0.19 at major) from policy and a related cost split (BW-P03 to P06)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Major damage means replacing the whole enclosure (BW-Q01)"
+        }
+      ]
+    },
+    {
+      "part": "Separate PCS",
+      "curves": [
+        "BESS_SEPARATE_PCS_TC_PROXY_V0_1"
+      ],
+      "variants": "resistance: lower, central or upper (unweighted)",
+      "shape": "T4",
+      "shape_basis": "Solar TC-wind source states unchanged (BW-P07)",
+      "cost": "T4",
+      "cost_basis": "Source state costs 0 / 0.1 / 0.4 / 1 unchanged (BW-P07)",
+      "notes": [
+        {
+          "type": "reused_from",
+          "text": "tropical_cyclone_wind_solar v2.1 docs r2 (states and costs unchanged)"
+        }
+      ]
+    }
+  ]
+}

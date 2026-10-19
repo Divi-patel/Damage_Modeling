@@ -1,0 +1,12 @@
+{
+  "entry_id": "hail_bess",
+  "kind": "gap",
+  "asset": "Battery storage",
+  "hazard": "Hail",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the BESS plan and decision log",
+  "reason": "No curve and no documented plan yet (the BESS plan only lists other hazards as later work, step 6)",
+  "not_covered": [],
+  "out_of_scope": [],
+  "checks": []
+}

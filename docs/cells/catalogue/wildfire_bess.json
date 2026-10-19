@@ -1,0 +1,118 @@
+{
+  "entry_id": "wildfire_bess",
+  "kind": "cell",
+  "asset": "Battery storage",
+  "hazard": "Wildfire",
+  "artifact": "docs/cells/wildfire_bess/current/curve_artifact.json",
+  "artifact_sha256": "e2d5e817c6c5334ff6176a02f2e1edbf563195254239dd9eb9be530c85cdd491",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, capability and decision log",
+  "input": "FSim fire intensity class at the unit, exact integer 1 to 6 (0 = no event); no interpolation, heat-flux conversion or burn probability in the Damage call",
+  "not_covered": [
+    "Unit MV and shared electrical ($13.2M)",
+    "Civil works ($1.6M)",
+    "Fieldwork ($0.6M)"
+  ],
+  "out_of_scope": [
+    "Autonomous equipment fire",
+    "Collector station and export line",
+    "Business interruption and performance"
+  ],
+  "missing_mechanisms": [
+    "Fire spread between units",
+    "Post-fire erosion",
+    "Remediation"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Hardware value of the same physical unit, fixed 2024 dollars: $1.05M per integrated enclosure (80), $520,000 per PCS (20); $94.4M covered of $109.8M total",
+    "outputs": {
+      "single_event": "conditional: exact class 0 to 6 plus an explicit consequence choice and curve shape; repair choices also need a serviceability counterfactual",
+      "scenario_dollars": "conditional: same conditions, with the same-unit value; no blanket exposure or protection multiplier",
+      "yearly_loss": "conditional: Hazard computes it only after source exposure, shared-event dependence, per-unit cap and annual-distribution checks pass; partial-property result only"
+    },
+    "conditions": [
+      "Pin the exact model v1.0 / docs r1 artifact, capability and value",
+      "No default consequence or shape: choose one; options are unweighted and must not be averaged",
+      "Burn probability stays with Hazard; unknown class is unavailable, never the no-event class",
+      "Cap each unit's yearly cost at its value; no repair within the year",
+      "The $15.4M unbound property is not zero"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Solar wildfire electrical class tables reused as T4 ordinal weights on FSim class, times an owner-selected consequence ($1.05M enclosure replacement, with two repair sensitivities)"
+  },
+  "key_sources": [
+    "Selected BESS r1 profile and fixed-2024 budget (BWF-S01)",
+    "USFS, A Wildfire Risk Assessment Framework, RMRS-GTR-315 (2013), FSim classes (BWF-S02)",
+    "Canonical wildfire_solar model v1.0 docs r3 (BWF-S03)",
+    "Tesla Industrial Lithium-Ion Battery Emergency Response Guide rev 2.8 (BWF-S04)",
+    "Sungrow, A Holistic Approach to Safety whitepaper (BWF-S05)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Enclosure class weights borrowed from the solar wildfire electrical tables; not ignition probabilities (BWF-P07)",
+    "A compromised battery means full $1.05M enclosure replacement (BWF-Q01)",
+    "Repair costs (about $334k and $204k) come from a related cost split (BWF-P08)",
+    "PCS uses the solar electronics table unchanged (BWF-P09)",
+    "No protection credit, exposed-share default or random damage draw (BWF-P10)"
+  ],
+  "checks": [],
+  "open_items": [
+    "Matched fire exposure, duration and inspected repair costs still needed",
+    "Yard fuel transfer, real fire footprints and spread between units not modelled",
+    "$15.4M of mixed electrical, civil and fieldwork value has no response yet"
+  ],
+  "files": {
+    "write_up": "docs/cells/wildfire_bess/current/derivation.md",
+    "decisions": "docs/plans/bess_damage/decisions.md",
+    "validation": "docs/cells/wildfire_bess/current/validation.json",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Integrated battery enclosure",
+      "curves": [
+        "BWF01_ENC_approved_replacement_electronics_ordinal",
+        "BWF01_ENC_approved_replacement_heavy_electrical_ordinal",
+        "BWF01_ENC_noncell_repair_sensitivity_electronics_ordinal",
+        "BWF01_ENC_noncell_repair_sensitivity_heavy_electrical_ordinal",
+        "BWF01_ENC_limited_repair_sensitivity_electronics_ordinal",
+        "BWF01_ENC_limited_repair_sensitivity_heavy_electrical_ordinal"
+      ],
+      "variants": "consequence: approved replacement / non-cell repair / limited repair; shape: electronics or heavy-electrical (unweighted)",
+      "shape": "T4",
+      "shape_basis": "Solar electrical class tables transferred as ordinal weights (BWF-P07)",
+      "cost": "T4",
+      "cost_basis": "Owner-selected replacement and cost-split repair amounts (BWF-P08)",
+      "notes": [
+        {
+          "type": "opt_in_only",
+          "text": "Repair versions need an explicit serviceability counterfactual"
+        },
+        {
+          "type": "key_assumption",
+          "text": "Class weights are economic mean responses, not ignition probabilities"
+        }
+      ]
+    },
+    {
+      "part": "Separate PCS",
+      "curves": [
+        "BWF01_PCS_ELECTRONICS"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Solar electronics class table unchanged (BWF-P09)",
+      "cost": "T4",
+      "cost_basis": "Donor table is already a share of value (T4), applied to $520,000",
+      "notes": [
+        {
+          "type": "reused_from",
+          "text": "wildfire_solar v1.0 docs r3 electronics table"
+        }
+      ]
+    }
+  ]
+}

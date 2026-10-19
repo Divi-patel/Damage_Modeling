@@ -1,0 +1,193 @@
+{
+  "entry_id": "flood_solar",
+  "kind": "cell",
+  "asset": "Solar farm",
+  "hazard": "Flood",
+  "artifact": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+  "artifact_sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and capability declaration",
+  "input": "Water surface elevation or site flood depth (m), turned into local depth above each part's critical elevation, 0 to 2 m (clamp or warn); foundations use flow velocity (m/s) or a scour proxy, 0 to 4",
+  "not_covered": [
+    "Mounting and racking structure (debris and velocity load is a candidate mechanism; no curve)",
+    "Civil works: roads, access and fencing (reviewed in the write-up; no curve)",
+    "Site drainage and flood defences (treated as protection state, not a damaged part)"
+  ],
+  "out_of_scope": [
+    "Yearly and tail loss metrics (computed by the consumer, not the cell)",
+    "Part values and exposure fractions (supplied by the consumer; not embedded in the curve file)"
+  ],
+  "missing_mechanisms": [
+    "Flood duration, salinity and contamination (flags only, no numeric effect)",
+    "Energised versus shut-down state at flooding (flag only)",
+    "Water reaching equipment through conduits when the cabinet itself is above water (flag only, no multiplier)",
+    "Debris impact on modules"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Replacement value of the same part (its own value bucket), never total project value",
+    "outputs": {
+      "single_event": "allowed: per-part damage ratio",
+      "scenario_dollars": "conditional: needs an explicit part value and exposure fraction (fraction_value_exposed)",
+      "yearly_loss": "conditional: computed by the consumer from a frequency-driven loss simulation with caps applied; curve spread not carried"
+    },
+    "conditions": [
+      "Equipment elevations must use the same vertical datum as the water surface; unknown or incompatible datum fails closed",
+      "Local depth above 2 m clamps or warns",
+      "Flow velocity is required to evaluate the foundation curve",
+      "Do not apply a part's damage ratio to total project value or count shared support cost twice"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Piecewise depth-damage points per part, set by engineering judgment from DOE/FEMP solar flood guidance and NEMA water-damaged equipment guidance, in the USACE depth-percent table form"
+  },
+  "key_sources": [
+    "DOE/FEMP, Preventing and Mitigating Flood Damage to Solar PV Systems (DOE_FEMP_PV_FLOOD)",
+    "NEMA GD 1-2019, Evaluating Water-Damaged Electrical Equipment (NEMA_GD1_2019)",
+    "NEMA, Enclosure Types (NEMA_ENCLOSURE_TYPES)",
+    "FEMA P-348, Protecting Building Utility Systems from Flood Damage (FEMA_P348)",
+    "USACE HEC-FIA, Depth-Percent Damage Relationships (USACE_HEC_FIA)"
+  ],
+  "sources_from": "write-up",
+  "judgment": [
+    "Foundation scour curve is a generic placeholder; site hydraulics and geotechnics decide real damage"
+  ],
+  "checks": [
+    {
+      "kind": "result",
+      "name": "Financial range check (Hazard repo): industry loss figures for solar flood",
+      "link": "https://github.com/aamani-ai/Hazard_Modeling/blob/main/docs/data_sources/financial_range_solar_flood/profile.md"
+    }
+  ],
+  "open_items": [
+    "No claims, OEM or forensic calibration; damage points are engineering parameterisation",
+    "Transformer type, flood duration and salinity are open seams (candidate model v1.1 items)",
+    "Cable pathway axis unit and formula are not fully pinned in the curve file",
+    "Surveyed equipment elevations and conduit routing are needed per site"
+  ],
+  "files": {
+    "write_up": "docs/cells/flood_solar/current/flood_solar_curve_derivation_dossier_v1_0.md",
+    "decisions": null,
+    "validation": null,
+    "notebooks": "notebooks/flood/solar/"
+  },
+  "rows": [
+    {
+      "part": "Inverters",
+      "curves": [
+        "FS_INV"
+      ],
+      "variants": "none (enclosure rating is recorded as a flag; no alternate curve)",
+      "shape": "T3",
+      "shape_basis": "Engineering depth-damage points; mechanism from DOE/FEMP and NEMA",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": []
+    },
+    {
+      "part": "Switchgear",
+      "curves": [
+        "FS_SWG"
+      ],
+      "variants": "none (enclosure rating is recorded as a flag; no alternate curve)",
+      "shape": "T3",
+      "shape_basis": "Engineering depth-damage points; mechanism from DOE/FEMP and NEMA",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": []
+    },
+    {
+      "part": "Main transformer and controls",
+      "curves": [
+        "FS_XFMR"
+      ],
+      "variants": "none (transformer type is a flag and a future variant)",
+      "shape": "T3",
+      "shape_basis": "Engineering depth-damage points; mechanism from DOE/FEMP and NEMA",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Rises more slowly than other cabinets because a liquid-filled transformer may be reconditioned"
+        }
+      ]
+    },
+    {
+      "part": "Combiner boxes and DC protection",
+      "curves": [
+        "FS_COMB"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "Engineering depth-damage points; mechanism from DOE/FEMP and NEMA",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": []
+    },
+    {
+      "part": "SCADA and monitoring cabinets",
+      "curves": [
+        "FS_SCADA"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "Engineering depth-damage points; mechanism from DOE/FEMP and NEMA",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": []
+    },
+    {
+      "part": "AC and DC collection cable",
+      "curves": [
+        "FS_CABLE"
+      ],
+      "variants": "none (cable wet-location rating is a future variant)",
+      "shape": "T3",
+      "shape_basis": "Engineering points for wet terminations and conduit contamination",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Pathway and termination exposure axis; its unit and formula are not fully pinned"
+        }
+      ]
+    },
+    {
+      "part": "PV modules",
+      "curves": [
+        "FS_PVMOD"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "Engineering submersion points",
+      "cost": "T3",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same table)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Applies only when water reaches the module's lower edge"
+        }
+      ]
+    },
+    {
+      "part": "Foundations",
+      "curves": [
+        "FS_FOUND"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Generic velocity/scour placeholder points",
+      "cost": "T4",
+      "cost_basis": "Points already give damage as a share of the part's replacement value (same T4 table)",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Placeholder; replace with a site hydraulic or geotechnical assessment where material"
+        }
+      ]
+    }
+  ]
+}

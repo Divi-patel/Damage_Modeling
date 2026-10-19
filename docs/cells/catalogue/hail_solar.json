@@ -1,0 +1,101 @@
+{
+  "entry_id": "hail_solar",
+  "kind": "cell",
+  "asset": "Solar farm",
+  "hazard": "Hail",
+  "artifact": "docs/cells/hail_solar/current/hail_solar__model_v1_0__docs_r7__curve_artifact.json",
+  "artifact_sha256": "8c52f3442eb606f55aa0502fbb2738df70076f8a181de463c029061020b3cf32",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, value profiles and capability declaration",
+  "input": "MESH-equivalent maximum hail diameter (mm; inches are converted), 0 to 100 mm (clamp or warn)",
+  "not_covered": [
+    "Racking structure (secondary, open; no curve)",
+    "Tracker steel (used only as a stow conditioner; direct damage has no curve)",
+    "SCADA and met instruments (optional secondary; no curve)",
+    "Inverters, substation, foundations, civil works and drainage (treated as no direct hail damage by coverage decision; no curve)"
+  ],
+  "out_of_scope": [
+    "Yearly and tail loss metrics (computed by the consumer, not the cell)",
+    "Site value and exposure basis (supplied by the consumer)"
+  ],
+  "missing_mechanisms": [
+    "Cell cracking or latent performance loss without glass breakage",
+    "Wind-driven hail hitting the module face (open seam, not in the diameter-only curve)"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Replacement value of the PV modules; the plant share comes from a named value profile (direct module hardware, or the Hazard-compatible adapter) or a site value basis, with no default",
+    "outputs": {
+      "single_event": "allowed: module damage ratio (missing module type uses the default curve with a flag)",
+      "scenario_dollars": "conditional: needs a named value profile or site value basis and an exposure fraction",
+      "yearly_loss": "conditional: computed by the consumer from a frequency-driven loss simulation with caps applied and known-answer tests passing; curve spread not carried"
+    },
+    "conditions": [
+      "Exactly one module type must match; a missing type uses the default with DEFAULT_SELECTOR_USED, an unknown type is rejected",
+      "Hail size unit must be stated; inches are converted to mm",
+      "Stow probability is the event-time stow state, not hail frequency; stow results carry the placeholder flag",
+      "A value profile must be named; none is applied implicitly"
+    ]
+  },
+  "method": {
+    "type": "fitted",
+    "summary": "Logistic curves per module type fitted to public PVEL/Kiwa hail-test breakage anchors and the IEC baseline; glass-breakage probability used as the module replacement ratio"
+  },
+  "key_sources": [
+    "PVEL, 2023 Hail Stress Sequence results (PVEL_2023_HSS)",
+    "Kiwa PVEL, Hail Stress Sequence scorecard (KIWA_PVEL_HSS)",
+    "IEC 61215 hail test baseline (IEC_61215_BASELINE)",
+    "VDE Americas, hail-stow technical memo (E_VDE_HAIL_STOW)",
+    "DOE/FEMP, Hail Damage Mitigation for Solar PV Systems (DOE_FEMP_HAIL_GUIDANCE)"
+  ],
+  "sources_from": "write-up",
+  "judgment": [
+    "Tracker stow shifts the curve by +8 mm (direction supported, size not calibrated)",
+    "Stowed modules capped at 90% damage",
+    "Hazard-compatible value profile assigns all general replacement fieldwork to the modules"
+  ],
+  "checks": [
+    {
+      "kind": "result",
+      "name": "Financial range check (Hazard repo): industry loss figures for solar hail",
+      "link": "https://github.com/aamani-ai/Hazard_Modeling/blob/main/docs/data_sources/financial_range_solar_hail/profile.md"
+    }
+  ],
+  "open_items": [
+    "Recalibrate if claims show replacement policy differs from glass-breakage probability",
+    "Wind-driven hail contact effect needs event wind and tracker orientation data",
+    "Stow adjustment awaits tracker stow-angle impact testing",
+    "Notebook walkthrough source paths are not repository-current"
+  ],
+  "files": {
+    "write_up": "docs/cells/hail_solar/current/hail_solar_curve_derivation_dossier_v1_3.md",
+    "decisions": null,
+    "validation": null,
+    "notebooks": "notebooks/hail/solar/"
+  },
+  "rows": [
+    {
+      "part": "PV modules (glass and cells)",
+      "curves": [
+        "HAIL_SOLAR_FRAGILE_THIN_GG",
+        "HAIL_SOLAR_DEFAULT_3P2_GBS",
+        "HAIL_SOLAR_HARDENED_THICKER"
+      ],
+      "variants": "module type: fragile thin glass-glass / default 3.2 mm glass-backsheet / hail-hardened thicker glass; optional tracker stow blend",
+      "shape": "T2",
+      "shape_basis": "D50 and slope fitted to public lab anchors (fragile and default T2; hardened variant T3)",
+      "cost": "T2",
+      "cost_basis": "Direct module-hardware value share from the NLR Q1-2025 basis (T2); optional Hazard-adapter profile is T4",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Glass-breakage probability is used as the module replacement ratio"
+        },
+        {
+          "type": "opt_in_only",
+          "text": "Stow adjustment applies only when a stow state is supplied (T4 placeholder)"
+        }
+      ]
+    }
+  ]
+}

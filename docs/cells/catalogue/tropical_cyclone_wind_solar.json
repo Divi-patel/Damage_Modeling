@@ -1,0 +1,206 @@
+{
+  "entry_id": "tropical_cyclone_wind_solar",
+  "kind": "cell",
+  "asset": "Solar farm",
+  "hazard": "Hurricane wind",
+  "artifact": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json",
+  "artifact_sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, source register and decision log",
+  "input": "Demand ratio 0 to 2, withheld above 2: arrays use event/design net pressure (fixed tilt) or tracker-normal gust / exact-system critical gust (tracker); site facilities use event/design wind pressure or a gust-squared proxy. The satellite-data module route uses event maximum gust, 17.4 to 39.1 m/s",
+  "not_covered": [
+    "Replacement support (inspection, labour, rental, logistics, removal): no own curve; takes the value-weighted damage ratio of the other parts and is counted once"
+  ],
+  "out_of_scope": [
+    "Storm surge, flood, tornado and straight-line convective wind (separate pathways or cells)",
+    "Hail, lightning and fire",
+    "Downtime, business interruption and insurance terms",
+    "Soft, sunk and non-physical cost (installed capex above physical replacement value)"
+  ],
+  "missing_mechanisms": [
+    "Windborne debris impact as a separately valued pathway",
+    "Wind-driven rain and water ingress"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Replacement value of the same part; the plant view uses the named 2024-USD physical replacement profile, which must be requested and is never selected silently",
+    "outputs": {
+      "single_event": "conditional: needs the qualified architecture-specific demand input; trackers need exact-system qualification and attained stow state",
+      "scenario_dollars": "conditional: needs the named value profile, a representative array exposure basis and a positive capacity_kwdc",
+      "yearly_loss": "conditional: computed by the consumer after exact pin, frequency-intensity coupling, cap and value validation, and an explicit decision to accept screening grade"
+    },
+    "conditions": [
+      "Array architecture is required and has no default; architectures are mutually exclusive",
+      "Commanded stow is not enough; trackers must prove attained state",
+      "Rain, debris, surge and tornado are excluded from this wind-only ratio and acknowledged separately",
+      "Unbridged 10 m gust, storm category or NHC sustained wind is rejected as input"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Ordered damage-state curves with Tier-4 synthetic resistance medians and cost ratios (cell-local decision, no direct TC calibration source); one module route fitted to NREL satellite storm-damage records"
+  },
+  "key_sources": [
+    "NREL/NLR, Satellite Imagery of PV Site Storm Damage dataset, 2025 (TCWS-S020)",
+    "NREL, Q1-2025 Solar PV System Cost Benchmarks (TCWS-S013)",
+    "DOE/FEMP, Toward Solar PV Storm Resilience field investigation (TCWS-S004)",
+    "ASCE/SEI 7-22, Minimum Design Loads (TCWS-S005)",
+    "Cell owner decision on synthetic Tier-4 parameters (TCWS2_CELL_LOCAL_SYNTHETIC_DECISION)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Resistance medians and spreads for every array and facility curve are synthetic screening values",
+    "Damage-state cost ratios for every part are synthetic",
+    "The 0 to 2 demand range is a bounded synthetic domain; values above 2 are withheld",
+    "Satellite-data route assumes uniform module value and full replacement of every visibly damaged module",
+    "One representative array-zone curve is applied to the full array value"
+  ],
+  "checks": [
+    {
+      "kind": "result",
+      "name": "Financial range check (Hazard repo): industry loss figures for solar hurricane",
+      "link": "https://github.com/aamani-ai/Hazard_Modeling/blob/main/docs/data_sources/financial_range_solar_hurricane/profile.md"
+    }
+  ],
+  "open_items": [
+    "Tier-4 curves to be replaced by better evidence in a later model version",
+    "Wind-field, direction-history and duration-cycling bridge contracts are named but their external content is unresolved",
+    "Capability field status_before_promotion should become a clearer consumer-readiness field"
+  ],
+  "files": {
+    "write_up": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar_curve_derivation_dossier__model_v2_1__docs_r2.md",
+    "decisions": "docs/cells/tropical_cyclone_wind_solar/current/DECISION_LOG_tropical_cyclone_wind_solar__model_v2_1__docs_r2.md",
+    "validation": "docs/cells/tropical_cyclone_wind_solar/current/VALIDATION_REPORT_tropical_cyclone_wind_solar__model_v2_1__docs_r2.md",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "PV module field",
+      "curves": [
+        "TCWS2_FIXED_MODULE_SYNTHETIC_T4_ORDERED_STATES",
+        "TCWS2_TRACKER_MODULE_SYNTHETIC_T4_ORDERED_STATES"
+      ],
+      "variants": "architecture: fixed tilt / qualified single-axis tracker; resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": []
+    },
+    {
+      "part": "PV module hardware, satellite-data route",
+      "curves": [
+        "TCWS_PERRY_GROUND_FIXED_VISIBLE_REPLACEMENT_PROXY_V1"
+      ],
+      "variants": "none (ground-mounted fixed sites only)",
+      "shape": "T3",
+      "shape_basis": "Monotone fit to 34 satellite-labelled site records (source data T1, fit T3)",
+      "cost": "T4",
+      "cost_basis": "Uniform module value and full replacement of visible damage assumed",
+      "notes": [
+        {
+          "type": "opt_in_only",
+          "text": "Source-compatible sites only; cannot be combined with the generic fixed-tilt module curve"
+        }
+      ]
+    },
+    {
+      "part": "Mounting structure",
+      "curves": [
+        "TCWS2_FIXED_STRUCTURE_SYNTHETIC_T4_ORDERED_STATES",
+        "TCWS2_TRACKER_SBOS_SYNTHETIC_T4_ORDERED_STATES"
+      ],
+      "variants": "architecture: fixed-tilt support structure / tracker structural BOS; resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": []
+    },
+    {
+      "part": "Foundations",
+      "curves": [
+        "TCWS21_FOUNDATION_SCREENING_T4_ORDERED_STATES"
+      ],
+      "variants": "resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Uses the site-facility demand ratio, not the array ratio"
+        }
+      ]
+    },
+    {
+      "part": "Power conversion and collection",
+      "curves": [
+        "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES"
+      ],
+      "variants": "resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Uses the site-facility demand ratio, not the array ratio"
+        }
+      ]
+    },
+    {
+      "part": "GSU and substation",
+      "curves": [
+        "TCWS21_GSU_SUBSTATION_SCREENING_T4_ORDERED_STATES"
+      ],
+      "variants": "resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Uses the site-facility demand ratio, not the array ratio"
+        }
+      ]
+    },
+    {
+      "part": "SCADA and communications",
+      "curves": [
+        "TCWS21_SCADA_SCREENING_T4_ORDERED_STATES"
+      ],
+      "variants": "resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Uses the site-facility demand ratio, not the array ratio"
+        }
+      ]
+    },
+    {
+      "part": "Civil infrastructure",
+      "curves": [
+        "TCWS21_CIVIL_SCREENING_T4_ORDERED_STATES"
+      ],
+      "variants": "resistance scenario: lower / central (headline) / upper",
+      "shape": "T4",
+      "shape_basis": "Synthetic resistance medians and spread",
+      "cost": "T4",
+      "cost_basis": "Synthetic damage-state cost ratios",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Uses the site-facility demand ratio, not the array ratio"
+        }
+      ]
+    }
+  ]
+}

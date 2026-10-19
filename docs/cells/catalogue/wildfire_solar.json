@@ -1,0 +1,215 @@
+{
+  "entry_id": "wildfire_solar",
+  "kind": "cell",
+  "asset": "Solar farm",
+  "hazard": "Wildfire",
+  "artifact": "docs/cells/wildfire_solar/current/wildfire_solar__model_v1_0__docs_r3__curve_artifact.json",
+  "artifact_sha256": "598512fbe2f0a3c8db48df69fdb2cd00ca5e0cc8e7ef761555837a3d76d166d8",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, source registers and capability declaration",
+  "input": "USFS FSim conditional flame-length class, exact integer 1 to 6 (0 = no event), or the six-class probability vector; no interpolation; burn probability stays with Hazard",
+  "not_covered": [
+    "Replacement support and fieldwork: no own curve; allocated once at the aggregate direct-and-civil damage ratio (T4 rule)"
+  ],
+  "out_of_scope": [
+    "Equipment-origin fire and battery storage",
+    "Power shutoffs, downtime, business interruption and insurance terms",
+    "Post-fire erosion or landslide, environmental remediation and fire-service liability",
+    "Soft and non-physical cost (installed capex above physical replacement value)"
+  ],
+  "missing_mechanisms": [
+    "Smoke and ash optical losses and module cleaning"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Pre-event direct replacement value of the same part; the plant view uses the named reference profile WILDFIRE_SOLAR_REFERENCE_100MWDC_V1 or complete site part values",
+    "outputs": {
+      "single_event": "allowed: per-part damage ratio for one exact class, or the expected ratio over the six-class probabilities",
+      "scenario_dollars": "conditional: needs an explicit value profile or complete site part values",
+      "yearly_loss": "conditional: computed by the consumer with FSim burn probability in the frequency layer and cap-binding checks passed; curve spread not carried"
+    },
+    "conditions": [
+      "Only exact integer classes 0 to 6; no interpolation or extrapolation",
+      "Six-class probabilities must each lie in [0, 1] and sum to one",
+      "Burn probability is not allowed in the damage call",
+      "Outputs carry screening flags: not field or claims calibrated; FSim class is not local heat flux"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Exact-class state tables per part on FSim flame-length classes; ordering constrained by field, lab and guidance sources, absolute values set by engineering judgment"
+  },
+  "key_sources": [
+    "USDA Forest Service, Spatial datasets of probabilistic wildfire risk components for the US, 3rd ed., RDS-2016-0034-3 (USFS_FSIM_RDS_2023)",
+    "DOE/FEMP, Solar Photovoltaic Hardening for Resilience - Wildfire (DOE_FEMP_PV_WILDFIRE)",
+    "NEMA GD 2-2016, Evaluating Fire- and Heat-Damaged Electrical Equipment (NEMA_GD2_2016)",
+    "FM, Data Sheet 7-106: Ground-Mounted Solar Power, April 2026 (FM_DS_7_106_2026)",
+    "NREL/NLR, Q1-2025 Solar PV System Cost Benchmarks (NREL_NLR_Q1_2025_PV_BENCHMARK)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Damage values per flame-length class for every part are engineering judgment (no class-specific field data)",
+    "Racking, foundations and grounding get a low response, not immunity",
+    "Support cost is allocated in proportion to direct-and-civil damage"
+  ],
+  "checks": [
+    {
+      "kind": "result",
+      "name": "Financial range check (Hazard repo): industry loss figures for solar wildfire",
+      "link": "https://github.com/aamani-ai/Hazard_Modeling/blob/main/docs/data_sources/financial_range_solar_wildfire/profile.md"
+    }
+  ],
+  "open_items": [
+    "No field or claims calibration; values to be replaced when paired exposure, disposition and cost evidence arrives",
+    "No credit yet for site controls (vegetation, barriers, suppression, de-energisation); kept as metadata",
+    "Reference profile counts all cable as exposed and the mixed civil row as direct civil; site schedules should replace it"
+  ],
+  "files": {
+    "write_up": "docs/cells/wildfire_solar/current/wildfire_solar_curve_derivation_dossier__model_v1_0__docs_r3.md",
+    "decisions": null,
+    "validation": "docs/cells/wildfire_solar/current/VALIDATION_REPORT_wildfire_solar__model_v1_0__docs_r3.md",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "PV modules",
+      "curves": [
+        "WSV1_MODULE_THERMAL"
+      ],
+      "variants": "none (only the central screening table exists)",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": []
+    },
+    {
+      "part": "Tracker and racking",
+      "curves": [
+        "WSV1_RACKING_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": []
+    },
+    {
+      "part": "Piles and inverter pads",
+      "curves": [
+        "WSV1_FOUNDATION_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Low response for steel and concrete, not immunity"
+        }
+      ]
+    },
+    {
+      "part": "Central inverters",
+      "curves": [
+        "WSV1_INVERTER_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": []
+    },
+    {
+      "part": "Combiner boxes",
+      "curves": [
+        "WSV1_COMBINER_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": []
+    },
+    {
+      "part": "Exposed AC and DC cable",
+      "curves": [
+        "WSV1_CABLE_EXPOSED"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": [
+        {
+          "type": "known_bias",
+          "text": "Reference profile counts all cable as exposed; buried or conduit cable should be removed"
+        }
+      ]
+    },
+    {
+      "part": "Transformers and switchgear",
+      "curves": [
+        "WSV1_MV_EQUIPMENT_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": []
+    },
+    {
+      "part": "Grounding and lightning protection",
+      "curves": [
+        "WSV1_GROUNDING_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Low response, not immunity"
+        }
+      ]
+    },
+    {
+      "part": "SCADA and communications",
+      "curves": [
+        "WSV1_SCADA_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": []
+    },
+    {
+      "part": "Civil: fencing, roads, buildings, site prep",
+      "curves": [
+        "WSV1_CIVIL_DIRECT"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Class values are engineering judgment",
+      "cost": "T2",
+      "cost_basis": "Reference part value from the NREL/NLR Q1-2025 benchmark crosswalk",
+      "notes": [
+        {
+          "type": "known_bias",
+          "text": "Mixed civil row treated as all direct civil (conservative)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "entry_id": "flood_real_estate",
+  "kind": "cell",
+  "asset": "Real estate",
+  "hazard": "Flood",
+  "artifact": "docs/cells/flood_real_estate/proposed/flood_real_estate__model_v0_2__docs_r1__curve_artifact.json",
+  "artifact_sha256": "99fe3f1f6430caada7943a4a83fe74a2f94895c8c454d7789fda97fabfafe9af",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and decision log",
+  "input": "Water depth above the first floor (ft), -4 to 24 ft (retail coastal curve -1 to 10 ft); depth above ground is accepted with the building's floor height",
+  "not_covered": [],
+  "out_of_scope": [
+    "Contents (declared as a withheld placeholder part)",
+    "Land, site works, business interruption"
+  ],
+  "missing_mechanisms": [
+    "Waves and fast-moving water (wave and velocity zones)"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Structure replacement cost new of the same building (no land, contents or depreciation)",
+    "outputs": {
+      "single_event": "conditional: proposal, not in the runtime index; the request must name the building and the water type",
+      "scenario_dollars": "withheld until the building value is qualified",
+      "yearly_loss": "withheld before promotion (computed by the consumer afterwards)"
+    },
+    "conditions": [
+      "flood_water_type is required; unknown water withholds",
+      "When Hazard sends depth above the floor it must apply the dry-ground rule itself (depth above ground of 0 or less means no damage)"
+    ]
+  },
+  "method": {
+    "type": "adopted",
+    "summary": "FEMA Hazus depth-damage functions used as published, one per building (house DF 129, warehouse DF 341, office DF 431, each for river and coastal still water); retail keeps Hazus DF 217 for river water and USACE NACCS for coastal surge"
+  },
+  "key_sources": [
+    "FEMA, Hazus Flood Model Technical Manual 7.0 (2025), Table 5-2 (FRE-S002)",
+    "FEMA Hazus 6.1 flood damage-function extract (FRE-S010)",
+    "USACE, North Atlantic Coast Comprehensive Study (2015), depth-damage functions (FRE-S004)",
+    "FEMA OpenFEMA NFIP redacted claims, v3 (FRE-S012; check only)",
+    "Hazard reference profiles r1 (FRE-S013)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "No value per area set, so scenario dollars stay withheld",
+    "No adjustment for the gap between river and coastal claims (coastal commercial claims run higher)"
+  ],
+  "checks": [
+    {
+      "kind": "curve",
+      "name": "NFIP flood-insurance claims by depth band (about 105,000 claims)",
+      "link": "docs/cells/flood_real_estate/proposed/NFIP_CLAIMS_CHECK_flood_real_estate__model_v0_1__docs_r1.md"
+    }
+  ],
+  "open_items": [
+    "Office curve reads about 1.6 times the claims for 3+ storey buildings (kept as published)",
+    "Wave and velocity zones not modelled",
+    "Contents placeholder: keep or drop (for the reviewer)"
+  ],
+  "files": {
+    "write_up": "docs/cells/flood_real_estate/proposed/flood_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md",
+    "decisions": "docs/cells/flood_real_estate/proposed/DECISION_LOG_flood_real_estate__model_v0_1__docs_r1.md",
+    "validation": "docs/cells/flood_real_estate/proposed/VALIDATION_REPORT_flood_real_estate__model_v0_2__docs_r1.md",
+    "notebooks": "notebooks/flood/real_estate/"
+  },
+  "rows": [
+    {
+      "part": "House",
+      "curves": [
+        "FRE_RES_HAZUS_DF129"
+      ],
+      "variants": "water: river or coastal (same curve)",
+      "shape": "T2",
+      "shape_basis": "Hazus DF 129 points",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": []
+    },
+    {
+      "part": "Warehouse",
+      "curves": [
+        "FRE_IND_HAZUS_DF341"
+      ],
+      "variants": "water: river or coastal (same curve)",
+      "shape": "T2",
+      "shape_basis": "Hazus DF 341 points",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": []
+    },
+    {
+      "part": "Office",
+      "curves": [
+        "FRE_OFF_HAZUS_DF431"
+      ],
+      "variants": "water: river or coastal (same curve)",
+      "shape": "T2",
+      "shape_basis": "Hazus DF 431 points",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": [
+        {
+          "type": "known_bias",
+          "text": "Reads about 1.6x the NFIP claims for 3+ storey buildings"
+        }
+      ]
+    },
+    {
+      "part": "Retail",
+      "curves": [
+        "FRE_COM_FRESH_HAZUS_DF217",
+        "FRE_COM_COAST_NACCS_P2",
+        "FRE_COM_COAST_NACCS_P2_MIN",
+        "FRE_COM_COAST_NACCS_P2_MAX"
+      ],
+      "variants": "water: river (Hazus DF 217) / coastal (NACCS, with low and high building-variant bounds)",
+      "shape": "T2",
+      "shape_basis": "Hazus DF 217 and NACCS published points",
+      "cost": "T2",
+      "cost_basis": "source loss ratios of replacement value",
+      "notes": [
+        {
+          "type": "not_a_hazard_profile",
+          "text": "Kept from v0.1; not a current Hazard profile"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "entry_id": "flood_wind",
+  "kind": "cell",
+  "asset": "Wind farm",
+  "hazard": "Flood",
+  "artifact": "docs/cells/flood_wind/current/flood_wind__model_v1_0__docs_r1__curve_artifact.json",
+  "artifact_sha256": "37da745d87a4722e13118319bd30d9d2bcfd18dabc2a198ac6b8b1422bc3e1c1",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and release decision",
+  "input": "Freshwater flood depth above substation grade (ft), 0 to 10 ft; or water-surface and grade elevations (m) on the same vertical datum",
+  "not_covered": [
+    "GSU parts as separate units: switchgear, main transformer, transformer auxiliaries and controls, protection and SCADA, station service and DC, cable terminations (withheld, not zero)",
+    "Turbine-base electrical and pad or turbine step-up transformers (withheld)",
+    "Collection cable joints and terminations (withheld)",
+    "Turbine foundation (needs a separate scour and erosion pathway) and civil access and drainage (needs a split)",
+    "Elevated turbine equipment: rotor, nacelle, tower (geometry-screened, not declared zero)",
+    "Fieldwork and transport support (allocated once after repair scope; no fragility)"
+  ],
+  "out_of_scope": [
+    "Outage restoration, business interruption, curtailment, revenue and insurance",
+    "Soft, sunk and non-physical costs (excluded from the physical base)",
+    "Other hazards in the same event (tropical-cyclone wind, tornado); one event must not charge the same value twice"
+  ],
+  "missing_mechanisms": [
+    "Scour, erosion, saturated-soil support loss, debris impact and wave loading",
+    "Flood duration (captured but has no effect on the result)"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Full direct replacement value of the same facility-level GSU/substation (not project TIV, not the mixed 72 USD/kW electrical row)",
+    "outputs": {
+      "single_event": "conditional: exact Hazus substation class, the Hazus 2.1 Table 7.9 assumption set, freshwater non-contaminated water, depth 0 to 10 ft",
+      "scenario_dollars": "conditional: only with an explicit same-substation replacement value and exposure fraction",
+      "yearly_loss": "withheld for this partial screening release (consumer-owned)"
+    },
+    "conditions": [
+      "substation_hazus_class must be ESSL, ESSM or ESSH (all three use the same points)",
+      "Salt, brackish, contaminated or unknown water withholds",
+      "Depth must be unprotected or internal post-bypass depth; no extra mitigation credit",
+      "Negative depth rejects, depth above 10 ft withholds, missing depth rejects (never treated as dry)",
+      "One shared substation is counted once, never repeated by turbine count or across solar and wind",
+      "The cell gives no covered value share; the substation value must come from the site"
+    ]
+  },
+  "method": {
+    "type": "adopted",
+    "summary": "FEMA Hazus-MH 2.1 Table 7.9 whole-substation depth-damage table used exactly as published (0 to 10 ft, damage 0 to 0.15), linear between one-foot points"
+  },
+  "key_sources": [
+    "FEMA, Hazus-MH Flood Model Technical Manual 2.1, Table 7.9 (FW-S011)",
+    "FEMA, Hazus 7.0 Flood Technical Manual (2025), electric-power status (FW-S012)",
+    "USACE, HEC-FIA Technical Reference, depth-percent damage relationships (FW-S006)",
+    "NEMA GD 1-2016, Evaluating Water-Damaged Electrical Equipment (FW-S002; historical context)",
+    "NREL, Cost of Wind Energy Review 2024 (FW-S008; value anatomy only)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Only freshwater non-contaminated water gets a number; all other water types withhold",
+    "No extension past 10 ft: deeper water withholds instead of holding the last value",
+    "Missing or incomplete depth is rejected, never read as dry",
+    "Flood duration is recorded but does not change the result",
+    "The whole-substation curve and any future component curves must never be charged together",
+    "Unknown ownership keeps the substation out of the baseline"
+  ],
+  "checks": [],
+  "open_items": [
+    "Review of the 2026 NEMA successor guide (CS 70006-2026) is still open",
+    "Current Hazus 7.0 disables electric-power loss functions; the table is legacy and not claims-calibrated",
+    "Component-level GSU curves could replace the whole-substation curve later",
+    "Salt and contaminated water response not modelled"
+  ],
+  "files": {
+    "write_up": "docs/cells/flood_wind/current/flood_wind_curve_derivation_dossier__model_v1_0__docs_r1.md",
+    "decisions": "docs/cells/flood_wind/current/RELEASE_DECISION_flood_wind__model_v1_0__docs_r1.md",
+    "validation": "docs/cells/flood_wind/current/VALIDATION_REPORT_flood_wind__model_v1_0__docs_r1.md",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "GSU / substation (whole facility)",
+      "curves": [
+        "FW_HAZUS_2_1_SUBSTATION_SCREENING_PWL"
+      ],
+      "variants": "Hazus substation class ESSL, ESSM or ESSH (same points)",
+      "shape": "T3",
+      "shape_basis": "Hazus 2.1 Table 7.9 points; official but legacy, no claims calibration",
+      "cost": "T3",
+      "cost_basis": "Same Hazus table gives damage as a share of the substation's replacement value; denominator row T3",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Whole-substation unit; never charge it together with the GSU component parts"
+        }
+      ]
+    }
+  ]
+}

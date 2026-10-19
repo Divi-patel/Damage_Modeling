@@ -1,0 +1,114 @@
+{
+  "entry_id": "wildfire_real_estate",
+  "kind": "cell",
+  "asset": "Real estate",
+  "hazard": "Wildfire",
+  "artifact": "docs/cells/wildfire_real_estate/proposed/wildfire_real_estate__model_v0_1__docs_r1__curve_artifact.json",
+  "artifact_sha256": "6b7c771d88b46d60e2c0b1339009ab06753f93f6376e8c8f30e40c91f31474ee",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and decision log",
+  "input": "FSim conditional flame-length class state, exact integer 0 to 6 (0 = no event); nothing between classes",
+  "not_covered": [],
+  "out_of_scope": [
+    "Contents (declared as a withheld placeholder part)",
+    "Smoke, soot and ash without fire damage",
+    "Post-fire debris flow and flooding",
+    "Land, landscaping, business interruption"
+  ],
+  "missing_mechanisms": [],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Structure replacement cost new of the same building",
+    "outputs": {
+      "single_event": "conditional: proposal, not in the runtime index; building and FSim product required",
+      "scenario_dollars": "withheld until the building value is qualified",
+      "yearly_loss": "withheld before promotion (computed by the consumer afterwards)"
+    },
+    "conditions": [
+      "source_wildfire_product_id must be USFS_RDS_2016_0034_3_270M",
+      "Fractional or out-of-range classes are rejected; a burn probability in the damage call is rejected"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "US Forest Service home loss by flame-length class (shrub vegetation) for the house; warehouse 0.8x and office 0.9x from same-fire CAL FIRE inspection ratios"
+  },
+  "key_sources": [
+    "USFS, Wildfire Risk to Communities spatial datasets, 2nd ed. (2024) (WFRE-S001)",
+    "CAL FIRE Damage Inspection (DINS) data, 2013-2025 (WFRE-S002)",
+    "USFS, probabilistic wildfire risk components (FSim) (WFRE-S003)",
+    "FEMA National Risk Index, Dec 2025 (WFRE-S006; check only)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Forest Service loss figure read as repair cost / rebuild cost",
+    "Shrub vegetation used everywhere (tree and grass as sensitivity)",
+    "Forest Service 30 m classes treated as the same as Hazard's 270 m FSim classes",
+    "One building factor at every class"
+  ],
+  "checks": [
+    {
+      "kind": "curve",
+      "name": "FEMA National Risk Index: yearly loss on Hazard's grid",
+      "link": "docs/cells/wildfire_real_estate/proposed/NRI_CHECK_wildfire_real_estate__model_v0_1__docs_r1.csv"
+    },
+    {
+      "kind": "curve",
+      "name": "CAL FIRE inspections: building-type outcomes inside the same fires",
+      "link": "docs/cells/wildfire_real_estate/proposed/DINS_BUILDING_COMPARISON_wildfire_real_estate__model_v0_1__docs_r1.csv"
+    }
+  ],
+  "open_items": [
+    "Hazard's fire rate is the wildland rate, not where buildings sit (East reads higher against NRI)",
+    "Hazard's generic loader accepts a fractional class and a burn probability (two loader gaps)"
+  ],
+  "files": {
+    "write_up": "docs/cells/wildfire_real_estate/proposed/wildfire_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md",
+    "decisions": "docs/cells/wildfire_real_estate/proposed/DECISION_LOG_wildfire_real_estate__model_v0_1__docs_r1.md",
+    "validation": "docs/cells/wildfire_real_estate/proposed/VALIDATION_REPORT_wildfire_real_estate__model_v0_1__docs_r1.md",
+    "notebooks": "notebooks/wildfire/real_estate/"
+  },
+  "rows": [
+    {
+      "part": "House",
+      "curves": [
+        "WFRE_RES_WRC_SHRUB"
+      ],
+      "variants": "none (vegetation fixed at shrub)",
+      "shape": "T3",
+      "shape_basis": "Forest Service home response by class",
+      "cost": "T4",
+      "cost_basis": "our reading of the loss figure as rebuild-cost share",
+      "notes": []
+    },
+    {
+      "part": "Warehouse",
+      "curves": [
+        "WFRE_IND_WRC_SHRUB_X0_8"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "house response x 0.8 (CAL FIRE same-fire ratio)",
+      "cost": "T4",
+      "cost_basis": "our reading of the loss figure as rebuild-cost share",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "CAL FIRE commercial buildings are smaller and more mixed than the reference warehouse"
+        }
+      ]
+    },
+    {
+      "part": "Office",
+      "curves": [
+        "WFRE_OFF_WRC_SHRUB_X0_9"
+      ],
+      "variants": "none",
+      "shape": "T3",
+      "shape_basis": "house response x 0.9 (CAL FIRE same-fire ratio)",
+      "cost": "T4",
+      "cost_basis": "our reading of the loss figure as rebuild-cost share",
+      "notes": []
+    }
+  ]
+}

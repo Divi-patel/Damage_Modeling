@@ -1,0 +1,145 @@
+{
+  "entry_id": "wind_tornado_wind",
+  "kind": "cell",
+  "asset": "Wind farm",
+  "hazard": "Convective wind",
+  "artifact": "docs/cells/wind_tornado_wind/current/wind_tornado_wind__model_v1_0__docs_r4__curve_artifact.json",
+  "artifact_sha256": "908f386953d062a62a33b6714020374b9b9d8a4538006e80d37047686c2c127a",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and derivation write-up",
+  "input": "Hub-height 3-second gust (m/s), or 10 m gust with a height bridge, divided by the IEC class 50-year gust (Ve50 = 1.4 x Vref); tornado via an EF-scale gust proxy; no fixed range (extrapolation warns)",
+  "not_covered": [
+    "SCADA and controls, electrical collection, substation and civil infrastructure (reviewed secondary units, no curve)"
+  ],
+  "out_of_scope": [
+    "Tropical-cyclone and hurricane wind (separate neighbouring cell)"
+  ],
+  "missing_mechanisms": [
+    "Operating, feathered and yaw state are flags only, with no numeric effect"
+  ],
+  "next_version": "Model v2.0 proposal (not indexed): separate straight-line and tornado direct-hit pathways with ordered damage states, narrowed to one turbine-equipment assembly on a 1,090 USD/kW (2023) denominator",
+  "how_to_use": {
+    "share_of": "Each part's default share of the physical replaceable base (blade 0.173, tower 0.169, nacelle 0.345, foundation 0.062, power electronics 0.037), times the exposed turbine fraction",
+    "outputs": {
+      "single_event": "allowed: failure-unit damage ratio",
+      "scenario_dollars": "conditional: needs an explicit value and exposure basis",
+      "yearly_loss": "conditional: consumer-computed from sampled frequency and intensity, a coupling model and caps applied inside the simulation; curve spread not carried"
+    },
+    "conditions": [
+      "IEC wind class selects the speed scale (default IEC II); a turbine design speed can override it",
+      "Hub height is required for 10 m input; the default 1/7 power-law exponent is flagged and a missing bridge fails closed",
+      "exposed_turbine_fraction is required",
+      "Tornado uses the same curves with a lower 50% point (D50 shift)",
+      "Default parts cover 0.749 of the physical base (blade 0.173 + tower 0.169 + nacelle 0.345 + foundation 0.062); power electronics 0.037 only when opted in"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Engineering-fit logistic curves on hub gust over the IEC 50-year gust, built from IEC design speeds, the NIST fragility method and EF4 case evidence; tornado is a curve shift"
+  },
+  "key_sources": [
+    "IEC 61400-1 design classes and Ve50 = 1.4 x Vref (DTU_IEC_61400_1, ASHES_IEC_EXTREME_EVENTS)",
+    "NIST, Fragility curves, damage matrices and wind-induced loss estimation (NIST_FRAGILITY_METHOD)",
+    "US DOE, How do wind turbines survive severe weather and storms (DOE_SEVERE_WEATHER)",
+    "NOAA/NWS, Enhanced Fujita scale (NOAA_NWS_EF_SCALE)",
+    "NASA Earth Observatory, Greenfield EF4 tornado damage (NASA_GREENFIELD_TORNADO)"
+  ],
+  "sources_from": "write-up",
+  "judgment": [
+    "The 50% damage points (D50 ratios) for every part are engineering fits",
+    "Curve steepness (k) for every part is an engineering fit for sparse evidence",
+    "Tornado direct-hit shifts of the 50% point (-0.05 to -0.12) are placeholders",
+    "Power electronics maximum damage of 0.3 is a judgment cap"
+  ],
+  "checks": [
+    {
+      "kind": "result",
+      "name": "Financial range check (Hazard repo): value-envelope ceiling for wind-farm convective wind (shared lineage; no open industry loss figures found)",
+      "link": "https://github.com/aamani-ai/Hazard_Modeling/blob/main/docs/data_sources/financial_range_wind_farm_convective_wind/profile.md"
+    }
+  ],
+  "open_items": [
+    "Blade, tower, nacelle and foundation damage are summed; a damage-state dependency matrix is still needed",
+    "Measured tornado-on-turbine fragility remains sparse",
+    "Candidate v1.1 items not adopted: numeric yaw-error conditioner, tornado shift refinement, IEC class II/III offsets",
+    "Curve spread not carried"
+  ],
+  "files": {
+    "write_up": "docs/cells/wind_tornado_wind/current/wind_tornado_wind_curve_derivation_dossier_v1_0.md",
+    "decisions": null,
+    "validation": null,
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Blade",
+      "curves": [
+        "WT_BLADE_STRUCT"
+      ],
+      "variants": "straight-line wind or tornado direct hit (D50 shift -0.10); IEC class I, II or III",
+      "shape": "T4",
+      "shape_basis": "Engineering-fit D50 ratio and steepness",
+      "cost": "T3",
+      "cost_basis": "max_DR 1.0 cap T3; the 0.173 value share is not tiered by the cell",
+      "notes": []
+    },
+    {
+      "part": "Tower",
+      "curves": [
+        "WT_TOWER_STRUCT"
+      ],
+      "variants": "straight-line wind or tornado direct hit (D50 shift -0.12); IEC class I, II or III",
+      "shape": "T4",
+      "shape_basis": "Engineering-fit D50 ratio and steepness",
+      "cost": "T3",
+      "cost_basis": "max_DR 1.0 cap T3; the 0.169 value share is not tiered by the cell",
+      "notes": []
+    },
+    {
+      "part": "Nacelle",
+      "curves": [
+        "WT_NACELLE_CONSEQ"
+      ],
+      "variants": "straight-line wind or tornado direct hit (D50 shift -0.10); IEC class I, II or III",
+      "shape": "T4",
+      "shape_basis": "Engineering-fit D50 ratio and steepness",
+      "cost": "T3",
+      "cost_basis": "max_DR 0.85 cap T3; the 0.345 value share is not tiered by the cell",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Often consequential to blade or tower failure; summing may double count"
+        }
+      ]
+    },
+    {
+      "part": "Foundation",
+      "curves": [
+        "WT_FOUNDATION_OT"
+      ],
+      "variants": "straight-line wind or tornado direct hit (D50 shift -0.08); IEC class I, II or III",
+      "shape": "T4",
+      "shape_basis": "Engineering-fit D50 ratio and steepness",
+      "cost": "T3",
+      "cost_basis": "max_DR 0.65 cap T3; the 0.062 value share is not tiered by the cell",
+      "notes": []
+    },
+    {
+      "part": "Power electronics",
+      "curves": [
+        "WT_POWER_ELEC_ACCEL"
+      ],
+      "variants": "straight-line wind or tornado direct hit (D50 shift -0.05); IEC class I, II or III",
+      "shape": "T4",
+      "shape_basis": "Engineering-fit D50 ratio and steepness",
+      "cost": "T4",
+      "cost_basis": "max_DR 0.3 cap T4; the 0.037 value share is not tiered by the cell",
+      "notes": [
+        {
+          "type": "opt_in_only",
+          "text": "Not in the default structural aggregate (open seam)"
+        }
+      ]
+    }
+  ]
+}

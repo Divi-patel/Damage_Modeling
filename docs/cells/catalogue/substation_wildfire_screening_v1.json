@@ -1,0 +1,85 @@
+{
+  "entry_id": "substation_wildfire_screening_v1",
+  "kind": "binding",
+  "asset": "Substation",
+  "hazard": "Wildfire",
+  "artifact": "docs/contracts/hazard_handoff/substation_wildfire_screening_v1/binding.json",
+  "artifact_sha256": "10742caaf6e4622f72b2572db08d3fc4cc4dc92ca58746ad0928cabad4be5e48",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the binding README, binding.json and the source cell's tier table",
+  "input": "FSim fire intensity class at the station reference point, exact integer 1 to 6 (0 = no event); no interpolation or heat-flux conversion",
+  "not_covered": [
+    "Rest of the fenced station ($14,327,879.37, 52.38%): bus supports, dead-ends, oil containment and firewall, relay panels, control house, station battery, SCADA, station service, control cable, conduit and trench, site work, drainage and lightning shielding"
+  ],
+  "out_of_scope": [
+    "External access road and project support allowances ($3.06M, outside the fenced value)",
+    "Business interruption, revenue and insurance terms"
+  ],
+  "missing_mechanisms": [],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Bound electrical equipment value of the station, $13,025,357 (eight equipment rows); % of TIV divides by the full fenced value $27,353,236.37",
+    "outputs": {
+      "single_event": "conditional: equipment damage ratio for an exact FSim class at the facility point",
+      "scenario_dollars": "conditional: damage ratio times $13,025,357; remaining fenced value withheld",
+      "yearly_loss": "conditional: Hazard computes it after frequency, class, value, cap and spatial-aggregation proof; capped at $13,025,357"
+    },
+    "conditions": [
+      "Pin the source artifact (wildfire_solar v1.0 docs r3) and this binding by hash",
+      "Burn probability and class probability stay separate, in Hazard",
+      "No extra contact, perimeter, gravel, firebreak, firewall or enclosure credit",
+      "Apply the one response once to the declared assembly; no child losses on top",
+      "Withheld station value is a response gap, not immunity"
+    ]
+  },
+  "method": {
+    "type": "reused",
+    "summary": "The canonical solar wildfire transformer/switchgear (MV equipment) response is reused once for the station's transformer and switchgear equipment as a T4 assembly transfer (see docs/contracts/hazard_handoff/substation_wildfire_screening_v1/README.md)"
+  },
+  "key_sources": [
+    "Canonical wildfire_solar model v1.0 docs r3, WSV1_MV_EQUIPMENT_THERMAL (ordinate table and value linkage)",
+    "USFS FSim RDS-2016-0034-3 (native fire class and burn probability)",
+    "Hazard substation profile (asset_model.json): 345/138 kV AIS, two 336 MVA transformers",
+    "MISO MTEP24 published cost tables (equipment value rows)"
+  ],
+  "sources_from": "write-up",
+  "judgment": [
+    "MV-to-HV electrical assembly transfer",
+    "Source class ordinates are engineering judgment, not measured failure rates",
+    "Instrument and protection equipment counted inside the modeled electrical assembly"
+  ],
+  "checks": [],
+  "open_items": [
+    "52.38% of fenced station value has no wildfire response",
+    "Tank and oil versus breaker or instrument behaviour not resolved; replace when a station-specific electrical model is qualified"
+  ],
+  "files": {
+    "write_up": "docs/contracts/hazard_handoff/substation_wildfire_screening_v1/README.md",
+    "decisions": "docs/plans/substation_damage/decisions.md",
+    "validation": "docs/contracts/hazard_handoff/substation_wildfire_screening_v1/validation.json",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Electrical equipment (transformers and switchgear)",
+      "curves": [
+        "WSV1_MV_EQUIPMENT_THERMAL"
+      ],
+      "variants": "none",
+      "shape": "T4",
+      "shape_basis": "Source class ordinates are T4; the MV-to-HV transfer is also T4",
+      "cost": "T4",
+      "cost_basis": "Source damage ratio is already a share of value (T4); equipment row membership is T4",
+      "notes": [
+        {
+          "type": "reused_from",
+          "text": "wildfire_solar v1.0 docs r3 (WSV1_MV_EQUIPMENT_THERMAL)"
+        },
+        {
+          "type": "key_assumption",
+          "text": "FSim class is landscape severity, not local heat at the equipment"
+        }
+      ]
+    }
+  ]
+}

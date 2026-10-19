@@ -1,0 +1,127 @@
+{
+  "entry_id": "tropical_cyclone_wind_real_estate",
+  "kind": "cell",
+  "asset": "Real estate",
+  "hazard": "Hurricane wind",
+  "artifact": "docs/cells/tropical_cyclone_wind_real_estate/proposed/tropical_cyclone_wind_real_estate__model_v0_2__docs_r1__curve_artifact.json",
+  "artifact_sha256": "99487ff5812e6b1017eeaaeea14d469bcb15ae2265e9d6cf107ce5ca41c85753",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table and decision log",
+  "input": "Peak 3-second gust at 10 m in open terrain (mph), 50 to 250 mph; the building's terrain class picks the curve",
+  "not_covered": [],
+  "out_of_scope": [
+    "Contents (declared as a withheld placeholder part)",
+    "Land, site works, business interruption",
+    "Storm surge and rain flooding (flood cell)"
+  ],
+  "missing_mechanisms": [
+    "Tree fall on the house (a separate Hazus add-on, withheld)",
+    "Tornadoes spawned by the hurricane (convective cell)"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Structure replacement cost new of the same building",
+    "outputs": {
+      "single_event": "conditional: proposal, not in the runtime index; building and terrain class required",
+      "scenario_dollars": "withheld until the building value is qualified",
+      "yearly_loss": "withheld before promotion (computed by the consumer afterwards)"
+    },
+    "conditions": [
+      "hazus_terrain_class is required (open, light suburban, suburban, light trees, trees); never defaulted and never also applied to the gust",
+      "Below 50 mph returns 0; above 250 mph withholds",
+      "Only the reference wind characteristics of each building are published; other values withhold"
+    ]
+  },
+  "method": {
+    "type": "adopted",
+    "summary": "FEMA Hazus hurricane building-loss rows used as published (every 5 mph, five terrain classes) for the Hazus building type and wind characteristics matching each building; the 32 Hazus curves used are identical in FEMA's 6.1 extract and SimCenter's independent 5.1 copy"
+  },
+  "key_sources": [
+    "FEMA, Hazus 7.0 Hurricane Model Technical Manual (2025) (TCRE-S001)",
+    "FEMA Hazus 6.1 hurricane damage and loss function extract (TCRE-S002)",
+    "NHERI SimCenter, Hazus 5.1 hurricane loss functions, independent copy (TCRE-S003)",
+    "Hazard reference profiles r1 (TCRE-S010)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Wind characteristics the profiles don't state are set to the national most-common Hazus values (e.g. house roof connections)",
+    "No value per area set, so scenario dollars stay withheld"
+  ],
+  "checks": [],
+  "open_items": [
+    "A building-code or design-wind zone per cell would let the house use code-built connections (19.0% instead of 31.3% at 120 mph, open terrain)",
+    "Hazus commercial rows read higher in light-suburban than open terrain (office 17.4% vs 14.0% at 120 mph; kept as published)",
+    "No outside loss check yet (no claims or NRI comparison)"
+  ],
+  "files": {
+    "write_up": "docs/cells/tropical_cyclone_wind_real_estate/proposed/tropical_cyclone_wind_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md",
+    "decisions": "docs/cells/tropical_cyclone_wind_real_estate/proposed/DECISION_LOG_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.md",
+    "validation": "docs/cells/tropical_cyclone_wind_real_estate/proposed/VALIDATION_REPORT_tropical_cyclone_wind_real_estate__model_v0_2__docs_r1.md",
+    "notebooks": "notebooks/tropical_cyclone_wind/real_estate/"
+  },
+  "rows": [
+    {
+      "part": "House",
+      "curves": [
+        "TCRE_RES_HAZUS_WSF1_*"
+      ],
+      "variants": "terrain: open, light suburban, suburban, light trees, trees",
+      "shape": "T2",
+      "shape_basis": "Hazus WSF1 building-loss rows",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Older national-default roof connections (code-built reads lower)"
+        }
+      ]
+    },
+    {
+      "part": "Warehouse",
+      "curves": [
+        "TCRE_IND_HAZUS_SPMBL_NEWDECK_*"
+      ],
+      "variants": "terrain x 5",
+      "shape": "T2",
+      "shape_basis": "Hazus SPMBL building-loss rows (new or average roof deck)",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Large overhead doors not represented in Hazus"
+        }
+      ]
+    },
+    {
+      "part": "Office",
+      "curves": [
+        "TCRE_OFF_HAZUS_SECBM_*"
+      ],
+      "variants": "terrain x 5",
+      "shape": "T2",
+      "shape_basis": "Hazus SECBM building-loss rows (tier as for the other Hazus rows)",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": []
+    },
+    {
+      "part": "Retail",
+      "curves": [
+        "TCRE_COM_HAZUS_SECBL_*"
+      ],
+      "variants": "terrain x 5",
+      "shape": "T2",
+      "shape_basis": "Hazus SECBL building-loss rows",
+      "cost": "T2",
+      "cost_basis": "Hazus loss ratio of replacement value",
+      "notes": [
+        {
+          "type": "not_a_hazard_profile",
+          "text": "Kept from v0.1; not a current Hazard profile"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "entry_id": "hail_substation",
+  "kind": "gap",
+  "asset": "Substation",
+  "hazard": "Hail",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the substation plan and cross-hazard reuse inventory",
+  "reason": "Hail was excluded from the first substation delivery and no station hail response was found in the reviewed curves; missing evidence is not zero risk (docs/extra/discussion/substation_damage/05_cross_hazard_reuse_inventory.md)",
+  "not_covered": [],
+  "out_of_scope": [],
+  "checks": []
+}

@@ -1,0 +1,115 @@
+{
+  "entry_id": "flood_bess",
+  "kind": "cell",
+  "asset": "Battery storage",
+  "hazard": "Flood",
+  "artifact": "docs/cells/flood_bess/current/curve_artifact.json",
+  "artifact_sha256": "c9bc9194accb3adbc2c05a9720b4945dd5a969bd7288eb600d5e901aa0185d24",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, capability and decision log",
+  "input": "Water depth above local grade (m), finite and 0 or more; water type must be stated as fresh or saline; the PCS freshwater curve reads depth above the assumed 0.30 m entry (0 to 2 m knots, flat at full replacement beyond 0.6 m)",
+  "not_covered": [
+    "Enclosure racks and fire suppression ($11.89M)",
+    "Electrical balance including unit transformers and cables ($13.2M)",
+    "Civil works ($1.6M)",
+    "Unallocated fieldwork ($0.6M)"
+  ],
+  "out_of_scope": [
+    "Collector station and export line",
+    "Autonomous internal failures (not caused by the flood)",
+    "Business interruption"
+  ],
+  "missing_mechanisms": [
+    "Wave impact",
+    "Scour",
+    "Debris"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Hardware replacement value of the same physical unit, fixed real-2024 dollars: $901,380 active hardware per enclosure (80), $520,000 per PCS (20); $82.5M covered of $109.8M total",
+    "outputs": {
+      "single_event": "allowed: per-unit damage ratio for a stated depth and a stated water type (fresh or saline); unknown water or missing depth is withheld",
+      "scenario_dollars": "allowed with the same-unit value and exposure stated; covered hardware only, never scaled to the whole plant",
+      "yearly_loss": "conditional: Hazard computes it only if frequency, shared event, per-unit cap and missing-data checks pass; partial-property result only, complete-plant figures withheld"
+    },
+    "conditions": [
+      "Pin the exact v1.0 artifact, value and profile; one value per unique physical unit",
+      "Use Hazard's existing inland annual-maximum or Coastal event-rate clock; no invented category probabilities",
+      "Interpolate depth before the response; apply the 0.30 m entry once",
+      "All units share one event; the plant stays fixed within the year",
+      "Cap each unit's yearly cost at its replacement value; no repair within the year",
+      "Keep missing source and response probability; do not turn unmodeled value into zero"
+    ]
+  },
+  "method": {
+    "type": "built_from_references",
+    "summary": "Conservative entry policy (replace once water is above 0.30 m) for battery enclosures, plus the Flood Solar inverter curve reused for the separate PCS; unit values from market cost shares of the fixed Hazard reference budget"
+  },
+  "key_sources": [
+    "Hazard BESS reference r1: profile, layout and 2024 budget (BF-S01)",
+    "NEMA GD 1-2016, Evaluating Water-Damaged Electrical Equipment (BF-S02)",
+    "Flood Solar model v1.0 docs r4 canonical artifact (BF-S06)",
+    "SMA MV Power Station with Sunny Central Storage system manual (BF-S12)",
+    "NREL PVSCM 2024 Q1 cost model, ESS rows (BF-S13)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "Water enters the enclosure and PCS at 0.30 m above grade (owner-approved policy, not measured)",
+    "Any entry means full replacement of the enclosure's active hardware (BF-Q01)",
+    "Saline water above 0.30 m means full replacement of enclosure and PCS hardware (BF-Q02)",
+    "Freshwater PCS damage stays at full replacement past the last source point (no deep-water data)"
+  ],
+  "checks": [],
+  "open_items": [
+    "Coastal first SLOSH depth bin (0-1 ft) straddles the 0.30 m entry; upper-bin sensitivity kept for the spatial pilot",
+    "$27.29M of the plant value has no flood response yet",
+    "Matched service evidence, more mechanisms, restoration and size/duration scaling are future work"
+  ],
+  "files": {
+    "write_up": "docs/cells/flood_bess/current/derivation.md",
+    "decisions": "docs/plans/bess_damage/decisions.md",
+    "validation": "docs/cells/flood_bess/current/validation.json",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Battery enclosure (active hardware)",
+      "curves": [
+        "BESS_ACTIVE_CONTACT_STATE"
+      ],
+      "variants": "water: fresh or saline (same rule: full replacement once depth is strictly above 0.30 m)",
+      "shape": "T4",
+      "shape_basis": "0.30 m entry step is an owner-approved policy, not a fragility (BF-Q01)",
+      "cost": "T4",
+      "cost_basis": "Full replacement on entry is policy; the $901,380 unit value split is T3",
+      "notes": [
+        {
+          "type": "key_assumption",
+          "text": "Water assumed to enter at 0.30 m above grade"
+        },
+        {
+          "type": "known_bias",
+          "text": "Conservative policy, not a calibrated mean"
+        }
+      ]
+    },
+    {
+      "part": "Separate PCS",
+      "curves": [
+        "BESS_PCS_INUNDATION_PROXY",
+        "BESS_PCS_SALINE_CONTACT_STATE"
+      ],
+      "variants": "water: fresh (inverter curve on depth above 0.30 m entry) / saline (full replacement above 0.30 m)",
+      "shape": "T3",
+      "shape_basis": "Flood Solar inverter knots (T3); the entry offset, deep plateau and saline step are T4",
+      "cost": "T3",
+      "cost_basis": "Same-unit value $520,000 from market cost shares (T3)",
+      "notes": [
+        {
+          "type": "reused_from",
+          "text": "flood_solar v1.0 docs r4 (FS_INV inverter curve)"
+        }
+      ]
+    }
+  ]
+}

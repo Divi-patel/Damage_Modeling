@@ -1,0 +1,93 @@
+{
+  "entry_id": "flood_substation",
+  "kind": "cell",
+  "asset": "Substation",
+  "hazard": "Flood",
+  "artifact": "docs/cells/flood_substation/current/flood_substation__model_v1_0__docs_r1__curve_artifact.json",
+  "artifact_sha256": "f001eb0191439a1345a7a794995c684ef731f777c4b3e1eff0298de592999f30",
+  "reviewed_on": "2026-10-19",
+  "read_by": "Agent-drafted, from the cell's own tier table, capability, consumer binding and decision log",
+  "input": "Water depth above station grade (ft) at the facility point, 0 to 10 ft; sub-peril (pluvial, riverine or coastal) must be stated; deeper or missing depth is withheld",
+  "not_covered": [],
+  "out_of_scope": [
+    "External access road and project support allowances ($3.06M, outside the fenced value; unmodeled, not zero)",
+    "Land and anything outside the fence",
+    "Movable contents, outage and business interruption"
+  ],
+  "missing_mechanisms": [
+    "Salinity and contamination",
+    "Waves",
+    "Velocity and scour",
+    "Debris"
+  ],
+  "next_version": null,
+  "how_to_use": {
+    "share_of": "Replacement value of the same fenced station, $27,353,236.37 (MISO MTEP24 published table amounts, no extra uplift), applied once",
+    "outputs": {
+      "single_event": "conditional: whole-station damage ratio for a stated sub-peril and a depth of 0 to 10 ft; deeper or missing depth returns no value",
+      "scenario_dollars": "allowed with the same-station value: damage ratio times $27.35M fenced value, no component terms added",
+      "yearly_loss": "conditional: Hazard computes it only after frequency, missing-mass, station cap and tail checks pass; screening composite, not complete risk or portfolio total"
+    },
+    "conditions": [
+      "One canonical 150 x 178 m 345/138 kV station; not an observed asset",
+      "Depth at facility grade; no equipment-height shift, area multiplier or protection credit",
+      "Coastal is a T4 depth-only transfer; it does not mean the water is fresh",
+      "Use the whole assembly once; do not add component curves on top",
+      "Cap yearly station loss at its replacement value; keep missing probability mass with a tag"
+    ]
+  },
+  "method": {
+    "type": "adopted",
+    "summary": "FEMA Hazus-MH 2.1 Table 7.9 whole-substation depth-damage ratios used as published (0 to 15% over 0 to 10 ft), the same table already carried by the flood_wind cell"
+  },
+  "key_sources": [
+    "FEMA, Hazus-MH 2.1 Flood Technical Manual, Table 7.9 (FW-S011)",
+    "flood_wind source register: current Hazus electric-power losses disabled (FW-S012)",
+    "Substation flood consumer binding: canonical station and value (SUB-A01)",
+    "Owner-selected screening scope and Coastal equal-depth transfer (SUB-A02)"
+  ],
+  "sources_from": "register",
+  "judgment": [
+    "One canonical 345/138 kV station and its fenced value stand in for any station (SUB-A01)",
+    "Coastal water uses the same depth curve with no salt or wave adjustment (SUB-A02)",
+    "Civil and site works counted inside the fenced value is an engineering interpretation"
+  ],
+  "checks": [],
+  "open_items": [
+    "Equipment-local curves and heights deferred to the component research backlog",
+    "No qualified response above 10 ft or for coastal salt and wave effects",
+    "National completion of Hazard's cloud run still to be verified"
+  ],
+  "files": {
+    "write_up": "docs/cells/flood_substation/current/derivation.md",
+    "decisions": "docs/plans/substation_damage/decisions.md",
+    "validation": "docs/cells/flood_substation/current/validation.json",
+    "notebooks": null
+  },
+  "rows": [
+    {
+      "part": "Whole station (fenced assembly)",
+      "curves": [
+        "FW_HAZUS_2_1_SUBSTATION_SCREENING_PWL"
+      ],
+      "variants": "sub-peril: pluvial, riverine or coastal (same curve); Hazus class ESSL, ESSM or ESSH (same points)",
+      "shape": "T3",
+      "shape_basis": "Hazus Table 7.9 points, linear between them (Coastal use is a T4 transfer)",
+      "cost": "T4",
+      "cost_basis": "Hazus loss ratio (T3) applied to a fenced value whose match to the Hazus denominator is T4 (SUB-A01)",
+      "notes": [
+        {
+          "type": "reused_from",
+          "text": "Same Hazus table as the flood_wind substation assembly (FW_HAZUS_GSU_SUBSTATION_ASSEMBLY)"
+        },
+        {
+          "type": "key_assumption",
+          "text": "Coastal uses the river depth curve with no salt or wave effect (T4)"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    "docs/contracts/hazard_handoff/substation_flood_screening_v1/binding.json"
+  ]
+}
