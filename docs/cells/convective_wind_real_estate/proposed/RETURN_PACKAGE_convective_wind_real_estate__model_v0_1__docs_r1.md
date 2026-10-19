@@ -1,7 +1,7 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 status: draft
 -->
 
@@ -45,7 +45,7 @@ Shared by all three cards:
 | Evidence | CWRE-S001 (WSEC 2006, FR12 table), S002 (SPC), S003 (Hazus damage states, Table 5-44); CWRE-C003, C007, C010 |
 | Values (straight-line / tornado) | 100 mph 2.0% / 7.9%; 120 mph 31.8% / 35.9%; 140 mph 83.4% / 84.4% |
 | Uncertainty | "Shifted off foundation" priced as Complete instead of Extensive: 48% / 52% at 120 mph. Bounds read as 68% instead of 90%: 35% / 41% at 120 mph |
-| Open | Foundation-shift cost state (JL); onset fixed, not by location |
+| Open | Foundation shift kept at Extensive (50%) for now (JL, D-CWRE-07), Complete as sensitivity; onset fixed, not by location |
 
 ## 3. Card — `re_warehouse_1s_steel_slab`
 

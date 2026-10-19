@@ -1,7 +1,7 @@
 <!--
 author: owner-directed (JL) · agent-drafted
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 status: draft
 -->
 
@@ -188,7 +188,7 @@ fail closed. Promotion gate blocked.
 
 ## 15. Open seams and update triggers
 
-- Foundation-shift cost state (JL), and repair-cost evidence by EF degree.
+- Foundation-shift cost: Extensive (50%) kept for now (JL, D-CWRE-07); repair-cost evidence by EF degree would settle it.
 - A design gust per cell from Hazard would allow a location-specific onset.
 - Hazard-side: straight-line frequency below the ASCE 10-year gust; tornado path geometry; ASCE/hurricane overlap.
 - The reviewer may prefer the hurricane-reuse route (D-CWRE-03).
