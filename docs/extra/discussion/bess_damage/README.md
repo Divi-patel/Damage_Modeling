@@ -23,7 +23,13 @@ ordinary runtime/annual capabilities withheld. Hazard's first local proof
 passes 15 targeted tests and 10 controlled examples; the existing 12-cell
 Pluvial controls remain below the assumed entry. The r1–r3 records below
 preserve the prior evidence and decisions; their open-status snapshots predate
-the owner's approval. No national or canonical BESS result is released.
+the owner's approval. The subsequent
+[Riverine consumer proof](../../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/05_riverine_local_proof.md)
+uses the same candidate bytes: 43,800 unit × RP cases, 2,929 positive candidate
+costs and one illustrated single-enclosure loss. Remaining property and deeper
+water/coastal/annual applicability stay qualification tasks. This consumer
+evidence does not change the candidate model, value, capability or release.
+No national or canonical BESS result is released.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
