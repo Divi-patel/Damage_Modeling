@@ -8,6 +8,7 @@ and assumptions register.
 
 | Plan | Status | What |
 |---|---|---|
+| [`bess_damage/`](bess_damage/README.md) | active; owner-directed (Divy), 2026-10-18 | Flood-first BESS curation: first evidence/reuse audit complete; enclosure/PCS candidate next; later size-scaling handoff tracked. |
 | [`tropical_cyclone_wind_wind_v1_1_proxy/`](tropical_cyclone_wind_wind_v1_1_proxy/README.md) | owner-approved model-behavior change planned; v1.0 remains current | Build and validate the explicit canonical-5-MW screening proxy, 0.63 covered-value crosswalk and Hazard migration gates. |
 | [`hazard_asset_coverage/`](hazard_asset_coverage/README.md) | breadth complete: 10/10 structural, 8/10 repository-current canonical runtime after partial-screening flood_wind, wildfire_wind, and tropical_cyclone_wind_wind v1 releases; TC-wind-solar also has a noncanonical model-v2.1 candidate | Continue depth work one cell at a time; partial canonical status is not complete calibration, and the out-of-queue TC-solar work does not change current pins. |
 | [`repo_information_architecture/`](repo_information_architecture/README.md) | initial plan-of-record | Normalize the repo from deliverable-shaped navigation into a shallow, durable documentation architecture without losing provenance. |

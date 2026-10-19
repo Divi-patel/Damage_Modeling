@@ -5,6 +5,7 @@ They are inputs to plans and cell packages, not runtime authority.
 
 | Topic | Status | Purpose |
 |---|---|---|
+| [`bess_damage/`](bess_damage/README.md) | active; owner-directed (Divy), 2026-10-18 | Bounded Flood source/claim and value review, five source curves / 95 checks, explicit transfer limits and next candidate. |
 | [`hazard_asset_coverage/`](hazard_asset_coverage/README.md) | accepted planning input | Separate structural coverage from runtime-curve maturity and define the coverage-first sequence. |
 | [`flood_wind_shared_electrical/`](flood_wind_shared_electrical/README.md) | active decision record | Frame flood × wind, GSU/substation reuse, ownership, value, and the non-runtime shared electrical substrate. |
 | [`evidence_harvest/`](evidence_harvest/README.md) | active/reference | Review and classify legacy curve evidence. |

@@ -1,0 +1,49 @@
+{
+  "review_date_local": "2026-10-18",
+  "status": "research_inputs_only",
+  "raw_files_gitignored": true,
+  "captures": [
+    {
+      "source_id": "BF-S02",
+      "url": "https://www.nema.org/docs/default-source/standards-document-library/nema-gd-1-2016-evaluating-water-damaged-electrical-equipment-guide.pdf",
+      "revision": "NEMA GD1-2016",
+      "cache_path": "data/bess/raw_flood_review_r1/nema_gd1_2016.pdf",
+      "bytes": 1542075,
+      "sha256": "b62d3a1d54c277957a404382cb48cb542d740d5c8b58c2529dc82a983fcfc428",
+      "review_scope": "relevant sections read; p4 table visually checked"
+    },
+    {
+      "source_id": "BF-S03",
+      "url": "https://digitalassets.tesla.com/tesla-contents/image/upload/Lithium-Ion_Battery_Emergency_Response_Guide_en.pdf",
+      "revision": "2.8 2026-04-10",
+      "cache_path": "data/bess/raw_flood_review_r1/tesla_erg.pdf",
+      "bytes": 1836288,
+      "sha256": "26d87a70bc42411445b2a3b7dd1ba2c43cd9368141b010cd8962c88bcad10849",
+      "review_scope": "scope flood fire damage-handling repair and revision sections read"
+    },
+    {
+      "source_id": "BF-S04",
+      "url": "https://mdpi-res.com/d_attachment/processes/processes-13-00699/article_deploy/processes-13-00699.pdf",
+      "revision": "Processes2025 13 699",
+      "cache_path": "data/bess/raw_flood_review_r1/processes_13_699.pdf",
+      "bytes": 3564942,
+      "sha256": "575075f006aea41abb0f5d0c0c253910f57787747f62ffc43e4aab03ddb92cd0",
+      "review_scope": "Eq28 p9 visually checked; relevant method/case text read"
+    },
+    {
+      "source_id": "BF-S05",
+      "url": "https://www.osti.gov/servlets/purl/1349233",
+      "revision": "Technology Performance Report3",
+      "cache_path": "data/bess/raw_flood_review_r1/sce_tehachapi_final.pdf",
+      "bytes": 9114079,
+      "sha256": "074dfde803d4cb11bea62664487e264a41f33368b896e20db9fbb467437222b5",
+      "review_scope": "full extracted text term-searched only; not full narrative review"
+    }
+  ],
+  "access_failures": [
+    {
+      "source": "AEGIS July2025 white paper",
+      "result": "PDF URL returned HTML; not accepted as PDF; no numeric claim adopted"
+    }
+  ]
+}

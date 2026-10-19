@@ -1,0 +1,9 @@
+source_record,source_id,target_candidate,native_demand,value_boundary,disposition,qualification_needed
+FS_INV,BF-S06,BESS_PCS_GROUP,local_depth_above_component_datum_m,PCS hardware only; 10.4M across20,candidate_not_admitted,Construction and relevant ingress/critical datum; repair endpoint; domain
+FS_SWG,BF-S06,BESS_MV_SWITCHGEAR,local_depth_above_component_datum_m,Switchgear share of mixed13.2M EBOS; unresolved,candidate_not_admitted,Voltage/construction and same-unit share; not full transformer skid
+FS_XFMR,BF-S06;BF-S07,BESS_UNIT_TRANSFORMER,local_depth_above_component_datum_m,Main tank and auxiliaries differ,reject_automatic_transfer,Resolve control-datum versus whole-transformer value mismatch
+FS_SCADA,BF-S06;BF-S07,BESS_SHARED_CONTROLS,local_depth_above_component_datum_m,Compatible electronics only; budget unresolved,limited_candidate_not_admitted,Monitoring versus protection scope; mounting and included costs
+FS_CABLE,BF-S06;BF-S07,BESS_CABLE_TERMINATIONS,depth_pathway_termination_exposure,Wet-rated cable body differs from ends,mechanism_candidate_not_admitted,Routes and termination demand; no cable-body blanket wetting loss
+FW_HAZUS_GSU_SUBSTATION_ASSEMBLY / flood_substation assembly,BF-S07,whole BESS,grade-based assembly depth,Substation inventory not battery plant,reject,No automatic transfer; can only support separately included compatible station
+NEMA battery replacement row,BF-S02,water-damaged battery equipment,established equipment water damage; not site depth,Actual damaged battery unit; enclosure auxiliaries not automatic,conditional_guidance_only,Ingress and source-matched replacement unit
+Chen Eq28,BF-S04,storage functional failure,external depth versus assumed base/protection heights,Availability; no same-unit cost denominator,reject_numeric_transfer,Complete domain calibrated coefficients consequence endpoint

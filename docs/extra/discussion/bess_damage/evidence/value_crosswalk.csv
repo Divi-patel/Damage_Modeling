@@ -1,0 +1,11 @@
+row_id,target_group,included_usd,excluded_usd,currency_basis,research_treatment,bess_runtime_admitted
+battery_cabinets,battery_enclosures,84000000,0,real_2024,integrated_enclosure_response_pending; do_not_split_embedded_hardware,False
+pcs,pcs,10400000,0,real_2024,FS_INV_proxy_candidate_only; compatibility_and_datum_pending,False
+sbos,civil_works,1600000.0,400000.0,real_2024,civil_mechanism_pending; no_independent_wet_yard_DR,False
+ebos,electrical_balance,13200000.0,4400000.0,real_2024,mixed_MV_controls_collection; suballocation_pending,False
+installation,unallocated_fieldwork,600000.0,200000.0,real_2024,support_cost_once; allocation_pending; no_independent_DR,False
+permitting,excluded,0,800000,real_2024,excluded_nonphysical,False
+sales_tax,excluded,0,6800000,real_2024,excluded_by_reference_physical_value_convention,False
+contingency,excluded,0,2800000,real_2024,excluded_unallocated_contingency,False
+epc_overhead,excluded,0,2400000,real_2024,excluded_mixed_original_development_overhead,False
+developer_profit,excluded,0,5600000,real_2024,excluded_markup,False

@@ -1,0 +1,88 @@
+{
+  "schema": "bess_flood_evidence_audit.v1",
+  "change_class": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "hazard_reference_commit": "23e1aac4d",
+  "damage_source_commit": "81d5309313d53f37d6bac91e22dd55b498101d0f",
+  "source_evaluations": 95,
+  "source_curves": [
+    "FS_INV",
+    "FS_SWG",
+    "FS_XFMR",
+    "FS_SCADA",
+    "FS_CABLE"
+  ],
+  "tolerance": 1e-12,
+  "source_checks_passed": true,
+  "reference_hashes_passed": true,
+  "budget_rows_reconciled": 10,
+  "included_value_usd": "109800000.0",
+  "excluded_value_usd": "23400000.0",
+  "budget_shares_not_qualified_coverage": {
+    "battery_cabinets": 0.7650273224043715,
+    "pcs": 0.0947176684881603,
+    "sbos": 0.014571948998178506,
+    "ebos": 0.12021857923497267,
+    "installation": 0.00546448087431694,
+    "permitting": 0.0,
+    "sales_tax": 0.0,
+    "contingency": 0.0,
+    "epc_overhead": 0.0,
+    "developer_profit": 0.0
+  },
+  "audit_only_denominator_example": {
+    "source_native_depth_m": 0.15,
+    "source_dr": "0.75",
+    "pcs_hardware_arithmetic_usd": "7800000.00",
+    "incorrect_whole_plant_arithmetic_usd": "82350000.000",
+    "bess_loss_prediction": false
+  },
+  "pluvial_existing_cap_m": 0.3,
+  "pluvial_model_changed": false,
+  "bess_runtime_admitted": false,
+  "bess_curve_selected": false,
+  "bess_loss_usd": null,
+  "bess_eal_usd": null,
+  "bess_tail_metrics": null,
+  "inputs": {
+    "solar_artifact": {
+      "repository": "damage_modeling",
+      "path": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+      "sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d"
+    },
+    "source_evaluator": {
+      "repository": "damage_modeling",
+      "path": "scripts/reference_helpers/damage_curve_eval.py",
+      "sha256": "29eb28652701960a94793d06923eeea18f23a8db4a4bc769ba574cd93881b831"
+    },
+    "artifact_index": {
+      "repository": "damage_modeling",
+      "path": "docs/contracts/machine_readable_artifact_index.json",
+      "sha256": "9d3d5f364d20f0fcbc423b9ad8b72d88fbb455e58e55fecc1df2aafb79782862"
+    },
+    "audit_helper": {
+      "repository": "damage_modeling",
+      "path": "scripts/reference_helpers/audit_bess_flood_evidence.py",
+      "sha256": "7cd012cc45aa1b743470ffbc1c6399078022439b0978a8c6bbfa01337e672341"
+    },
+    "profile": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/bess_conus/asset_model.json",
+      "sha256": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8"
+    },
+    "layout": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/bess_conus/layout.csv",
+      "sha256": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19"
+    },
+    "budget": {
+      "repository": "Hazard_modeling",
+      "path": "docs/plans/_cross_cutting/bess_conus/reference_budget.csv",
+      "sha256": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d"
+    },
+    "pluvial_ponding": {
+      "repository": "Hazard_modeling",
+      "path": "perils/flood/src/flood/pluvial/ponding.py",
+      "sha256": "c82c0710e9545866796f714d65d6f08f6cb024239958121f51c501899fea1f58"
+    }
+  }
+}
