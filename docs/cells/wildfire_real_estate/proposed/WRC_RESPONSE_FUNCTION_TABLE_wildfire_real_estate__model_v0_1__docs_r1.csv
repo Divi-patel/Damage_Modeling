@@ -1,0 +1,19 @@
+lifeform,flp_class,state_index,flame_length_class,native_class_id,wrc_response_value,role,source_ids
+tree,FLP1,1,< 2 ft,lt_2_ft,25,sensitivity,WFRE-S001
+tree,FLP2,2,2 to < 4 ft,gte_2_lt_4_ft,40,sensitivity,WFRE-S001
+tree,FLP3,3,4 to < 6 ft,gte_4_lt_6_ft,55,sensitivity,WFRE-S001
+tree,FLP4,4,6 to < 8 ft,gte_6_lt_8_ft,70,sensitivity,WFRE-S001
+tree,FLP5,5,8 to < 12 ft,gte_8_lt_12_ft,85,sensitivity,WFRE-S001
+tree,FLP6,6,12+ ft,gte_12_ft,100,sensitivity,WFRE-S001
+shrub,FLP1,1,< 2 ft,lt_2_ft,20,adopted,WFRE-S001
+shrub,FLP2,2,2 to < 4 ft,gte_2_lt_4_ft,35,adopted,WFRE-S001
+shrub,FLP3,3,4 to < 6 ft,gte_4_lt_6_ft,50,adopted,WFRE-S001
+shrub,FLP4,4,6 to < 8 ft,gte_6_lt_8_ft,65,adopted,WFRE-S001
+shrub,FLP5,5,8 to < 12 ft,gte_8_lt_12_ft,80,adopted,WFRE-S001
+shrub,FLP6,6,12+ ft,gte_12_ft,95,adopted,WFRE-S001
+grass,FLP1,1,< 2 ft,lt_2_ft,10,sensitivity,WFRE-S001
+grass,FLP2,2,2 to < 4 ft,gte_2_lt_4_ft,25,sensitivity,WFRE-S001
+grass,FLP3,3,4 to < 6 ft,gte_4_lt_6_ft,40,sensitivity,WFRE-S001
+grass,FLP4,4,6 to < 8 ft,gte_6_lt_8_ft,55,sensitivity,WFRE-S001
+grass,FLP5,5,8 to < 12 ft,gte_8_lt_12_ft,70,sensitivity,WFRE-S001
+grass,FLP6,6,12+ ft,gte_12_ft,85,sensitivity,WFRE-S001

@@ -1,0 +1,632 @@
+{
+  "schema_version": "known_answer_tests.v3",
+  "cell_id": "wildfire_real_estate",
+  "semantic_damage_model_version": "model v0.1",
+  "documentation_revision": "docs r1",
+  "artifact_schema_version": "damage_curve_record_bundle.v3",
+  "artifact_status": "noncanonical_proposal",
+  "absolute_tolerance": 1e-12,
+  "equation": {
+    "runtime": "exact lookup of the integer class state in the selected record; no interpolation",
+    "axis": "FSim conditional flame-length class state 0-6 (0 = no event)",
+    "ranges": "0 to 6 integers evaluate; anything else is an error"
+  },
+  "formula_known_answer_tests": [
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_0",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_1",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 1
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.2
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_2",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.35
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_3",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 3
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.5
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_4",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.65
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_5",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.8
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_6",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 6
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.95
+      }
+    },
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_STATE_3_AS_FLOAT",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_RES_WRC_SHRUB",
+        "failure_unit_damage_ratio": 0.5,
+        "metadata_flags_include": [
+          "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX_OR_EMBER_EXPOSURE"
+        ]
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_0",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_1",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 1
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.16
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_2",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.28
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_3",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 3
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.4
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_4",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.52
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_5",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.64
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_6",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 6
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.76
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_STATE_3_AS_FLOAT",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+        "failure_unit_damage_ratio": 0.4,
+        "metadata_flags_include": [
+          "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX_OR_EMBER_EXPOSURE"
+        ]
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_0",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_1",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 1
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.18
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_2",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.315
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_3",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 3
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.45
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_4",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.585
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_5",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.72
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_6",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 6
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.855
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_STATE_3_AS_FLOAT",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+        "failure_unit_damage_ratio": 0.45,
+        "metadata_flags_include": [
+          "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX_OR_EMBER_EXPOSURE"
+        ]
+      }
+    }
+  ],
+  "withheld_tests": [
+    {
+      "test_id": "WFRE_RES_WRC_SHRUB_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "WFRE_IND_WRC_SHRUB_X0_8_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "WFRE_OFF_WRC_SHRUB_X0_9_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    }
+  ],
+  "error_tests": [
+    {
+      "test_id": "PATHWAY_REQUIRED",
+      "input": {
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "PATHWAY_ID_REQUIRED"
+    },
+    {
+      "test_id": "PATHWAY_UNKNOWN",
+      "input": {
+        "pathway_id": "wildfire_thermal_attack",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "PATHWAY_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_REQUIRED",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_REQUIRED"
+    },
+    {
+      "test_id": "BUILDING_UNKNOWN",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_PROFILE_ID_NOT_A_SELECTOR",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "re_house_1s_wood_slab",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "PRODUCT_REQUIRED",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "SOURCE_WILDFIRE_PRODUCT_ID_REQUIRED"
+    },
+    {
+      "test_id": "PRODUCT_UNSUPPORTED",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_WRC_RDS_2020_0016_2_30M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "SOURCE_WILDFIRE_PRODUCT_ID_UNSUPPORTED"
+    },
+    {
+      "test_id": "AXIS_REQUIRED",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M"
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "FLAME_LENGTH_FEET_NOT_A_STATE",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_ft": 7.0
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "CLASS_LABEL_NOT_A_STATE",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": "gte_6_lt_8_ft"
+      },
+      "expected_error_code": "INVALID_CLASS_STATE"
+    },
+    {
+      "test_id": "STATE_FRACTIONAL",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 2.5
+      },
+      "expected_error_code": "INVALID_CLASS_STATE"
+    },
+    {
+      "test_id": "STATE_BOOLEAN",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": true
+      },
+      "expected_error_code": "INVALID_CLASS_STATE"
+    },
+    {
+      "test_id": "STATE_NEGATIVE",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": -1
+      },
+      "expected_error_code": "INVALID_CLASS_STATE"
+    },
+    {
+      "test_id": "STATE_ABOVE_SIX",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 7
+      },
+      "expected_error_code": "INVALID_CLASS_STATE"
+    },
+    {
+      "test_id": "BURN_PROBABILITY_IN_DAMAGE_CALL",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4,
+        "burn_probability": 0.01
+      },
+      "expected_error_code": "FREQUENCY_FIELD_NOT_ALLOWED_IN_DAMAGE_CALL"
+    },
+    {
+      "test_id": "UNIT_REQUIRED",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_REQUIRED"
+    },
+    {
+      "test_id": "UNIT_UNKNOWN",
+      "input": {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_id": "WFRE_ROOF",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M",
+        "conditional_flame_length_class_state": 4
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_UNKNOWN"
+    }
+  ],
+  "contract_assertions": [
+    {
+      "assertion_id": "WFRE_EXACT_STATE_ONLY",
+      "expected": "a fractional or out-of-range state is an error, never interpolated or clamped"
+    },
+    {
+      "assertion_id": "WFRE_NO_FREQUENCY_IN_DAMAGE",
+      "expected": "burn probability in the damage call is an error"
+    },
+    {
+      "assertion_id": "WFRE_NO_DOLLARS",
+      "expected": "no scenario dollars until the consumer qualifies the building value"
+    },
+    {
+      "assertion_id": "WFRE_CONTENTS_WITHHELD_NOT_ZERO",
+      "expected": "contents are withheld, never reported as zero"
+    }
+  ]
+}

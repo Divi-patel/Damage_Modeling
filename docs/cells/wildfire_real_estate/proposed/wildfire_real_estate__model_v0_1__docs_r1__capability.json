@@ -1,0 +1,84 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "wildfire_real_estate",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "wildfire_building_exposure",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "reference_building_id must be one of the three Hazard reference profiles r1 buildings",
+        "source_wildfire_product_id must be USFS_RDS_2016_0034_3_270M (the FSim class semantics the curve is bound to)",
+        "conditional_flame_length_class_state is the exact FSim conditional flame-length class state 0-6 (0 = no event); integers only, no interpolation",
+        "burn probability is frequency and never a damage input",
+        "the shrub response is used for every location (Hazard supplies no lifeform)",
+        "scenario dollars stay withheld until the consumer qualifies the building value",
+        "owner acceptance of the scope and selections is required before any canonical use"
+      ],
+      "limitation_flags": [
+        "NONCANONICAL_PROPOSAL",
+        "SCREENING_AGENCY_RESPONSE_FUNCTION_NOT_FIELD_CALIBRATED",
+        "WRC_SHRUB_LIFEFORM_DEFAULT_LIFEFORM_NOT_SUPPLIED",
+        "WRC_LOSS_VALUE_READ_AS_REPAIR_COST_RATIO",
+        "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX_OR_EMBER_EXPOSURE",
+        "WHOLE_BUILDING_SOURCE_ATOM",
+        "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+        "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+        "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+        "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+        "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+        "MULTI_PERIL_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "WFRE_BUILDING_CONTENTS",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "owner acceptance of scope and curve selections",
+      "consumer-qualified replacement cost new for each reference building",
+      "Hazard fire frequency at building locations reviewed (NRI check: burnable-pixel burn probability)",
+      "exact model/docs/schema/SHA pin"
+    ],
+    "limitation_flags": [
+      "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+      "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+      "BURNABLE_PIXEL_FREQUENCY_NOT_BUILDING_EXPOSURE"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact model/docs/schema/SHA pin",
+      "record routing by reference_building_id and source_wildfire_product_id",
+      "exact integer class state; burn probability never passed to the damage call",
+      "all perils on one building in one event together at most 100% of structure value"
+    ],
+    "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "owner accepts D-WFRE-01 to D-WFRE-14",
+      "consumer value qualification of each reference budget (shared with the other real-estate cells)",
+      "reviewer accepts the agency-response basis, the shrub default and the building factors",
+      "independent review of the package"
+    ]
+  }
+}
