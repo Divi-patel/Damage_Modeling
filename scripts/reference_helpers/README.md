@@ -53,6 +53,13 @@ These files are reference implementations for downstream notebooks/services. The
 | `build_tropical_cyclone_wind_real_estate_v0_2_package.py` | Deterministic builder for the tropical-cyclone wind × real estate model-v0.2 proposal (current): artifact, capability, known-answer tests and review workbook (needs openpyxl). |
 | `validate_tropical_cyclone_wind_real_estate_v0_2_package.py` | Validator for the tropical-cyclone wind × real estate model-v0.2 proposal: v0.1 checks plus the profile binding and its agreement with the artifact. |
 | `tropical_cyclone_wind_real_estate_profile_binding.py` | Binds the tropical-cyclone wind × real estate model-v0.2 records to the Hazard reference profiles r1 (binding table with explicit gaps). Standard library only. |
+| `derive_convective_wind_real_estate_ef_curves.py` | Derives the convective wind × real estate model-v0.1 ordinates (EF degrees of damage priced through the Hazus damage states; 96 mph straight-line onset), the sensitivity table and, with `--chart`, the preview (needs matplotlib for the chart only). |
+| `convective_wind_real_estate_curve_eval.py` | Fail-closed reference evaluator for the noncanonical convective wind × real estate model-v0.1 proposal: two pathways with separate gust fields, reference-building selector, 0–255 mph; damage emit v2. |
+| `build_convective_wind_real_estate_v0_1_package.py` | Deterministic builder for the convective wind × real estate model-v0.1 artifact, capability, known-answer tests and review workbook (needs openpyxl). |
+| `convective_wind_real_estate_profile_binding.py` | Binds the convective wind × real estate model-v0.1 records to the Hazard reference profiles r1 (one row per profile and pathway). Standard library only. |
+| `validate_convective_wind_real_estate_v0_1_package.py` | Schema/register/EF-table/re-derivation/loader-routing/reproducibility/KAT/non-promotion/binding/workbook/link validator for the convective wind × real estate model-v0.1 proposal. |
+| `check_convective_wind_real_estate_hazard_loader.py` | Read-only consumer check: runs the proposal's known-answer requests through a copy of Hazard's generic v3 loader and lists the differences. |
+| `convective_wind_real_estate_nri_check.py` | Read-only order-of-magnitude check of the proposal's yearly building loss on Hazard's convective grid against FEMA NRI (needs numpy, pandas, scipy, a Hazard checkout and the NRI parquet). |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
 

@@ -1,0 +1,79 @@
+{
+  "check": "convective_wind_real_estate model v0.1 vs FEMA NRI Dec 2025 (order of magnitude; not calibration)",
+  "inputs": {
+    "hazard_m1": {
+      "path": "data/convective_wind/convective_wind_m1_hazard_layer_conus.parquet",
+      "sha256": "386e274d3c109915244c75a0852d3b41ae7aa348f2eb6cd73b050ada6cafa3c8",
+      "rows": 13085
+    },
+    "spc_tornadoes": {
+      "path": "data/convective_wind/raw/spc_actual_tornadoes.csv",
+      "sha256": "2b2679ead1920ab96eaa390baeb41aeeaeef49d067f613dfcc5e233403b82d76"
+    },
+    "hazard_package": "pipelines/convective_wind/src",
+    "nri": {
+      "gcs_uri": "gs://infrasure-benchmark/hazard_conus_grid/dev/reference/nri/nri_dec2025/raw/run_id=20260706T184931Z_nri_reference/nri_raw_conus.parquet",
+      "sha256": "bc4f8dff7ab9c465677d7a8b94f2fe3038ff03da4632d7b044bcff2afcb3d82b"
+    },
+    "ordinates": {
+      "path": "docs/cells/convective_wind_real_estate/proposed/CURVE_ORDINATES_convective_wind_real_estate__model_v0_1__docs_r1.csv",
+      "sha256": "dcd9b07d2a36e7907726aa0b18c6ab9a8142d52ce388a2a88600a839915327ac"
+    }
+  },
+  "hazard_constants": {
+    "physical_bound_mph": 252.77,
+    "tornado_pool_radius_km": 150.0,
+    "ef_midpoint_gust_mph": [
+      75.0,
+      98.0,
+      123.0,
+      150.5,
+      183.0,
+      227.0
+    ],
+    "national_median_path_km": {
+      "EF0": [
+        0.4828,
+        0.0274
+      ],
+      "EF1": [
+        2.414,
+        0.0549
+      ],
+      "EF2": [
+        6.1155,
+        0.0914
+      ],
+      "EF3": [
+        16.0934,
+        0.1829
+      ],
+      "EF4": [
+        31.9454,
+        0.4023
+      ],
+      "EF5": [
+        48.6021,
+        0.5409
+      ]
+    }
+  },
+  "footprint_ft2": {
+    "RE_RES_SFD_1S_SLAB": 1800.0,
+    "RE_IND_WAREHOUSE": 100000.0,
+    "RE_COM_OFFICE_3S_SLAB": 18000.0
+  },
+  "cells": {
+    "straight_line_compared": 13006,
+    "tornado_compared": 13018
+  },
+  "asce_700yr_gust_mph": {
+    "p10": 99.3,
+    "median": 106.9,
+    "p90": 112.9,
+    "max": 166.6
+  },
+  "straight_line_rate": {
+    "median_events_per_year_ge_58mph": 0.66
+  }
+}

@@ -1,0 +1,13 @@
+reference_building_id,pathway_id,variant,n_cells,ours_median_pct_per_year,nri_median_pct_per_year,ours_over_nri_median,ours_over_nri_p10,ours_over_nri_p90,spearman_rank_corr
+RE_RES_SFD_1S_SLAB,straight_line_convective,proposal: onset 96 mph,13006,0.02949,0.00110,27.04,4.58,197.88,0.526
+RE_RES_SFD_1S_SLAB,straight_line_convective,no onset (tornado record shape),13006,0.53731,0.00110,499.61,77.93,4179.68,0.411
+RE_RES_SFD_1S_SLAB,straight_line_convective,onset at 90% of the cell's ASCE 700-year gust,13006,0.02875,0.00110,29.42,4.10,228.37,0.508
+RE_RES_SFD_1S_SLAB,tornado_direct_hit,proposal,13018,0.00063,0.00357,0.17,0.01,0.62,0.914
+RE_IND_WAREHOUSE,straight_line_convective,proposal: onset 96 mph,13006,0.03721,0.00110,34.57,5.75,246.79,0.532
+RE_IND_WAREHOUSE,straight_line_convective,no onset (tornado record shape),13006,0.48807,0.00110,452.72,70.61,3705.14,0.426
+RE_IND_WAREHOUSE,straight_line_convective,onset at 90% of the cell's ASCE 700-year gust,13006,0.03628,0.00110,35.72,5.00,271.65,0.517
+RE_IND_WAREHOUSE,tornado_direct_hit,proposal,13018,0.00094,0.00357,0.26,0.03,0.85,0.914
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,proposal: onset 96 mph,13006,0.01388,0.00110,13.10,2.14,94.41,0.529
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,no onset (tornado record shape),13006,0.39995,0.00110,371.28,58.24,3112.94,0.409
+RE_COM_OFFICE_3S_SLAB,straight_line_convective,onset at 90% of the cell's ASCE 700-year gust,13006,0.01340,0.00110,13.16,1.76,114.95,0.496
+RE_COM_OFFICE_3S_SLAB,tornado_direct_hit,proposal,13018,0.00036,0.00357,0.11,0.01,0.41,0.914
