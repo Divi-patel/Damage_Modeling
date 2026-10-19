@@ -1,0 +1,147 @@
+curve_id,reference_building_id,flood_water_type,band,depth_above_first_floor_ft,damage_pct_structure_replacement_cost,source,source_ids
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,-4,0,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,-3,0,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,-2,0,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,-1,3,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,0,13,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,1,23,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,2,32,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,3,40,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,4,47,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,5,53,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,6,59,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,7,63,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,8,67,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,9,71,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,10,73,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,11,75,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,12,77,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,13,79,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,14,80,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,15,81,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,16,81,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,17,82,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,18,82,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,19,83,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,20,83,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,21,83,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,22,84,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,23,84,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_RES_HAZUS_DF129,RE_RES_SFD_1S_SLAB,freshwater_or_coastal_surge,point,24,84,Hazus DF 129 (USACE-IWR),FRE-S002;FRE-S003;FRE-S010
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,-1,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,-0.5,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,0,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,0.5,5,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,1,12,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,2,18,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,3,28,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,5,33,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,7,43,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,lower_bound,10,48,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,-1,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,-0.5,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,0,5,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,0.5,10,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,1,20,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,2,30,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,3,35,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,5,40,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,7,53,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,point,10,58,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,-1,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,-0.5,0,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,0,9,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,0.5,17,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,1,27,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,2,36,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,3,43,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,5,48,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,7,60,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_COAST_NACCS_P2,RE_COM_LOWRISE,coastal_surge_saline,upper_bound,10,69,"NACCS Prototype 2 (COM-ENG), Table 25",FRE-S004
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,-4,0,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,-3,0,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,-2,0,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,-1,0,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,0,1,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,1,9,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,2,14,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,3,16,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,4,18,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,5,20,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,6,23,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,7,26,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,8,30,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,9,34,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,10,38,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,11,42,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,12,47,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,13,51,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,14,55,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,15,58,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,16,61,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,17,64,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,18,67,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,19,69,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,20,71,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,21,74,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,22,76,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,23,78,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_COM_FRESH_HAZUS_DF217,RE_COM_LOWRISE,freshwater_riverine_or_pluvial,point,24,80,"Hazus DF 217 (USACE Galveston, average retail)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,-4,0,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,-3,0,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,-2,0,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,-1,0,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,0,0,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,1,5,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,2,8,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,3,11,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,4,13,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,5,16,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,6,19,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,7,22,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,8,25,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,9,29,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,10,32,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,11,37,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,12,41,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,13,45,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,14,49,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,15,52,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,16,55,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,17,58,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,18,61,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,19,63,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,20,66,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,21,68,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,22,70,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,23,71,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_IND_HAZUS_DF341,RE_IND_WAREHOUSE,freshwater_or_coastal_surge,point,24,73,"Hazus DF 341 (USACE Galveston, average wholesale)",FRE-S002;FRE-S003;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,-4,0,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,-3,0,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,-2,0,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,-1,0,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,0,2,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,1,11,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,2,16,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,3,22,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,4,28,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,5,35,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,6,38,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,7,41,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,8,44,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,9,47,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,10,50,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,11,54,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,12,57,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,13,59,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,14,62,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,15,66,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,16,68,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,17,70,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,18,72,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,19,74,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,20,76,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,21,77,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,22,78,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,23,79,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010
+FRE_OFF_HAZUS_DF431,RE_COM_OFFICE_3S_SLAB,freshwater_or_coastal_surge,point,24,80,Hazus DF 431 (USACE Galveston),FRE-S002;FRE-S003;FRE-S005;FRE-S010

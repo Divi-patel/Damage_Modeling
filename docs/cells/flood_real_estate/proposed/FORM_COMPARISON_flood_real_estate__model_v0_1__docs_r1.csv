@@ -1,0 +1,61 @@
+building,water,source,band,form,LOOCV_RMSE_pts,gates,RMSE_at_published_knots,max_miss_at_published_knot,max_diff_from_linear_pts,best_smooth,catalogue_rule_pick
+house,freshwater,Hazus DF 129,-,linear,0.85,PASS,0.0,0.0,0.0,False,False
+house,freshwater,Hazus DF 129,-,pchip,0.57,PASS,0.0,0.0,0.8,False,True
+house,freshwater,Hazus DF 129,-,logistic,1.42,PASS,1.0,4.2,4.18,False,False
+house,freshwater,Hazus DF 129,-,richards,1.1,PASS,0.81,3.44,3.42,False,False
+house,freshwater,Hazus DF 129,-,weibull,0.91,PASS,0.65,2.7,2.68,True,False
+commercial,freshwater,Hazus DF 217,-,linear,0.84,PASS,0.0,0.0,0.0,False,False
+commercial,freshwater,Hazus DF 217,-,pchip,0.65,PASS,0.0,0.0,0.8,False,True
+commercial,freshwater,Hazus DF 217,-,logistic,2.41,PASS,2.34,5.97,5.97,False,False
+commercial,freshwater,Hazus DF 217,-,richards,1.51,PASS,1.38,4.13,4.13,True,False
+commercial,freshwater,Hazus DF 217,-,weibull,3.02,PASS,2.86,7.5,7.49,False,False
+warehouse,freshwater,Hazus DF 341,-,linear,0.64,PASS,0.0,0.0,0.0,False,True
+warehouse,freshwater,Hazus DF 341,-,pchip,0.65,PASS,0.0,0.0,0.66,False,False
+warehouse,freshwater,Hazus DF 341,-,logistic,1.91,PASS,1.86,4.03,4.03,False,False
+warehouse,freshwater,Hazus DF 341,-,richards,0.97,PASS,0.84,1.97,1.97,True,False
+warehouse,freshwater,Hazus DF 341,-,weibull,2.48,PASS,2.36,5.08,5.11,False,False
+house,coastal,NACCS RES1-1SNB,ML,linear,2.38,PASS,0.0,0.0,0.0,False,False
+house,coastal,NACCS RES1-1SNB,ML,pchip,2.01,PASS,0.0,0.0,1.17,False,True
+house,coastal,NACCS RES1-1SNB,ML,logistic,3.59,PASS,2.64,4.4,4.4,False,False
+house,coastal,NACCS RES1-1SNB,ML,richards,3.52,PASS,2.6,4.36,4.35,False,False
+house,coastal,NACCS RES1-1SNB,ML,weibull,3.41,PASS,2.59,4.6,4.6,True,False
+house,coastal,NACCS RES1-1SNB,Min,linear,1.45,PASS,0.0,0.0,0.0,False,False
+house,coastal,NACCS RES1-1SNB,Min,pchip,1.33,PASS,0.0,0.0,0.81,False,True
+house,coastal,NACCS RES1-1SNB,Min,logistic,2.89,PASS,2.44,5.04,5.04,False,False
+house,coastal,NACCS RES1-1SNB,Min,richards,2.85,PASS,2.12,3.33,3.33,True,False
+house,coastal,NACCS RES1-1SNB,Min,weibull,3.11,PASS,2.72,5.72,5.72,False,False
+house,coastal,NACCS RES1-1SNB,Max,linear,7.42,PASS,0.0,0.0,0.0,False,True
+house,coastal,NACCS RES1-1SNB,Max,pchip,7.7,PASS,0.0,0.0,3.11,False,False
+house,coastal,NACCS RES1-1SNB,Max,logistic,8.51,PASS,5.56,10.82,10.82,False,False
+house,coastal,NACCS RES1-1SNB,Max,richards,8.33,PASS,4.85,10.1,10.09,True,False
+house,coastal,NACCS RES1-1SNB,Max,weibull,8.62,PASS,5.81,11.04,11.04,False,False
+commercial,coastal,NACCS COM-ENG,ML,linear,3.21,PASS,0.0,0.0,0.0,False,True
+commercial,coastal,NACCS COM-ENG,ML,pchip,3.45,PASS,0.0,0.0,1.05,False,False
+commercial,coastal,NACCS COM-ENG,ML,logistic,3.9,PASS,2.4,5.13,5.13,False,False
+commercial,coastal,NACCS COM-ENG,ML,richards,3.86,PASS,2.39,5.13,5.13,False,False
+commercial,coastal,NACCS COM-ENG,ML,weibull,3.69,PASS,2.36,5.24,5.24,True,False
+commercial,coastal,NACCS COM-ENG,Min,linear,2.86,PASS,0.0,0.0,0.0,False,False
+commercial,coastal,NACCS COM-ENG,Min,pchip,3.24,PASS,0.0,0.0,0.99,False,False
+commercial,coastal,NACCS COM-ENG,Min,logistic,2.62,PASS,1.54,3.25,3.24,False,False
+commercial,coastal,NACCS COM-ENG,Min,richards,2.59,PASS,1.53,3.26,3.26,False,False
+commercial,coastal,NACCS COM-ENG,Min,weibull,2.48,PASS,1.57,3.24,3.23,True,True
+commercial,coastal,NACCS COM-ENG,Max,linear,2.96,PASS,0.0,0.0,0.0,False,True
+commercial,coastal,NACCS COM-ENG,Max,pchip,3.25,PASS,0.0,0.0,1.29,False,False
+commercial,coastal,NACCS COM-ENG,Max,logistic,3.82,PASS,2.55,6.07,6.07,False,False
+commercial,coastal,NACCS COM-ENG,Max,richards,3.8,PASS,2.55,6.06,6.06,False,False
+commercial,coastal,NACCS COM-ENG,Max,weibull,3.63,PASS,2.42,5.29,5.28,True,False
+warehouse,coastal,NACCS COM-PRE,ML,linear,2.02,PASS,0.0,0.0,0.0,False,False
+warehouse,coastal,NACCS COM-PRE,ML,pchip,1.54,PASS,0.0,0.0,0.99,False,True
+warehouse,coastal,NACCS COM-PRE,ML,logistic,2.39,PASS,1.4,2.25,2.47,False,False
+warehouse,coastal,NACCS COM-PRE,ML,richards,2.29,PASS,1.36,2.27,2.45,False,False
+warehouse,coastal,NACCS COM-PRE,ML,weibull,2.17,PASS,1.42,2.39,2.53,True,False
+warehouse,coastal,NACCS COM-PRE,Min,linear,1.35,PASS,0.0,0.0,0.0,False,False
+warehouse,coastal,NACCS COM-PRE,Min,pchip,0.94,PASS,0.0,0.0,0.74,False,True
+warehouse,coastal,NACCS COM-PRE,Min,logistic,1.68,PASS,1.11,2.14,2.14,False,False
+warehouse,coastal,NACCS COM-PRE,Min,richards,1.7,PASS,1.08,1.98,1.98,False,False
+warehouse,coastal,NACCS COM-PRE,Min,weibull,1.68,PASS,1.2,2.39,2.39,True,False
+warehouse,coastal,NACCS COM-PRE,Max,linear,2.99,PASS,0.0,0.0,0.0,False,False
+warehouse,coastal,NACCS COM-PRE,Max,pchip,2.81,PASS,0.0,0.0,0.96,False,False
+warehouse,coastal,NACCS COM-PRE,Max,logistic,2.22,PASS,1.54,2.75,2.74,True,True
+warehouse,coastal,NACCS COM-PRE,Max,richards,2.56,PASS,1.52,2.48,2.47,False,False
+warehouse,coastal,NACCS COM-PRE,Max,weibull,2.42,PASS,1.76,3.68,3.68,False,False

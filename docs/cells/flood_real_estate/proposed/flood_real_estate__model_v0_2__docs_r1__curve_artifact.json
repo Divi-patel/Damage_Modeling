@@ -1,0 +1,1379 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "proposed_draft",
+  "cell_id": "flood_real_estate",
+  "damage_code_id": "FLOOD_REAL_ESTATE_HAZUS_NACCS_SCREENING_V0_2",
+  "semantic_damage_model_version": "model v0.2",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "scaffold",
+  "promotion_status": "proposed",
+  "review_status": "not_yet_reviewed",
+  "model_grade": "screening_source_native_adopted_tables",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "not_included",
+  "canonical_runtime_artifact": false,
+  "source_dossier": "docs/cells/flood_real_estate/proposed/flood_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md",
+  "source_workbook": "docs/cells/flood_real_estate/proposed/damage_curve_records_flood_real_estate__model_v0_2__docs_r1.xlsx",
+  "known_answer_tests": "docs/cells/flood_real_estate/proposed/known_answer_tests_flood_real_estate__model_v0_2__docs_r1.json",
+  "source_register": "docs/cells/flood_real_estate/proposed/SOURCE_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv",
+  "claim_parameter_register": "docs/cells/flood_real_estate/proposed/CLAIM_PARAMETER_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv",
+  "value_crosswalk": "docs/cells/flood_real_estate/proposed/VALUE_CROSSWALK_flood_real_estate__model_v0_1__docs_r1.csv",
+  "failure_units": [
+    {
+      "id": "FRE_BUILDING_STRUCTURE",
+      "subsystem": "BUILDING",
+      "component": "BUILDING_STRUCTURE_ASSEMBLY",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "structure replacement cost new of the same reference building (no land, contents, site works or depreciation)",
+      "platform_code_status": "proposed_awaiting_platform_codes",
+      "source_atom_note": "Whole-building source-native depth-damage function; not an aggregate of component records."
+    },
+    {
+      "id": "FRE_BUILDING_CONTENTS",
+      "subsystem": "BUILDING",
+      "component": "CONTENTS",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "contents value (deferred)",
+      "withheld_reason_codes": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+      ],
+      "platform_code_status": "proposed_awaiting_platform_codes"
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "flood_inundation_contact",
+      "hazard_scope": {
+        "included": [
+          "still-water inundation of the building from riverine, pluvial or coastal-surge flooding"
+        ],
+        "excluded": [
+          "wave impact, high-velocity flow, scour and debris (deferred pathway flood_wave_velocity; withheld, not zero)",
+          "contents, business interruption, land, site works",
+          "mould and long-duration effects beyond what the source curves embed"
+        ],
+        "deferred_pathways": [
+          "flood_wave_velocity"
+        ],
+        "compound_event_rule": "Charge one building value once per event across flood pathways and other perils."
+      },
+      "hazard_axis": {
+        "id": "FLOOD_DEPTH_ABOVE_FIRST_FINISHED_FLOOR_FT",
+        "preferred_input_field": "flood_depth_above_first_floor_ft",
+        "permitted_proxy_fields": [
+          "flood_depth_above_grade_ft",
+          "first_floor_height_ft"
+        ],
+        "unit": "ft",
+        "valid_range": [
+          -4.0,
+          24.0
+        ],
+        "extrapolation_policy": "record-level ranges govern: Hazus records -4 to 24 ft, retail coastal record -1 to 10 ft; below a record range returns 0; above withholds",
+        "bridge": "flood_depth_above_first_floor_ft = flood_depth_above_grade_ft - first_floor_height_ft; depth above grade <= 0 is not inundated (DR 0); a consumer sending floor-relative depth applies the dry rule itself"
+      },
+      "reference_first_floor_height_ft": {
+        "RE_RES_SFD_1S_SLAB": 0.75,
+        "RE_COM_LOWRISE": 0.25,
+        "RE_IND_WAREHOUSE": 0.25,
+        "RE_COM_OFFICE_3S_SLAB": 0.25
+      },
+      "reference_profile_binding": {
+        "RE_RES_SFD_1S_SLAB": "re_house_1s_wood_slab",
+        "RE_COM_LOWRISE": null,
+        "RE_IND_WAREHOUSE": "re_warehouse_1s_steel_slab",
+        "RE_COM_OFFICE_3S_SLAB": "re_office_3s_slab"
+      },
+      "record_routing_fields": [
+        "reference_building_id",
+        "flood_water_type",
+        "band"
+      ],
+      "record_routing_note": "for house, warehouse and office selector_match.flood_water_type lists both water types (one record); only RE_COM_LOWRISE has a record per water type",
+      "selector_logic": [
+        {
+          "field": "reference_building_id",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "RE_RES_SFD_1S_SLAB",
+            "RE_COM_LOWRISE",
+            "RE_IND_WAREHOUSE",
+            "RE_COM_OFFICE_3S_SLAB"
+          ],
+          "effect": "Fixed identity of the reference building; picks the occupancy-specific record."
+        }
+      ],
+      "conditioner_logic": [
+        {
+          "field": "flood_water_type",
+          "required": true,
+          "allowed": [
+            "freshwater_riverine_or_pluvial",
+            "coastal_surge_saline",
+            "unknown"
+          ],
+          "numeric_support_when": [
+            "freshwater_riverine_or_pluvial",
+            "coastal_surge_saline"
+          ],
+          "withhold_otherwise": "FLOOD_WATER_TYPE_UNKNOWN",
+          "effect": "Event-time state. House, warehouse and office: same Hazus record for both types. Retail: Hazus (freshwater) or NACCS (coastal surge), never blended."
+        }
+      ],
+      "exposure_contract": {
+        "required_subject_grain": "one reference building",
+        "value_rule": "Scenario dollars need structure replacement cost new for the same building; the consumer qualifies the reference budget.",
+        "protection_rule": "Flood protection must already be reflected in the delivered depth; no curve-side credit."
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "status": "conditional_numeric_screening_curve",
+          "reason_codes": []
+        },
+        {
+          "failure_unit_id": "FRE_BUILDING_CONTENTS",
+          "status": "withheld_not_zero",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "FRE_RES_HAZUS_DF129",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -4.0,
+                0.0
+              ],
+              [
+                -3.0,
+                0.0
+              ],
+              [
+                -2.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.03
+              ],
+              [
+                0.0,
+                0.13
+              ],
+              [
+                1.0,
+                0.23
+              ],
+              [
+                2.0,
+                0.32
+              ],
+              [
+                3.0,
+                0.4
+              ],
+              [
+                4.0,
+                0.47
+              ],
+              [
+                5.0,
+                0.53
+              ],
+              [
+                6.0,
+                0.59
+              ],
+              [
+                7.0,
+                0.63
+              ],
+              [
+                8.0,
+                0.67
+              ],
+              [
+                9.0,
+                0.71
+              ],
+              [
+                10.0,
+                0.73
+              ],
+              [
+                11.0,
+                0.75
+              ],
+              [
+                12.0,
+                0.77
+              ],
+              [
+                13.0,
+                0.79
+              ],
+              [
+                14.0,
+                0.8
+              ],
+              [
+                15.0,
+                0.81
+              ],
+              [
+                16.0,
+                0.81
+              ],
+              [
+                17.0,
+                0.82
+              ],
+              [
+                18.0,
+                0.82
+              ],
+              [
+                19.0,
+                0.83
+              ],
+              [
+                20.0,
+                0.83
+              ],
+              [
+                21.0,
+                0.83
+              ],
+              [
+                22.0,
+                0.84
+              ],
+              [
+                23.0,
+                0.84
+              ],
+              [
+                24.0,
+                0.84
+              ]
+            ]
+          },
+          "valid_range": [
+            -4.0,
+            24.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -4 ft returns 0 (published zero region); above 24 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "flood_water_type": [
+              "freshwater_riverine_or_pluvial",
+              "coastal_surge_saline"
+            ],
+            "band": "point"
+          },
+          "source_parameter_refs": [
+            "FRE-S002#Table_5-2",
+            "FRE-S003#DF129",
+            "FRE-S010#DF129",
+            "FRE-S012#coastal_comparison"
+          ],
+          "metadata_flags": [
+            "HAZUS_SOURCE_TABLE",
+            "HAZUS_CLASS_AVERAGE_OR_GENERIC_DEFAULT",
+            "COASTAL_STILL_WATER_USES_HAZUS_RIVERINE_CURVE"
+          ]
+        },
+        {
+          "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -4.0,
+                0.0
+              ],
+              [
+                -3.0,
+                0.0
+              ],
+              [
+                -2.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.01
+              ],
+              [
+                1.0,
+                0.09
+              ],
+              [
+                2.0,
+                0.14
+              ],
+              [
+                3.0,
+                0.16
+              ],
+              [
+                4.0,
+                0.18
+              ],
+              [
+                5.0,
+                0.2
+              ],
+              [
+                6.0,
+                0.23
+              ],
+              [
+                7.0,
+                0.26
+              ],
+              [
+                8.0,
+                0.3
+              ],
+              [
+                9.0,
+                0.34
+              ],
+              [
+                10.0,
+                0.38
+              ],
+              [
+                11.0,
+                0.42
+              ],
+              [
+                12.0,
+                0.47
+              ],
+              [
+                13.0,
+                0.51
+              ],
+              [
+                14.0,
+                0.55
+              ],
+              [
+                15.0,
+                0.58
+              ],
+              [
+                16.0,
+                0.61
+              ],
+              [
+                17.0,
+                0.64
+              ],
+              [
+                18.0,
+                0.67
+              ],
+              [
+                19.0,
+                0.69
+              ],
+              [
+                20.0,
+                0.71
+              ],
+              [
+                21.0,
+                0.74
+              ],
+              [
+                22.0,
+                0.76
+              ],
+              [
+                23.0,
+                0.78
+              ],
+              [
+                24.0,
+                0.8
+              ]
+            ]
+          },
+          "valid_range": [
+            -4.0,
+            24.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -4 ft returns 0 (published zero region); above 24 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "flood_water_type": "freshwater_riverine_or_pluvial",
+            "band": "point"
+          },
+          "source_parameter_refs": [
+            "FRE-S002#Table_5-2",
+            "FRE-S003#DF217",
+            "FRE-S010#DF217"
+          ],
+          "metadata_flags": [
+            "HAZUS_SOURCE_TABLE",
+            "HAZUS_CLASS_AVERAGE_OR_GENERIC_DEFAULT",
+            "SINGLE_USACE_DISTRICT_GALVESTON"
+          ]
+        },
+        {
+          "curve_id": "FRE_COM_COAST_NACCS_P2",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -1.0,
+                0.0
+              ],
+              [
+                -0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.05
+              ],
+              [
+                0.5,
+                0.1
+              ],
+              [
+                1.0,
+                0.2
+              ],
+              [
+                2.0,
+                0.3
+              ],
+              [
+                3.0,
+                0.35
+              ],
+              [
+                5.0,
+                0.4
+              ],
+              [
+                7.0,
+                0.53
+              ],
+              [
+                10.0,
+                0.58
+              ]
+            ]
+          },
+          "valid_range": [
+            -1.0,
+            10.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -1 ft returns 0 (published zero region); above 10 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "flood_water_type": "coastal_surge_saline",
+            "band": "point"
+          },
+          "source_parameter_refs": [
+            "FRE-S004#Table_25"
+          ],
+          "metadata_flags": [
+            "NACCS_SOURCE_TABLE",
+            "NACCS_NORTH_ATLANTIC_TRANSFER_LIMIT"
+          ]
+        },
+        {
+          "curve_id": "FRE_COM_COAST_NACCS_P2_MIN",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -1.0,
+                0.0
+              ],
+              [
+                -0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.5,
+                0.05
+              ],
+              [
+                1.0,
+                0.12
+              ],
+              [
+                2.0,
+                0.18
+              ],
+              [
+                3.0,
+                0.28
+              ],
+              [
+                5.0,
+                0.33
+              ],
+              [
+                7.0,
+                0.43
+              ],
+              [
+                10.0,
+                0.48
+              ]
+            ]
+          },
+          "valid_range": [
+            -1.0,
+            10.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -1 ft returns 0 (published zero region); above 10 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "flood_water_type": "coastal_surge_saline",
+            "band": "lower_bound"
+          },
+          "source_parameter_refs": [
+            "FRE-S004#Table_25"
+          ],
+          "metadata_flags": [
+            "NACCS_SOURCE_TABLE",
+            "NACCS_NORTH_ATLANTIC_TRANSFER_LIMIT",
+            "BUILDING_VARIANT_BOUND_NOT_PROBABILITY"
+          ]
+        },
+        {
+          "curve_id": "FRE_COM_COAST_NACCS_P2_MAX",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -1.0,
+                0.0
+              ],
+              [
+                -0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.09
+              ],
+              [
+                0.5,
+                0.17
+              ],
+              [
+                1.0,
+                0.27
+              ],
+              [
+                2.0,
+                0.36
+              ],
+              [
+                3.0,
+                0.43
+              ],
+              [
+                5.0,
+                0.48
+              ],
+              [
+                7.0,
+                0.6
+              ],
+              [
+                10.0,
+                0.69
+              ]
+            ]
+          },
+          "valid_range": [
+            -1.0,
+            10.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -1 ft returns 0 (published zero region); above 10 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "flood_water_type": "coastal_surge_saline",
+            "band": "upper_bound"
+          },
+          "source_parameter_refs": [
+            "FRE-S004#Table_25"
+          ],
+          "metadata_flags": [
+            "NACCS_SOURCE_TABLE",
+            "NACCS_NORTH_ATLANTIC_TRANSFER_LIMIT",
+            "BUILDING_VARIANT_BOUND_NOT_PROBABILITY"
+          ]
+        },
+        {
+          "curve_id": "FRE_IND_HAZUS_DF341",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -4.0,
+                0.0
+              ],
+              [
+                -3.0,
+                0.0
+              ],
+              [
+                -2.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.05
+              ],
+              [
+                2.0,
+                0.08
+              ],
+              [
+                3.0,
+                0.11
+              ],
+              [
+                4.0,
+                0.13
+              ],
+              [
+                5.0,
+                0.16
+              ],
+              [
+                6.0,
+                0.19
+              ],
+              [
+                7.0,
+                0.22
+              ],
+              [
+                8.0,
+                0.25
+              ],
+              [
+                9.0,
+                0.29
+              ],
+              [
+                10.0,
+                0.32
+              ],
+              [
+                11.0,
+                0.37
+              ],
+              [
+                12.0,
+                0.41
+              ],
+              [
+                13.0,
+                0.45
+              ],
+              [
+                14.0,
+                0.49
+              ],
+              [
+                15.0,
+                0.52
+              ],
+              [
+                16.0,
+                0.55
+              ],
+              [
+                17.0,
+                0.58
+              ],
+              [
+                18.0,
+                0.61
+              ],
+              [
+                19.0,
+                0.63
+              ],
+              [
+                20.0,
+                0.66
+              ],
+              [
+                21.0,
+                0.68
+              ],
+              [
+                22.0,
+                0.7
+              ],
+              [
+                23.0,
+                0.71
+              ],
+              [
+                24.0,
+                0.73
+              ]
+            ]
+          },
+          "valid_range": [
+            -4.0,
+            24.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -4 ft returns 0 (published zero region); above 24 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "flood_water_type": [
+              "freshwater_riverine_or_pluvial",
+              "coastal_surge_saline"
+            ],
+            "band": "point"
+          },
+          "source_parameter_refs": [
+            "FRE-S002#Table_5-2",
+            "FRE-S003#DF341",
+            "FRE-S010#DF341",
+            "FRE-S010#flBldgStructDmgFinal"
+          ],
+          "metadata_flags": [
+            "HAZUS_SOURCE_TABLE",
+            "HAZUS_CLASS_AVERAGE_OR_GENERIC_DEFAULT",
+            "SINGLE_USACE_DISTRICT_GALVESTON",
+            "COASTAL_STILL_WATER_USES_HAZUS_RIVERINE_CURVE"
+          ]
+        },
+        {
+          "curve_id": "FRE_OFF_HAZUS_DF431",
+          "pathway_id": "flood_inundation_contact",
+          "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "flood_depth_above_first_floor_ft",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                -4.0,
+                0.0
+              ],
+              [
+                -3.0,
+                0.0
+              ],
+              [
+                -2.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.02
+              ],
+              [
+                1.0,
+                0.11
+              ],
+              [
+                2.0,
+                0.16
+              ],
+              [
+                3.0,
+                0.22
+              ],
+              [
+                4.0,
+                0.28
+              ],
+              [
+                5.0,
+                0.35
+              ],
+              [
+                6.0,
+                0.38
+              ],
+              [
+                7.0,
+                0.41
+              ],
+              [
+                8.0,
+                0.44
+              ],
+              [
+                9.0,
+                0.47
+              ],
+              [
+                10.0,
+                0.5
+              ],
+              [
+                11.0,
+                0.54
+              ],
+              [
+                12.0,
+                0.57
+              ],
+              [
+                13.0,
+                0.59
+              ],
+              [
+                14.0,
+                0.62
+              ],
+              [
+                15.0,
+                0.66
+              ],
+              [
+                16.0,
+                0.68
+              ],
+              [
+                17.0,
+                0.7
+              ],
+              [
+                18.0,
+                0.72
+              ],
+              [
+                19.0,
+                0.74
+              ],
+              [
+                20.0,
+                0.76
+              ],
+              [
+                21.0,
+                0.77
+              ],
+              [
+                22.0,
+                0.78
+              ],
+              [
+                23.0,
+                0.79
+              ],
+              [
+                24.0,
+                0.8
+              ]
+            ]
+          },
+          "valid_range": [
+            -4.0,
+            24.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "below -4 ft returns 0 (published zero region); above 24 ft withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "flood_water_type": [
+              "freshwater_riverine_or_pluvial",
+              "coastal_surge_saline"
+            ],
+            "band": "point"
+          },
+          "source_parameter_refs": [
+            "FRE-S002#Table_5-2",
+            "FRE-S003#DF431",
+            "FRE-S005#COM4",
+            "FRE-S010#DF431",
+            "FRE-S010#flBldgStructDmgFinal",
+            "FRE-S012#by_storeys"
+          ],
+          "metadata_flags": [
+            "HAZUS_SOURCE_TABLE",
+            "HAZUS_CLASS_AVERAGE_OR_GENERIC_DEFAULT",
+            "SINGLE_USACE_DISTRICT_GALVESTON",
+            "COASTAL_STILL_WATER_USES_HAZUS_RIVERINE_CURVE",
+            "HAZUS_COMMERCIAL_CURVE_NOT_HEIGHT_SPECIFIC"
+          ]
+        }
+      ]
+    }
+  ],
+  "value_linkage": {
+    "curve_denominator": "structure replacement cost new of the reference building",
+    "scenario_loss_formula": "loss = DR * structure_replacement_cost_new_usd",
+    "scenario_loss_status": "withheld_consumer_value_qualification",
+    "rejected_denominators": [
+      "NSI val_struct (depreciated)",
+      "market value",
+      "assessed value"
+    ],
+    "implicit_default_profile": null
+  },
+  "parameter_tier_table": [
+    {
+      "parameter": "axis_definition",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "flood depth above first finished floor, ft",
+      "param_role": "axis_bridge",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S003;FRE-S004",
+      "reasoning": "Native axis of both libraries (FRE-C001).",
+      "status": "proposed",
+      "update_trigger": "A source with a different reference elevation is adopted."
+    },
+    {
+      "parameter": "curve_form",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "straight lines between published points (piecewise linear)",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S003;FRE-S004;FRE-S008",
+      "reasoning": "Reproduces every published value; smooth fits predict held-out points worse on all six point curves and move published values by 2-5 points (FORM_COMPARISON); table-based cells (flood_solar, flood_wind, wildfire_solar, wildfire_wind) use straight lines; method rule: simplest form the evidence yields.",
+      "status": "proposed",
+      "update_trigger": "A reviewed reason to prefer smoothness."
+    },
+    {
+      "parameter": "axis_bridge",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "depth_above_floor = depth_above_grade \u2212 first_floor_height (same datum required)",
+      "param_role": "axis_bridge",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S003;FRE-S004",
+      "reasoning": "Both libraries define depth relative to FFE; FFE = grade + first-floor height.",
+      "status": "proposed",
+      "update_trigger": "Hazard supplies depth on a different reference."
+    },
+    {
+      "parameter": "RE_RES_SFD_1S_SLAB.freshwater.ordinates",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_RES_FRESH_HAZUS_DF129",
+      "value": "Hazus DF 129, \u22124 to 24 ft (USACE-IWR)",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S002;FRE-S003;FRE-S006",
+      "reasoning": "FEMA Table 5-2 default; equals rounded USACE EGM means \u22122 to 16 ft (FRE-C002, C004).",
+      "status": "proposed",
+      "update_trigger": "NFIP claims comparison or a Hazus Table 5-2 change."
+    },
+    {
+      "parameter": "RE_COM_LOWRISE.freshwater.ordinates",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+      "value": "Hazus DF 217, \u22124 to 24 ft (USACE Galveston, average of 47 retail classes)",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S002;FRE-S003;FRE-S005;FRE-S007",
+      "reasoning": "FEMA Table 5-2 default for COM1; verified identical to USACE copy (FRE-C003). Single-district provenance (FRE-C011).",
+      "status": "proposed",
+      "update_trigger": "Owner selects office (DF 431) or NFIP comparison shows bias."
+    },
+    {
+      "parameter": "RE_IND_WAREHOUSE.freshwater.ordinates",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_IND_FRESH_HAZUS_DF341",
+      "value": "Hazus DF 341, \u22124 to 24 ft (USACE Galveston, average of 22 wholesale/warehouse classes)",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S002;FRE-S003;FRE-S005;FRE-S007",
+      "reasoning": "FEMA Table 5-2 default for COM2 (warehouse use); verified identical to USACE copy (FRE-C003). Single-district provenance.",
+      "status": "proposed",
+      "update_trigger": "Owner selects light industrial (DF 559) or NFIP comparison shows bias."
+    },
+    {
+      "parameter": "RE_RES_SFD_1S_SLAB.coastal.ordinates",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_RES_COAST_NACCS_5A",
+      "value": "NACCS RES1-1SNB Min/ML/Max at \u22121, \u22120.5, 0, 0.5, 1, 2, 3, 5, 7, 10 ft",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S004",
+      "reasoning": "Prototype 5A matches the reference house (FRE-C007). North Atlantic expert panel; own verification found it low (FRE-C009). T3 transfer outside the North Atlantic.",
+      "status": "proposed",
+      "update_trigger": "Attachment G review, NFIP comparison, or owner selects FEMA DF 658."
+    },
+    {
+      "parameter": "RE_COM_LOWRISE.coastal.ordinates",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_COM_COAST_NACCS_P2",
+      "value": "NACCS COM-ENG Min/ML/Max at the ten published depths",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S004",
+      "reasoning": "Prototype 2 steel-framed commercial matches the reference building (FRE-C008). T3 transfer outside the North Atlantic.",
+      "status": "proposed",
+      "update_trigger": "Commercial reference redefined as masonry (then COM-PRE) or NFIP comparison."
+    },
+    {
+      "parameter": "RE_IND_WAREHOUSE.coastal.ordinates",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_IND_COAST_NACCS_P3",
+      "value": "NACCS COM-PRE Min/ML/Max at the ten published depths",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S004",
+      "reasoning": "Prototype 3 one-story steel/light-metal building matches the warehouse (FRE-C008). T3 transfer outside the North Atlantic.",
+      "status": "proposed",
+      "update_trigger": "NFIP comparison."
+    },
+    {
+      "parameter": "naccs_runtime_band",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_*_COAST_NACCS_*",
+      "value": "ML is the point curve; Min and Max are building-variant bounds, not a probability spread",
+      "param_role": "boundary_or_cap",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S004",
+      "reasoning": "NACCS defines Min/Max by building characteristics, not by probability.",
+      "status": "proposed",
+      "update_trigger": "A reviewed spread policy."
+    },
+    {
+      "parameter": "naccs_knot_set",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_*_COAST_NACCS_*",
+      "value": "published depths only: \u22121, \u22120.5, 0, 0.5, 1, 2, 3, 5, 7, 10 ft",
+      "param_role": "boundary_or_cap",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S001;FRE-S004",
+      "reasoning": "Compiled values at 4, 6, 8, 9 ft are fills (FRE-C006, D-FRE-13).",
+      "status": "proposed",
+      "update_trigger": "\u2014"
+    },
+    {
+      "parameter": "valid_range.hazus",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_*_FRESH_HAZUS_*",
+      "value": "\u22124 to 24 ft; below \u22124 ft = 0%; above 24 ft withholds",
+      "param_role": "boundary_or_cap",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S003",
+      "reasoning": "Published library range; every record is 0% at \u22124 ft; no extrapolation or clamp above (D-FRE-21, flood_wind precedent).",
+      "status": "proposed",
+      "update_trigger": "A source publishes deeper ordinates."
+    },
+    {
+      "parameter": "valid_range.naccs",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "FRE_*_COAST_NACCS_*",
+      "value": "\u22121 to 10 ft; below \u22121 ft = 0%; above 10 ft withholds",
+      "param_role": "boundary_or_cap",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S004",
+      "reasoning": "Published report range; every NACCS curve is 0% at \u22121 ft; no extrapolation or clamp above (D-FRE-21).",
+      "status": "proposed",
+      "update_trigger": "A source publishes deeper ordinates."
+    },
+    {
+      "parameter": "water_type_conditioner",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "freshwater -> Hazus; coastal_surge_saline -> NACCS; unknown -> withhold",
+      "param_role": "conditioner_adjustment",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "FRE-S002;FRE-S004",
+      "reasoning": "Libraries built for different water and settings; FEMA's own coastal position recorded as alternative (FRE-C013).",
+      "status": "proposed",
+      "update_trigger": "Owner selects FEMA coastal defaults, or Hazard cannot supply water type."
+    },
+    {
+      "parameter": "first_floor_height.RE_RES_SFD_1S_SLAB",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all residential",
+      "value": "0.75 ft above grade",
+      "param_role": "selector_default",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S009",
+      "reasoning": "NSI 2026 documented RES1 slab default (FRE-C022); replaces the NACCS 5A 1.0 ft (D-FRE-22).",
+      "status": "proposed",
+      "update_trigger": "NSI documents non-residential defaults, or owner choice."
+    },
+    {
+      "parameter": "first_floor_height.RE_COM_LOWRISE",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all commercial",
+      "value": "0.25 ft above grade",
+      "param_role": "selector_default",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "FRE-S011",
+      "reasoning": "NSI records, slab COM1/COM4 in three counties (FRE-C023); not documented; replaces NACCS Prototype 2 0 ft.",
+      "status": "proposed",
+      "update_trigger": "NSI documents non-residential defaults, or owner choice."
+    },
+    {
+      "parameter": "first_floor_height.RE_IND_WAREHOUSE",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all warehouse",
+      "value": "0.25 ft above grade",
+      "param_role": "selector_default",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "FRE-S011",
+      "reasoning": "NSI records, slab COM2/IND2 in three counties (FRE-C023); not documented; replaces NACCS Prototype 3 1.0 ft.",
+      "status": "proposed",
+      "update_trigger": "NSI documents non-residential defaults, or owner choice."
+    },
+    {
+      "parameter": "value_denominator",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "structure replacement cost new (no land, contents, depreciation)",
+      "param_role": "exposure_or_value",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "FRE-S003;FRE-S004",
+      "reasoning": "Both libraries express damage as % of structure value (FRE-C001).",
+      "status": "proposed",
+      "update_trigger": "Owner chooses another reporting basis (explicit conversion only)."
+    },
+    {
+      "parameter": "value_per_area",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "not set",
+      "param_role": "open_seam_placeholder",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "",
+      "reasoning": "Four options documented (NSI fullrep, Hazus 7.0 Inventory TM, RSMeans, team values); none selected; scenario dollars withheld (D-FRE-23).",
+      "status": "open",
+      "update_trigger": "A named replacement-cost source is adopted."
+    },
+    {
+      "parameter": "fresh_vs_coastal_gap",
+      "pathway_id": "flood_inundation_contact",
+      "curve_id": "all",
+      "value": "not adjusted",
+      "param_role": "open_seam_placeholder",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "FRE-S003;FRE-S004",
+      "reasoning": "Coastal reads below freshwater for the house and two to three times above for commercial and warehouse at 4 ft (pressure test \u00a73); no uplift applied.",
+      "status": "open",
+      "update_trigger": "NFIP claims comparison."
+    }
+  ],
+  "evaluation_contract": {
+    "supported_pathway_id": "flood_inundation_contact",
+    "supported_failure_unit_id": "FRE_BUILDING_STRUCTURE",
+    "required_selector_fields": [
+      "reference_building_id"
+    ],
+    "required_conditioner_fields": [
+      "flood_water_type"
+    ],
+    "accepted_axis_payloads": [
+      {
+        "mode": "depth_above_grade_ft",
+        "required_fields": [
+          "flood_depth_above_grade_ft"
+        ],
+        "optional_fields": [
+          "first_floor_height_ft"
+        ]
+      },
+      {
+        "mode": "depth_above_first_floor_ft",
+        "required_fields": [
+          "flood_depth_above_first_floor_ft"
+        ]
+      }
+    ],
+    "metadata_flags_always": [
+      "NONCANONICAL_PROPOSAL",
+      "SCREENING_SOURCE_NATIVE_ADOPTED_TABLE",
+      "WHOLE_BUILDING_SOURCE_ATOM",
+      "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+      "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+      "PLATFORM_CODES_PROPOSED_NOT_ISSUED"
+    ],
+    "out_of_range_behavior": "above a record's highest published depth: withhold; below its lowest: 0",
+    "reference_evaluator": "scripts/reference_helpers/flood_real_estate_curve_eval.py"
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean",
+      "scalar_mean_plus_bounds"
+    ],
+    "supported_output": "conditional scalar DR for FRE_BUILDING_STRUCTURE; the retail coastal record adds NACCS Min/Max building-variant bounds",
+    "scenario_loss": "withheld until the consumer qualifies the building value",
+    "annual_and_tail_metrics": "withheld; consumer-owned",
+    "withheld_units_emit": "explicit null DR plus reason codes; never zero"
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "flood_real_estate",
+    "canonical_runtime_artifact": false,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "withheld",
+        "curve_intrinsic_spread": "nonprobabilistic_epistemic_envelope",
+        "populated_emit_modes": [
+          "scalar_mean",
+          "scalar_mean_plus_bounds"
+        ],
+        "conditions": [
+          "reference_building_id must be one of the four proposed reference buildings",
+          "flood_water_type must be freshwater_riverine_or_pluvial or coastal_surge_saline; unknown withholds",
+          "house, warehouse and office use one Hazus record for both water types; the retail record routes by water type",
+          "depth is referenced to the first finished floor; depth above grade of 0 or less is not inundated and returns 0",
+          "Hazus records are valid from -4 to 24 ft and the retail coastal record from -1 to 10 ft above the floor; above withholds",
+          "bounds are emitted for the retail coastal record only and are NACCS building-variant bounds, not a probability spread",
+          "scenario dollars stay withheld until the consumer qualifies a replacement cost new for the building",
+          "owner acceptance of the scope and selections is required before any canonical use"
+        ],
+        "limitation_flags": [
+          "NONCANONICAL_PROPOSAL",
+          "SCREENING_SOURCE_NATIVE_ADOPTED_TABLE",
+          "WHOLE_BUILDING_SOURCE_ATOM",
+          "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+          "COASTAL_STILL_WATER_USES_HAZUS_RIVERINE_CURVE_FOR_TARGET_BUILDINGS",
+          "OFFICE_HEIGHT_BIAS_RECORDED_NOT_CORRECTED",
+          "WAVE_VELOCITY_PATHWAY_DEFERRED_WITHHELD_NOT_ZERO",
+          "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE"
+        ],
+        "withheld_failure_units": [
+          {
+            "failure_unit_id": "FRE_BUILDING_CONTENTS",
+            "reason_codes": [
+              "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+              "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+            ]
+          }
+        ]
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "withheld",
+      "prerequisites": [
+        "owner acceptance of scope and curve selections",
+        "consumer-qualified replacement cost new for each reference building",
+        "Hazard frequency-depth coupling supplying flood_water_type per event",
+        "exact model/docs/schema/SHA pin"
+      ],
+      "limitation_flags": [
+        "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+        "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "exact model/docs/schema/SHA pin",
+        "record-level valid range enforced (the retail coastal record stops at 10 ft)",
+        "record routing by reference_building_id, plus flood_water_type for RE_COM_LOWRISE only",
+        "dry-ground rule applied when depth is sent relative to the floor",
+        "one building value charged once per event across pathways"
+      ],
+      "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+    },
+    "promotion_gate": {
+      "status": "blocked",
+      "required_before_canonical_use": [
+        "the reviewer accepts scope D-FRE-01 to D-FRE-06 and selections D-FRE-16 to D-FRE-28",
+        "consumer value qualification of each reference budget against the structure denominator",
+        "consumer integration resolves record-level ranges, routing and the dry-ground rule",
+        "independent review of the package"
+      ]
+    }
+  },
+  "derivation_rationale": {
+    "source_spine": "FEMA Hazus 7.0 Table 5-2 structure defaults (house RES1, warehouse COM2, office COM4, retail COM1) for still water; USACE NACCS 2015 prototype 2 for retail coastal surge only. Verified against originals and independent copies; compared with NFIP claims (FRE-S012).",
+    "adopted_form": "exact published tables, straight lines between published points",
+    "why_one_curve_for_both_waters": "NFIP coastal-surge claims are closer to the Hazus curves than to NACCS for the house and multi-floor business buildings (FRE-C027, C029, C035); FEMA assigns DF 341 and DF 431 to coastal zones (FRE-C033); D-FRE-28.",
+    "why_not_smooth_fits": "Smooth fits (incl. anchored logistic) predicted held-out points worse on all point curves and moved published values by 2-6 points.",
+    "parameter_tier_mix": "Ordinates T2 with stated transfer limits; first-floor heights T2 (house) and T3 (commercial, warehouse, office); value coverage not itemized by the sources."
+  },
+  "legacy_comparison": {
+    "prior_cell_state": "model v0.1 proposal (artifact sha256 106e3b53c8ac84f3dba7c233a261e32a8663012794d90c898e6ccab9dbd128e1), kept for reproducibility",
+    "changes_from_prior": [
+      "house and warehouse coastal surge: NACCS 5A and prototype 3 replaced by their Hazus records (D-FRE-28)",
+      "new office record DF 431 (D-FRE-27, D-FRE-28)",
+      "retail record unchanged"
+    ],
+    "legacy_arrays_used": "none (Real Estate_Hail rejected, D-FRE-11)",
+    "canonical_or_consumer_change": false
+  }
+}

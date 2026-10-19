@@ -1,0 +1,81 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "flood_real_estate",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "flood_inundation_contact",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "nonprobabilistic_epistemic_envelope",
+      "populated_emit_modes": [
+        "scalar_mean",
+        "scalar_mean_plus_bounds"
+      ],
+      "conditions": [
+        "reference_building_id must be one of the three proposed reference buildings",
+        "flood_water_type must be freshwater_riverine_or_pluvial or coastal_surge_saline; unknown withholds",
+        "depth is referenced to the first finished floor; depth above grade of 0 or less is not inundated and returns 0",
+        "freshwater records are valid from -4 to 24 ft and coastal records from -1 to 10 ft above the floor; above withholds",
+        "bounds are emitted for coastal records only and are NACCS building-variant bounds, not a probability spread",
+        "scenario dollars stay withheld until a per-area replacement cost new is selected",
+        "owner acceptance of the scope and selections is required before any canonical use"
+      ],
+      "limitation_flags": [
+        "NONCANONICAL_PROPOSAL",
+        "SCREENING_SOURCE_NATIVE_ADOPTED_TABLE",
+        "WHOLE_BUILDING_SOURCE_ATOM",
+        "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+        "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+        "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+        "FRESHWATER_COASTAL_LIBRARY_GAP_UNRESOLVED",
+        "WAVE_VELOCITY_PATHWAY_DEFERRED_WITHHELD_NOT_ZERO",
+        "VALUE_PER_AREA_NOT_SELECTED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "FRE_BUILDING_CONTENTS",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "owner acceptance of scope and curve selections",
+      "selected per-area replacement cost new for each reference building",
+      "Hazard frequency-depth coupling supplying flood_water_type per event",
+      "exact model/docs/schema/SHA pin"
+    ],
+    "limitation_flags": [
+      "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+      "VALUE_PER_AREA_NOT_SELECTED"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact model/docs/schema/SHA pin",
+      "record-level valid range enforced (coastal records stop at 10 ft)",
+      "record routing by reference_building_id and flood_water_type",
+      "one building value charged once per event across pathways"
+    ],
+    "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "the reviewer accepts scope D-FRE-01 to D-FRE-06 and selections D-FRE-16 to D-FRE-24",
+      "per-area replacement cost new selected (D-FRE-23)",
+      "consumer integration resolves record-level ranges and water-type routing",
+      "independent review of the package"
+    ]
+  }
+}

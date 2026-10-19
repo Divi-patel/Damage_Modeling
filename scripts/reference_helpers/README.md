@@ -36,6 +36,14 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_tropical_cyclone_wind_solar_v2_1_release.py` | Canonical identity, schema, exact promotion-diff, supporting-byte, proposal/current dual-read, KAT and artifact-index validator for the model-v2.1 release. |
 | `validate_hail_wind_v0_1_scaffold.py` | Fail-closed source/contact/value/workbook/link validator for hail × wind model v0.1. |
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
+| `flood_real_estate_curve_eval.py` | Fail-closed reference evaluator for the noncanonical flood × real estate model-v0.1 proposal: reference-building selector, water-type routing, depth-above-grade bridge, record ranges, NACCS bounds; damage emit v2. |
+| `build_flood_real_estate_v0_1_package.py` | Deterministic builder for the flood × real estate model-v0.1 artifact, capability, known-answer tests and review workbook (needs openpyxl). |
+| `validate_flood_real_estate_v0_1_package.py` | Schema/register/ordinate/reproducibility/KAT/non-promotion/workbook/link validator for the flood × real estate model-v0.1 proposal. |
+| `build_flood_real_estate_v0_2_package.py` | Deterministic builder for the flood × real estate model-v0.2 proposal (current): one Hazus record per house, warehouse and office for all still water, retail unchanged; artifact, capability, known-answer tests and review workbook (needs openpyxl). |
+| `validate_flood_real_estate_v0_2_package.py` | Validator for the flood × real estate model-v0.2 proposal: v0.1 checks plus the profile binding, its agreement with the artifact, and same-value-for-both-water-types for one-record buildings. |
+| `flood_real_estate_form_comparison.py` | Curve-form comparison (linear, PCHIP, anchored logistic/Richards/Weibull; LOOCV and shape gates) for the noncanonical flood × real estate model-v0.1 scaffold. Needs numpy, scipy and matplotlib. |
+| `flood_real_estate_nfip_claims_check.py` | NFIP claims check for the noncanonical flood × real estate model-v0.1 proposal: fetches OpenFEMA NfipClaims v3 into gitignored `build/nfip_claims`, compares band means with the proposed curves, writes the comparison, sensitivity, by-storeys and manifest files and the chart. Needs numpy and matplotlib. |
+| `flood_real_estate_profile_binding.py` | Binds the flood × real estate model-v0.2 records to the Hazard reference profiles r1 (binding table with explicit gaps) and computes the profiles' floor-height sensitivity through the reference evaluator. Standard library only. |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
 

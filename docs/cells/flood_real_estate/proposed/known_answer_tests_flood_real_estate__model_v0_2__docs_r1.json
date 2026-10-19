@@ -1,0 +1,2830 @@
+{
+  "schema_version": "known_answer_tests.v3",
+  "cell_id": "flood_real_estate",
+  "semantic_damage_model_version": "model v0.2",
+  "documentation_revision": "docs r1",
+  "artifact_schema_version": "damage_curve_record_bundle.v3",
+  "artifact_status": "noncanonical_proposal",
+  "absolute_tolerance": 1e-12,
+  "equation": {
+    "runtime": "straight lines between published points of the selected record",
+    "bridge": "depth above floor = depth above grade - first-floor height; depth above grade <= 0 returns 0",
+    "ranges": "Hazus records -4..24 ft, retail coastal -1..10 ft above the floor; below returns 0; above withholds"
+  },
+  "formula_known_answer_tests": [
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_-4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_-3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_-2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_-1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.03
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+0FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.13
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.23
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.32
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.4
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.47
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 5.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.53
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+6FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 6.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.59
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+7FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 7.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.63
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+8FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 8.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.67
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+9FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 9.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.71
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+10FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.73
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+11FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 11.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.75
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+12FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 12.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.77
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+13FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 13.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.79
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+14FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 14.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.8
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+15FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 15.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.81
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+16FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 16.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.81
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+17FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 17.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.82
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+18FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 18.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.82
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+19FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 19.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.83
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+20FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.83
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+21FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 21.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.83
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+22FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 22.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.84
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+23FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 23.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.84
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_KNOT_+24FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.84
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_FRESH_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.015
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_FRESH_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.2525,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_FRESH_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_FRESH_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_COAST_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.015
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_COAST_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.2525,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_COAST_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_COAST_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_-4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_-3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_-2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_-1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+0FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.01
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.09
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.14
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.16
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.18
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 5.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.2
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+6FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 6.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.23
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+7FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 7.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.26
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+8FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 8.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.3
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+9FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 9.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.34
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+10FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.38
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+11FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 11.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.42
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+12FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 12.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.47
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+13FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 13.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.51
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+14FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 14.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.55
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+15FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 15.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.58
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+16FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 16.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.61
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+17FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 17.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.64
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+18FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 18.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.67
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+19FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 19.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.69
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+20FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.71
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+21FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 21.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.74
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+22FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 22.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.76
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+23FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 23.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.78
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_KNOT_+24FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.8
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.1275,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_FRESH_HAZUS_DF217",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_-1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_-0.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -0.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+0FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.05
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+0.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 0.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.1
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.2
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.3
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.35
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 5.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.4
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+7FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 7.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.53
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_KNOT_+10FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.58
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_BETWEEN_+0.25FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 0.25
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.07500000000000001
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.275,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_BOUNDS_4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_COM_COAST_NACCS_P2",
+        "failure_unit_damage_ratio": 0.375,
+        "scenario_drs": {
+          "naccs_min_building_variant": 0.30500000000000005,
+          "naccs_max_building_variant": 0.45499999999999996
+        }
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_-4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_-3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_-2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_-1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+0FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.05
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.08
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.11
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.13
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 5.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.16
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+6FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 6.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.19
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+7FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 7.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.22
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+8FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 8.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+9FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 9.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.29
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+10FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.32
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+11FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 11.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.37
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+12FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 12.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.41
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+13FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 13.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.45
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+14FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 14.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.49
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+15FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 15.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.52
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+16FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 16.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.55
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+17FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 17.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.58
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+18FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 18.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.61
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+19FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 19.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.63
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+20FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.66
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+21FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 21.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.68
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+22FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 22.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.7
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+23FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 23.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.71
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_KNOT_+24FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.73
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_FRESH_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_FRESH_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.07250000000000001,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_FRESH_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_FRESH_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_COAST_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_COAST_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.07250000000000001,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_COAST_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_COAST_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_IND_HAZUS_DF341",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_-4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_-3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_-2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_-1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+0FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.02
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+1FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.11
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+2FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.16
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+3FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 3.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.22
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+4FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 4.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.28
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 5.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.35
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+6FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 6.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.38
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+7FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 7.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.41
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+8FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 8.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.44
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+9FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 9.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.47
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+10FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.5
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+11FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 11.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.54
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+12FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 12.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.57
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+13FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 13.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.59
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+14FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 14.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.62
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+15FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 15.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.66
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+16FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 16.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.68
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+17FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 17.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.7
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+18FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 18.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.72
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+19FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 19.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.74
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+20FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.76
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+21FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 21.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.77
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+22FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 22.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.78
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+23FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 23.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.79
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_KNOT_+24FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.8
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_FRESH_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_FRESH_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.14750000000000002,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_FRESH_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_FRESH_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_COAST_BETWEEN_-1.5FT",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -1.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_COAST_BRIDGE_2FT_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.14750000000000002,
+        "metadata_flags_include": [
+          "REFERENCE_FIRST_FLOOR_HEIGHT_DEFAULT_USED"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_COAST_NOT_INUNDATED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_grade_ft": 0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "NOT_INUNDATED_ABOVE_GRADE"
+        ]
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_COAST_BELOW_RANGE_ZERO",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": -4.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_OFF_HAZUS_DF431",
+        "failure_unit_damage_ratio": 0.0,
+        "metadata_flags_include": [
+          "BELOW_SOURCE_RANGE_ZERO"
+        ]
+      }
+    },
+    {
+      "test_id": "FFH_OVERRIDE_HOUSE_FRESH",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": 3.0,
+        "first_floor_height_ft": 1.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "FRE_RES_HAZUS_DF129",
+        "failure_unit_damage_ratio": 0.32
+      }
+    }
+  ],
+  "withheld_tests": [
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_FRESH_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "FRE_RES_HAZUS_DF129_COAST_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_RES_SFD_1S_SLAB_UNKNOWN_WATER_WITHHELD",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "unknown",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "FLOOD_WATER_TYPE_UNKNOWN"
+      }
+    },
+    {
+      "test_id": "FRE_COM_FRESH_HAZUS_DF217_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "FRE_COM_COAST_NACCS_P2_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 10.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_COM_LOWRISE_UNKNOWN_WATER_WITHHELD",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "flood_water_type": "unknown",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "FLOOD_WATER_TYPE_UNKNOWN"
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_FRESH_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "FRE_IND_HAZUS_DF341_COAST_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_IND_WAREHOUSE_UNKNOWN_WATER_WITHHELD",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "flood_water_type": "unknown",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "FLOOD_WATER_TYPE_UNKNOWN"
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_FRESH_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "FRE_OFF_HAZUS_DF431_COAST_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "coastal_surge_saline",
+        "flood_depth_above_first_floor_ft": 24.0001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_COM_OFFICE_3S_SLAB_UNKNOWN_WATER_WITHHELD",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "flood_water_type": "unknown",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "FLOOD_WATER_TYPE_UNKNOWN"
+      }
+    },
+    {
+      "test_id": "CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    }
+  ],
+  "error_tests": [
+    {
+      "test_id": "PATHWAY_REQUIRED",
+      "input": {
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "PATHWAY_ID_REQUIRED"
+    },
+    {
+      "test_id": "WAVE_PATHWAY_NOT_IN_ARTIFACT",
+      "input": {
+        "pathway_id": "flood_wave_velocity",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "PATHWAY_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_REQUIRED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_REQUIRED"
+    },
+    {
+      "test_id": "BUILDING_UNKNOWN",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_HOSPITAL",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_PROFILE_ID_NOT_A_SELECTOR",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "re_office_3s_slab",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "WATER_TYPE_REQUIRED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "FLOOD_WATER_TYPE_REQUIRED"
+    },
+    {
+      "test_id": "WATER_TYPE_BAD_VALUE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "saltwater",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "FLOOD_WATER_TYPE_UNKNOWN_VALUE"
+    },
+    {
+      "test_id": "AXIS_REQUIRED",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial"
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "AXIS_AMBIGUOUS",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0,
+        "flood_depth_above_grade_ft": 2.0
+      },
+      "expected_error_code": "AXIS_PAYLOAD_AMBIGUOUS"
+    },
+    {
+      "test_id": "AXIS_NOT_NUMBER",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": "2"
+      },
+      "expected_error_code": "AXIS_VALUE_INVALID"
+    },
+    {
+      "test_id": "NEGATIVE_DEPTH_ABOVE_GRADE",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_grade_ft": -0.5
+      },
+      "expected_error_code": "NEGATIVE_DEPTH_ABOVE_GRADE"
+    },
+    {
+      "test_id": "UNIT_UNKNOWN",
+      "input": {
+        "pathway_id": "flood_inundation_contact",
+        "failure_unit_id": "FRE_ROOF",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "flood_water_type": "freshwater_riverine_or_pluvial",
+        "flood_depth_above_first_floor_ft": 2.0
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_UNKNOWN"
+    }
+  ],
+  "contract_assertions": [
+    {
+      "assertion_id": "FRE_LIBRARIES_NEVER_BLENDED",
+      "expected": "the retail freshwater and coastal records are never averaged or substituted"
+    },
+    {
+      "assertion_id": "FRE_SAME_RECORD_BOTH_WATERS",
+      "expected": "house, warehouse and office return the same record and value for freshwater and coastal surge at the same depth"
+    },
+    {
+      "assertion_id": "FRE_BOUNDS_NOT_PROBABILITY",
+      "expected": "NACCS Min/Max bounds are building-variant bounds, not a spread for PML/VaR"
+    },
+    {
+      "assertion_id": "FRE_NO_DOLLARS",
+      "expected": "no scenario dollars until the consumer qualifies the building value"
+    },
+    {
+      "assertion_id": "FRE_WAVES_WITHHELD_NOT_ZERO",
+      "expected": "wave and velocity damage is withheld, never reported as zero"
+    }
+  ]
+}
