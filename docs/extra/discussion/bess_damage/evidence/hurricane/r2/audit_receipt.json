@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "research candidate arithmetic and admission controls only",
+  "candidate_rows": 486,
+  "source_dr_parity_checks": 243,
+  "axis_controls": 10,
+  "monotone_policy_scenario_curves": 6,
+  "max_source_dr_delta": 2.220446049250313e-16,
+  "owner_ruling": {
+    "date": "2026-10-19",
+    "words": "Test full replacement; retain repair as a sensitivity (Recommended)",
+    "scope": "local testing only"
+  },
+  "runtime_or_index_changed": false,
+  "annual_metrics_qualified": false,
+  "input_hashes": {
+    "docs/extra/discussion/bess_damage/evidence/hurricane/r2/experiment_spec.json": "9b99b84797f21cdc1dcddd959c36f5bbe12cb2638f90e21d589d8f686370812f",
+    "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+    "docs/extra/discussion/bess_damage/evidence/r3/value_allocations.csv": "f54ba3b3f13b00da8f5ea440aa13b7319f785f66511ae84698dfe7abf54cdf37",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/reference_budget.csv": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d",
+    "docs/extra/discussion/bess_damage/evidence/hurricane/r2/compare_candidates.py": "2e40ea78f99a206565e58d2bc9f0d928f2cf29bfaab7a74f344fe2025de4d580",
+    "scripts/reference_helpers/tropical_cyclone_wind_solar_v2_1_curve_eval.py": "918d500e488f82e16a392dbbdb74d2282cb82e4588825dd5361abb9786f4fdb6",
+    "scripts/reference_helpers/tropical_cyclone_wind_solar_v2_curve_eval.py": "0bd592031feb9efaecf63f37341c6ce170be01dc28eaa88f3d2fcce98540cc07",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/asset_model.json": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8"
+  }
+}

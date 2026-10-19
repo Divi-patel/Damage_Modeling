@@ -1,0 +1,17 @@
+{
+  "cell_id": "wildfire_bess",
+  "model": "model v0.1",
+  "docs": "docs r1",
+  "canonical_runtime_artifact": false,
+  "sha256": {
+    "curve_artifact.json": "894cd7453127f430b712f91a441fdad1bfa36afcef72224d2999bfc686008e5f",
+    "capability.json": "043bb1df26a877747d61fcdae0703be4025dceb6b430cbee8848220b08be8eee",
+    "value_binding.json": "8fdcdfb357198e01928c2b399ca1cd13061463bfc324853d28332ca4d0488ede",
+    "value_crosswalk.csv": "2e113876a8f4538e55bd6869199d762aaf5ab6bcdddd45c1432933f0ed410c60",
+    "source_register.csv": "094b315022dcb236c52aac71d0b90626b910802eb6ead647f643deeb9fc3ebe9",
+    "claim_parameter_register.csv": "883a36d8480a637b0335e617b52766a0d34a5abd02406052235a040f7707a539",
+    "parameter_register.csv": "b86afcb13fd80e50094b9e2f95323703fedaac5c0aaae248d7e88b7f446dcb2e",
+    "known_answers.json": "6d1bddb932b769a8b63262b5884a8f7ff22728c3a942ebcb230696264ccf2403",
+    "evaluate_local.py": "22daa9d8f72b8ef8bce01d4d78da4bcf6f2a0d56d7534343dc7fb19b061c3da3"
+  }
+}

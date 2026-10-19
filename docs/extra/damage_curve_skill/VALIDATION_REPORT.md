@@ -1,5 +1,29 @@
 # Validation report — damage_curve_skill revision 0.6
 
+## 2026-10-18 — BESS test-evidence interpretation update
+
+This local `SKILL_REVISION` adds post-test treatment, intervention censoring and
+repair-endpoint checks to the existing evidence guide. It changes no numerical
+cell, runtime schema, indexed artifact or consumer pin.
+
+Executed against the working tree, including pre-existing local skill authoring:
+
+- Bundle validator: PASS, 106 files. Governance self-tests: PASS, 8 cases.
+- Installed skill-creator quick validation: valid skill.
+- BESS candidate audit: 52 known-answer checks; independent temporary-directory
+  rerun byte-identical across three CSVs, JSON receipt and PNG figure.
+- Deliberately modified temporary reference: rejected before writing outputs.
+- Eight original PDF hashes verified; source/claim/parameter IDs and rectangular
+  CSVs checked. Existing source curve, evaluator, runtime index and Pluvial code
+  retain their prior audit hashes.
+
+Scientific limit: these checks validate audit behavior and documentation
+integrity, not the unqualified BESS repair hypotheses. Neither a battery curve
+nor the PCS target binding has been admitted. See the BESS candidate review in
+`docs/extra/discussion/bess_damage/03_flood_candidate_pressure_test.md`.
+
+
+
 **Date:** 2026-07-11
 
 **Status:** PASS

@@ -1,0 +1,94 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "tropical_cyclone_wind_bess",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "conditional",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "Exact artifact/value/capability pins",
+        "Explicit local-test opt-in",
+        "Explicit response hypothesis and unweighted resistance scenario",
+        "Declared comparable normalized-demand basis and valid source domain",
+        "Unique physical unit and same-unit value"
+      ],
+      "limitation_flags": [
+        "LOCAL_TEST_ONLY_NOT_CANONICAL",
+        "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+        "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+        "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+        "BESS_WIND_REFERENCE_NOT_YET_QUALIFIED",
+        "PARTIAL_PROPERTY_SCOPE",
+        "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+        "UNKNOWN_TC_DURATION_CLASS",
+        "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+          "reason_codes": [
+            "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_CIVIL",
+          "reason_codes": [
+            "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_FIELDWORK",
+          "reason_codes": [
+            "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "Separate local Hazard source/reference bridge and coupling proof",
+      "Separate annual loss, physical cap and fixed-mass tail qualification",
+      "Governed canonical promotion before production use"
+    ],
+    "limitation_flags": [
+      "LOCAL_TEST_ONLY_NOT_CANONICAL",
+      "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+      "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+      "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+      "BESS_WIND_REFERENCE_NOT_YET_QUALIFIED",
+      "PARTIAL_PROPERTY_SCOPE",
+      "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+      "UNKNOWN_TC_DURATION_CLASS",
+      "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "One integrated value per unique enclosure; do not add its internals again",
+      "One separate PCS value per unit",
+      "No renormalization of94.4M candidate hardware to109.8M full TIV",
+      "No within-year replacement assumptions inferred from occurrence response"
+    ],
+    "action_if_fail": "withhold affected response"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "Hazard local target/reference bridge qualification",
+      "Scientific and capability review beyond local-test approval",
+      "Separate annual qualification before EAL/PML/VaR/TVaR"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "full_tiv_usd": 109800000,
+  "candidate_hardware_usd": 94400000,
+  "unbound_property_usd": 15400000,
+  "currency_basis": "fixed_2024_USD",
+  "units": {
+    "BESS_INTEGRATED_ENCLOSURE": {
+      "count": 80,
+      "value_usd_each": 1050000
+    },
+    "BESS_SEPARATE_PCS": {
+      "count": 20,
+      "value_usd_each": 520000
+    }
+  },
+  "profile_sha256": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8",
+  "allocation_source_sha256": "f54ba3b3f13b00da8f5ea440aa13b7319f785f66511ae84698dfe7abf54cdf37",
+  "complete_plant_loss_supported": false
+}

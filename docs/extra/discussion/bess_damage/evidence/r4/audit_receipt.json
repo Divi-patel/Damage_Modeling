@@ -1,0 +1,37 @@
+{
+  "classification": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "runtime_admitted": false,
+  "checks_passed": 70,
+  "source_cases": 43800,
+  "prior_available": 34275,
+  "research_available_after_saturation": 35151,
+  "known_deep_cases_recovered": 876,
+  "recovered_by_unit_kind": {
+    "battery_enclosures": 701,
+    "pcs": 175
+  },
+  "missing_hazard_cases_unchanged": 8649,
+  "diagnostic_scenarios_with_100_candidate_units_before": 305,
+  "diagnostic_scenarios_with_100_candidate_units_after": 330,
+  "maximum_observed_depth_m": 11.583185998535157,
+  "candidate_scope_value_usd": 82510403.39702758,
+  "unmodeled_property_value_usd": 27289596.602972418,
+  "reference_tiv_usd": 109800000,
+  "saline_policy_status": "UNADMITTED_RESEARCH_HYPOTHESIS_REQUIRES_SEPARATE_REPAIR_POLICY_REVIEW",
+  "inputs_sha256": {
+    "/Users/divy/code/work/infrasure_git_codes/Hazard_modeling/data/bess/flood_local/20261018_riverine_r2/riverine_unit_cases.parquet": "6c568957416b0fb522609480581436a9f62bba6e7a293e1eb20b6f1a03363e66",
+    "/Users/divy/code/work/infrasure_git_codes/Hazard_modeling/docs/plans/_cross_cutting/bess_conus/verification/riverine_local_proof.json": "1b5e08c019994549090ba8d87af7717bed176ce4d2841626e8df86f382213749",
+    "/Users/divy/code/work/infrasure_git_codes/damage_modeling/docs/cells/flood_bess/proposed/local_candidate_v0_1/consumption_pin.json": "68b3b60684638dc9c03f115f93d235921ff8af4b710a01a52330c05dfa11c953"
+  },
+  "candidate_sha256": {
+    "curve_artifact.json": "bde6c58907a00c592c58933ca4fc6ce7921afa561117f3ed58b0118278b8ae7b",
+    "value_binding.json": "8032a6aa66b3a259d9cc7cfd24483e87fd3e80ac044ac2e40437108a62d78400",
+    "capability.json": "58520b3d6a4ef850cb1b069a725b3f17f65c3613ea74a525fac42d25283726bc"
+  },
+  "script_sha256": "f9aa9a5dbff660638e812115d2faf0cff5693a880bd837d31b66a095dbc89f99",
+  "outputs_sha256": {
+    "policy_examples.csv": "57605dda445594e3072944677a1b0891b7a32e47d20dd0f03f23bb7d1607abf9",
+    "riverine_domain_impact.csv": "25cae4c99d63bede81560a68e028c4106b2a6d0b39d33c60d4a2317f55dae916",
+    "known_answer_checks.csv": "7d09481caa3b62ebe78605f364402418feceb9257623c0daf896540b02f48d48"
+  }
+}

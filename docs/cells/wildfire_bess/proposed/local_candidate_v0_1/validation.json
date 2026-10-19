@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "classification": "NEW_CELL_SCAFFOLD",
+  "scope": "owner-selected local conditional testing; no canonical or annual admission",
+  "schemas": "existing bundle_v3/capability_v3 unchanged",
+  "exact_conditional_comparisons": 84,
+  "negative_response_controls": 19,
+  "opt_in_controls": 1,
+  "tampered_payload_controls": 3,
+  "known_answer_cases": 84,
+  "value_rows_reconciled": 10,
+  "source_records": 12,
+  "claim_records": 14,
+  "curve_records": 7,
+  "artifact_sha256": "894cd7453127f430b712f91a441fdad1bfa36afcef72224d2999bfc686008e5f",
+  "canonical_runtime_artifact": false,
+  "runtime_index_changed": false,
+  "annual_metrics_qualified": false,
+  "curve_intrinsic_spread_carried": false
+}

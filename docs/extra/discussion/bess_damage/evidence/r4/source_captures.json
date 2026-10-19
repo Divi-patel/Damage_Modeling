@@ -1,0 +1,51 @@
+{
+  "retrieved_at": "2026-10-18",
+  "classification": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "sources": [
+    {
+      "source_id": "BF-S16",
+      "url": "https://ckm-content.se.com/ckmContent/sfc/servlet.shepherd/document/download/0691H00000EDoYrQAL",
+      "access": "Full three-page PDF text read using web reader; local requests download failed HTTP503; no local PDF hash",
+      "locator": "pp1-3; issue08/2011; FAQ FA123082 last modified2026-02-04",
+      "local_sha256": null
+    },
+    {
+      "source_id": "BF-S17",
+      "url": "https://www.eia.gov/analysis/studies/powerplants/capitalcost/pdf/capital_cost_AEO2025.pdf",
+      "access": "PDF downloaded and text read; printedp116/PDFp158 rendered and visually checked",
+      "path": "data/bess/raw_flood_review_r4/eia_capital_cost_2024.pdf",
+      "sha256": "ad9127130fece93d3c2d9e203fc0176fcfc5e4d4dccc61d6576107f2d2df96ec",
+      "bytes": 6157576,
+      "locator": "Case19 pp113-116; Table19-1; reportJanuary2024; underlyingS&LDecember2023; prices2023USD"
+    },
+    {
+      "source_id": "BF-S18",
+      "url": "https://www.makeitelectric.org/newsroom/news/nema-issues-guidance-on-evaluating-damaged-electrical-equipment-after-natural-disasters-and-extreme-weather-events/",
+      "access": "Official announcement read using web reader; local HTTP403; linked store page failed in web reader twice; full CS70006-2026 body NOT read",
+      "locator": "May28 2026 list of revised publications",
+      "local_sha256": null
+    },
+    {
+      "source_id": "BF-S19",
+      "access": "Read-only local source inspection; no execution",
+      "files": [
+        {
+          "path": "/Users/divy/code/personal/Digital Twin/public/engine/cost-basis.js",
+          "sha256": "ee791f8306e2aacd2810bf1397fd2af06f21f267e5a39ef0a56a9c525987efbd"
+        },
+        {
+          "path": "/Users/divy/code/personal/Digital Twin/public/engine/bess-data.js",
+          "sha256": "ade70e024aae14cafa09beb2dc41482feb2f2c644a740d75a09e9d768c2e8ea9"
+        }
+      ],
+      "locator": "BESS estimated cost rows and bp_mvt/bk_ems equipment cards"
+    }
+  ],
+  "no_full_source_text_redistributed": true,
+  "not_adopted": [
+    {
+      "url": "https://www.eaton.com/content/dam/eaton/services/eess/eess-documents/handling-water-damaged-electrical-equipment-ct-124256.pdf",
+      "reason": "NEMA guide copy; not independent Eaton empirical data; no new numeric adoption"
+    }
+  ]
+}

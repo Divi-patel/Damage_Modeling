@@ -1,0 +1,11 @@
+event_mps,reference_mps,comparable_wind_basis,pressure_ratio,state
+0,60,True,0.0,valid_research_demand
+50,60,True,0.6944444444444445,valid_research_demand
+60,60,True,1.0,valid_research_demand
+85,60,True,,unavailable_no_clamp
+-1,60,True,,unavailable_no_clamp
+60,0,True,,unavailable_no_clamp
+nan,60,True,,unavailable_no_clamp
+60,inf,True,,unavailable_no_clamp
+60,60,False,,unavailable_no_clamp
+True,60,True,,unavailable_no_clamp

@@ -1,0 +1,72 @@
+{
+  "status": "passed_conditional_local_annual",
+  "result_directory": "data/bess/wildfire/annual/20261019_annual_v1",
+  "manifest_sha256": "bcb907298b0568bdd31cc0b57f6b3fb79d1c961565b9c9f273fa177b24406cea",
+  "configurations": 72,
+  "years_per_configuration": 100000,
+  "elapsed_seconds": 3.6388435419648886,
+  "damage_commit": "0ca9fae1ac98c17a43d29504776dfa4f411e71fc",
+  "damage_artifact_sha256": "e2d5e817c6c5334ff6176a02f2e1edbf563195254239dd9eb9be530c85cdd491",
+  "predecessor_qualification_directory": "data/bess/wildfire/annual/20261019_qualification_v0_1_r2",
+  "canonical_admission_parity": {
+    "npz_packages": 84,
+    "arrays_compared": 588,
+    "every_array_bit_identical": true,
+    "all_84_npz_package_bytes_identical": true
+  },
+  "full_tiv_usd": 109800000,
+  "modeled_hardware_usd": 94400000,
+  "unbound_property_usd": 15400000,
+  "annual_metric_emit_authorized": true,
+  "national_execution": false,
+  "publication": false,
+  "qualification_receipt": "docs/plans/_cross_cutting/bess_conus/verification/wildfire_annual_qualification.json",
+  "regression_checks": {
+    "total": 230,
+    "passed": 229,
+    "failed": 1,
+    "new_annual_tests_passed": 28,
+    "all_current_bess_tests_passed": 64,
+    "junit_path": "data/bess/wildfire/annual_qa/pytest.xml",
+    "junit_sha256": "022361bc98adfc6bcd055c72caf4090e54a40d341d08955cd9fad0ac6c5dd518",
+    "failure": "nine pre-existing Convective Wind private imports in five unchanged files; no new Wildfire violation",
+    "unchanged_inherited_files": {
+      "drivers/conus_grid/src/conus_grid/convective_wind/product.py": "f6f094c7b68f4e31767d822a0d05362b0fb30ee4746c92269dac07a0e986db86",
+      "drivers/conus_grid/src/conus_grid/convective_wind/substation.py": "bd4f9c5aba58ead5b63e0fea172dd0294564957e4275c04b611f3f6ed095dde7",
+      "drivers/conus_grid/src/conus_grid/convective_wind/substation_publishing.py": "308207625ada44c3a69633d87d17ab3cd6dd4cc2e019e2e588d4d1f6ee8ff3cd",
+      "drivers/conus_grid/src/conus_grid/convective_wind/substation_review.py": "e45dda27f4b201985120742f7c6967f84f2b53e47f87315b713a7a0298635338",
+      "drivers/conus_grid/src/conus_grid/substation_total.py": "c95027a0810ad6f3a0a298d4db24205e3017d2f7c3a1e66bbbcffe6d71c45646"
+    }
+  },
+  "inspection_notebook": {
+    "path": "Notebooks/wildfire/bess/experiments/02_annual_loss_qualification.ipynb",
+    "sha256": "8a22a2cffc0b352b601a621092b6461df83863bcf8ac4d9d9e8274c9f6942482",
+    "kernel": "hazard_modeling",
+    "code_cells": 4,
+    "execution_counts": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "errors": 0,
+    "figures": {
+      "Notebooks/wildfire/bess/experiments/outputs/02_annual_aep_controls.png": "c8949808c0695ae1a24ebd0a2e8266bbfe7e1565c2a2adad431d8bea4ec8dc7c",
+      "Notebooks/wildfire/bess/experiments/outputs/03_annual_cost_shape_sensitivities.png": "04b3fb349451e1cd994f10bc547ca1b2d82c3cf803b914a408035947a391b609"
+    },
+    "visual_inspection": "Both actual rendered figures inspected; values/axes/denominator/scope match saved table. Moved first legend outside plotting area to prevent overlap."
+  },
+  "installed_wheel_receipt": "docs/plans/_cross_cutting/bess_conus/verification/wildfire_annual_wheels.json",
+  "current_consumer_dependency_sha256": {
+    "perils/wildfire/src/wildfire/bess.py": "32382e717f51393ba40b2885c4f6a37b0dff38f19e05674bc380a7c592f92e4b",
+    "perils/wildfire/src/wildfire/bess_annual.py": "57a443090867c0f7180bb2935506f9ec17b67f1d1c76be5226d69746d1e555cb",
+    "perils/wildfire/src/wildfire/fsim_m0.py": "5d0bf73d77e748df8db2749fc7518ecbc163fda963ec12140a303e22863b94e5",
+    "shared/src/risk_engine/engine/monte_carlo.py": "c43d9f9b6ccb34cb8d28e5f2452f2b77f0afbc3c23e6f8256212d6e48082ec66",
+    "shared/src/risk_engine/engine/metrics.py": "58ff817f3ac50053d9a44ca359dff9f80050a72a761ea4dbfd5323160e3ee3de",
+    "shared/src/risk_engine/engine/discrete_poisson.py": "0bb33c773cfd524d81a73902a2243317f7931eb8675bb75b9c322feb7dd4e8d4",
+    "shared/src/risk_engine/engine/sampling_checks.py": "4b68a17215d286db6147f469c1146a7a621e2486bac939dbd9d9e75d857c542f",
+    "drivers/conus_grid/src/conus_grid/wildfire/bess_annual.py": "25679b94bf3a53e99e13bf39d062d041b3071ce1b580cec6cd646801f60fc6dc"
+  },
+  "saved_run_producers_match_current_bytes": true,
+  "documentation_only_revision": "Conditional module header clarified after testing; no executed statement or numerical payload changed. Rebuilt Wildfire wheel and repeated actual wheel readback."
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "scope": "first evidence review integrity; not BESS physical validation",
+  "csv_rows": {
+    "claims.csv": 9,
+    "source_curve_audit.csv": 95,
+    "reuse_matrix.csv": 8,
+    "value_crosswalk.csv": 10,
+    "sources.csv": 8
+  },
+  "markdown_metadata_links_fences": "passed",
+  "source_references": "passed",
+  "input_hashes": "passed",
+  "runtime_admitted": false
+}

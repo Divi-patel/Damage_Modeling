@@ -1,0 +1,106 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "tropical_cyclone_wind_bess",
+  "canonical_runtime_artifact": true,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "conditional",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "Exact artifact/value/capability pins",
+        "Explicit response hypothesis and unweighted resistance scenario",
+        "Declared comparable normalized-demand basis and valid source domain",
+        "Unique physical unit and same-unit value",
+        "Qualified reference/coupling and annual-cap prerequisites when used downstream"
+      ],
+      "limitation_flags": [
+        "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+        "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+        "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+        "PARTIAL_PROPERTY_SCOPE",
+        "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+        "UNKNOWN_TC_DURATION_CLASS",
+        "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS",
+        "COMMON_RATE_RANK_SCREENING_DEPENDENCE",
+        "SOURCE_UNKNOWN_MASS_RETAINED",
+        "NO_INTRINSIC_DAMAGE_SPREAD",
+        "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+        "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+          "reason_codes": [
+            "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_CIVIL",
+          "reason_codes": [
+            "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_FIELDWORK",
+          "reason_codes": [
+            "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+    "prerequisites": [
+      "Exact model v1.0/docs r1 artifact/value/capability and profile pins",
+      "Explicit replacement or repair hypothesis and unweighted resistance scenario",
+      "Comparable pressure demand/reference and valid 0-to-2 response domain",
+      "Declared frequency and common-event spatial coupling; marginal rates are not joint events",
+      "Unique physical units; cap cumulative annual cost separately at each unit value; no within-year restoration",
+      "Retain original source/rank weights and unknown intervals, clocks, source floor and unbound property",
+      "Validated annual AEP/OEP distribution and independent fixed-mass tail/mean checks",
+      "Annual projection uses conditional mean severity; no intrinsic Damage uncertainty inferred",
+      "Local qualification is not national support, publication, complete property or recipient admission"
+    ],
+    "limitation_flags": [
+      "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+      "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+      "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+      "PARTIAL_PROPERTY_SCOPE",
+      "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+      "UNKNOWN_TC_DURATION_CLASS",
+      "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS",
+      "COMMON_RATE_RANK_SCREENING_DEPENDENCE",
+      "SOURCE_UNKNOWN_MASS_RETAINED",
+      "NO_INTRINSIC_DAMAGE_SPREAD",
+      "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+      "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "One integrated value per unique enclosure; do not add its internals again",
+      "One separate PCS value per unit",
+      "No renormalization of94.4M candidate hardware to109.8M full TIV",
+      "No within-year replacement assumptions inferred from occurrence response",
+      "Per-physical-unit annual cap before plant sum",
+      "AEP/OEP from same storms and fixed plant; no assembly cap borrowing undamaged stock"
+    ],
+    "action_if_fail": "withhold affected response"
+  },
+  "promotion_gate": {
+    "status": "passed",
+    "required_before_canonical_use": [
+      "Consumer must satisfy all conditional-use prerequisites for its exact run; no automatic national/recipient admission"
+    ]
+  }
+}

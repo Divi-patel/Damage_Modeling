@@ -1,0 +1,43 @@
+{
+  "schema_version": "capability_declaration.v2",
+  "cell_id": "flood_bess",
+  "vulnerability_emit": {
+    "failure_unit_scalar_dr": "withheld",
+    "scenario_loss_given_value_basis": "withheld",
+    "curve_intrinsic_spread": "not_carried",
+    "populated_emit_modes": [],
+    "withheld_reason_codes": [
+      "NONCANONICAL_LOCAL_CANDIDATE_ONLY"
+    ]
+  },
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "frequency_driven_annual_loss_distribution": "withheld_no_runtime_curve",
+    "vulnerability_uncertainty_distribution": "not_supported_curve_intrinsic_spread_not_carried",
+    "eal": "withheld",
+    "pml": "withheld",
+    "var": "withheld",
+    "tvar": "withheld",
+    "prerequisites": [
+      "Reviewed cell promotion",
+      "Qualified hazard coupling and annual/cap/coverage tests"
+    ],
+    "limitation_flags": [
+      "CONSERVATIVE_POLICY_NOT_CALIBRATED_MEAN",
+      "PARTIAL_PROPERTY_SCOPE",
+      "NO_ANNUAL_ADMISSION"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "status": "not_evaluated_by_damage_artifact",
+    "checks_required": [
+      "One value per unique physical unit",
+      "No overlapping enclosure and cell costs",
+      "Missing risk not zero",
+      "No annual use"
+    ],
+    "action_if_fail": "withhold affected output"
+  }
+}

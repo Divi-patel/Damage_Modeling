@@ -1,0 +1,57 @@
+{
+  "schema_version": "capability_declaration.v2",
+  "cell_id": "flood_bess",
+  "vulnerability_emit": {
+    "failure_unit_scalar_dr": "supported",
+    "scenario_loss_given_value_basis": "supported_with_explicit_value_and_exposure_basis",
+    "curve_intrinsic_spread": "not_carried",
+    "populated_emit_modes": [
+      "discrete_state_table",
+      "scalar_mean"
+    ],
+    "withheld_reason_codes": []
+  },
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "frequency_driven_annual_loss_distribution": "supported_if_consumer_samples_frequency_intensity_coupling_and_applies_caps",
+    "vulnerability_uncertainty_distribution": "not_supported_curve_intrinsic_spread_not_carried",
+    "eal": "consumer_computable_with_prerequisites",
+    "pml": "consumer_computable_from_validated_annual_loss_distribution",
+    "var": "consumer_computable_from_validated_annual_loss_distribution",
+    "tvar": "consumer_computable_from_validated_annual_loss_distribution",
+    "prerequisites": [
+      "Exact v1.0 artifact/value/profile pins and unique physical units",
+      "Existing inland common-rank annual-maximum or Coastal observed-rate/direct-event clock; no invented category probabilities",
+      "Depth interpolation before response; selected unit entry applied once; actual Pluvial local capacity",
+      "Common event across all units; fixed plant location within year",
+      "Per-unit annual replacement cap; no within-year restoration; total covered cap equals disjoint value sum",
+      "Original source/response missing mass retained; complete property metrics remain withheld",
+      "Validated annual distribution and fixed-mass tail calculations; location mixtures before parent quantiles",
+      "Local proof is not national resolution/coverage qualification or automatic recipient delivery"
+    ],
+    "limitation_flags": [
+      "CONSERVATIVE_POLICY_NOT_CALIBRATED_MEAN",
+      "PARTIAL_PROPERTY_SCOPE",
+      "NO_INTRINSIC_DAMAGE_SPREAD",
+      "NO_WITHIN_YEAR_RESTORATION",
+      "CANONICAL_REFERENCE_NOT_OBSERVED_ASSET",
+      "COASTAL_CATEGORY_ENVELOPE_NOT_EVENT_HYDRAULICS",
+      "COMMON_RANK_INLAND_SCREENING",
+      "SOURCE_MISSINGNESS_RETAINED",
+      "NO_AUTOMATIC_PORTFOLIO_OR_TOTAL_ADMISSION"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "status": "not_evaluated_by_damage_artifact",
+    "checks_required": [
+      "One value per unique physical unit",
+      "No overlapping enclosure and cell costs",
+      "Missing risk not zero; tagged modeled contribution only",
+      "Per-unit annual cap and disjoint whole-covered-value cap",
+      "No complete-plant metric from partial property scope"
+    ],
+    "action_if_fail": "withhold affected output"
+  }
+}

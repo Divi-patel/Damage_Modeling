@@ -4,6 +4,7 @@ These files are reference implementations for downstream notebooks/services. The
 
 | File | Purpose |
 |---|---|
+| `audit_bess_flood_evidence.py` | Research-only reproduction of five existing Flood electrical curves and the BESS reference budget; writes input hashes and audit evidence, never BESS runtime losses. |
 | `damage_curve_eval.py` | Evaluate the current JSON artifact curve forms: logistic, piecewise-linear, wind/tornado logistic ratio, and strong-wind solar thresholded demand logistic. |
 | `height_bridge.py` | Convert source-native wind speeds, especially 10m gusts, to hub-height gusts before wind-turbine M3 damage evaluation. |
 | `cap_binding_preflight.py` | Known-answer check for whether scalar EAL may pass a cap-binding gate or must emit spread/state samples. |

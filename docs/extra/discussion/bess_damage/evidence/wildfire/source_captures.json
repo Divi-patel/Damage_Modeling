@@ -1,0 +1,112 @@
+{
+  "review_date": "2026-10-19",
+  "retrievals": [
+    {
+      "name": "sungrow_safety.pdf",
+      "url": "https://info-support.sungrowpower.com/market-material/eeb93c64-dfba-4f4c-a481-b6853ec90cea.pdf",
+      "status": "retrieved_in_memory",
+      "bytes": 24563614,
+      "sha256": "3ffaf94c79454359b21536776cd173d60c7f45f66413b79240ab21cd4276be08",
+      "pages": 40,
+      "text_path": "data/bess/raw_wildfire_review_r1/sungrow_safety.txt",
+      "raw_retained": false,
+      "hit_pages": [
+        16,
+        25,
+        35
+      ],
+      "rendered_pdf_pages": [
+        25
+      ]
+    },
+    {
+      "name": "nema_fire_2016.pdf",
+      "url": "https://ep-ca.mersen.com/sites/mersen_ca/files/2018-12/FS-NEMA-Evaluating-Fire-and-Heat-Damaged-Electrical-Equipment-Guide.pdf",
+      "status": "failed",
+      "error": "403 Client Error: Forbidden to scrapping tools for url: https://www.mersen.com/sites/mersen_ca/files/2018-12/FS-NEMA-Evaluating-Fire-and-Heat-Damaged-Electrical-Equipment-Guide.pdf"
+    },
+    {
+      "name": "usfs_framework.pdf",
+      "url": "https://www.fs.usda.gov/rm/pubs/rmrs_gtr315.pdf",
+      "status": "retrieved_in_memory",
+      "bytes": 7768070,
+      "sha256": "6fb4b27232ee53dd5210bd2963e91f57770b89cc0f9b7ae4af84d0626de54194",
+      "pages": 92,
+      "text_path": "data/bess/raw_wildfire_review_r1/usfs_framework.txt",
+      "raw_retained": false,
+      "hit_pages": [
+        31,
+        32,
+        64
+      ],
+      "rendered_pdf_pages": [
+        31
+      ]
+    },
+    {
+      "name": "ul_fire_testing.html",
+      "url": "https://www.ul.com/news/ul-solutions-launches-large-scale-fire-testing-battery-energy-storage-systems",
+      "final_url": "https://www.ul.com/news/ul-solutions-launches-large-scale-fire-testing-battery-energy-storage-systems",
+      "path": "data/bess/raw_wildfire_review_r1/ul_fire_testing.html",
+      "bytes": 240853,
+      "sha256": "54a30b90fe8b0f6963a12695a648bb5cc430f229a48852e5a72ac14f7f1755a2",
+      "status": "cached"
+    },
+    {
+      "name": "doe_wildfire.html",
+      "url": "https://www.energy.gov/cmei/femp/solar-photovoltaic-hardening-resilience-wildfire",
+      "final_url": "https://www.energy.gov/cmei/femp/solar-photovoltaic-hardening-resilience-wildfire",
+      "path": "data/bess/raw_wildfire_review_r1/doe_wildfire.html",
+      "bytes": 171310,
+      "sha256": "3844d7cf1894f65348d8bbe714fe6bc9bebce2c51b05be2d0e8b8fca7e1d8b00",
+      "status": "cached"
+    },
+    {
+      "name": "cfa_vbb.html",
+      "url": "https://news.cfa.vic.gov.au/news/firefighters-bring-large-battery-fire-near-geelong-under-control",
+      "final_url": "https://news.cfa.vic.gov.au/news/firefighters-bring-large-battery-fire-near-geelong-under-control",
+      "path": "data/bess/raw_wildfire_review_r1/cfa_vbb.html",
+      "bytes": 104257,
+      "sha256": "524fc527378ea3d9c4f8f3faaeb923ee6914232be8b4cdc62e88ac83ad7d9c4a",
+      "status": "cached"
+    },
+    {
+      "name": "nema_current.html",
+      "url": "https://www.makeitelectric.org/standards/evaluating-fire-and-heat-damaged-electrical-equipment/",
+      "status": "failed",
+      "error": "403 Client Error: Forbidden for url: https://www.makeitelectric.org/standards/evaluating-fire-and-heat-damaged-electrical-equipment/"
+    }
+  ],
+  "existing_tesla_source": {
+    "path": "data/bess/raw_flood_review_r1/tesla_erg.pdf",
+    "sha256": "26d87a70bc42411445b2a3b7dd1ba2c43cd9368141b010cd8962c88bcad10849",
+    "revision_in_reviewed_bytes": "2.8",
+    "pages_reviewed": [
+      15,
+      19,
+      22,
+      23
+    ]
+  },
+  "visually_inspected_pdf_pages": {
+    "BWF-S02": [
+      31
+    ],
+    "BWF-S04": [
+      15
+    ],
+    "BWF-S05": [
+      25
+    ]
+  },
+  "source_texts_redistributed": false,
+  "disk_recovery": {
+    "cause": "ENOSPC with approximately120MiB reported free",
+    "action": "removed only byte-identical temporary BESS duplicates after SHA comparison; original sources/results retained",
+    "freed_bytes": 17617438,
+    "large_pdfs": "retrieved and parsed in memory; full source PDF bytes not retained locally",
+    "future_large_local_run": "space required; no unrelated cleanup authorized or attempted",
+    "additional_cache_recovery_receipt": "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/verification/wildfire_disk_recovery.json",
+    "additional_freed_bytes": 388567040
+  }
+}

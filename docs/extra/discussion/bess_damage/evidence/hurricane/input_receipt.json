@@ -1,0 +1,62 @@
+{
+  "classification": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "review_date": "2026-10-19",
+  "damage_head": "b3636b41483acb27dca4dffae3d5132fbe39fb1c",
+  "input_hashes": {
+    "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+    "docs/contracts/machine_readable_artifact_index.json": "c6256319a357afe163ff8ee95728eb90d6ae5d178de6cda33243a88217efd489",
+    "docs/extra/discussion/bess_damage/evidence/hurricane/audit_reuse.py": "d0d6da2171a3e5880c5f0479e2f80a98f94c449131a9f5a56e6756f4db5d274a",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/asset_model.json": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/layout.csv": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/reference_budget.csv": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d",
+    "scripts/reference_helpers/tropical_cyclone_wind_solar_v2_1_curve_eval.py": "918d500e488f82e16a392dbbdb74d2282cb82e4588825dd5361abb9786f4fdb6",
+    "scripts/reference_helpers/tropical_cyclone_wind_solar_v2_curve_eval.py": "0bd592031feb9efaecf63f37341c6ce170be01dc28eaa88f3d2fcce98540cc07",
+    "data/bess/raw_flood_review_r2/sma_storage_mv_manual.pdf": "5b9e391531b4f28701b17c4c5c0a0ab279b071e2b52fc9d490136db6d2f75b69",
+    "data/bess/raw_flood_review_r2/sungrow_st2752_manual.pdf": "e9c09ad1e08c7aad93d7657dfdb7c12fbd24643d18531016a03a0a713b32ef56"
+  },
+  "new_source_captures": [
+    {
+      "name": "ct_megapack_foundation.pdf",
+      "url": "https://portal.ct.gov/-/media/csc/3_petitions-medialibrary/petitions_medialibrary/mediapetitionnos1501-1600/pe1587/proceduralcorrespondence/pe1587_ack-conditions_staffchange_110325_a.pdf?hash=5C7C2F6758CE7FC984C132FF3D1754D8&rev=7db08ba76f7043b699599fc76b875f5f",
+      "path": "data/bess/raw_hurricane_review_r1/ct_megapack_foundation.pdf",
+      "bytes": 13193572,
+      "sha256": "9e2980bed58a95b1b457ba2b7449e58fe7843000a78a30bdf23380a534796338",
+      "status": "cached",
+      "pdf_header": true
+    },
+    {
+      "name": "cec_syl_spec.pdf",
+      "url": "https://efiling.energy.ca.gov/GetDocument.aspx?DocumentContentId=105086&tn=268070",
+      "path": "data/bess/raw_hurricane_review_r1/cec_syl_spec.pdf",
+      "bytes": 21509207,
+      "sha256": "c13771656bdbaa069e86d160b339a1688a5b693deda5ad21b5da9972d2eec55a",
+      "status": "cached",
+      "pdf_header": true
+    },
+    {
+      "name": "fluence_storm.html",
+      "url": "https://blog.fluenceenergy.com/dominican-republics-first-energy-storage-arrays-help-grid-operator-prevent-blackouts",
+      "path": "data/bess/raw_hurricane_review_r1/fluence_storm.html",
+      "bytes": 241147,
+      "sha256": "44caec4dec407b6920a764e35b51cfd669d458ddd03893255dec421d32546202",
+      "status": "cached",
+      "pdf_header": false
+    },
+    {
+      "name": "tesla_powerwall_anchoring.html",
+      "url": "https://energylibrary.tesla.com/docs/Public/EnergyStorage/Powerwall/2/InstallManual/BackupGateway/2/en-us/GUID-EF498B4A-9E0A-4A04-9BE1-512C14DB415E.html",
+      "path": "data/bess/raw_hurricane_review_r1/tesla_powerwall_anchoring.html",
+      "bytes": 42157,
+      "sha256": "2951aa43fdaf437f0a72a8ca51fb9be9cfc5a6d336a50bc4b4cc7073dc07ec4b",
+      "status": "cached",
+      "pdf_header": false
+    }
+  ],
+  "visually_reviewed_pages": {
+    "BW-S03": "PDF75",
+    "BW-S05": "PDF20 S-102",
+    "BW-S06": "PDF193 printed28"
+  },
+  "existing_runtime_artifacts_changed": false,
+  "bess_wind_response_admitted": false
+}

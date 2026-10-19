@@ -1,0 +1,39 @@
+{
+  "status": "passed_conditional_annual_screening",
+  "classification": "NEW_CELL_MODEL_RELEASE",
+  "response_and_unit_values_vs_v0_1": "exactly_unchanged",
+  "qualification": {
+    "status": "passed",
+    "configurations": 90,
+    "years_per_configuration": 100000,
+    "source_run": "20261019_qualification_fine_r2",
+    "refinement_run": "20261019_qualification_refine32_r2",
+    "subdivisions": [
+      16,
+      32
+    ],
+    "max_rate_band_refinement_pgf_eal_delta_usd": 43.29450844542589,
+    "max_rate_band_refinement_pgf_eal_relative": 0.00027131177208137295,
+    "rate_band_mean_relative_gate": 0.001,
+    "max_mc_mean_sigma": 1.0985016030352588,
+    "max_tail_replay_delta_usd": 5.587935447692871e-07,
+    "min_analytic_oep_family_p": 0.40492659459540864,
+    "physical_cap_all_passed": true,
+    "controlled_annual_tests_passed": 13,
+    "source_proof_manifest_sha256": "442c55f1cbcf7ffc7b011b60dddabf87c3caad326adea6f7735c5c20d78144dd",
+    "qualification_manifest_sha256": "a0f64b1ff505faede1ea086cf7b3b77f86f7c422e842b60df707b24507aa33fe",
+    "review_scope": "same-author validation with independent numerical methods; no external scientific review",
+    "roundoff_repair": "same positive summation order for grouped annual and event costs; no cap clipping or tolerance relaxation",
+    "limitations": [
+      "T4 conditional mean response",
+      "common-rank assumed spatial dependence",
+      "partial property and source",
+      "source event floor20mps",
+      "no intrinsic damage spread",
+      "no within-year restoration",
+      "no national/recipient admission"
+    ]
+  },
+  "portable_package_issued": false,
+  "national_spatial_qualification": false
+}

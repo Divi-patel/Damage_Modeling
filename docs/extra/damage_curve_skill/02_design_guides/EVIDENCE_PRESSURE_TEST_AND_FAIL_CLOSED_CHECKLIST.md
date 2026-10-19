@@ -147,6 +147,34 @@ Legacy material is input, not authority. Before reusing any number or formula:
 
 A formula that contradicts its own table is rejected even before external calibration is considered. A plausible mechanism does not rescue an uncalibrated economic curve.
 
+### Tests, interventions and the economic endpoint
+
+When laboratory tests or equipment safety reports support a proposed response,
+reconstruct the timeline before treating a result as a curve anchor:
+
+- Separate the specified test protocol, actual exposure, observed response and
+  economic repair decision. A protection rating or prescribed two-hour test is
+  not an observed survival result, and survival of a fire criterion is not zero
+  physical damage.
+- Record post-test soaking, discharge, disassembly or other treatment before
+  inspection. Damage photographed after extended treatment cannot be attributed
+  quantitatively to a shorter initial challenge without additional evidence.
+- Record interventions and stopping rules. Re-immersion at first smoke censors
+  later thermal severity; it cannot establish either inevitable escalation or
+  absence of escalation without that intervention.
+- Do not fit a failure probability from a small set of heterogeneous units,
+  salinities, exposure times and stopping rules as though they were repeated
+  trials of one target configuration.
+- Preserve the tested unit and endpoint. An automotive pack can inform utility
+  battery mechanisms without establishing a utility enclosure repair ratio.
+
+Use the existing source/claim/parameter registers for these checks; no extra
+folder or mandatory document is needed. If a sensitivity experiment compares
+unqualified repair interpretations, label them as hypotheses, not a confidence
+interval or a mean to be obtained by averaging. The BESS Flood immersion review
+is a worked application in `docs/extra/discussion/bess_damage/` when operating
+inside this repository; the rules above also apply to standalone skill packages.
+
 ### Pressure testing and overestimation controls
 
 Pressure tests must use explicit denominators and must be labeled as audit arithmetic when inputs are withdrawn or synthetic.

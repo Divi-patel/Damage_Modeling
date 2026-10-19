@@ -1,0 +1,32 @@
+{
+  "review_date": "2026-10-19",
+  "scope": "current local skill bundle; no new skill edit in this pass",
+  "checks": [
+    {
+      "tool": "validate_skill_bundle.py",
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "file_count": 106
+      }
+    },
+    {
+      "tool": "run_self_tests.py",
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "cases": 8
+      }
+    }
+  ],
+  "key_hashes": {
+    "docs/extra/damage_curve_skill/SKILL.md": "531e7fd51bc5e5049c499a9a2e752328ba8641a21fcfa2614e5bedf1667609ce",
+    "docs/extra/damage_curve_skill/SKILL_CHANGELOG.md": "e93a68c7451c314cf388173f64f534bc34b0eda3e6fa26a70e3c2aa82e14fae8",
+    "docs/extra/damage_curve_skill/02_design_guides/BOUNDED_CURATION_AND_FUTURE_WORK.md": "bddbb9b4c6c3cee1d6f62b82bd810e5d5285c1ad210c7765007d776d8ea280d3",
+    "docs/extra/damage_curve_skill/02_design_guides/ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md": "d6c1e951971cb8ba0d7c29b3a571586f0516c927a2a07567473a801d44840da8",
+    "docs/extra/damage_curve_skill/02_design_guides/EVIDENCE_PRESSURE_TEST_AND_FAIL_CLOSED_CHECKLIST.md": "f8a9decd0e64bfbf2220cccfd8e39374db2bdd6061d98251357b35bc3a9ee4d2"
+  },
+  "preexisting_local_skill_changes": " M docs/extra/damage_curve_skill/01_workflows/ADD_NEW_CELL_WORKFLOW.md\n M docs/extra/damage_curve_skill/02_design_guides/FAILURE_UNIT_SELECTION.md\n M docs/extra/damage_curve_skill/02_design_guides/README.md\n M docs/extra/damage_curve_skill/02_design_guides/VALUE_CROSSWALK_GUIDE.md\n M docs/extra/damage_curve_skill/03_contracts/CAPABILITY_DECLARATION.md\n M docs/extra/damage_curve_skill/MANIFEST.md\n M docs/extra/damage_curve_skill/README.md\n M docs/extra/damage_curve_skill/SKILL.md\n M docs/extra/damage_curve_skill/SKILL_CHANGELOG.md\n M docs/extra/damage_curve_skill/VALIDATION_REPORT.md\n M docs/extra/damage_curve_skill/templates/README.md\n M docs/extra/damage_curve_skill/templates/TEMPLATE_VALUE_CROSSWALK.csv\n?? docs/extra/damage_curve_skill/02_design_guides/BOUNDED_CURATION_AND_FUTURE_WORK.md\n?? docs/extra/damage_curve_skill/02_design_guides/ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md\n?? docs/extra/damage_curve_skill/templates/TEMPLATE_ASSET_INTAKE_AND_REUSE.md\n",
+  "committed_pressure_test_improvement": "a6634d3590ffecb3f66f3460d8397ea935941381",
+  "broader_local_edits_committed_by_this_pass": false
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "research arithmetic and documentation; not BESS curve admission",
+  "candidate_checks": 52,
+  "byte_identical_rerun": [
+    "audit_receipt.json",
+    "pcs_probes.csv",
+    "battery_hypothesis_probes.csv",
+    "known_answer_checks.csv",
+    "candidate_comparison.png"
+  ],
+  "tampered_reference_rejected": true,
+  "csv_rows": {
+    "claims.csv": 16,
+    "source_curve_audit.csv": 95,
+    "reuse_matrix.csv": 8,
+    "value_crosswalk.csv": 10,
+    "sources.csv": 12,
+    "r2/known_answer_checks.csv": 52,
+    "r2/repair_unit_matrix.csv": 6,
+    "r2/battery_hypothesis_probes.csv": 14,
+    "r2/pcs_probes.csv": 14,
+    "r2/parameter_register.csv": 8
+  },
+  "source_and_claim_links_valid": true,
+  "raw_pdf_hashes_verified": 8,
+  "existing_numerical_pins_unchanged": true,
+  "runtime_admitted": false,
+  "markdown_files_checked": 11,
+  "local_links_checked": 84,
+  "metadata_and_fences_valid": true,
+  "staged_skill_bundle_validation": {
+    "status": "PASS",
+    "file_count": 103,
+    "note": "Exact staged bundle; working tree also includes pre-existing local skill authoring and validates at106 files"
+  }
+}

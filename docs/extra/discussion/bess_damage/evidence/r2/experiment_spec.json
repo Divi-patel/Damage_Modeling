@@ -1,0 +1,47 @@
+{
+  "schema": "bess_flood_research_experiment.v1",
+  "purpose": "Expose consequences of unqualified assumptions, not estimate BESS risk",
+  "runtime_admitted": false,
+  "selected_battery_curve": null,
+  "external_depth_probes_m": [0, 0.15, 0.29, 0.3, 0.32, 0.35, 0.4, 0.45, 0.6, 0.9, 1.3, 1.8, 2.3, 3.2],
+  "geometry_source": "Pinned Hazard r1 layout: base 0.30 m; enclosure height 2.90 m",
+  "entry_assumption": {
+    "parameter_id": "BF-P01",
+    "rule": "For this experiment only, set critical entry equal to mounting base",
+    "tier": "T4_placeholder_or_expert_judgment",
+    "not_an_observation": true
+  },
+  "battery_interpretations": [
+    {
+      "id": "immediate_bundle",
+      "rule": "0 when depth <= base, otherwise 1",
+      "parameter_ids": ["BF-P01", "BF-P03"],
+      "status": "Unselected stress interpretation: all integrated enclosure hardware replaced at first positive above-base depth",
+      "unproven_links": ["external-to-internal ingress", "all internal components affected", "whole enclosure is economical replacement unit"]
+    },
+    {
+      "id": "uniform_height",
+      "rule": "clip((depth - base) / enclosure_height, 0, 1)",
+      "parameter_ids": ["BF-P01", "BF-P04"],
+      "status": "Rejected as a selected mean: assumes uniformly distributed replacement value with height and independent wetted fraction",
+      "unproven_links": ["external equals internal water level", "uniform cost-height distribution", "no shared-control failure or escalation"]
+    }
+  ],
+  "pcs_interpretation": {
+    "source_curve_id": "FS_INV",
+    "parameter_ids": ["BF-P01", "BF-P05"],
+    "status": "Conditional T3 transfer candidate, not target-qualified",
+    "native_axis": "local_depth_above_component_datum_m",
+    "valid_native_domain_m": [0, 2],
+    "water_condition": "freshwater screening scenario only; no salinity or duration correction calibrated",
+    "value_unit": "separate_pcs_hardware",
+    "interpolation": "existing source evaluator unchanged",
+    "beyond_domain": "no output rather than inheriting source-helper clamping"
+  },
+  "prohibited_uses": [
+    "No midpoint, average, confidence band or probability mixture of battery interpretations",
+    "No map, annual metric, replacement recommendation or actual site prediction",
+    "No interpretation of zero direct overtopping as zero total Flood risk",
+    "No automatic inventory-wide use of one unit's local depth"
+  ]
+}

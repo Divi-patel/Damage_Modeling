@@ -1,0 +1,15 @@
+{
+  "classification": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "review_date": "2026-10-19",
+  "input_hashes": {
+    "damage_modeling/docs/cells/wildfire_solar/current/wildfire_solar__model_v1_0__docs_r3__curve_artifact.json": "598512fbe2f0a3c8db48df69fdb2cd00ca5e0cc8e7ef761555837a3d76d166d8",
+    "damage_modeling/docs/contracts/machine_readable_artifact_index.json": "e01eb1564ee5148264d23267390c5989d7635b08fe4469ca8128503f1b939fe3",
+    "Hazard_modeling/../damage_modeling/docs/extra/discussion/bess_damage/evidence/wildfire/audit_reuse.py": "87a7b29c09d63f330acf46ca5b83f44e204638e5888181067c5c61eb34070158",
+    "damage_modeling/docs/extra/discussion/bess_damage/evidence/r3/value_allocations.csv": "f54ba3b3f13b00da8f5ea440aa13b7319f785f66511ae84698dfe7abf54cdf37",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/reference_budget.csv": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/asset_model.json": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8",
+    "Hazard_modeling/docs/plans/_cross_cutting/bess_conus/layout.csv": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19"
+  },
+  "artifact_index_changed": false,
+  "bess_wildfire_response_admitted": false
+}

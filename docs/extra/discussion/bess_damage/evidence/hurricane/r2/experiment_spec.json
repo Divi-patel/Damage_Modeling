@@ -1,0 +1,51 @@
+{
+  "schema": "bess-hurricane-research-comparison/v1",
+  "classification": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "runtime_artifact": false,
+  "bess_runtime_admitted": false,
+  "review_question": "BW-Q01",
+  "owner_ruling": {
+    "date": "2026-10-19",
+    "words": "Test full replacement; retain repair as a sensitivity (Recommended)",
+    "scope": "local testing only"
+  },
+  "source_response": {
+    "path": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json",
+    "sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+    "source_failure_unit": "PV_POWER_CONVERSION_AND_COLLECTION",
+    "curve_id": "TCWS21_POWER_COLLECTION_SCREENING_T4_ORDERED_STATES",
+    "transfer_tier": "T4_placeholder_or_expert_judgment",
+    "meaning": "Transfer existing synthetic normalized-demand state probabilities for research; not a BESS structural fit or measured wind rating"
+  },
+  "cost_allocation": {
+    "path": "docs/extra/discussion/bess_damage/evidence/r3/value_allocations.csv",
+    "case": "MMP_related_allocation",
+    "sensitivity_case": "MSP_allocation_sensitivity",
+    "meaning": "Related benchmark shares projected onto the unchanged cabinet budget; not repair quotes"
+  },
+  "states": ["no_direct_repair", "limited_composite_damage", "major_integrity_compromise", "destructive_unit_damage"],
+  "repair_policies": ["repair_if_contained_hardware_serviceable", "replace_at_major_compromise"],
+  "policy_default": null,
+  "proposed_local_test_policy": "replace_at_major_compromise",
+  "proposed_axis_policy": {
+    "ratio": "(event_3s_gust_10m_exposureC / reference_3s_gust_10m_exposureC)^2",
+    "range": [0.0, 2.0],
+    "regional_reference_candidate": "existing parent-cell ASCE MRI300 screening surface",
+    "observed_bess_rating": false,
+    "site_construction_compliance_claim": false,
+    "height_shielding_or_kit_credit": false,
+    "out_of_domain": "unavailable_no_clamp",
+    "fixed_60mps_examples": "illustrative only; not a selected national resistance"
+  },
+  "scope": {
+    "enclosures": 80,
+    "pcs": 20,
+    "full_tiv_usd": 109800000,
+    "candidate_hardware_usd": 94400000,
+    "unbound_property_usd": 15400000,
+    "uniform_demand_examples_only": true,
+    "includes_annual_metrics": false,
+    "includes_joint_failure_distribution": false,
+    "includes_unmodeled_property_as_zero": false
+  }
+}

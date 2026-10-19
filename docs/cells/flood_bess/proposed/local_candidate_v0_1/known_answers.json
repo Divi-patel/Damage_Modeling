@@ -1,0 +1,65 @@
+{
+  "scope": "Owner-approved local-test semantics only",
+  "cases": [
+    {
+      "unit_kind": "battery_enclosures",
+      "depth_m": 0,
+      "expected_dr": 0,
+      "expected_same_unit_cost_usd": 0.0
+    },
+    {
+      "unit_kind": "battery_enclosures",
+      "depth_m": 0.3,
+      "expected_dr": 0,
+      "expected_same_unit_cost_usd": 0.0
+    },
+    {
+      "unit_kind": "battery_enclosures",
+      "depth_m": 0.3000001,
+      "expected_dr": 1,
+      "expected_same_unit_cost_usd": 901380.0424628449
+    },
+    {
+      "unit_kind": "battery_enclosures",
+      "depth_m": 0.45,
+      "expected_dr": 1,
+      "expected_same_unit_cost_usd": 901380.0424628449
+    },
+    {
+      "unit_kind": "pcs",
+      "depth_m": 0.3,
+      "expected_dr": 0,
+      "expected_same_unit_cost_usd": 0
+    },
+    {
+      "unit_kind": "pcs",
+      "depth_m": 0.32,
+      "expected_dr": 0.05,
+      "expected_same_unit_cost_usd": 26000.0
+    },
+    {
+      "unit_kind": "pcs",
+      "depth_m": 0.4,
+      "expected_dr": 0.5,
+      "expected_same_unit_cost_usd": 260000.0
+    },
+    {
+      "unit_kind": "pcs",
+      "depth_m": 0.45,
+      "expected_dr": 0.75,
+      "expected_same_unit_cost_usd": 390000.0
+    },
+    {
+      "unit_kind": "pcs",
+      "depth_m": 0.9,
+      "expected_dr": 1,
+      "expected_same_unit_cost_usd": 520000
+    },
+    {
+      "unit_kind": "pcs",
+      "depth_m": 2.3,
+      "expected_dr": 1,
+      "expected_same_unit_cost_usd": 520000
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "cell_id": "wildfire_bess",
+  "changes": [
+    {
+      "date": "2026-10-19",
+      "model": "model v1.0",
+      "docs": "docs r1",
+      "classification": "NEW_CELL_MODEL_RELEASE",
+      "reason": "Independent local annual proof; conditional response and unit values unchanged",
+      "schema_change": false,
+      "portable_package_release": "unreleased",
+      "other_cells_changed": false
+    }
+  ],
+  "current_pin": "wildfire_bess@model_v1_0__docs_r1"
+}

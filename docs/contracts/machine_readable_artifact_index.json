@@ -1,7 +1,7 @@
 {
   "schema_version": "damage_curve_artifact_index.v2",
   "portable_package_baseline": "library v2.5",
-  "repository_contract_revision": "2026-10-16.substation-flood-screening-v1",
+  "repository_contract_revision": "2026-10-19.bess-wildfire-screening-v1",
   "polling_contract": {
     "strategy": "poll_index_then_compare_cell_pin_and_sha256",
     "consumer_pin_fields": [
@@ -149,6 +149,48 @@
       "sha256": "f001eb0191439a1345a7a794995c684ef731f777c4b3e1eff0298de592999f30",
       "changelog_path": "docs/cells/flood_substation/CHANGELOG.json",
       "known_answer_tests_path": "docs/cells/flood_substation/current/known_answers.json"
+    },
+    {
+      "cell_id": "flood_bess",
+      "damage_code_id": "BESS_FLOOD_INUNDATION_SCREENING_V1",
+      "semantic_damage_model_version": "model v1.0",
+      "documentation_revision": "docs r1",
+      "consumer_pin": "flood_bess@model_v1_0__docs_r1",
+      "artifact_schema_version": "damage_curve_record_bundle.v2",
+      "capability_schema_version": "capability_declaration.v2",
+      "publication_status": "repository_canonical_not_in_portable_package",
+      "path": "docs/cells/flood_bess/current/curve_artifact.json",
+      "sha256": "c9bc9194accb3adbc2c05a9720b4945dd5a969bd7288eb600d5e901aa0185d24",
+      "changelog_path": "docs/cells/flood_bess/CHANGELOG.json",
+      "known_answer_tests_path": "docs/cells/flood_bess/current/known_answers.json"
+    },
+    {
+      "cell_id": "tropical_cyclone_wind_bess",
+      "damage_code_id": "BESS_TC_WIND_SCREENING_V1",
+      "semantic_damage_model_version": "model v1.0",
+      "documentation_revision": "docs r1",
+      "consumer_pin": "tropical_cyclone_wind_bess@model_v1_0__docs_r1",
+      "artifact_schema_version": "damage_curve_record_bundle.v3",
+      "capability_schema_version": "capability_declaration.v3",
+      "publication_status": "repository_canonical_not_in_portable_package",
+      "path": "docs/cells/tropical_cyclone_wind_bess/current/curve_artifact.json",
+      "sha256": "0a99b2f0efbe1628d1f0500e0801a24251cab9d3bc7c22f32de0a5c758945fed",
+      "changelog_path": "docs/cells/tropical_cyclone_wind_bess/CHANGELOG.json",
+      "known_answer_tests_path": "docs/cells/tropical_cyclone_wind_bess/current/known_answers.json"
+    },
+    {
+      "cell_id": "wildfire_bess",
+      "damage_code_id": "BESS_WILDFIRE_SCREENING_V1",
+      "semantic_damage_model_version": "model v1.0",
+      "documentation_revision": "docs r1",
+      "consumer_pin": "wildfire_bess@model_v1_0__docs_r1",
+      "artifact_schema_version": "damage_curve_record_bundle.v3",
+      "capability_schema_version": "capability_declaration.v3",
+      "publication_status": "repository_canonical_not_in_portable_package",
+      "path": "docs/cells/wildfire_bess/current/curve_artifact.json",
+      "sha256": "e2d5e817c6c5334ff6176a02f2e1edbf563195254239dd9eb9be530c85cdd491",
+      "changelog_path": "docs/cells/wildfire_bess/CHANGELOG.json",
+      "known_answer_tests_path": "docs/cells/wildfire_bess/current/known_answers.json"
     }
   ],
   "runtime_preference": "Poll this index, pin cell model + docs + artifact schema + SHA-256, validate the artifact, and run cell known-answer tests. Do not pin only the portable package release."

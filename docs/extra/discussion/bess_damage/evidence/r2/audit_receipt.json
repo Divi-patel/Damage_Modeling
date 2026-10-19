@@ -1,0 +1,59 @@
+{
+  "schema": "bess_flood_hypothesis_audit.v1",
+  "change_class": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "checks_passed": 52,
+  "all_checks_passed": true,
+  "runtime_admitted": false,
+  "selected_battery_curve": null,
+  "pcs_status": "conditional_proxy_candidate; target_entry_and_repair_scope_not_qualified",
+  "risk_result": null,
+  "remaining_reference_value_usd": 15400000,
+  "inputs": {
+    "helper": {
+      "path": "scripts/reference_helpers/bess_flood_candidate_audit.py",
+      "repository": "damage_modeling",
+      "sha256": "e93fcd36e8c1bdfea5e23e53a36d4887b6a8113bba7128b8b36e6bf1c8a5db02"
+    },
+    "experiment_spec": {
+      "path": "docs/extra/discussion/bess_damage/evidence/r2/experiment_spec.json",
+      "repository": "damage_modeling",
+      "sha256": "18339664eec54d1fc126312622253a8dcc7d6580dc3274676dce74152c9c67c4"
+    },
+    "source_curve": {
+      "path": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+      "repository": "damage_modeling",
+      "sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d"
+    },
+    "source_evaluator": {
+      "path": "scripts/reference_helpers/damage_curve_eval.py",
+      "repository": "damage_modeling",
+      "sha256": "29eb28652701960a94793d06923eeea18f23a8db4a4bc769ba574cd93881b831"
+    },
+    "reference_checks": {
+      "path": "docs/plans/_cross_cutting/bess_conus/verification/reference_checks.json",
+      "repository": "Hazard_modeling",
+      "sha256": "f009a5fa920dfa1fbb1b7fc3a84455c7ea8d9cd342ed057d0e84e5cfc27034a8"
+    },
+    "budget": {
+      "path": "docs/plans/_cross_cutting/bess_conus/reference_budget.csv",
+      "repository": "Hazard_modeling",
+      "sha256": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d"
+    },
+    "layout": {
+      "path": "docs/plans/_cross_cutting/bess_conus/layout.csv",
+      "repository": "Hazard_modeling",
+      "sha256": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19"
+    },
+    "runtime_index": {
+      "path": "docs/contracts/machine_readable_artifact_index.json",
+      "repository": "damage_modeling",
+      "sha256": "9d3d5f364d20f0fcbc423b9ad8b72d88fbb455e58e55fecc1df2aafb79782862"
+    }
+  },
+  "outputs": {
+    "pcs_probes.csv": "ae07731c3fb268e40827207085f29374d0c5991a3c3d89a38fceb17cb5ed62ba",
+    "battery_hypothesis_probes.csv": "3e14baed4fc048a2fc221350e97bcd22f58454e1fd9284898349305399e54410",
+    "known_answer_checks.csv": "b0731ed10aadd46ece40a3a1dc20890f55c68515ff5f541c2b8d54b22341629a",
+    "candidate_comparison.png": "f1a39afe27161ecb5e9c3ef39eee9ff8da1c85a32a1d6be1c6f124780b59459b"
+  }
+}

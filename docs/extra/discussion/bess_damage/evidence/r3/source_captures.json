@@ -1,0 +1,47 @@
+{
+  "review_date_local": "2026-10-18",
+  "status": "research_inputs_only",
+  "raw_files_gitignored": true,
+  "captures": [
+    {
+      "source_id": "BF-S13",
+      "url": "https://data.nlr.gov/system/files/307/1764611886-PVSCM%202024.zip",
+      "cache_path": "data/bess/raw_flood_review_r3/pvscm_2024.zip",
+      "bytes": 188609,
+      "sha256": "96247a16611b5548c96b1a431bcd51d9d5e113f8f4ef54fb2ffdbcec0cbf315e",
+      "review_scope": "Raw archive preserved; four members inventoried; no macros run"
+    },
+    {
+      "source_id": "BF-S13",
+      "url": "archive member: UPV 2024Q1.txt",
+      "cache_path": "data/bess/raw_flood_review_r3/pvscm_2024/UPV 2024Q1.txt",
+      "bytes": 17814,
+      "sha256": "fd65a854a2e6bee8384081ebaa40abf2f56e160fff624092d9a9e1608ea9d496",
+      "review_scope": "Source ESS direct inputs and named factors extracted; donor vintage and description inconsistency retained"
+    },
+    {
+      "source_id": "BF-S13",
+      "url": "archive member: PVSCM 2024.xlsm",
+      "cache_path": "data/bess/raw_flood_review_r3/pvscm_2024/PVSCM 2024.xlsm",
+      "bytes": 213027,
+      "sha256": "58c59866e8b00acb938333dd818ff20aba1815ab9e6f166e6422654fc20e41a9",
+      "review_scope": "Read-only formula/label inspection using bundled openpyxl; unloaded template; no recalculation or edits"
+    },
+    {
+      "source_id": "BF-S14",
+      "url": "https://www.osti.gov/servlets/purl/2583471",
+      "cache_path": "../Hazard_modeling/data/bess/raw/reference_profile_r1/nrel_93281.pdf",
+      "bytes": 760451,
+      "sha256": "6241ee4f5cc6ab357e886aaf3762ac412241e24e5b8706010d037a1ab509ba53",
+      "review_scope": "Printed p4 and18-19; Table3 PDFp26 rendered and visually reviewed"
+    },
+    {
+      "source_id": "BF-S15",
+      "url": "https://uk.sungrowpower.com/upload/file/20250603/EN_UM_SBS050_User_Manual.pdf",
+      "cache_path": "data/bess/raw_flood_review_r3/sungrow_sbs050.pdf",
+      "bytes": 20453407,
+      "sha256": "51d18a00286753b6e71d8d38fac8fe9daef6112bc6eb9c0677edf90e5103a2d0",
+      "review_scope": "Printed p6 PDFp14 rendered and visually reviewed; adjacent residential LFP only"
+    }
+  ]
+}

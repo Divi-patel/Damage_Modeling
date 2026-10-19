@@ -1,0 +1,17 @@
+{
+  "cell_id": "tropical_cyclone_wind_bess",
+  "semantic_damage_model_version": "model v1.0",
+  "documentation_revision": "docs r1",
+  "canonical_runtime_artifact": true,
+  "sha256": {
+    "curve_artifact.json": "0a99b2f0efbe1628d1f0500e0801a24251cab9d3bc7c22f32de0a5c758945fed",
+    "capability.json": "664aef156f0b4152e8f57803d8be15b7b491173f2a0f3c8ff1f37ac8f0520a8e",
+    "value_binding.json": "4aaf33b9aa7f3bcaca37eb2506799c303d9ff9f67c449665f512a38d9a43aa89",
+    "value_crosswalk.csv": "4030fcf62918501fb16ff52e47e6757686a7a6dde93d406b0ec9e4bc467249b8",
+    "source_register.csv": "568296b4e6b60eb0e3928c88ce95401548661642081faa84b21f28dd66765f82",
+    "claim_parameter_register.csv": "e45b816fa8f7898a10b39f7c23ed48412f5893499636288cae76311d0f386d12",
+    "parameter_register.csv": "7d4d8738e626f62d2313a81603cb606621b16492bfac7619cfa8eaedfc2e9dff",
+    "known_answers.json": "68689dbf61661cf1ae92be4eba78b85943c43011dcbc43110f5e5dbc50c3ee15",
+    "validation.json": "189363743808c650324127104aad62c414154c435015a4eec90d61820763217b"
+  }
+}

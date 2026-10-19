@@ -1,0 +1,11 @@
+row_id,target_group,included_usd,excluded_usd,response_state,source_ids
+battery_cabinets,battery_enclosures,84000000,0,UNBOUND_NOT_ZERO,BWF-S01
+pcs,pcs,10400000,0,CANDIDATE_NOT_ADMITTED,BWF-S01
+sbos,civil_works,1600000.0,400000.0,UNBOUND_NOT_ZERO,BWF-S01
+ebos,electrical_balance,13200000.0,4400000.0,UNBOUND_NOT_ZERO,BWF-S01
+installation,unallocated_fieldwork,600000.0,200000.0,UNBOUND_NOT_ZERO,BWF-S01
+permitting,excluded,0,800000,OUTSIDE_SCOPE,BWF-S01
+sales_tax,excluded,0,6800000,OUTSIDE_SCOPE,BWF-S01
+contingency,excluded,0,2800000,OUTSIDE_SCOPE,BWF-S01
+epc_overhead,excluded,0,2400000,OUTSIDE_SCOPE,BWF-S01
+developer_profit,excluded,0,5600000,OUTSIDE_SCOPE,BWF-S01

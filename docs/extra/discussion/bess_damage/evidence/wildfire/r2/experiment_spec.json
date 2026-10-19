@@ -1,0 +1,52 @@
+{
+  "schema": "bess-wildfire-local-candidate-experiment/v1",
+  "classification": "NEW_CELL_SCAFFOLD",
+  "cell_id": "wildfire_bess",
+  "model": "model v0.1",
+  "docs": "docs r1",
+  "canonical_runtime_artifact": false,
+  "owner_ruling": {
+    "question_id": "BWF-Q01",
+    "date": "2026-10-19",
+    "words": "Test full replacement; retain repair sensitivities (Recommended)",
+    "scope": "local testing only; cost of battery compromise, not class probabilities"
+  },
+  "source_response": {
+    "path": "docs/cells/wildfire_solar/current/wildfire_solar__model_v1_0__docs_r3__curve_artifact.json",
+    "sha256": "598512fbe2f0a3c8db48df69fdb2cd00ca5e0cc8e7ef761555837a3d76d166d8",
+    "baseline_record": "WSV1_INVERTER_THERMAL",
+    "sensitivity_record": "WSV1_MV_EQUIPMENT_THERMAL",
+    "tier": "T4_placeholder_or_expert_judgment",
+    "interpretation": "Donor economic DR ordinates provide provisional ordinal mean-response weights in a new BESS hypothesis. They are not measured battery-compromise or ignition probabilities. No Bernoulli/spread distribution is inferred."
+  },
+  "cost_allocation": {
+    "path": "docs/extra/discussion/bess_damage/evidence/r3/value_allocations.csv",
+    "case": "MMP_related_allocation",
+    "sha256": "f54ba3b3f13b00da8f5ea440aa13b7319f785f66511ae84698dfe7abf54cdf37"
+  },
+  "hypotheses": [
+    "approved_replacement",
+    "noncell_repair_sensitivity",
+    "limited_repair_sensitivity"
+  ],
+  "shape_scenarios": [
+    "electronics_ordinal",
+    "heavy_electrical_ordinal"
+  ],
+  "reference_hashes": {
+    "asset_model.json": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8",
+    "layout.csv": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19",
+    "reference_budget.csv": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d"
+  },
+  "value": {
+    "full_tiv_usd": 109800000,
+    "candidate_hardware_usd": 94400000,
+    "unbound_property_usd": 15400000,
+    "enclosure_count": 80,
+    "enclosure_value_usd": 1050000,
+    "pcs_count": 20,
+    "pcs_value_usd": 520000,
+    "currency_basis": "fixed_2024_USD"
+  },
+  "output_scope": "Local conditional scalar mean only. No annual, national, calibrated, complete-property or probabilistic damage-state claim."
+}

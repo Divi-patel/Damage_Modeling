@@ -1,0 +1,955 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "proposed_draft",
+  "cell_id": "wildfire_bess",
+  "damage_code_id": "BESS_WILDFIRE_LOCAL_CANDIDATE_V0_1",
+  "semantic_damage_model_version": "model v0.1",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "local_test_candidate",
+  "promotion_status": "not_canonical_not_in_runtime_index",
+  "model_grade": "screening_engineering_hypothesis_t4",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "not_included",
+  "canonical_runtime_artifact": false,
+  "source_dossier": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/derivation.md",
+  "source_workbook": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/value_crosswalk.csv",
+  "known_answer_tests": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/known_answers.json",
+  "source_register": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/source_register.csv",
+  "claim_parameter_register": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/claim_parameter_register.csv",
+  "value_crosswalk": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/value_crosswalk.csv",
+  "failure_units": [
+    {
+      "id": "BESS_INTEGRATED_ENCLOSURE",
+      "subsystem": "battery_enclosures",
+      "component": "integrated battery/cooling/BMS/enclosure/safety",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same integrated enclosure physical hardware value"
+    },
+    {
+      "id": "BESS_SEPARATE_PCS",
+      "subsystem": "pcs",
+      "component": "separate bidirectional PCS",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same separate PCS physical hardware value"
+    },
+    {
+      "id": "BESS_MV_AND_SHARED_ELECTRICAL",
+      "subsystem": "BESS_MV_AND_SHARED_ELECTRICAL",
+      "component": "unbound reference property",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "retained physical value row",
+      "withheld_reason_codes": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "VALUE_ALLOCATION_OR_RESPONSE_UNQUALIFIED"
+      ]
+    },
+    {
+      "id": "BESS_CIVIL",
+      "subsystem": "BESS_CIVIL",
+      "component": "unbound reference property",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "retained physical value row",
+      "withheld_reason_codes": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "VALUE_ALLOCATION_OR_RESPONSE_UNQUALIFIED"
+      ]
+    },
+    {
+      "id": "BESS_FIELDWORK",
+      "subsystem": "BESS_FIELDWORK",
+      "component": "unbound reference property",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "retained physical value row",
+      "withheld_reason_codes": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "VALUE_ALLOCATION_OR_RESPONSE_UNQUALIFIED"
+      ]
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "wildfire_thermal_attack",
+      "hazard_scope": {
+        "included": "exogenous wildfire unit thermal response proxy",
+        "deferred": [
+          "cross_unit_propagation",
+          "postfire_erosion",
+          "remediation"
+        ],
+        "excluded": [
+          "autonomous_equipment_fire",
+          "BI",
+          "performance",
+          "collector_station_export"
+        ]
+      },
+      "hazard_axis": {
+        "id": "FSIM_CLASS_EXACT",
+        "preferred_input_field": "class_state",
+        "unit": "source_native_categorical_class",
+        "valid_range": [
+          0,
+          6
+        ],
+        "extrapolation_policy": "exact integer state0..6 only; no midpoint, heat-flux conversion, interpolation or extrapolation"
+      },
+      "selector_logic": [
+        {
+          "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1"
+        }
+      ],
+      "conditioner_logic": [],
+      "exposure_contract": {
+        "unit": "one physical enclosure or PCS",
+        "required_support": "declared local native class; geometry coupling separately qualified",
+        "unknown": "withhold; no default zero or at-risk share",
+        "mitigation_credit": "none",
+        "frequency": "BP excluded from Damage call"
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "status": "conditional_local_test"
+        },
+        {
+          "failure_unit_id": "BESS_SEPARATE_PCS",
+          "status": "conditional_local_test"
+        },
+        {
+          "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+          "status": "withheld"
+        },
+        {
+          "failure_unit_id": "BESS_CIVIL",
+          "status": "withheld"
+        },
+        {
+          "failure_unit_id": "BESS_FIELDWORK",
+          "status": "withheld"
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "BWF01_ENC_approved_replacement_electronics_ordinal",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.002
+              ],
+              [
+                2,
+                0.01
+              ],
+              [
+                3,
+                0.05
+              ],
+              [
+                4,
+                0.18
+              ],
+              [
+                5,
+                0.45
+              ],
+              [
+                6,
+                0.8
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+            "response_hypothesis_id": "approved_replacement",
+            "shape_scenario": "electronics_ordinal"
+          },
+          "source_parameter_refs": [
+            "BWF-P07",
+            "BWF-P08",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        },
+        {
+          "curve_id": "BWF01_ENC_approved_replacement_heavy_electrical_ordinal",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.001
+              ],
+              [
+                2,
+                0.006
+              ],
+              [
+                3,
+                0.03
+              ],
+              [
+                4,
+                0.12
+              ],
+              [
+                5,
+                0.35
+              ],
+              [
+                6,
+                0.7
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+            "response_hypothesis_id": "approved_replacement",
+            "shape_scenario": "heavy_electrical_ordinal"
+          },
+          "source_parameter_refs": [
+            "BWF-P07",
+            "BWF-P08",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        },
+        {
+          "curve_id": "BWF01_ENC_noncell_repair_sensitivity_electronics_ordinal",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.0006369426751592356
+              ],
+              [
+                2,
+                0.0031847133757961785
+              ],
+              [
+                3,
+                0.01592356687898089
+              ],
+              [
+                4,
+                0.05732484076433121
+              ],
+              [
+                5,
+                0.14331210191082802
+              ],
+              [
+                6,
+                0.25477707006369427
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+            "response_hypothesis_id": "noncell_repair_sensitivity",
+            "shape_scenario": "electronics_ordinal"
+          },
+          "source_parameter_refs": [
+            "BWF-P07",
+            "BWF-P08",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        },
+        {
+          "curve_id": "BWF01_ENC_noncell_repair_sensitivity_heavy_electrical_ordinal",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.0003184713375796178
+              ],
+              [
+                2,
+                0.001910828025477707
+              ],
+              [
+                3,
+                0.009554140127388535
+              ],
+              [
+                4,
+                0.03821656050955414
+              ],
+              [
+                5,
+                0.11146496815286625
+              ],
+              [
+                6,
+                0.2229299363057325
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+            "response_hypothesis_id": "noncell_repair_sensitivity",
+            "shape_scenario": "heavy_electrical_ordinal"
+          },
+          "source_parameter_refs": [
+            "BWF-P07",
+            "BWF-P08",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        },
+        {
+          "curve_id": "BWF01_ENC_limited_repair_sensitivity_electronics_ordinal",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.00038924274593064406
+              ],
+              [
+                2,
+                0.0019462137296532202
+              ],
+              [
+                3,
+                0.009731068648266101
+              ],
+              [
+                4,
+                0.03503184713375796
+              ],
+              [
+                5,
+                0.08757961783439491
+              ],
+              [
+                6,
+                0.15569709837225762
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+            "response_hypothesis_id": "limited_repair_sensitivity",
+            "shape_scenario": "electronics_ordinal"
+          },
+          "source_parameter_refs": [
+            "BWF-P07",
+            "BWF-P08",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        },
+        {
+          "curve_id": "BWF01_ENC_limited_repair_sensitivity_heavy_electrical_ordinal",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.00019462137296532203
+              ],
+              [
+                2,
+                0.0011677282377919322
+              ],
+              [
+                3,
+                0.005838641188959661
+              ],
+              [
+                4,
+                0.023354564755838643
+              ],
+              [
+                5,
+                0.0681174805378627
+              ],
+              [
+                6,
+                0.1362349610757254
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+            "response_hypothesis_id": "limited_repair_sensitivity",
+            "shape_scenario": "heavy_electrical_ordinal"
+          },
+          "source_parameter_refs": [
+            "BWF-P07",
+            "BWF-P08",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        },
+        {
+          "curve_id": "BWF01_PCS_ELECTRONICS",
+          "pathway_id": "wildfire_thermal_attack",
+          "failure_unit_id": "BESS_SEPARATE_PCS",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0.002
+              ],
+              [
+                2,
+                0.01
+              ],
+              [
+                3,
+                0.05
+              ],
+              [
+                4,
+                0.18
+              ],
+              [
+                5,
+                0.45
+              ],
+              [
+                6,
+                0.8
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "reject every noninteger or unknown state; exact lookup only; no interpolation executed",
+          "selector_match": {
+            "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1"
+          },
+          "source_parameter_refs": [
+            "BWF-P09",
+            "BWF-P10"
+          ],
+          "metadata_flags": [
+            "LOCAL_TEST_ONLY_NOT_CANONICAL",
+            "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+            "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+            "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+            "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+            "PARTIAL_PROPERTY_SCOPE",
+            "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+            "NO_GENERIC_MITIGATION_CREDIT",
+            "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+            "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+            "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+          ]
+        }
+      ]
+    }
+  ],
+  "value_linkage": {
+    "value_binding_path": "docs/cells/wildfire_bess/proposed/local_candidate_v0_1/value_binding.json",
+    "value_binding_sha256": "8fdcdfb357198e01928c2b399ca1cd13061463bfc324853d28332ca4d0488ede",
+    "full_tiv_usd": 109800000,
+    "candidate_hardware_usd": 94400000,
+    "unbound_property_usd": 15400000
+  },
+  "parameter_tier_table": [
+    {
+      "parameter_id": "BWF-P07",
+      "scope": "enclosure ordinal mean-response transfer",
+      "value": {
+        "electronics_ordinal": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0.002
+          ],
+          [
+            2,
+            0.01
+          ],
+          [
+            3,
+            0.05
+          ],
+          [
+            4,
+            0.18
+          ],
+          [
+            5,
+            0.45
+          ],
+          [
+            6,
+            0.8
+          ]
+        ],
+        "heavy_electrical_ordinal": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0.001
+          ],
+          [
+            2,
+            0.006
+          ],
+          [
+            3,
+            0.03
+          ],
+          [
+            4,
+            0.12
+          ],
+          [
+            5,
+            0.35
+          ],
+          [
+            6,
+            0.7
+          ]
+        ]
+      },
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BWF-S03",
+        "BWF-S04",
+        "BWF-S05"
+      ],
+      "reasoning": "Electronics response is the simple reference for enclosed electronic/cooling/battery hardware; heavy electrical is a contrasting lower-response shape. Both are new T4 target transfers, not physical or probabilistic conversion of the donor DR.",
+      "update_trigger": "Matched local attack, construction, inspected damage and same-unit repair costs"
+    },
+    {
+      "parameter_id": "BWF-P08",
+      "scope": "same-unit consequence policy",
+      "value": {
+        "approved_replacement": 1050000.0,
+        "noncell_repair_sensitivity": 334394.90445859876,
+        "limited_repair_sensitivity": 204352.44161358813
+      },
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BWF-S01",
+        "BWF-S09",
+        "BWF-S12"
+      ],
+      "reasoning": "Owner selects full replacement for compromised battery contents; cheaper outcomes require the explicit retained-hardware serviceability counterfactual.",
+      "update_trigger": "OEM disposition, actual repair BOM/costs or revised owner policy"
+    },
+    {
+      "parameter_id": "BWF-P09",
+      "scope": "PCS adjacent electrical transfer",
+      "value": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.002
+        ],
+        [
+          2,
+          0.01
+        ],
+        [
+          3,
+          0.05
+        ],
+        [
+          4,
+          0.18
+        ],
+        [
+          5,
+          0.45
+        ],
+        [
+          6,
+          0.8
+        ]
+      ],
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BWF-S01",
+        "BWF-S03"
+      ],
+      "reasoning": "Separate PCS has related enclosed power-electronic hardware; it is not battery contents or a whole GSU. Source response is retained without target calibration.",
+      "update_trigger": "Matched PCS thermal exposure and repair evidence"
+    },
+    {
+      "parameter_id": "BWF-P10",
+      "scope": "site/cost/uncertainty controls",
+      "value": "No blanket protection, no exposed-share default, no stochastic Damage-state draw, no residual zero",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BWF-S01",
+        "BWF-S02",
+        "BWF-S08",
+        "BWF-S10"
+      ],
+      "reasoning": "Keep reference/context limits explicit; use per-unit conditional means only. Source BP, joint events and annual caps stay with Hazard.",
+      "update_trigger": "Qualified consumer coupling or matched protection/propagation/value evidence"
+    }
+  ],
+  "evaluation_contract": {
+    "production_runtime_authorized": false,
+    "explicit_local_test_opt_in_required": true,
+    "pathway_id": "wildfire_thermal_attack",
+    "reference_id": "BESS_LFP_R1_WILDFIRE_ORDINAL_LOCAL_V0_1",
+    "response_hypotheses": [
+      "approved_replacement",
+      "noncell_repair_sensitivity",
+      "limited_repair_sensitivity"
+    ],
+    "shape_scenarios": [
+      "electronics_ordinal",
+      "heavy_electrical_ordinal"
+    ],
+    "record_selection": {
+      "approved_replacement": {
+        "electronics_ordinal": {
+          "BESS_INTEGRATED_ENCLOSURE": "BWF01_ENC_approved_replacement_electronics_ordinal",
+          "BESS_SEPARATE_PCS": "BWF01_PCS_ELECTRONICS"
+        },
+        "heavy_electrical_ordinal": {
+          "BESS_INTEGRATED_ENCLOSURE": "BWF01_ENC_approved_replacement_heavy_electrical_ordinal",
+          "BESS_SEPARATE_PCS": "BWF01_PCS_ELECTRONICS"
+        }
+      },
+      "noncell_repair_sensitivity": {
+        "electronics_ordinal": {
+          "BESS_INTEGRATED_ENCLOSURE": "BWF01_ENC_noncell_repair_sensitivity_electronics_ordinal",
+          "BESS_SEPARATE_PCS": "BWF01_PCS_ELECTRONICS"
+        },
+        "heavy_electrical_ordinal": {
+          "BESS_INTEGRATED_ENCLOSURE": "BWF01_ENC_noncell_repair_sensitivity_heavy_electrical_ordinal",
+          "BESS_SEPARATE_PCS": "BWF01_PCS_ELECTRONICS"
+        }
+      },
+      "limited_repair_sensitivity": {
+        "electronics_ordinal": {
+          "BESS_INTEGRATED_ENCLOSURE": "BWF01_ENC_limited_repair_sensitivity_electronics_ordinal",
+          "BESS_SEPARATE_PCS": "BWF01_PCS_ELECTRONICS"
+        },
+        "heavy_electrical_ordinal": {
+          "BESS_INTEGRATED_ENCLOSURE": "BWF01_ENC_limited_repair_sensitivity_heavy_electrical_ordinal",
+          "BESS_SEPARATE_PCS": "BWF01_PCS_ELECTRONICS"
+        }
+      }
+    },
+    "default_response_hypothesis": null,
+    "default_shape_scenario": null,
+    "exact_state_only": true,
+    "repair_serviceability_counterfactual_required": true,
+    "limitation_flags": [
+      "LOCAL_TEST_ONLY_NOT_CANONICAL",
+      "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+      "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+      "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+      "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+      "PARTIAL_PROPERTY_SCOPE",
+      "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+      "NO_GENERIC_MITIGATION_CREDIT",
+      "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+      "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+      "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+    ]
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean"
+    ]
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "wildfire_bess",
+    "canonical_runtime_artifact": false,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "wildfire_thermal_attack",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "conditional",
+        "curve_intrinsic_spread": "not_carried",
+        "populated_emit_modes": [
+          "scalar_mean"
+        ],
+        "conditions": [
+          "Exact content pins and explicit local-test opt-in",
+          "Exact class0..6 and explicit BESS reference, policy and shape",
+          "Repair requires explicit serviceability counterfactual",
+          "Same physical unit/value; no blanket exposure or protection multiplier"
+        ],
+        "limitation_flags": [
+          "LOCAL_TEST_ONLY_NOT_CANONICAL",
+          "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+          "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+          "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+          "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+          "PARTIAL_PROPERTY_SCOPE",
+          "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+          "NO_GENERIC_MITIGATION_CREDIT",
+          "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+        ],
+        "withheld_failure_units": [
+          {
+            "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+            "reason_codes": [
+              "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+            ]
+          },
+          {
+            "failure_unit_id": "BESS_CIVIL",
+            "reason_codes": [
+              "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+            ]
+          },
+          {
+            "failure_unit_id": "BESS_FIELDWORK",
+            "reason_codes": [
+              "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+            ]
+          }
+        ]
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "withheld",
+      "prerequisites": [
+        "Local source/footprint bridge qualification",
+        "Annual joint coupling, original mass, per-unit caps and fixed-mass tail proof",
+        "Separate canonical admission before production use"
+      ],
+      "limitation_flags": [
+        "LOCAL_TEST_ONLY_NOT_CANONICAL",
+        "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+        "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+        "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+        "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+        "PARTIAL_PROPERTY_SCOPE",
+        "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+        "NO_GENERIC_MITIGATION_CREDIT",
+        "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+        "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+        "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "One value per physical unit; enclosures already include their internals",
+        "94.4M hardware does not become109.8M modeled value",
+        "No within-year restoration inferred; qualify annual per-unit caps separately"
+      ],
+      "action_if_fail": "withhold affected response"
+    },
+    "promotion_gate": {
+      "status": "blocked",
+      "required_before_canonical_use": [
+        "Local Hazard exposure and consumer proof",
+        "Scientific/capability review; owner cost choice is not response calibration",
+        "Separate annual qualification"
+      ]
+    }
+  },
+  "derivation_rationale": {
+    "source_artifact_sha256": "598512fbe2f0a3c8db48df69fdb2cd00ca5e0cc8e7ef761555837a3d76d166d8",
+    "source_artifact_path": "docs/cells/wildfire_solar/current/wildfire_solar__model_v1_0__docs_r3__curve_artifact.json",
+    "experiment_spec_sha256": "93cb385161f5e9ed431d596a4092c31844cf9dbed02e68052b13eda0540e57f8",
+    "owner_local_policy": {
+      "question_id": "BWF-Q01",
+      "date": "2026-10-19",
+      "words": "Test full replacement; retain repair sensitivities (Recommended)",
+      "scope": "local testing only; cost of battery compromise, not class probabilities"
+    },
+    "interpretation": "Donor economic DR ordinates provide provisional ordinal mean-response weights in a new BESS hypothesis. They are not measured battery-compromise or ignition probabilities. No Bernoulli/spread distribution is inferred.",
+    "not_a_damage_probability_distribution": true
+  }
+}

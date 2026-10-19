@@ -1,0 +1,19 @@
+{
+  "schema_version": "cell_runtime_changelog.v1",
+  "cell_id": "flood_bess",
+  "current_pin": "flood_bess@model_v1_0__docs_r1",
+  "entries": [
+    {
+      "consumer_pin": "flood_bess@model_v1_0__docs_r1",
+      "semantic_damage_model_version": "model v1.0",
+      "documentation_revision": "docs r1",
+      "artifact_schema_version": "damage_curve_record_bundle.v2",
+      "capability_schema_version": "capability_declaration.v2",
+      "published_on": "2026-10-18",
+      "artifact_path": "docs/cells/flood_bess/current/curve_artifact.json",
+      "change_class": "NEW_CELL_MODEL_RELEASE",
+      "conditional_dr_changed_from_v0_2": false,
+      "summary": "First canonical partial-property Flood BESS response; annual permission requires existing frequency/coupling/cap/coverage proof. Prior proposals unchanged."
+    }
+  ]
+}
