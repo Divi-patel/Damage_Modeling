@@ -1,0 +1,8 @@
+reference_building_id,reference_profile,dins_comparison_group,factor_on_house_curve,role,basis,source_ids
+RE_RES_SFD_1S_SLAB,re_house_1s_wood_slab,house,1.0,adopted,The USFS response function is defined for a home; used directly,WFRE-S001;WFRE-S004
+RE_IND_WAREHOUSE,re_warehouse_1s_steel_slab,warehouse_like,0.8,adopted,Same-fire DINS ratio of metal-wall metal-roof commercial buildings to wood-or-vinyl asphalt-roof one-storey houses (0.79; 90% range 0.61-0.99) rounded to one decimal,WFRE-S002;WFRE-S004
+RE_COM_OFFICE_3S_SLAB,re_office_3s_slab,office_like,0.9,adopted,Same-fire DINS ratio of stucco/brick/cement multi-storey commercial buildings to the same houses (0.93; 90% range 0.66-1.38) rounded to one decimal,WFRE-S002;WFRE-S004
+RE_IND_WAREHOUSE,re_warehouse_1s_steel_slab,warehouse_like,0.3,sensitivity,Pooled DINS ratio (all fires together; mix-affected),WFRE-S002
+RE_COM_OFFICE_3S_SLAB,re_office_3s_slab,office_like,0.4,sensitivity,Pooled DINS ratio (all fires together; mix-affected),WFRE-S002
+RE_IND_WAREHOUSE,re_warehouse_1s_steel_slab,warehouse_like,1.0,sensitivity,No building difference,WFRE-S002
+RE_COM_OFFICE_3S_SLAB,re_office_3s_slab,office_like,1.0,sensitivity,No building difference,WFRE-S002

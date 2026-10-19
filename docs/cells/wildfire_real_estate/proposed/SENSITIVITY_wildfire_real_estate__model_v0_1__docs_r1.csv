@@ -1,0 +1,18 @@
+reference_building_id,variant,role,dr_state1,dr_state2,dr_state3,dr_state4,dr_state5,dr_state6
+RE_RES_SFD_1S_SLAB,reference: shrub with the adopted factor,reference,0.2000,0.3500,0.5000,0.6500,0.8000,0.9500
+RE_RES_SFD_1S_SLAB,lifeform tree,lifeform,0.2500,0.4000,0.5500,0.7000,0.8500,1.0000
+RE_RES_SFD_1S_SLAB,lifeform grass/herbaceous,lifeform,0.1000,0.2500,0.4000,0.5500,0.7000,0.8500
+RE_IND_WAREHOUSE,reference: shrub with the adopted factor,reference,0.1600,0.2800,0.4000,0.5200,0.6400,0.7600
+RE_IND_WAREHOUSE,lifeform tree,lifeform,0.2000,0.3200,0.4400,0.5600,0.6800,0.8000
+RE_IND_WAREHOUSE,lifeform grass/herbaceous,lifeform,0.0800,0.2000,0.3200,0.4400,0.5600,0.6800
+RE_IND_WAREHOUSE,same-fire 90% low (0.61),building_factor,0.1219,0.2134,0.3049,0.3963,0.4878,0.5792
+RE_IND_WAREHOUSE,same-fire 90% high (0.99; capped at 100%),building_factor,0.1973,0.3452,0.4931,0.6411,0.7890,0.9370
+RE_IND_WAREHOUSE,factor 0.3 (pooled DINS ratio),building_factor,0.0600,0.1050,0.1500,0.1950,0.2400,0.2850
+RE_IND_WAREHOUSE,factor 1.0 (same as house),building_factor,0.2000,0.3500,0.5000,0.6500,0.8000,0.9500
+RE_COM_OFFICE_3S_SLAB,reference: shrub with the adopted factor,reference,0.1800,0.3150,0.4500,0.5850,0.7200,0.8550
+RE_COM_OFFICE_3S_SLAB,lifeform tree,lifeform,0.2250,0.3600,0.4950,0.6300,0.7650,0.9000
+RE_COM_OFFICE_3S_SLAB,lifeform grass/herbaceous,lifeform,0.0900,0.2250,0.3600,0.4950,0.6300,0.7650
+RE_COM_OFFICE_3S_SLAB,same-fire 90% low (0.66),building_factor,0.1318,0.2306,0.3294,0.4282,0.5270,0.6259
+RE_COM_OFFICE_3S_SLAB,same-fire 90% high (1.38; capped at 100%),building_factor,0.2755,0.4822,0.6888,0.8954,1.0000,1.0000
+RE_COM_OFFICE_3S_SLAB,factor 0.4 (pooled DINS ratio),building_factor,0.0800,0.1400,0.2000,0.2600,0.3200,0.3800
+RE_COM_OFFICE_3S_SLAB,factor 1.0 (same as house),building_factor,0.2000,0.3500,0.5000,0.6500,0.8000,0.9500

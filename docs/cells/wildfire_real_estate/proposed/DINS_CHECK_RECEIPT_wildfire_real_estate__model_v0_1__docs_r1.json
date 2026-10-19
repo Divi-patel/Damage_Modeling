@@ -1,0 +1,45 @@
+{
+  "check": "CAL FIRE DINS building-type comparison for wildfire_real_estate model v0.1 (evidence for the building factors; not a calibration)",
+  "input": {
+    "source_url": "https://gis.data.cnra.ca.gov/api/download/v1/items/994d3dc4569640caadbbc3198d5a3da1/csv?layers=0",
+    "dataset": "CAL FIRE Damage Inspection (DINS) Data, master table, CSV export",
+    "catalog_metadata_modified": "2026-02-04",
+    "downloaded_on": "2026-10-18",
+    "bytes": 60595742,
+    "sha256": "af01e965145420695504db3385782c6879dee00dc66586feec8a6bfc0938404f"
+  },
+  "counts": {
+    "rows": 132522,
+    "inaccessible_dropped": 591,
+    "rows_used": 131931,
+    "fires": 464,
+    "years": [
+      2013,
+      2025
+    ]
+  },
+  "group_sizes": {
+    "house": 12188,
+    "warehouse_like": 363,
+    "office_like": 215
+  },
+  "group_definitions": {
+    "house": "Structure Type 'Single Family Residence Single Story'; Exterior Siding Wood, Vinyl or Combustible; Roof Construction Asphalt",
+    "warehouse_like": "Structure Type 'Commercial Building Single Story' or 'Multi Story'; Exterior Siding Metal; Roof Construction Metal",
+    "office_like": "Structure Type 'Commercial Building Multi Story'; Exterior Siding Stucco Brick Cement"
+  },
+  "damage_ratio_reading": {
+    "No Damage": 0.0,
+    "Affected (>0-10%)": 0.05,
+    "Minor (10-25%)": 0.175,
+    "Major (25-50%)": 0.375,
+    "Destroyed (>50%)": 1.0,
+    "Destroyed (>50%) alternative": 0.75
+  },
+  "same_fire_rule": {
+    "min_house_records_per_fire": 10,
+    "bootstrap_draws": 5000,
+    "seed": 20261018,
+    "fire_key": "incident name + start date"
+  }
+}

@@ -36,6 +36,14 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_tropical_cyclone_wind_solar_v2_1_release.py` | Canonical identity, schema, exact promotion-diff, supporting-byte, proposal/current dual-read, KAT and artifact-index validator for the model-v2.1 release. |
 | `validate_hail_wind_v0_1_scaffold.py` | Fail-closed source/contact/value/workbook/link validator for hail × wind model v0.1. |
 | `validate_wildfire_wind_v0_1_scaffold.py` | Fail-closed JSON/register/value/workbook/link validator for the noncanonical wildfire x wind model-v0.1 scaffold. |
+| `wildfire_real_estate_dins_check.py` | Read-only analysis of the CAL FIRE damage-inspection (DINS) table for the wildfire × real estate model-v0.1 building factors (damage-band shares, pooled and same-fire ratios with a bootstrap range; needs numpy and pandas). |
+| `derive_wildfire_real_estate_curves.py` | Derives the wildfire × real estate model-v0.1 class-state ordinates (USFS Wildfire Risk to Communities shrub response × building factor), the sensitivity table and, with `--chart`, the preview (needs matplotlib for the chart only). |
+| `wildfire_real_estate_curve_eval.py` | Fail-closed reference evaluator for the noncanonical wildfire × real estate model-v0.1 proposal: exact FSim class states 0–6, reference-building and product selectors, no burn probability in the call; damage emit v2. |
+| `build_wildfire_real_estate_v0_1_package.py` | Deterministic builder for the wildfire × real estate model-v0.1 artifact, capability, known-answer tests and review workbook (needs openpyxl). |
+| `wildfire_real_estate_profile_binding.py` | Binds the wildfire × real estate model-v0.1 records to the Hazard reference profiles r1 (one row per profile). Standard library only. |
+| `validate_wildfire_real_estate_v0_1_package.py` | Schema/register/source-table/factor/re-derivation/loader-routing/reproducibility/KAT/non-promotion/binding/workbook/link validator for the wildfire × real estate model-v0.1 proposal. |
+| `check_wildfire_real_estate_hazard_loader.py` | Read-only consumer check: runs the proposal's known-answer requests through a copy of Hazard's generic v3 loader and lists the differences. |
+| `wildfire_real_estate_nri_check.py` | Read-only order-of-magnitude check of the proposal's yearly building loss on Hazard's wildfire grid (M1 parquet) against FEMA NRI (needs numpy, pandas, pyarrow). |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
 

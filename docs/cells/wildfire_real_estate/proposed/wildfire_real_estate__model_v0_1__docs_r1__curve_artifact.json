@@ -1,0 +1,608 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "proposed_draft",
+  "cell_id": "wildfire_real_estate",
+  "damage_code_id": "WILDFIRE_REAL_ESTATE_WRC_FSIM_SCREENING_V0_1",
+  "semantic_damage_model_version": "model v0.1",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "scaffold",
+  "promotion_status": "proposed",
+  "review_status": "not_yet_reviewed",
+  "model_grade": "screening_agency_response_function_with_inspection_building_factors",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "not_included",
+  "canonical_runtime_artifact": false,
+  "source_dossier": "docs/cells/wildfire_real_estate/proposed/wildfire_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md",
+  "source_workbook": "docs/cells/wildfire_real_estate/proposed/damage_curve_records_wildfire_real_estate__model_v0_1__docs_r1.xlsx",
+  "known_answer_tests": "docs/cells/wildfire_real_estate/proposed/known_answer_tests_wildfire_real_estate__model_v0_1__docs_r1.json",
+  "source_register": "docs/cells/wildfire_real_estate/proposed/SOURCE_REGISTER_wildfire_real_estate__model_v0_1__docs_r1.csv",
+  "claim_parameter_register": "docs/cells/wildfire_real_estate/proposed/CLAIM_PARAMETER_REGISTER_wildfire_real_estate__model_v0_1__docs_r1.csv",
+  "value_crosswalk": "docs/cells/wildfire_real_estate/proposed/VALUE_CROSSWALK_wildfire_real_estate__model_v0_1__docs_r1.csv",
+  "failure_units": [
+    {
+      "id": "WFRE_BUILDING_STRUCTURE",
+      "subsystem": "BUILDING",
+      "component": "BUILDING_STRUCTURE_ASSEMBLY",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "structure replacement cost new of the same reference building (no land, contents, site works or depreciation)",
+      "platform_code_status": "proposed_awaiting_platform_codes",
+      "source_atom_note": "Whole-structure relative loss (USFS response) and whole-structure damage bands (DINS); not an aggregate of component records."
+    },
+    {
+      "id": "WFRE_BUILDING_CONTENTS",
+      "subsystem": "BUILDING",
+      "component": "CONTENTS",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "contents value (deferred)",
+      "withheld_reason_codes": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+      ],
+      "platform_code_status": "proposed_awaiting_platform_codes"
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "wildfire_building_exposure",
+      "hazard_scope": {
+        "included": [
+          "wildfire reaching the building location, with embers, radiant heat, direct flame contact and building-to-building spread as they are inside the source response and the inspected outcomes"
+        ],
+        "excluded": [
+          "burn probability and fire frequency (Hazard)",
+          "smoke, soot or ash contamination without fire damage",
+          "post-fire debris flow, flooding and erosion",
+          "power shutoff, loss of use, business interruption",
+          "contents, land, landscaping, site works, vehicles"
+        ],
+        "deferred_pathways": [],
+        "compound_event_rule": "All perils on one building in one event together at most 100% of structure value (consumer)."
+      },
+      "hazard_axis": {
+        "id": "FSIM_CONDITIONAL_FLAME_LENGTH_CLASS_STATE_SCREENING",
+        "preferred_input_field": "conditional_flame_length_class_state",
+        "unit": "source_native_categorical_class",
+        "valid_range": [
+          0,
+          6
+        ],
+        "extrapolation_policy": "exact integers only; 0 is the no-event control; reject non-integer, non-numeric and out-of-range states",
+        "source_product": "USFS_RDS_2016_0034_3_270M",
+        "native_class_map": {
+          "lt_2_ft": 1,
+          "gte_2_lt_4_ft": 2,
+          "gte_4_lt_6_ft": 3,
+          "gte_6_lt_8_ft": 4,
+          "gte_8_lt_12_ft": 5,
+          "gte_12_ft": 6
+        },
+        "permitted_proxy_fields": [],
+        "bridge": "the USFS response was defined on WRC 30 m WildEST FLP1-6; applied to Hazard's 270 m FSim FLP1-6 (same class boundaries; flagged identity bridge)",
+        "guardrail": "The class is the flame length of the wildland fire in the cell, not the heat flux, ember load or flame contact at the building; burn probability is frequency and never enters the damage call."
+      },
+      "reference_profile_binding": {
+        "RE_RES_SFD_1S_SLAB": "re_house_1s_wood_slab",
+        "RE_IND_WAREHOUSE": "re_warehouse_1s_steel_slab",
+        "RE_COM_OFFICE_3S_SLAB": "re_office_3s_slab"
+      },
+      "record_routing_fields": [
+        "reference_building_id",
+        "source_wildfire_product_id"
+      ],
+      "selector_logic": [
+        {
+          "field": "reference_building_id",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "RE_RES_SFD_1S_SLAB",
+            "RE_IND_WAREHOUSE",
+            "RE_COM_OFFICE_3S_SLAB"
+          ],
+          "effect": "Fixed identity of the reference building; picks the building factor."
+        },
+        {
+          "field": "source_wildfire_product_id",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "USFS_RDS_2016_0034_3_270M"
+          ],
+          "effect": "Pins the FSim flame-length class semantics the curve is bound to."
+        }
+      ],
+      "conditioner_logic": [],
+      "building_factors": {
+        "RE_RES_SFD_1S_SLAB": {
+          "factor_on_house_curve": 1.0,
+          "dins_comparison_group": "house"
+        },
+        "RE_IND_WAREHOUSE": {
+          "factor_on_house_curve": 0.8,
+          "dins_comparison_group": "warehouse_like"
+        },
+        "RE_COM_OFFICE_3S_SLAB": {
+          "factor_on_house_curve": 0.9,
+          "dins_comparison_group": "office_like"
+        }
+      },
+      "exposure_contract": {
+        "required_subject_grain": "one reference building",
+        "value_rule": "Scenario dollars need structure replacement cost new for the same building; the consumer qualifies the reference budget.",
+        "spatial_rule": "Hazard couples the building to the FSim class mix and fire rate of its location; the curve does not add a hit probability.",
+        "mitigation_rule": "No defensible-space, vegetation or ember-resistant construction credit in model v0.1."
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+          "status": "conditional_numeric_screening_curve",
+          "reason_codes": []
+        },
+        {
+          "failure_unit_id": "WFRE_BUILDING_CONTENTS",
+          "status": "withheld_not_zero",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "WFRE_RES_WRC_SHRUB",
+          "pathway_id": "wildfire_building_exposure",
+          "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_conditional_flame_length_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.2
+              ],
+              [
+                2,
+                0.35
+              ],
+              [
+                3,
+                0.5
+              ],
+              [
+                4,
+                0.65
+              ],
+              [
+                5,
+                0.8
+              ],
+              [
+                6,
+                0.95
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "exact integer states 0-6 only (USFS shrub response / 100; state 0 = 0); the evaluator does not interpolate; fractional or out-of-range states rejected (INVALID_CLASS_STATE)",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M"
+          },
+          "source_parameter_refs": [
+            "WFRE-S001#Process_Step_5:shrub_FLP1-FLP6",
+            "WFRE-S003#Entity_and_Attribute:FLP1-FLP6"
+          ],
+          "metadata_flags": [
+            "WRC_HOME_RESPONSE_USED_DIRECTLY",
+            "NO_EMBER_RESISTANT_VENT_OR_DEFENSIBLE_SPACE_CREDIT"
+          ]
+        },
+        {
+          "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+          "pathway_id": "wildfire_building_exposure",
+          "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_conditional_flame_length_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.16
+              ],
+              [
+                2,
+                0.28
+              ],
+              [
+                3,
+                0.4
+              ],
+              [
+                4,
+                0.52
+              ],
+              [
+                5,
+                0.64
+              ],
+              [
+                6,
+                0.76
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "exact integer states 0-6 only (USFS shrub response / 100 x 0.8 (DINS same-fire building factor); state 0 = 0); the evaluator does not interpolate; fractional or out-of-range states rejected (INVALID_CLASS_STATE)",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M"
+          },
+          "source_parameter_refs": [
+            "WFRE-S001#Process_Step_5:shrub_FLP1-FLP6",
+            "WFRE-S003#Entity_and_Attribute:FLP1-FLP6",
+            "WFRE-S002#DINS_BUILDING_COMPARISON:same_fire_ratio:warehouse_like"
+          ],
+          "metadata_flags": [
+            "WRC_HOME_RESPONSE_TIMES_DINS_SAME_FIRE_FACTOR",
+            "BUILDING_FACTOR_T4_TRANSFER_FROM_CALIFORNIA_COMMERCIAL_STOCK"
+          ]
+        },
+        {
+          "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+          "pathway_id": "wildfire_building_exposure",
+          "failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "fsim_conditional_flame_length_class_state_exact_integer_only",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                0,
+                0.0
+              ],
+              [
+                1,
+                0.18
+              ],
+              [
+                2,
+                0.315
+              ],
+              [
+                3,
+                0.45
+              ],
+              [
+                4,
+                0.585
+              ],
+              [
+                5,
+                0.72
+              ],
+              [
+                6,
+                0.855
+              ]
+            ]
+          },
+          "valid_range": [
+            0,
+            6
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "exact integer states 0-6 only (USFS shrub response / 100 x 0.9 (DINS same-fire building factor); state 0 = 0); the evaluator does not interpolate; fractional or out-of-range states rejected (INVALID_CLASS_STATE)",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "source_wildfire_product_id": "USFS_RDS_2016_0034_3_270M"
+          },
+          "source_parameter_refs": [
+            "WFRE-S001#Process_Step_5:shrub_FLP1-FLP6",
+            "WFRE-S003#Entity_and_Attribute:FLP1-FLP6",
+            "WFRE-S002#DINS_BUILDING_COMPARISON:same_fire_ratio:office_like"
+          ],
+          "metadata_flags": [
+            "WRC_HOME_RESPONSE_TIMES_DINS_SAME_FIRE_FACTOR",
+            "BUILDING_FACTOR_T4_TRANSFER_FROM_CALIFORNIA_COMMERCIAL_STOCK"
+          ]
+        }
+      ]
+    }
+  ],
+  "value_linkage": {
+    "curve_denominator": "structure replacement cost new of the reference building",
+    "scenario_loss_formula": "loss = DR * structure_replacement_cost_new_usd",
+    "scenario_loss_status": "withheld_consumer_value_qualification",
+    "rejected_denominators": [
+      "depreciated value",
+      "market value",
+      "assessed value"
+    ],
+    "implicit_default_profile": null
+  },
+  "parameter_tier_table": [
+    {
+      "parameter": "axis_definition",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "all",
+      "value": "exact FSim conditional flame-length class state 0-6 (0 = no event); integers only",
+      "param_role": "axis",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "WFRE-S003;WFRE-S005",
+      "reasoning": "Hazard's delivered state (WFRE-C005, C006).",
+      "status": "proposed",
+      "update_trigger": "Hazard changes product."
+    },
+    {
+      "parameter": "class_identity_wrc_fsim",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "all",
+      "value": "WRC FLP1-6 (30 m WildEST) = FSim FLP1-6 (270 m)",
+      "param_role": "axis_bridge",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "WFRE-S001;WFRE-S003",
+      "reasoning": "Same class boundaries, different resolution and vintage (WFRE-C005).",
+      "status": "proposed",
+      "update_trigger": "A source states the WRC class boundaries explicitly."
+    },
+    {
+      "parameter": "house_response",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "WFRE_RES_WRC_SHRUB",
+      "value": "0.20/0.35/0.50/0.65/0.80/0.95 for states 1-6",
+      "param_role": "curve_ordinate",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "WFRE-S001",
+      "reasoning": "USFS response for a home, shrub (WFRE-C001 to C003); level consistent with DINS (WFRE-C008).",
+      "status": "proposed",
+      "update_trigger": "Revised WRC response; flame-intensity-stratified loss data."
+    },
+    {
+      "parameter": "lifeform_default",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "all",
+      "value": "shrub (tree +0.05, grass -0.10 to -0.15 as sensitivity)",
+      "param_role": "selector_default",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "WFRE-S001;WFRE-S005",
+      "reasoning": "No lifeform from Hazard; JL decided the middle response (WFRE-C007).",
+      "status": "proposed",
+      "update_trigger": "Hazard delivers lifeform per cell."
+    },
+    {
+      "parameter": "value_reading",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "all",
+      "value": "WRC loss value = repair cost / structure replacement cost new",
+      "param_role": "cost_mapping",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "WFRE-S001",
+      "reasoning": "WFRE-C004.",
+      "status": "proposed",
+      "update_trigger": "Cost-based source statement."
+    },
+    {
+      "parameter": "warehouse_factor",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "WFRE_IND_WRC_SHRUB_X0_8",
+      "value": "0.8 x house",
+      "param_role": "building_factor",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "WFRE-S002",
+      "reasoning": "Same-fire DINS ratio 0.79 (0.61-0.99) rounded (WFRE-C009); transfer to the reference warehouse T4 (WFRE-C010).",
+      "status": "proposed",
+      "update_trigger": "Warehouse-specific loss data."
+    },
+    {
+      "parameter": "office_factor",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "WFRE_OFF_WRC_SHRUB_X0_9",
+      "value": "0.9 x house",
+      "param_role": "building_factor",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "WFRE-S002",
+      "reasoning": "Same-fire DINS ratio 0.93 (0.66-1.38) rounded (WFRE-C009); transfer T4 (WFRE-C010).",
+      "status": "proposed",
+      "update_trigger": "Office-specific loss data."
+    },
+    {
+      "parameter": "factor_constant_across_classes",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "WFRE_IND_*;WFRE_OFF_*",
+      "value": "one factor at every class",
+      "param_role": "building_factor",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "WFRE-S002",
+      "reasoning": "DINS records no flame length, so no class-dependent ratio can be estimated.",
+      "status": "proposed",
+      "update_trigger": ""
+    },
+    {
+      "parameter": "no_event_state",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "all",
+      "value": "state 0 = 0",
+      "param_role": "domain",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "WFRE-S005;WFRE-S008",
+      "reasoning": "Hazard's control state; repository precedent.",
+      "status": "proposed",
+      "update_trigger": ""
+    },
+    {
+      "parameter": "tabulation",
+      "pathway_id": "wildfire_building_exposure",
+      "curve_id": "all",
+      "value": "seven exact states, 6 decimals; no interpolation",
+      "param_role": "curve_form",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "WFRE-S008",
+      "reasoning": "Categorical axis.",
+      "status": "proposed",
+      "update_trigger": ""
+    }
+  ],
+  "evaluation_contract": {
+    "supported_pathway_ids": [
+      "wildfire_building_exposure"
+    ],
+    "supported_failure_unit_id": "WFRE_BUILDING_STRUCTURE",
+    "required_selector_fields": [
+      "reference_building_id",
+      "source_wildfire_product_id"
+    ],
+    "required_conditioner_fields": [],
+    "accepted_axis_payloads": [
+      {
+        "pathway_id": "wildfire_building_exposure",
+        "mode": "exact_fsim_class_state",
+        "required_fields": [
+          "conditional_flame_length_class_state"
+        ]
+      }
+    ],
+    "metadata_flags_always": [
+      "NONCANONICAL_PROPOSAL",
+      "SCREENING_AGENCY_RESPONSE_FUNCTION_NOT_FIELD_CALIBRATED",
+      "WRC_SHRUB_LIFEFORM_DEFAULT_LIFEFORM_NOT_SUPPLIED",
+      "WRC_LOSS_VALUE_READ_AS_REPAIR_COST_RATIO",
+      "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX_OR_EMBER_EXPOSURE",
+      "WHOLE_BUILDING_SOURCE_ATOM",
+      "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+      "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+      "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+      "PLATFORM_CODES_PROPOSED_NOT_ISSUED"
+    ],
+    "out_of_range_behavior": "non-integer or outside 0-6: error INVALID_CLASS_STATE; no withheld band (closed class set)",
+    "frequency_guard": "a burn probability field in the damage call is an error (FREQUENCY_FIELD_NOT_ALLOWED_IN_DAMAGE_CALL)",
+    "reference_evaluator": "scripts/reference_helpers/wildfire_real_estate_curve_eval.py"
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean"
+    ],
+    "supported_output": "conditional scalar DR for WFRE_BUILDING_STRUCTURE given a fire at the building location in the stated class",
+    "scenario_loss": "withheld until the consumer qualifies the building value",
+    "annual_and_tail_metrics": "withheld; consumer-owned",
+    "withheld_units_emit": "explicit null DR plus reason codes; never zero"
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "wildfire_real_estate",
+    "canonical_runtime_artifact": false,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "wildfire_building_exposure",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "withheld",
+        "curve_intrinsic_spread": "not_carried",
+        "populated_emit_modes": [
+          "scalar_mean"
+        ],
+        "conditions": [
+          "reference_building_id must be one of the three Hazard reference profiles r1 buildings",
+          "source_wildfire_product_id must be USFS_RDS_2016_0034_3_270M (the FSim class semantics the curve is bound to)",
+          "conditional_flame_length_class_state is the exact FSim conditional flame-length class state 0-6 (0 = no event); integers only, no interpolation",
+          "burn probability is frequency and never a damage input",
+          "the shrub response is used for every location (Hazard supplies no lifeform)",
+          "scenario dollars stay withheld until the consumer qualifies the building value",
+          "owner acceptance of the scope and selections is required before any canonical use"
+        ],
+        "limitation_flags": [
+          "NONCANONICAL_PROPOSAL",
+          "SCREENING_AGENCY_RESPONSE_FUNCTION_NOT_FIELD_CALIBRATED",
+          "WRC_SHRUB_LIFEFORM_DEFAULT_LIFEFORM_NOT_SUPPLIED",
+          "WRC_LOSS_VALUE_READ_AS_REPAIR_COST_RATIO",
+          "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX_OR_EMBER_EXPOSURE",
+          "WHOLE_BUILDING_SOURCE_ATOM",
+          "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+          "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+          "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+          "MULTI_PERIL_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+        ],
+        "withheld_failure_units": [
+          {
+            "failure_unit_id": "WFRE_BUILDING_CONTENTS",
+            "reason_codes": [
+              "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+              "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+            ]
+          }
+        ]
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "withheld",
+      "prerequisites": [
+        "owner acceptance of scope and curve selections",
+        "consumer-qualified replacement cost new for each reference building",
+        "Hazard fire frequency at building locations reviewed (NRI check: burnable-pixel burn probability)",
+        "exact model/docs/schema/SHA pin"
+      ],
+      "limitation_flags": [
+        "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+        "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+        "BURNABLE_PIXEL_FREQUENCY_NOT_BUILDING_EXPOSURE"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "exact model/docs/schema/SHA pin",
+        "record routing by reference_building_id and source_wildfire_product_id",
+        "exact integer class state; burn probability never passed to the damage call",
+        "all perils on one building in one event together at most 100% of structure value"
+      ],
+      "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+    },
+    "promotion_gate": {
+      "status": "blocked",
+      "required_before_canonical_use": [
+        "owner accepts D-WFRE-01 to D-WFRE-14",
+        "consumer value qualification of each reference budget (shared with the other real-estate cells)",
+        "reviewer accepts the agency-response basis, the shrub default and the building factors",
+        "independent review of the package"
+      ]
+    }
+  },
+  "derivation_rationale": {
+    "source_spine": "USFS Wildfire Risk to Communities 2nd ed. (RDS-2020-0016-2) conditional risk to potential structures response function, shrub lifeform, per FSim flame-length class; CAL FIRE DINS 2013-2025 same-fire comparison for the warehouse and office factors.",
+    "adopted_form": "exact class-state table: DR(0) = 0; DR(k) = factor x WRC_shrub(FLP_k) / 100; factor 1.0 house, 0.8 warehouse, 0.9 office",
+    "why_not_flat": "A flat loss per building would discard Hazard's flame-length information; the owner chose the class-based response (D-WFRE-03).",
+    "parameter_tier_mix": "House response T3 (agency judgment checked against DINS level); lifeform default, value reading, class identity and factor transfer T4; building factors T3 (adjacent empirical); axis T2.",
+    "nri_check": "Yearly building loss 2.0x (house), 1.6x (warehouse), 1.8x (office) NRI nationally; median cell 2.4-3.0x; rank correlation 0.88; West 1.75x, East 4.7x (house, median cell)."
+  },
+  "legacy_comparison": {
+    "prior_cell_state": "none (new cell)",
+    "changes_from_prior": [],
+    "legacy_arrays_used": "none",
+    "canonical_or_consumer_change": false
+  }
+}

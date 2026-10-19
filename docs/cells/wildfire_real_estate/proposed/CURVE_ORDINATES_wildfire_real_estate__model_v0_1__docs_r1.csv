@@ -1,0 +1,22 @@
+curve_id,reference_building_id,pathway_id,state_index,flame_length_class,damage_ratio,source_ids
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,0,no event (control),0.000000,WFRE-S001
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,1,< 2 ft,0.200000,WFRE-S001
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,2,2 to < 4 ft,0.350000,WFRE-S001
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,3,4 to < 6 ft,0.500000,WFRE-S001
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,4,6 to < 8 ft,0.650000,WFRE-S001
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,5,8 to < 12 ft,0.800000,WFRE-S001
+WFRE_RES_WRC_SHRUB,RE_RES_SFD_1S_SLAB,wildfire_building_exposure,6,12+ ft,0.950000,WFRE-S001
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,0,no event (control),0.000000,WFRE-S001;WFRE-S002
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,1,< 2 ft,0.160000,WFRE-S001;WFRE-S002
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,2,2 to < 4 ft,0.280000,WFRE-S001;WFRE-S002
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,3,4 to < 6 ft,0.400000,WFRE-S001;WFRE-S002
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,4,6 to < 8 ft,0.520000,WFRE-S001;WFRE-S002
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,5,8 to < 12 ft,0.640000,WFRE-S001;WFRE-S002
+WFRE_IND_WRC_SHRUB_X0_8,RE_IND_WAREHOUSE,wildfire_building_exposure,6,12+ ft,0.760000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,0,no event (control),0.000000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,1,< 2 ft,0.180000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,2,2 to < 4 ft,0.315000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,3,4 to < 6 ft,0.450000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,4,6 to < 8 ft,0.585000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,5,8 to < 12 ft,0.720000,WFRE-S001;WFRE-S002
+WFRE_OFF_WRC_SHRUB_X0_9,RE_COM_OFFICE_3S_SLAB,wildfire_building_exposure,6,12+ ft,0.855000,WFRE-S001;WFRE-S002

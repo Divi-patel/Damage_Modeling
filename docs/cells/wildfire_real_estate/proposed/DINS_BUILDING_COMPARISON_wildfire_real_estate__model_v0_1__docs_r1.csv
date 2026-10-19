@@ -1,0 +1,15 @@
+section,subset,group,n_buildings,n_fires,no_damage,affected,minor,major,destroyed,destroyed_given_any_damage,mean_dr_destroyed_100,mean_dr_destroyed_75,ratio_to_house,ratio_p05,ratio_p95
+band_shares_and_pooled_ratio,all fires,house,12188,204,0.3648,0.0376,0.0079,0.0025,0.5872,0.9244,0.5914,0.4446,1.0000,,
+band_shares_and_pooled_ratio,all fires,warehouse_like,363,61,0.7383,0.0579,0.0248,0.0138,0.1653,0.6316,0.1777,0.1364,0.3004,,
+band_shares_and_pooled_ratio,all fires,office_like,215,24,0.6186,0.1070,0.0326,0.0093,0.2326,0.6098,0.2471,0.1890,0.4178,,
+band_shares_and_pooled_ratio,fires recording at least 20% no-damage,house,6732,167,0.6601,0.0371,0.0100,0.0028,0.2900,0.8531,0.2946,0.2221,1.0000,,
+band_shares_and_pooled_ratio,fires recording at least 20% no-damage,warehouse_like,360,58,0.7444,0.0556,0.0222,0.0139,0.1639,0.6413,0.1758,0.1348,0.5966,,
+band_shares_and_pooled_ratio,fires recording at least 20% no-damage,office_like,211,22,0.6303,0.1043,0.0332,0.0095,0.2227,0.6026,0.2373,0.1816,0.8055,,
+band_shares_and_pooled_ratio,excluding 2025 Eaton and Palisades fires,house,10360,139,0.3111,0.0348,0.0061,0.0018,0.6461,0.9379,0.6496,0.4881,1.0000,,
+band_shares_and_pooled_ratio,excluding 2025 Eaton and Palisades fires,warehouse_like,337,52,0.7329,0.0623,0.0267,0.0148,0.1632,0.6111,0.1766,0.1358,0.2718,,
+band_shares_and_pooled_ratio,excluding 2025 Eaton and Palisades fires,office_like,94,19,0.7553,0.0426,0.0213,0.0106,0.1702,0.6957,0.1801,0.1375,0.2772,,
+band_shares_and_pooled_ratio,excluding Camp 2018,house,7199,203,0.6176,0.0426,0.0117,0.0043,0.3238,0.8467,0.3296,0.2486,1.0000,,
+band_shares_and_pooled_ratio,excluding Camp 2018,warehouse_like,363,61,0.7383,0.0579,0.0248,0.0138,0.1653,0.6316,0.1777,0.1364,0.5391,,
+band_shares_and_pooled_ratio,excluding Camp 2018,office_like,215,24,0.6186,0.1070,0.0326,0.0093,0.2326,0.6098,0.2471,0.1890,0.7497,,
+same_fire_ratio,fires with >=1 warehouse_like and >=10 house records,warehouse_like,258,38,,,,,,,,,0.7938,0.6097,0.9863
+same_fire_ratio,fires with >=1 office_like and >=10 house records,office_like,204,17,,,,,,,,,0.9295,0.6588,1.3776

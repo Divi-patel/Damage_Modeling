@@ -1,0 +1,49 @@
+{
+  "check": "wildfire_real_estate model v0.1 vs FEMA NRI Dec 2025 (order of magnitude; not calibration)",
+  "inputs": {
+    "hazard_m1": {
+      "gcs_uri": "gs://infrasure-benchmark/hazard_conus_grid/dev/wildfire/v1_fsim/m1_hazard_layer/run_id=20260702_m1_fsim_conus/tables/wildfire_v1_fsim_m1_hazard_layer_20260702_m1_fsim_conus.parquet",
+      "sha256": "2d931d876aa015ee28d01e1047afd9d0bfcfe6c0d8044166a69f0e2ba1592953",
+      "rows": 13085,
+      "pinned_by": "Hazard data/wildfire/runtime_inputs/version_1/manifest.json (main 08748ae5)"
+    },
+    "nri": {
+      "gcs_uri": "gs://infrasure-benchmark/hazard_conus_grid/dev/reference/nri/nri_dec2025/raw/run_id=20260706T184931Z_nri_reference/nri_raw_conus.parquet",
+      "sha256": "bc4f8dff7ab9c465677d7a8b94f2fe3038ff03da4632d7b044bcff2afcb3d82b"
+    },
+    "ordinates": {
+      "path": "docs/cells/wildfire_real_estate/proposed/CURVE_ORDINATES_wildfire_real_estate__model_v0_1__docs_r1.csv",
+      "sha256": "d6d6895bc47ad31666f96682d9987109eb14d4c6757b15b540ddf7115af37951"
+    }
+  },
+  "hazard_rule": {
+    "rate": "lambda = -ln(1 - BP), burnable-pixel policy (production); all-pixel as diagnostic",
+    "severity": "FLP1-6 conditional mix renormalised to 1",
+    "coupling": "p_hit = 1"
+  },
+  "cells": {
+    "compared": 12981,
+    "total": 13085
+  },
+  "hazard_lambda_burnable": {
+    "median": 0.0011282084116867451,
+    "exposure_weighted": 0.004936544525069263
+  },
+  "hazard_lambda_all_pixel": {
+    "median": 0.0008529708965507595
+  },
+  "proposal_summary": {
+    "RE_RES_SFD_1S_SLAB": {
+      "median_ratio": 2.97,
+      "national_ratio": 2.01
+    },
+    "RE_IND_WAREHOUSE": {
+      "median_ratio": 2.38,
+      "national_ratio": 1.61
+    },
+    "RE_COM_OFFICE_3S_SLAB": {
+      "median_ratio": 2.68,
+      "national_ratio": 1.81
+    }
+  }
+}

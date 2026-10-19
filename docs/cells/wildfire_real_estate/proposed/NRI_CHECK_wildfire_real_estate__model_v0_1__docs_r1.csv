@@ -1,0 +1,17 @@
+reference_building_id,variant,n_cells,ours_median_pct_per_year,nri_median_pct_per_year,ours_over_nri_median,ours_over_nri_p10,ours_over_nri_p90,ours_over_nri_national,spearman_rank_corr,mean_conditional_dr
+RE_RES_SFD_1S_SLAB,proposal: shrub with burnable-pixel rate (Hazard production),12981,0.04629,0.02097,2.97,0.80,12.00,2.01,0.883,0.423
+RE_RES_SFD_1S_SLAB,shrub with all-pixel rate (Hazard diagnostic),12981,0.03416,0.02097,2.20,0.56,7.28,1.82,0.885,0.423
+RE_RES_SFD_1S_SLAB,lifeform tree,12981,0.05192,0.02097,3.34,0.89,13.73,2.20,0.882,0.473
+RE_RES_SFD_1S_SLAB,lifeform grass/herbaceous,12981,0.03469,0.02097,2.20,0.61,8.63,1.64,0.886,0.323
+RE_IND_WAREHOUSE,proposal: shrub with burnable-pixel rate (Hazard production),12981,0.03703,0.02097,2.38,0.64,9.60,1.61,0.883,0.338
+RE_IND_WAREHOUSE,shrub with all-pixel rate (Hazard diagnostic),12981,0.02733,0.02097,1.76,0.44,5.82,1.45,0.885,0.338
+RE_IND_WAREHOUSE,lifeform tree,12981,0.04154,0.02097,2.67,0.71,10.98,1.76,0.882,0.378
+RE_IND_WAREHOUSE,lifeform grass/herbaceous,12981,0.02775,0.02097,1.76,0.49,6.91,1.31,0.886,0.258
+RE_IND_WAREHOUSE,factor 0.3,12981,0.01389,0.02097,0.89,0.24,3.60,0.60,0.883,0.127
+RE_IND_WAREHOUSE,factor 1.0,12981,0.04629,0.02097,2.97,0.80,12.00,2.01,0.883,0.423
+RE_COM_OFFICE_3S_SLAB,proposal: shrub with burnable-pixel rate (Hazard production),12981,0.04166,0.02097,2.68,0.72,10.80,1.81,0.883,0.380
+RE_COM_OFFICE_3S_SLAB,shrub with all-pixel rate (Hazard diagnostic),12981,0.03074,0.02097,1.98,0.50,6.55,1.63,0.885,0.380
+RE_COM_OFFICE_3S_SLAB,lifeform tree,12981,0.04673,0.02097,3.00,0.80,12.36,1.98,0.882,0.425
+RE_COM_OFFICE_3S_SLAB,lifeform grass/herbaceous,12981,0.03122,0.02097,1.98,0.55,7.77,1.48,0.886,0.290
+RE_COM_OFFICE_3S_SLAB,factor 0.4,12981,0.01852,0.02097,1.19,0.32,4.80,0.81,0.883,0.169
+RE_COM_OFFICE_3S_SLAB,factor 1.0,12981,0.04629,0.02097,2.97,0.80,12.00,2.01,0.883,0.423
