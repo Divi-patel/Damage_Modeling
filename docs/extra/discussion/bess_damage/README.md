@@ -16,15 +16,14 @@ plant**, excluding the collector station and export line. The profile is pinned
 at Hazard commit `23e1aac4d`; exact input hashes are in
 [the audit receipt](evidence/audit_receipt.json).
 
-**Current checkpoint:** the original PVSCM inputs now support a four-group
-allocation of the unchanged $84M enclosure budget. **31 r3 checks pass**, in
-addition to the retained 52 r2 checks. BF-Q01 presents one concrete choice: a
-conservative common-entry active-hardware replacement policy, or holding the
-battery response for matched service evidence. The recommendation is the first
-as a labeled screening candidate; the owner ruling remains open. No BESS runtime
-curve or predicted monetary result exists. These examples are policy arithmetic,
-not site predictions. Next: record the ruling and continue qualification under
-[the execution plan](../../../plans/bess_damage/README.md).
+**Current checkpoint:** BF-Q01 is approved for local testing. The
+[proposed Flood BESS cell](../../../cells/flood_bess/README.md) packages the
+binary active-hardware policy and separate PCS proxy with exact pins and
+ordinary runtime/annual capabilities withheld. Hazard's first local proof
+passes 15 targeted tests and 10 controlled examples; the existing 12-cell
+Pluvial controls remain below the assumed entry. The r1–r3 records below
+preserve the prior evidence and decisions; their open-status snapshots predate
+the owner's approval. No national or canonical BESS result is released.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
@@ -35,7 +34,7 @@ not site predictions. Next: record the ruling and continue qualification under
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage | [Evidence registers](evidence/README.md) | Sources, claims, reuse, value and reproducible audit |
 
 Classification: `EVIDENCE_ONLY_NO_OUTPUT_CHANGE` plus planning documentation.
-These are pre-cell research records, not a `flood_bess` release or a runtime-shaped
-placeholder. The current artifact index and all existing cell outputs remain
+The r1–r3 records are pre-cell research; the separately linked local candidate
+is not a `flood_bess` release. The current artifact index and all existing cell outputs remain
 unchanged. A subsequent candidate/new-cell package follows the existing skill's
 new-cell and capability gates.

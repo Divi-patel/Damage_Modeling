@@ -23,7 +23,7 @@ scope: BESS Damage assumptions and actionable re-entry conditions
 | BD-A11 | Post-immersion test outcomes are not direct repair ratios | BF-C11–C13; NHTSA postmortem follows additional soaking; early smoke triggers intervention | Require test timeline and repair assessment before fitting probabilities/DR. Damage |
 | BD-A12 | No uniform cost distribution with height and no automatic full-bundle swap | BF-C15; 19.3× hypothetical difference at0.45m | Resolve grouped repair scope and cost allocation; never average hypotheses into a curve. Damage + value owner |
 | BD-A13 | Source direct-input shares allocate all embedded enclosure price proportionally | BF-C18; 2023-dollar donor inputs used only as shares of fixed2024-dollar total | Target bill of materials and service pricing; do not infer bare-cell field repair. Damage + value owner |
-| BD-A14 | BF-Q01 proposes all-active replacement above an assumed0.30m entry; not adopted | BF-C20; conservative T4 policy including cooling, not measured mean | Owner ruling then capability/consumer tests; matched utility service evidence would refine affected group. Damage |
+| BD-A14 | BF-Q01 all-active replacement above assumed0.30m entry approved for local testing only | BF-C20; conservative T4 policy including cooling, not measured mean | Initial local consumer tests pass; canonical/annual qualification and matched service evidence remain. Damage |
 | BD-A15 | Enclosure/racks/fire-suppression composite remains unmodeled | BF-C17/21;14.15% of enclosure value is a mixed category, not purely passive shell | Separate fire equipment, structural property, cleanup and repair policy; retain value until addressed. Damage + value owner |
 
 These are research assumptions and missing evidence, not silent runtime defaults.

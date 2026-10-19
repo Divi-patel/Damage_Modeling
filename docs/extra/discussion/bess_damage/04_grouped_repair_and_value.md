@@ -9,11 +9,11 @@ scope: Source-derived enclosure allocation and one explicit screening-policy dec
 # BESS Flood: a costed, grouped candidate for review
 
 **We can now allocate the enclosure budget from an inspectable cost source.
-The remaining material choice is the repair policy after assumed water entry.**
-I recommend testing a conservative **active-hardware replacement policy** for
+The repair policy after assumed entry is now approved for local testing.**
+The selected candidate is a conservative **active-hardware replacement policy** for
 the first screening model. That is a deliberate engineering scenario, not a
-measured average damage curve. BF-Q01 below is open; neither this policy nor its
-entry assumption is a runtime default.
+measured average damage curve. BF-Q01 was approved on 2026-10-18 for local testing. It is not a
+canonical runtime default or publication approval.
 
 The starting problem is one $1.05M enclosure: a wet battery may require
 replacement, but that does not establish that every dollar of its container,
@@ -27,7 +27,7 @@ slice of its height can miss shared controls and replacement dependencies.
 | Enclosure value | $84M across 80 enclosures; internals unallocated | Four cost groups reconciled to the same $84M using the original PVSCM inputs |
 | Conditional battery consequence | NEMA guidance and industrial emergency context | Additional LFP OEM guidance explicitly prohibits reuse of a flooded battery; still not a utility-enclosure depth curve |
 | Entry / affected fraction | Unknown, tested with two incompatible hypotheses | Still unknown; an explicit conservative policy is costed below instead of disguising it as observed physics |
-| Owner choices | Plant scope, design and screening purpose settled | One new choice about the meaning of the first response; existing scope unchanged |
+| Owner choices | Plant scope, design and screening purpose settled | BF-Q01 approved for local testing; existing scope unchanged |
 | Runtime | No admitted BESS curve | Unchanged; 31 new research checks, no index or existing curve change |
 
 ## 1. Where the allocation comes from
@@ -106,7 +106,7 @@ Cost allocation closes the right-hand value question. It does **not** close the
 left-hand exposure question. Unknown affected fraction continues to return no
 cost in the audit helper; it never silently becomes 100%.
 
-## 3. BF-Q01 — use a conservative common-entry policy for the first candidate?
+## 3. BF-Q01 — conservative common-entry policy — approved for local testing
 
 **In plain words:** should we deliberately model an enclosure's active hardware
 as a replacement group once floodwater exceeds its assumed entry level, while
@@ -169,13 +169,14 @@ the existing flood demand. No database, live dashboard, existing cell or CONUS
 publication changes at this decision. Downstream EAL/tail admission remains a
 separate check: a policy scenario's annualized result retains that meaning.
 
-**Ruling:** ______
+**Ruling — owner, 2026-10-18:** “Use the conservative candidate for local testing (Recommended)”.
 
-The [discussion skill](/Users/divy/.agents/skills/discuss-open-questions/SKILL.md)
-says, “Do not implement a choice that depends on an open ruling.” This applies
-only to adopting BF-Q01's new repair policy; source allocation, auditing,
-documentation and independent equipment research can proceed. The skill does
-not require another general research authorization.
+This approves the stated 0.30 m entry / active-hardware replacement candidate
+for the next local test. It does not claim calibration, complete scope, annual
+qualification or national publication.
+
+The required ruling is now recorded. Proceed with the approved local candidate
+and its verification; no further confirmation of this choice is needed.
 
 ## 4. What this does and does not cover
 
@@ -197,7 +198,7 @@ totals, both allocations, explicit/unknown affected fractions, repeated units
 and entry boundaries. Original source bytes, helper and outputs are pinned in
 [the r3 audit](evidence/r3/README.md). No numerical model version changed.
 
-Next after the ruling: finish the proposed cell's capability/value matrix and
+Next: finish the proposed cell's capability/value matrix and
 the remaining-property dispositions, then prove one local Hazard path. Future
 improvements retain exact triggers: matched ingress tests; module-level repair
 and labor quotes; salinity/duration; fire-system cost split; and duration/size

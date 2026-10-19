@@ -77,8 +77,12 @@ point; cost categories are not repair units. No new value, current tariff claim
 or runtime damage ratio follows. See
 [BF-C17–BF-C18](../../extra/discussion/bess_damage/evidence/claims.csv).
 
-## Open BF-Q01 — common-entry active-hardware replacement policy
+## BD-D08 / BF-Q01 — common-entry policy approved for local testing
 
-**No owner ruling recorded.** The [review](../../extra/discussion/bess_damage/04_grouped_repair_and_value.md)
-recommends a conservative candidate, explicitly T4 for entry/affected-group and
-replacement assumptions. Costing and testing that candidate is not adoption.
+**Owner ruling, 2026-10-18:** “Use the conservative candidate for local testing (Recommended)”.
+The [review](../../extra/discussion/bess_damage/04_grouped_repair_and_value.md)
+defines the 0.30 m common-entry assumption and active-hardware replacement
+policy. Both remain T4; approval permits a local candidate, not calibration,
+complete-plant loss, annual metrics or national publication. The next task is
+to package and test this exact policy, retaining the separate PCS candidate and
+unresolved property.

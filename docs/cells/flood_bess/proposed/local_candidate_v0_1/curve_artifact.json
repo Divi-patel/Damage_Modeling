@@ -1,0 +1,230 @@
+{
+  "schema_version": "damage_curve_record_bundle.v2",
+  "cell_id": "flood_bess",
+  "damage_code_id": "BESS_FLOOD_LOCAL_CANDIDATE_0_1",
+  "semantic_damage_model_version": "model v0.1",
+  "documentation_revision": "docs r1",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "not_included",
+  "canonical_runtime_artifact": false,
+  "lifecycle_state": "local_test_candidate",
+  "promotion_status": "not_promoted",
+  "source_dossier": "docs/cells/flood_bess/proposed/local_candidate_v0_1/derivation.md",
+  "source_workbook": null,
+  "known_answer_tests": "docs/cells/flood_bess/proposed/local_candidate_v0_1/known_answers.json",
+  "hazard_axis": {
+    "id": "external_freshwater_depth_above_local_grade_m",
+    "input_field": "depth_m",
+    "unit": "m",
+    "valid_range": [
+      0,
+      2.3
+    ],
+    "extrapolation_policy": "withhold outside local-test range; range is a test boundary not a flood-physics limit"
+  },
+  "failure_units": [
+    {
+      "id": "BESS_ACTIVE_ENCLOSURE",
+      "subsystem": "battery_enclosures",
+      "component": "battery_enclosures",
+      "treatment": "candidate_only",
+      "y_axis": "failure_unit_damage_ratio"
+    },
+    {
+      "id": "BESS_SEPARATE_PCS",
+      "subsystem": "pcs",
+      "component": "pcs",
+      "treatment": "candidate_only",
+      "y_axis": "failure_unit_damage_ratio"
+    }
+  ],
+  "curve_records": [
+    {
+      "curve_id": "BESS_ACTIVE_CONTACT_STATE",
+      "failure_unit_id": "BESS_ACTIVE_ENCLOSURE",
+      "curve_form": "piecewise_linear",
+      "x_axis": "binary_common_entry_policy_state",
+      "y_axis": "failure_unit_damage_ratio",
+      "parameters": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "curve_id": "BESS_PCS_INUNDATION_PROXY",
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "curve_form": "piecewise_linear",
+      "x_axis": "depth_above_assumed_entry_m",
+      "y_axis": "failure_unit_damage_ratio",
+      "parameters": {
+        "points": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.02,
+            0.05
+          ],
+          [
+            0.05,
+            0.25
+          ],
+          [
+            0.15,
+            0.75
+          ],
+          [
+            0.3,
+            0.95
+          ],
+          [
+            0.6,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.5,
+            1.0
+          ],
+          [
+            2.0,
+            1.0
+          ]
+        ]
+      }
+    }
+  ],
+  "parameter_tier_table": [
+    {
+      "parameter": "entry_and_active_replacement",
+      "value": ".30m; binary strict greater-than",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BF-S01",
+        "BF-S02",
+        "BF-S09",
+        "BF-S15"
+      ],
+      "claim_ids": [
+        "BF-C20"
+      ],
+      "reason": "BF-Q01 owner-approved conservative local-test policy, not a physical fragility"
+    },
+    {
+      "parameter": "PCS_source_knots",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": [
+        "BF-S06",
+        "BF-S12"
+      ],
+      "claim_ids": [
+        "BF-C14"
+      ],
+      "reason": "Exact source engineering proxy; target entry remains T4"
+    },
+    {
+      "parameter": "same_unit_value",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": [
+        "BF-S01",
+        "BF-S13",
+        "BF-S14"
+      ],
+      "claim_ids": [
+        "BF-C18"
+      ],
+      "reason": "Dimensionless market-case allocation preserves reference total"
+    }
+  ],
+  "derivation_rationale": {
+    "source_artifact_path": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+    "source_artifact_sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d",
+    "evidence_sources": "docs/extra/discussion/bess_damage/evidence/sources.csv",
+    "evidence_claims": "docs/extra/discussion/bess_damage/evidence/claims.csv",
+    "owner_decision": "docs/plans/bess_damage/decisions.md#bd-d08--bf-q01--common-entry-policy-approved-for-local-testing"
+  },
+  "evaluation_contract": {
+    "local_test_external_depth_domain_m": [
+      0,
+      2.3
+    ],
+    "required_policy_id": "BF_Q01_ACTIVE_REPLACEMENT_LOCAL_V1",
+    "water_condition": "freshwater_screening",
+    "battery_state": "int(external_depth_m > 0.30); only binary states accepted; never interpolate depth between state codes",
+    "PCS_axis": "max(0, external_depth_m - 0.30), once only; native source domain0..2m",
+    "prohibited": [
+      "General-purpose evaluation without the state bridge",
+      "salinity duration or IP numeric corrections",
+      "claims-calibrated mean interpretation",
+      "converting unmodeled value to zero"
+    ],
+    "local_test_authorized": true,
+    "production_runtime_authorized": false
+  },
+  "value_linkage": {
+    "value_binding_path": "docs/cells/flood_bess/proposed/local_candidate_v0_1/value_binding.json",
+    "value_binding_sha256": "8032a6aa66b3a259d9cc7cfd24483e87fd3e80ac044ac2e40437108a62d78400",
+    "formula": "sum over supplied unique physical units of same-unit candidate DR times same-unit value; complete plant total withheld"
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [],
+    "local_test_output": "conditional policy DR/cost only, with LOCAL_CANDIDATE and incomplete-scope flags"
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v2",
+    "cell_id": "flood_bess",
+    "vulnerability_emit": {
+      "failure_unit_scalar_dr": "withheld",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [],
+      "withheld_reason_codes": [
+        "NONCANONICAL_LOCAL_CANDIDATE_ONLY"
+      ]
+    },
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "frequency_driven_annual_loss_distribution": "withheld_no_runtime_curve",
+      "vulnerability_uncertainty_distribution": "not_supported_curve_intrinsic_spread_not_carried",
+      "eal": "withheld",
+      "pml": "withheld",
+      "var": "withheld",
+      "tvar": "withheld",
+      "prerequisites": [
+        "Reviewed cell promotion",
+        "Qualified hazard coupling and annual/cap/coverage tests"
+      ],
+      "limitation_flags": [
+        "CONSERVATIVE_POLICY_NOT_CALIBRATED_MEAN",
+        "PARTIAL_PROPERTY_SCOPE",
+        "NO_ANNUAL_ADMISSION"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "status": "not_evaluated_by_damage_artifact",
+      "checks_required": [
+        "One value per unique physical unit",
+        "No overlapping enclosure and cell costs",
+        "Missing risk not zero",
+        "No annual use"
+      ],
+      "action_if_fail": "withhold affected output"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+row,value_usd,treatment
+active_enclosures,72110403.39702758,local_candidate
+separate_pcs,10400000,local_candidate
+enclosure_racks_fire_suppression,11889596.60297241,unmodeled_not_zero
+electrical_balance,13200000,unmodeled_not_zero
+civil_works,1600000,unmodeled_not_zero
+unallocated_fieldwork,600000,unmodeled_not_zero

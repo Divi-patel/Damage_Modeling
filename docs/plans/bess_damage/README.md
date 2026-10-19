@@ -8,16 +8,13 @@ scope: Bounded BESS Damage curation and Hazard handoff; Flood first
 
 # BESS Damage: first response and reusable curation record
 
-**Grouped cost allocation complete; one repair-policy choice is ready for review.**
-The [third review](../../extra/discussion/bess_damage/04_grouped_repair_and_value.md)
-uses the original PVSCM inputs to allocate the unchanged $84M enclosure budget,
-with 31 new checks. BF-Q01 recommends a labeled conservative common-entry
-active-hardware replacement candidate; its owner ruling is open. The earlier
-52-check pressure test and conditional PCS candidate remain intact. No battery
-depth curve, whole-enclosure step or average of hypotheses has been adopted.
-No BESS response is admitted or published.
-This plan executes the owner's approved research; no additional authorization
-is needed to continue the bounded repair-scope work.
+**BF-Q01 approved; first local candidate proof complete.** The owner selected
+the conservative common-entry policy for local testing on 2026-10-18. The
+[proposed cell](../../cells/flood_bess/README.md) contains the binary active
+replacement policy, separate PCS proxy, same-unit values and exact pins.
+Hazard's 15 targeted tests and 10 controlled examples pass. Its 12-cell Pluvial
+proof keeps missing support explicit and produces the expected zero direct-entry
+costs for available depths below0.30m. No canonical/annual/national admission.
 
 Target: one outdoor LFP, separate-PCS, 100 MW / 400 MWh usable-AC reference;
 450 MWh installed DC; $109.8M direct physical budget. Hazard owns profile,
@@ -28,10 +25,10 @@ equipment and autonomous internal failures remain excluded.
 | Step | Status | Done when |
 |---|---|---|
 | 1. Pin reference and inspect reuse | Done | Input hashes, five-record/95-case source audit, source/claim registers, all ten budget rows |
-| 2. Draft grouped Flood candidate | First hypothesis test done | Enclosure ingress and repair-unit hypothesis plus PCS proxy evaluated separately; facts, engineering assumptions and unsupported pairs explicit |
-| 3. Qualify response/value/conditions | Source-based enclosure allocation done; BF-Q01 open | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
-| 4. Create governed cell/consumer handoff | Pending | Appropriate new-cell classification, versioned JSON/capability, boundary/invalid/domain/condition tests, independent review evidence |
-| 5. Local Hazard proof | Pending | Existing Flood M0/M1 reused; exposure-response and annual/tail scope tested before national execution |
+| 2. Draft grouped Flood candidate | Local candidate packaged and tested | Enclosure ingress and repair-unit hypothesis plus PCS proxy evaluated separately; facts, engineering assumptions and unsupported pairs explicit |
+| 3. Qualify response/value/conditions | Local entry/policy proof done; residual property and broader conditions remain | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
+| 4. Create governed cell/consumer handoff | Proposed v0.1 package done; release pending | Appropriate new-cell classification, versioned JSON/capability, boundary/invalid/domain/condition tests, independent review evidence |
+| 5. Local Hazard proof | Pluvial controls and numerical cases done; Riverine next | Existing Flood M0/M1 reused; exposure-response and annual/tail scope tested before national execution |
 | 6. Other important hazards | Later | Own evidence and response checks; carry useful wind/wildfire discoveries without assuming Substation applicability |
 | 7. Size scaling and production handoff | Required later | Link qualified response applicability to Hazard's MW/MWh/value/layout scaling contract and examples |
 
@@ -62,8 +59,8 @@ or approval gate was introduced.
 The second review supplies representative-depth tables and a plot, repeated
 equipment at distinct exposures, same-unit dollar examples and changed-condition
 rejection. The third supplies source-derived cost shares, two allocation cases
-and explicitly unadmitted replacement-policy examples. Record BF-Q01 before
-adopting its repair/entry assumptions. Independent residual-value work can
+and explicitly unadmitted replacement-policy examples. BF-Q01 is now recorded for local testing; its policy/entry assumptions retain
+their T4 status. Independent residual-value work can
 continue; the choice does not stop all research.
 
 Before numerical release, finish the skill's new-cell package and source-linked
