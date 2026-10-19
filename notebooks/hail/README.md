@@ -7,6 +7,7 @@ Notebook companions for hail damage-curve cells.
 | Asset | Notebook folder | Current purpose |
 |---|---|---|
 | Solar PV | [`solar/`](solar/) | Curation walkthrough and runtime walkthrough for the canonical `hail_solar` curve artifact. |
+| Real estate | [`real_estate/`](real_estate/) | Curation walkthrough and runtime walkthrough for the noncanonical `hail_real_estate` proposal (model v0.1). |
 
 ## Boundary
 
