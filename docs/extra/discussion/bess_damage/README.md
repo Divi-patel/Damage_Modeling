@@ -32,7 +32,9 @@ water/coastal/annual applicability stay qualification tasks. This consumer
 evidence does not change the candidate model, value, capability or release.
 The fourth bounded pass now records the residual-property disposition and 70
 research checks. Its deeper-water saturation comparison recovers 876 known-depth
-cases without modifying v0.1; coastal repair policy BF-Q02 is open. No national
+cases without modifying v0.1. BF-Q02 is now approved and separately implemented
+in [local v0.2](../../../cells/flood_bess/proposed/local_candidate_v0_2/README.md),
+with freshwater parity and a five-cell Coastal proof. No national
 or canonical BESS result is released.
 
 | Date | Created by | Related to | Record | Purpose |

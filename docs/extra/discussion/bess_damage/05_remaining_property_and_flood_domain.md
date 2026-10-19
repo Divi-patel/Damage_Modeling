@@ -8,7 +8,12 @@ scope: Remaining BESS property disposition; deep-water continuation; coastal rep
 
 # BESS Flood: finish the bounded review before extending the candidate
 
-**Recommendation:** carry the existing battery/PCS scope into a separately
+**Update, 2026-10-18:** the owner approved BF-Q02: “Use replacement after saltwater
+entry (Recommended)”. [Local candidate v0.2](../../../cells/flood_bess/proposed/local_candidate_v0_2/README.md)
+now implements that policy and the deeper freshwater plateau. The r4 audit below
+remains the pre-decision evidence; its saved files are not rewritten as approval.
+
+**Original recommendation:** carry the existing battery/PCS scope into a separately
 versioned local candidate with explicit saturation at deeper freshwater depths.
 Keep the remaining property visible and unmodeled for this bounded proof. For
 coastal testing, review the single new repair-policy choice in **BF-Q02** below.
@@ -149,9 +154,10 @@ not claim all routes to water damage are impossible. Neither option supplies
 the remaining $27.290M or grants wave/scour protection. Unknown water condition
 still remains unknown. Freshwater shall not be relabeled to bypass this choice.
 
-**State: OPEN, local-test choice only.** The research helper compares the two
-alternatives; it is not imported by runtime. Do not record owner approval until
-an actual reply arrives. The approved BF-Q01 rule remains intact.
+**State: APPROVED for local testing, 2026-10-18.** The research helper compares the
+two alternatives; it is not imported by runtime. The original r4 receipt retains
+its historical open status. The selected behavior is separately versioned in
+v0.2; the earlier BF-Q01 candidate remains reproducible.
 
 ## 5. Bounded next work and future research
 

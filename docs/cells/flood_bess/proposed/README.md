@@ -8,5 +8,6 @@ scope: Proposed BESS Flood artifacts
 
 # Proposed responses
 
-Only [local candidate v0.1](local_candidate_v0_1/README.md) exists. Its presence
-does not add a canonical entry to the runtime index or authorize annual metrics.
+[Local candidate v0.2](local_candidate_v0_2/README.md) is the current local proposal.
+[Version 0.1](local_candidate_v0_1/README.md) is retained for exact reproduction.
+Neither adds a canonical runtime entry or authorizes annual metrics.

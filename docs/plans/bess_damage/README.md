@@ -8,13 +8,14 @@ scope: Bounded BESS Damage curation and Hazard handoff; Flood first
 
 # BESS Damage: first response and reusable curation record
 
-**BF-Q01 approved; first local candidate proof complete.** The owner selected
-the conservative common-entry policy for local testing on 2026-10-18. The
-[proposed cell](../../cells/flood_bess/README.md) contains the binary active
-replacement policy, separate PCS proxy, same-unit values and exact pins.
-Hazard's 15 targeted tests and 10 controlled examples pass. Its 12-cell Pluvial
-proof keeps missing support explicit and produces the expected zero direct-entry
-costs for available depths below0.30m. No canonical/annual/national admission.
+**BF-Q01 and BF-Q02 approved for local testing; proposed v0.2 proof complete.**
+The [current local candidate](../../cells/flood_bess/proposed/local_candidate_v0_2/README.md)
+retains the freshwater responses, explicitly saturates covered cost at deep
+water, and replaces active enclosure/PCS hardware after assumed saline entry.
+Hazard's Pluvial, Riverine and Coastal local proofs pass, with 28 targeted tests,
+30 controlled cases and full prior-answer parity. The Coastal proof samples
+31,000 unit-category cases while preserving missing and source-bin flags.
+Annual, canonical and national admission remain pending.
 
 Target: one outdoor LFP, separate-PCS, 100 MW / 400 MWh usable-AC reference;
 450 MWh installed DC; $109.8M direct physical budget. Hazard owns profile,
@@ -27,8 +28,8 @@ equipment and autonomous internal failures remain excluded.
 | 1. Pin reference and inspect reuse | Done | Input hashes, five-record/95-case source audit, source/claim registers, all ten budget rows |
 | 2. Draft grouped Flood candidate | Local candidate packaged and tested | Enclosure ingress and repair-unit hypothesis plus PCS proxy evaluated separately; facts, engineering assumptions and unsupported pairs explicit |
 | 3. Qualify response/value/conditions | Local entry/policy proof done; residual property and broader conditions remain | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
-| 4. Create governed cell/consumer handoff | Proposed v0.1 package done; release pending | Appropriate new-cell classification, versioned JSON/capability, boundary/invalid/domain/condition tests, independent review evidence |
-| 5. Local Hazard proof | Pluvial controls and numerical cases done; Riverine next | Existing Flood M0/M1 reused; exposure-response and annual/tail scope tested before national execution |
+| 4. Create governed cell/consumer handoff | Proposed v0.2 package done; release pending | Appropriate new-cell classification, versioned JSON/capability, boundary/invalid/domain/condition tests, independent review evidence |
+| 5. Local Hazard proof | Pluvial, Riverine and Coastal local proof done; annual proof next | Existing Flood M0/M1 reused; exposure-response and annual/tail scope tested before national execution |
 | 6. Other important hazards | Later | Own evidence and response checks; carry useful wind/wildfire discoveries without assuming Substation applicability |
 | 7. Size scaling and production handoff | Required later | Link qualified response applicability to Hazard's MW/MWh/value/layout scaling contract and examples |
 

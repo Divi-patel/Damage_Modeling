@@ -86,3 +86,18 @@ policy. Both remain T4; approval permits a local candidate, not calibration,
 complete-plant loss, annual metrics or national publication. The next task is
 to package and test this exact policy, retaining the separate PCS candidate and
 unresolved property.
+
+## BD-D09 / BF-Q02 — saline-entry replacement approved for local testing
+
+**Owner ruling, 2026-10-18:** “Use replacement after saltwater entry (Recommended)”.
+The [r4 comparison](../../extra/discussion/bess_damage/05_remaining_property_and_flood_domain.md)
+defines the rule: saline depth strictly above the assumed 0.30 m entry triggers
+replacement of covered active enclosure and PCS hardware. At 0.45 m one PCS is
+$520,000, versus $390,000 under the unchanged freshwater proxy. This is an
+explicit T4 local policy, not a measured mean or annual-use approval.
+
+Package local model v0.2 separately. Preserve the v0.1 bytes and all supported
+freshwater outputs; carry the existing hardware ceiling into deeper freshwater
+as the documented engineering continuation. Keep the $27.2896M residual value,
+source missingness and source-bin uncertainty visible. No new hazard model or
+global schema change is authorized or required for this bounded local test.

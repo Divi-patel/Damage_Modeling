@@ -1,5 +1,6 @@
 """Validate the proposed BESS cell without admitting it to runtime."""
 from pathlib import Path
+import argparse
 import csv
 import hashlib
 import json
@@ -8,10 +9,13 @@ from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 
 ROOT = Path(__file__).resolve().parents[2]
-FOLDER = ROOT / "docs/cells/flood_bess/proposed/local_candidate_v0_1"
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", choices=["0_1", "0_2"], default="0_1")
+    args = parser.parse_args()
+    FOLDER = ROOT / f"docs/cells/flood_bess/proposed/local_candidate_v{args.version}"
     artifact = json.loads((FOLDER / "curve_artifact.json").read_text())
     capability = json.loads((FOLDER / "capability.json").read_text())
     schema_dir = ROOT / "docs/contracts/schemas"
@@ -34,6 +38,11 @@ def main():
     assert artifact["curve_records"][1]["parameters"] == source_pcs["parameters"]
     assert artifact["curve_records"][0]["parameters"]["points"] == [[0, 0], [1, 1]]
     assert "only binary" in artifact["evaluation_contract"]["battery_state"]
+    if args.version == "0_2":
+        contract = artifact["evaluation_contract"]
+        assert contract["supported_water_conditions"] == ["freshwater_screening", "saline_screening"]
+        assert artifact["curve_records"][2]["parameters"]["points"] == [[0, 0], [1, 1]]
+        assert contract["curve_selection_by_water_condition"]["saline_screening"]["pcs"] == "BESS_PCS_SALINE_CONTACT_STATE"
     for name in ["source_dossier", "known_answer_tests"]:
         assert (ROOT / artifact[name]).is_file()
     rows = list(csv.DictReader((FOLDER / "value_crosswalk.csv").open()))

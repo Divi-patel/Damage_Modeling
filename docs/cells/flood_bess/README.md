@@ -8,21 +8,23 @@ scope: BESS Flood local candidate, not a released Damage cell
 
 # Flood × BESS
 
-**Local candidate v0.1 only.** BF-Q01 approves the conservative active-hardware
-replacement policy for local testing. No canonical runtime, annual metric or
+**Current local candidate v0.2.** BF-Q01 and BF-Q02 approve the conservative
+active-hardware and saline-entry replacement policies for local testing. No canonical runtime, annual metric or
 national publication is admitted.
 
 ```text
-freshwater inundation × standalone outdoor LFP BESS
+direct inundation × standalone outdoor LFP BESS
 ├─ active enclosure hardware: battery + management + cooling
 │  └─ 80 repeated units; explicit common-entry replacement policy
-├─ separate PCS: 20 repeated units; existing FS_INV proxy
+├─ separate PCS: 20 units; freshwater FS_INV proxy / saline entry replacement
 └─ unresolved: enclosure/racks/fire safety, internal MV/cables/controls,
    civil property and fieldwork; retained in the full $109.8M denominator
 ```
 
 Start with [the plain-language explanation](basics/README.md), then the
-[candidate package](proposed/local_candidate_v0_1/README.md).
+[candidate package](proposed/local_candidate_v0_2/README.md).
+The [v0.1 package](proposed/local_candidate_v0_1/README.md) is retained for earlier
+proof reproduction; current local configs explicitly select v0.2.
 Source research and its exact locators remain in the
 [BESS evidence record](../../extra/discussion/bess_damage/README.md).
 The [version register](VERSION_REGISTRY.md) distinguishes local candidate status
