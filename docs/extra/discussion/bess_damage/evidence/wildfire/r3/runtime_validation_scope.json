@@ -1,0 +1,8 @@
+{
+  "current_cell_v3_record_check": "passed_7_records",
+  "existing_index_entries_unchanged": true,
+  "broader_validator_status": "fails_on_preexisting_flood_bess_v2_spread_flag",
+  "unchanged_predecessor_artifact": "docs/cells/flood_bess/current/curve_artifact.json",
+  "sha256": "c9bc9194accb3adbc2c05a9720b4945dd5a969bd7288eb600d5e901aa0185d24",
+  "exact_head_bytes": true
+}

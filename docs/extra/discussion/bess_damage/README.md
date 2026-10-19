@@ -8,7 +8,11 @@ scope: BESS Damage research history and current conditional-release links
 
 # BESS Damage research
 
-**Current: [BWF-Q01 and proposed Wildfire v0.1](10_wildfire_local_candidate.md).** The owner selected full integrated replacement for battery thermal compromise, with serviceable-hardware repair sensitivities. The opt-in conditional proposal passes 84 independent comparisons, 19 negative controls, integrity and value checks; the ordinal response is a new T4 hypothesis. Annual/canonical/national admission remains separate. [First source intake](09_wildfire_damage_intake.md) is retained.
+**Current Wildfire: [conditional annual admission](11_wildfire_annual_qualification.md).**
+Repository-canonical v1.0 retains the seven v0.1 response tables and same-unit
+values exactly, after 72 local annual configurations and independent marginal,
+cap, mean and tail checks. T4 transfer, assumed spatial dependence and partial
+property remain explicit. National support and recipient delivery are separate.
 
 
 **Current Hurricane checkpoint:** [annual qualification](08_hurricane_annual_qualification.md)
@@ -42,6 +46,7 @@ remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wildfire annual admission](11_wildfire_annual_qualification.md) | First conditional v1.0; exact response/value parity, bounded annual proof and explicit consumer gates |
 | 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wildfire local candidate](10_wildfire_local_candidate.md) | BWF-Q01 settled for local tests; categorical T4 hypotheses, repair counterfactuals, independent arithmetic and conditional-only capability |
 | 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Wildfire Damage/source intake](09_wildfire_damage_intake.md) | Seven-step audit, 11 sources/11 claims, source-only reproduction, costed BWF-Q01 and finite next candidate |
 | 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wind enclosure/PCS candidate](07_hurricane_enclosure_candidate.md) | BW-Q01 local selection; costed policies and resistance sensitivities; proposed v0.1 and conditional validation |

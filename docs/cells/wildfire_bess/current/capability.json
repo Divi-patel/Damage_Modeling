@@ -1,0 +1,106 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "wildfire_bess",
+  "canonical_runtime_artifact": true,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "wildfire_thermal_attack",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "conditional",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "Exact model v1.0/docs r1 content pins and compatible declared reference",
+        "Exact class0..6 and explicit BESS reference, policy and shape",
+        "Repair requires explicit serviceability counterfactual",
+        "Same physical unit/value; no blanket exposure or protection multiplier"
+      ],
+      "limitation_flags": [
+        "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+        "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+        "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+        "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+        "PARTIAL_PROPERTY_SCOPE",
+        "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+        "NO_GENERIC_MITIGATION_CREDIT",
+        "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+        "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+        "COMMON_RATE_AND_CLASS_RANK_SCREENING_DEPENDENCE",
+        "ORIGINAL_SOURCE_AND_UNKNOWN_CLOCKS_RETAINED",
+        "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+        "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_CIVIL",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_FIELDWORK",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+    "prerequisites": [
+      "Exact artifact/capability/value/profile pins and exact class0..6 lookup",
+      "Explicit consequence policy and unweighted shape; serviceability counterfactual for repairs",
+      "Qualified native source demand; no fire frequency or heat-flux bridge inside Damage",
+      "Declared common-event screening dependence preserving every unit rate/class marginal",
+      "Original source support, unknown clocks and positive-BP/no-FLP exclusions retained",
+      "Unique physical units; separate cumulative annual caps; no within-year restoration",
+      "Qualified annual AEP/OEP arrays and independent mean, cap and fixed-mass-tail checks",
+      "Mean Damage response only; no inferred intrinsic severity spread",
+      "Partial property; national support, publication and recipient admission remain separate"
+    ],
+    "limitation_flags": [
+      "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+      "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+      "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+      "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+      "PARTIAL_PROPERTY_SCOPE",
+      "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+      "NO_GENERIC_MITIGATION_CREDIT",
+      "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+      "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+      "COMMON_RATE_AND_CLASS_RANK_SCREENING_DEPENDENCE",
+      "ORIGINAL_SOURCE_AND_UNKNOWN_CLOCKS_RETAINED",
+      "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+      "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "One value per physical unit; enclosures already include their internals",
+      "94.4M hardware does not become109.8M modeled value",
+      "No within-year restoration inferred; qualify annual per-unit caps separately",
+      "Cap each physical unit before summing plant annual loss; dry units cannot lend value",
+      "AEP and OEP retain the same declared events and original source weights"
+    ],
+    "action_if_fail": "withhold affected response"
+  },
+  "promotion_gate": {
+    "status": "passed",
+    "required_before_canonical_use": [
+      "Every consumer must satisfy all conditional-use prerequisites for its exact support and run"
+    ]
+  }
+}
