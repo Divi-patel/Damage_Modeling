@@ -18,7 +18,7 @@ empirical calibration, annual metrics, national run or canonical release.
 
 | Part | State |
 |---|---|
-| Owner cost policy | Settled for local testing; known compromised battery endpoint is100% of the same enclosure hardware value. |
+| Owner cost policy | Settled for local testing; known compromised battery endpoint is 100% of the same enclosure hardware value. |
 | Ordinal response | Analyst T4 hypothesis, proposed model v0.1/docs r1; no observed BESS fragility or ignition odds inferred. |
 | Repair hypotheses | Retained separately; explicit serviceability counterfactual required. |
 | Value | 80 enclosure ×$1.05M +20 PCS ×$520k =$94.4M candidate hardware; $15.4M of full $109.8M unbound. |
@@ -81,7 +81,7 @@ State0 is a no-event control, never a replacement for unavailable source data.
 Hazard owns its content-pinned conditional reader in `perils/wildfire`, public
 API exports, deployment sampling in `drivers`, and a small CLI proof. It must
 not import the Damage proposal-authoring helper into production. The next proof
-replays exact candidate arithmetic and real native input vectors, retaining121
+replays exact candidate arithmetic and real native input vectors, retaining 121
 equipment units, original source meaning and unbound residuals.
 
 Local conditional response does not imply joint fire occurrence across different
@@ -93,3 +93,13 @@ claim cannot be deferred into permission for that claim.
 
 This implements the existing curation skill. No new mandatory skill stage,
 library schema or broad changes to unrelated local skill edits are needed.
+
+
+### Subsequent local consumer proof
+
+[Hazard's local proof](../../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/19_wildfire_local_candidate.md)
+now replays 10,248 real raster fields and verifies 7,200 conditional unit means,
+retaining 1,512 unbound equipment rows. Its public peril API, local CLI, 36 new
+tests, installed-resource check and executed reader are complete. This qualifies
+only the bounded local conditional consumer. No annual, site-hydraulic/thermal,
+canonical or national capability is added to this proposal.
