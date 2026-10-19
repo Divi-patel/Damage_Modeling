@@ -1,0 +1,7 @@
+parameter_id,scope,source_ids,tier,current_treatment,reason,reopening_trigger
+BWF-P01,class axis0..6,BWF-S02;BWF-S03,T2_public_lab_standard_or_physics,retain exact categorical source only,state0 no-event;1..6 exact bins; sixth open-ended,New source version or qualified bridge
+BWF-P02,absolute electrical source ordinates,BWF-S03,T4_placeholder_or_expert_judgment,source-only reproduce; no BESS response admitted,No target-specific empirical curve calibration,Target transfer proof or matched new curve
+BWF-P03,battery replacement consequences,BWF-S01;BWF-S09,T4_placeholder_or_expert_judgment,costed scenarios only; no probability,Related cost allocation; thermal repair feasibility unresolved,State-specific OEM service/inspection/BOM evidence
+BWF-P04,generic mitigation credit,BWF-S08;BWF-S01,T4_placeholder_or_expert_judgment,disabled; no multiplier and no assertion of no physical protection,Reference has no qualified attenuation/coupling model,Matched protection/geometry/maintenance evidence
+BWF-P05,external fire-triggered propagation,BWF-S04;BWF-S05;BWF-S07,T4_placeholder_or_expert_judgment,separate unquantified consequence; neither zero nor whole-plant spread,Examples establish possible/suppressed spread not a target conditional probability,Configuration-specific trigger/spread/disposition chain
+BWF-P06,spatial dependence and annual process,BWF-S02;BWF-S10,T4_placeholder_or_expert_judgment,not selected at intake,Native marginal probabilities are not a joint fire-footprint catalog,Bounded point/unit support and common-event coupling proof

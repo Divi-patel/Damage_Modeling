@@ -8,6 +8,8 @@ scope: BESS Damage research history and current conditional-release links
 
 # BESS Damage research
 
+**Current: [Wildfire intake and BWF-Q01](09_wildfire_damage_intake.md).** Eleven sources/eleven claims, donor reproduction, full value reconciliation and source-only unit-support checks are complete. The costed battery thermal-compromise policy remains open; no BESS Wildfire runtime is admitted. Flood/Hurricane releases below are unchanged.
+
 **Current Hurricane checkpoint:** [annual qualification](08_hurricane_annual_qualification.md)
 permits repository-canonical [v1.0 conditional screening](../../../cells/tropical_cyclone_wind_bess/current/README.md)
 after the finite consumer checks. Conditional curves and unit values match v0.1
@@ -39,6 +41,7 @@ remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Wildfire Damage/source intake](09_wildfire_damage_intake.md) | Seven-step audit, 11 sources/11 claims, source-only reproduction, costed BWF-Q01 and finite next candidate |
 | 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wind enclosure/PCS candidate](07_hurricane_enclosure_candidate.md) | BW-Q01 local selection; costed policies and resistance sensitivities; proposed v0.1 and conditional validation |
 | 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Hurricane-wind intake](06_hurricane_wind_intake.md) | Seven-step audit; source/claim/reuse registers; actual OEM/drawing review; source-only numerical reproduction and skill status |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Remaining property and domain](05_remaining_property_and_flood_domain.md) | 70 checks, exact prior-case replay, capped depth extension and coastal policy comparison |

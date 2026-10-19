@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "scope": "read-only source reproduction, evidence integrity and cost arithmetic; no BESS runtime",
+  "current_index_entries": 12,
+  "source_records": 11,
+  "claim_records": 11,
+  "source_state_comparisons": 35,
+  "source_published_known_answers": {
+    "status": "pass",
+    "source": "verified_artifact_bytes",
+    "absolute_tolerance": 1e-12,
+    "groups": {
+      "failure_unit_state_tests": 15,
+      "aggregate_reference_profile_tests": 7,
+      "conditional_distribution_tests": 1,
+      "contract_tests": 6
+    },
+    "tests_passed": 29
+  },
+  "invalid_axis_or_frequency_controls": 6,
+  "budget_rows_reconciled": 10,
+  "total_physical_value_usd": 109800000.0,
+  "excluded_source_value_usd": 23400000.0,
+  "cost_hypotheses": [
+    {
+      "hypothesis": "cooling_shell_rack_safety_only_if_cells_and_BMS_verified_serviceable",
+      "unit_cost_usd": 204352.4416135881,
+      "full_tiv_percent_for_one_unit": 0.18611333480290357,
+      "wildfire_state_assigned": false,
+      "probability_assigned": false,
+      "owner_selected_for_wildfire": false
+    },
+    {
+      "hypothesis": "all_noncell_groups_only_if_cells_verified_serviceable",
+      "unit_cost_usd": 334394.9044585988,
+      "full_tiv_percent_for_one_unit": 0.3045490933138423,
+      "wildfire_state_assigned": false,
+      "probability_assigned": false,
+      "owner_selected_for_wildfire": false
+    },
+    {
+      "hypothesis": "whole_integrated_enclosure_if_battery_compromised",
+      "unit_cost_usd": 1050000,
+      "full_tiv_percent_for_one_unit": 0.9562841530054644,
+      "wildfire_state_assigned": false,
+      "probability_assigned": false,
+      "owner_selected_for_wildfire": false
+    }
+  ],
+  "source_pcs_pressure_test_cases": 7,
+  "bess_wildfire_response_admitted": false,
+  "runtime_or_schema_changed": false
+}
