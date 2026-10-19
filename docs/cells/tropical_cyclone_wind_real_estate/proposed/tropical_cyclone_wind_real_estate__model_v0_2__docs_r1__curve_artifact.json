@@ -1,0 +1,4801 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "proposed_draft",
+  "cell_id": "tropical_cyclone_wind_real_estate",
+  "damage_code_id": "TROPICAL_CYCLONE_WIND_REAL_ESTATE_HAZUS_SCREENING_V0_2",
+  "semantic_damage_model_version": "model v0.2",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "scaffold",
+  "promotion_status": "proposed",
+  "review_status": "not_yet_reviewed",
+  "model_grade": "screening_source_native_adopted_tables",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "not_included",
+  "canonical_runtime_artifact": false,
+  "source_dossier": "docs/cells/tropical_cyclone_wind_real_estate/proposed/tropical_cyclone_wind_real_estate_curve_derivation_dossier__model_v0_2__docs_r1.md",
+  "source_workbook": "docs/cells/tropical_cyclone_wind_real_estate/proposed/damage_curve_records_tropical_cyclone_wind_real_estate__model_v0_2__docs_r1.xlsx",
+  "known_answer_tests": "docs/cells/tropical_cyclone_wind_real_estate/proposed/known_answer_tests_tropical_cyclone_wind_real_estate__model_v0_2__docs_r1.json",
+  "source_register": "docs/cells/tropical_cyclone_wind_real_estate/proposed/SOURCE_REGISTER_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv",
+  "claim_parameter_register": "docs/cells/tropical_cyclone_wind_real_estate/proposed/CLAIM_PARAMETER_REGISTER_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv",
+  "value_crosswalk": "docs/cells/tropical_cyclone_wind_real_estate/proposed/VALUE_CROSSWALK_tropical_cyclone_wind_real_estate__model_v0_1__docs_r1.csv",
+  "failure_units": [
+    {
+      "id": "TCRE_BUILDING_STRUCTURE",
+      "subsystem": "BUILDING",
+      "component": "BUILDING_STRUCTURE_ASSEMBLY",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "structure replacement cost new of the same reference building (no land, contents, site works or depreciation)",
+      "platform_code_status": "proposed_awaiting_platform_codes",
+      "source_atom_note": "Whole-building Hazus building-loss function; not an aggregate of component records."
+    },
+    {
+      "id": "TCRE_BUILDING_CONTENTS",
+      "subsystem": "BUILDING",
+      "component": "CONTENTS",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "contents value (deferred)",
+      "withheld_reason_codes": [
+        "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+        "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+      ],
+      "platform_code_status": "proposed_awaiting_platform_codes"
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "hazard_scope": {
+        "included": [
+          "tropical-cyclone wind acting on the building: wind pressure, windborne-debris impact and rain entering through wind damage, as combined in the Hazus building loss functions"
+        ],
+        "excluded": [
+          "storm surge, waves and rainfall flooding (flood_real_estate)",
+          "tornadoes spawned by the tropical cyclone (future convective-wind cell)",
+          "tree fall on the house (deferred Hazus additive term; withheld, not zero)",
+          "contents, loss of use, business interruption, land, site works"
+        ],
+        "deferred_pathways": [],
+        "compound_event_rule": "Keep one event_family_id; wind and flood damage on the same building in one storm must together stay at or below 100% of structure value; no separate debris or rain-ingress pathway may be added to Hazus-based records."
+      },
+      "hazard_axis": {
+        "id": "TC_PEAK_GUST_3S_10M_OPEN_TERRAIN_MPH",
+        "preferred_input_field": "tc_peak_gust_3s_10m_mph",
+        "permitted_proxy_fields": [],
+        "unit": "mph",
+        "valid_range": [
+          50.0,
+          250.0
+        ],
+        "extrapolation_policy": "gust < 0 rejects; 0 <= gust < 50 returns 0 (source zero); 50-250 straight lines between published 5-mph points; > 250 withholds",
+        "averaging_period_s": 3,
+        "reference_height_m": 10,
+        "terrain_basis": "open terrain, z0 0.03 m",
+        "bridge": "none in Damage; Hazard converts STORM 10-minute wind to the 3-second gust",
+        "category_guardrail": "Saffir-Simpson category and sustained wind are not accepted damage inputs."
+      },
+      "reference_profile_binding": {
+        "RE_RES_SFD_1S_SLAB": "re_house_1s_wood_slab",
+        "RE_COM_LOWRISE": null,
+        "RE_IND_WAREHOUSE": "re_warehouse_1s_steel_slab",
+        "RE_COM_OFFICE_3S_SLAB": "re_office_3s_slab"
+      },
+      "record_routing_fields": [
+        "reference_building_id",
+        "hazus_terrain_class"
+      ],
+      "selector_logic": [
+        {
+          "field": "reference_building_id",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "RE_RES_SFD_1S_SLAB",
+            "RE_COM_LOWRISE",
+            "RE_IND_WAREHOUSE",
+            "RE_COM_OFFICE_3S_SLAB"
+          ],
+          "effect": "Fixed identity of the reference building; picks the Hazus building type and characteristics."
+        },
+        {
+          "field": "hazus_terrain_class",
+          "required": true,
+          "default": null,
+          "allowed": [
+            "open",
+            "light_suburban",
+            "suburban",
+            "light_trees",
+            "trees"
+          ],
+          "effect": "Fixed site attribute (Hazus surface-roughness class); picks the terrain record. Never interpolated; never also applied to the gust."
+        },
+        {
+          "field": "hazus_garage_door",
+          "required": false,
+          "allowed": [
+            "none"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_metal_deck_attachment",
+          "required": false,
+          "allowed": [
+            "standard"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_roof_cover",
+          "required": false,
+          "allowed": [
+            "shingle",
+            "bur",
+            "spm"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_roof_deck_age",
+          "required": false,
+          "allowed": [
+            "new_or_average"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_roof_deck_attachment",
+          "required": false,
+          "allowed": [
+            "6d_6_12"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_roof_shape",
+          "required": false,
+          "allowed": [
+            "gable"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_roof_to_wall_connection",
+          "required": false,
+          "allowed": [
+            "toe_nail"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_secondary_water_resistance",
+          "required": false,
+          "allowed": [
+            "no"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_shutters",
+          "required": false,
+          "allowed": [
+            "no"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_windborne_debris_environment",
+          "required": false,
+          "allowed": [
+            "varies_by_direction"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        },
+        {
+          "field": "hazus_window_area",
+          "required": false,
+          "allowed": [
+            "low",
+            "medium"
+          ],
+          "effect": "Optional wind building characteristic; v0.2 publishes only the reference value. Building-specific values are in wind_characteristic_contract; another valid value withholds (WIND_CHARACTERISTIC_VARIANT_NOT_PUBLISHED) in the reference evaluator."
+        }
+      ],
+      "conditioner_logic": [],
+      "wind_characteristic_contract": {
+        "RE_RES_SFD_1S_SLAB": {
+          "hazus_roof_shape": {
+            "allowed": [
+              "gable",
+              "hip"
+            ],
+            "reference": "gable"
+          },
+          "hazus_secondary_water_resistance": {
+            "allowed": [
+              "no",
+              "yes"
+            ],
+            "reference": "no"
+          },
+          "hazus_roof_deck_attachment": {
+            "allowed": [
+              "6d_6_12",
+              "8d_6_12",
+              "6d8d_mix_6_6",
+              "8d_6_6"
+            ],
+            "reference": "6d_6_12"
+          },
+          "hazus_roof_to_wall_connection": {
+            "allowed": [
+              "toe_nail",
+              "strap"
+            ],
+            "reference": "toe_nail"
+          },
+          "hazus_garage_door": {
+            "allowed": [
+              "none",
+              "weak",
+              "standard",
+              "sfbc_1994"
+            ],
+            "reference": "none"
+          },
+          "hazus_shutters": {
+            "allowed": [
+              "no",
+              "yes"
+            ],
+            "reference": "no"
+          },
+          "hazus_roof_cover": {
+            "allowed": [
+              "shingle"
+            ],
+            "reference": "shingle"
+          }
+        },
+        "RE_COM_LOWRISE": {
+          "hazus_roof_cover": {
+            "allowed": [
+              "bur",
+              "spm"
+            ],
+            "reference": "bur"
+          },
+          "hazus_window_area": {
+            "allowed": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "reference": "low"
+          },
+          "hazus_shutters": {
+            "allowed": [
+              "no",
+              "yes"
+            ],
+            "reference": "no"
+          },
+          "hazus_windborne_debris_environment": {
+            "allowed": [
+              "residential_commercial",
+              "varies_by_direction",
+              "residential",
+              "none"
+            ],
+            "reference": "varies_by_direction"
+          },
+          "hazus_metal_deck_attachment": {
+            "allowed": [
+              "standard",
+              "superior"
+            ],
+            "reference": "standard"
+          }
+        },
+        "RE_IND_WAREHOUSE": {
+          "hazus_roof_deck_age": {
+            "allowed": [
+              "old",
+              "new_or_average"
+            ],
+            "reference": "new_or_average"
+          },
+          "hazus_shutters": {
+            "allowed": [
+              "no",
+              "yes"
+            ],
+            "reference": "no"
+          },
+          "hazus_metal_deck_attachment": {
+            "allowed": [
+              "standard",
+              "superior"
+            ],
+            "reference": "standard"
+          }
+        },
+        "RE_COM_OFFICE_3S_SLAB": {
+          "hazus_roof_cover": {
+            "allowed": [
+              "bur",
+              "spm"
+            ],
+            "reference": "spm"
+          },
+          "hazus_window_area": {
+            "allowed": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "reference": "medium"
+          },
+          "hazus_shutters": {
+            "allowed": [
+              "no",
+              "yes"
+            ],
+            "reference": "no"
+          },
+          "hazus_windborne_debris_environment": {
+            "allowed": [
+              "residential_commercial",
+              "varies_by_direction",
+              "residential",
+              "none"
+            ],
+            "reference": "varies_by_direction"
+          },
+          "hazus_metal_deck_attachment": {
+            "allowed": [
+              "standard",
+              "superior"
+            ],
+            "reference": "standard"
+          }
+        }
+      },
+      "hazus_variants": {
+        "RE_RES_SFD_1S_SLAB": {
+          "sbt": "WSF1",
+          "wbid": 6,
+          "case": "ContinentalUS (CaseID 1)",
+          "damage_loss_desc_id": 5,
+          "simcenter_id_stem": "W.SF.1.gab.0.6d.tnail.no.0",
+          "wind_building_characteristics": {
+            "hazus_roof_shape": "gable",
+            "hazus_secondary_water_resistance": "no",
+            "hazus_roof_deck_attachment": "6d_6_12",
+            "hazus_roof_to_wall_connection": "toe_nail",
+            "hazus_garage_door": "none",
+            "hazus_shutters": "no",
+            "hazus_roof_cover": "shingle"
+          }
+        },
+        "RE_COM_LOWRISE": {
+          "sbt": "SECBL",
+          "wbid": 1812,
+          "case": "ContUS+Hawaii (CaseID 3)",
+          "damage_loss_desc_id": 5,
+          "simcenter_id_stem": "S.ECB.L.bur.0.B.std.low",
+          "wind_building_characteristics": {
+            "hazus_roof_cover": "bur",
+            "hazus_window_area": "low",
+            "hazus_shutters": "no",
+            "hazus_windborne_debris_environment": "varies_by_direction",
+            "hazus_metal_deck_attachment": "standard"
+          }
+        },
+        "RE_IND_WAREHOUSE": {
+          "sbt": "SPMBL",
+          "wbid": 1730,
+          "case": "ContUS+Hawaii (CaseID 3)",
+          "damage_loss_desc_id": 5,
+          "simcenter_id_stem": "S.PMB.L.0.god.std",
+          "wind_building_characteristics": {
+            "hazus_roof_deck_age": "new_or_average",
+            "hazus_shutters": "no",
+            "hazus_metal_deck_attachment": "standard"
+          }
+        },
+        "RE_COM_OFFICE_3S_SLAB": {
+          "sbt": "SECBM",
+          "wbid": 1840,
+          "case": "ContUS+Hawaii (CaseID 3)",
+          "damage_loss_desc_id": 5,
+          "simcenter_id_stem": "S.ECB.M.spm.0.B.std.med",
+          "wind_building_characteristics": {
+            "hazus_roof_cover": "spm",
+            "hazus_window_area": "medium",
+            "hazus_shutters": "no",
+            "hazus_windborne_debris_environment": "varies_by_direction",
+            "hazus_metal_deck_attachment": "standard"
+          }
+        }
+      },
+      "exposure_contract": {
+        "required_subject_grain": "one reference building",
+        "value_rule": "Scenario dollars need structure replacement cost new for the same building; the consumer qualifies the reference budget.",
+        "protection_rule": "Opening protection and roof upgrades are characteristics with published values only; no curve-side credit.",
+        "terrain_rule": "The consumer maps site roughness to one Hazus terrain class; Damage never defaults it."
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "status": "conditional_numeric_screening_curve",
+          "reason_codes": []
+        },
+        {
+          "failure_unit_id": "TCRE_BUILDING_CONTENTS",
+          "status": "withheld_not_zero",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "TCRE_RES_HAZUS_WSF1_OPEN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                0.0011251
+              ],
+              [
+                65.0,
+                0.00238147
+              ],
+              [
+                70.0,
+                0.00423682
+              ],
+              [
+                75.0,
+                0.00640394
+              ],
+              [
+                80.0,
+                0.00891605
+              ],
+              [
+                85.0,
+                0.0122441
+              ],
+              [
+                90.0,
+                0.0177807
+              ],
+              [
+                95.0,
+                0.0299799
+              ],
+              [
+                100.0,
+                0.0524144
+              ],
+              [
+                105.0,
+                0.0958548
+              ],
+              [
+                110.0,
+                0.15071
+              ],
+              [
+                115.0,
+                0.225613
+              ],
+              [
+                120.0,
+                0.313483
+              ],
+              [
+                125.0,
+                0.434128
+              ],
+              [
+                130.0,
+                0.553956
+              ],
+              [
+                135.0,
+                0.663327
+              ],
+              [
+                140.0,
+                0.778816
+              ],
+              [
+                145.0,
+                0.855231
+              ],
+              [
+                150.0,
+                0.918983
+              ],
+              [
+                155.0,
+                0.953696
+              ],
+              [
+                160.0,
+                0.978611
+              ],
+              [
+                165.0,
+                0.989297
+              ],
+              [
+                170.0,
+                0.996043
+              ],
+              [
+                175.0,
+                0.998629
+              ],
+              [
+                180.0,
+                0.999142
+              ],
+              [
+                185.0,
+                0.999525
+              ],
+              [
+                190.0,
+                0.99981
+              ],
+              [
+                195.0,
+                0.999953
+              ],
+              [
+                200.0,
+                1.0
+              ],
+              [
+                205.0,
+                1.0
+              ],
+              [
+                210.0,
+                1.0
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "hazus_terrain_class": "open"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=6;TERRAINID=1;DamLossDescID=5",
+            "TCRE-S003#loss_repair:W.SF.1.gab.0.6d.tnail.no.0.3"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+            "CODE_ERA_CONNECTIONS_NOT_LOCATION_SPECIFIC"
+          ]
+        },
+        {
+          "curve_id": "TCRE_RES_HAZUS_WSF1_LIGHT_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                0.000428332
+              ],
+              [
+                65.0,
+                0.00106585
+              ],
+              [
+                70.0,
+                0.00229007
+              ],
+              [
+                75.0,
+                0.00398635
+              ],
+              [
+                80.0,
+                0.00607132
+              ],
+              [
+                85.0,
+                0.00834671
+              ],
+              [
+                90.0,
+                0.0113976
+              ],
+              [
+                95.0,
+                0.0165535
+              ],
+              [
+                100.0,
+                0.0265075
+              ],
+              [
+                105.0,
+                0.0492524
+              ],
+              [
+                110.0,
+                0.0887663
+              ],
+              [
+                115.0,
+                0.163131
+              ],
+              [
+                120.0,
+                0.251883
+              ],
+              [
+                125.0,
+                0.392033
+              ],
+              [
+                130.0,
+                0.528447
+              ],
+              [
+                135.0,
+                0.648867
+              ],
+              [
+                140.0,
+                0.757545
+              ],
+              [
+                145.0,
+                0.823825
+              ],
+              [
+                150.0,
+                0.893012
+              ],
+              [
+                155.0,
+                0.938518
+              ],
+              [
+                160.0,
+                0.970158
+              ],
+              [
+                165.0,
+                0.979195
+              ],
+              [
+                170.0,
+                0.988841
+              ],
+              [
+                175.0,
+                0.99426
+              ],
+              [
+                180.0,
+                0.997157
+              ],
+              [
+                185.0,
+                0.997634
+              ],
+              [
+                190.0,
+                0.99767
+              ],
+              [
+                195.0,
+                0.999194
+              ],
+              [
+                200.0,
+                0.999702
+              ],
+              [
+                205.0,
+                1.0
+              ],
+              [
+                210.0,
+                1.0
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "hazus_terrain_class": "light_suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=6;TERRAINID=2;DamLossDescID=5",
+            "TCRE-S003#loss_repair:W.SF.1.gab.0.6d.tnail.no.0.15"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+            "CODE_ERA_CONNECTIONS_NOT_LOCATION_SPECIFIC"
+          ]
+        },
+        {
+          "curve_id": "TCRE_RES_HAZUS_WSF1_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                0.000179416
+              ],
+              [
+                65.0,
+                0.000545166
+              ],
+              [
+                70.0,
+                0.0013476
+              ],
+              [
+                75.0,
+                0.00262026
+              ],
+              [
+                80.0,
+                0.00432662
+              ],
+              [
+                85.0,
+                0.00620215
+              ],
+              [
+                90.0,
+                0.00839053
+              ],
+              [
+                95.0,
+                0.0108317
+              ],
+              [
+                100.0,
+                0.0144358
+              ],
+              [
+                105.0,
+                0.0204798
+              ],
+              [
+                110.0,
+                0.0316551
+              ],
+              [
+                115.0,
+                0.053732
+              ],
+              [
+                120.0,
+                0.0925016
+              ],
+              [
+                125.0,
+                0.16564
+              ],
+              [
+                130.0,
+                0.263409
+              ],
+              [
+                135.0,
+                0.387721
+              ],
+              [
+                140.0,
+                0.511713
+              ],
+              [
+                145.0,
+                0.625167
+              ],
+              [
+                150.0,
+                0.727672
+              ],
+              [
+                155.0,
+                0.814521
+              ],
+              [
+                160.0,
+                0.890999
+              ],
+              [
+                165.0,
+                0.919359
+              ],
+              [
+                170.0,
+                0.944243
+              ],
+              [
+                175.0,
+                0.969157
+              ],
+              [
+                180.0,
+                0.985954
+              ],
+              [
+                185.0,
+                0.993475
+              ],
+              [
+                190.0,
+                0.99667
+              ],
+              [
+                195.0,
+                0.998662
+              ],
+              [
+                200.0,
+                0.999141
+              ],
+              [
+                205.0,
+                0.998335
+              ],
+              [
+                210.0,
+                0.999445
+              ],
+              [
+                215.0,
+                0.999722
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "hazus_terrain_class": "suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=6;TERRAINID=3;DamLossDescID=5",
+            "TCRE-S003#loss_repair:W.SF.1.gab.0.6d.tnail.no.0.35"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+            "CODE_ERA_CONNECTIONS_NOT_LOCATION_SPECIFIC",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_RES_HAZUS_WSF1_LIGHT_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                6.43091e-05
+              ],
+              [
+                65.0,
+                0.000244903
+              ],
+              [
+                70.0,
+                0.000683218
+              ],
+              [
+                75.0,
+                0.00156236
+              ],
+              [
+                80.0,
+                0.00289879
+              ],
+              [
+                85.0,
+                0.00460034
+              ],
+              [
+                90.0,
+                0.00647406
+              ],
+              [
+                95.0,
+                0.00844261
+              ],
+              [
+                100.0,
+                0.0106835
+              ],
+              [
+                105.0,
+                0.0138517
+              ],
+              [
+                110.0,
+                0.0185278
+              ],
+              [
+                115.0,
+                0.0264793
+              ],
+              [
+                120.0,
+                0.0374785
+              ],
+              [
+                125.0,
+                0.0599367
+              ],
+              [
+                130.0,
+                0.0969927
+              ],
+              [
+                135.0,
+                0.156386
+              ],
+              [
+                140.0,
+                0.24564
+              ],
+              [
+                145.0,
+                0.35016
+              ],
+              [
+                150.0,
+                0.462952
+              ],
+              [
+                155.0,
+                0.584856
+              ],
+              [
+                160.0,
+                0.686147
+              ],
+              [
+                165.0,
+                0.761883
+              ],
+              [
+                170.0,
+                0.826477
+              ],
+              [
+                175.0,
+                0.890123
+              ],
+              [
+                180.0,
+                0.937816
+              ],
+              [
+                185.0,
+                0.961687
+              ],
+              [
+                190.0,
+                0.976576
+              ],
+              [
+                195.0,
+                0.991196
+              ],
+              [
+                200.0,
+                0.996108
+              ],
+              [
+                205.0,
+                0.995741
+              ],
+              [
+                210.0,
+                0.997535
+              ],
+              [
+                215.0,
+                0.995592
+              ],
+              [
+                220.0,
+                0.99872
+              ],
+              [
+                225.0,
+                0.99936
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "hazus_terrain_class": "light_trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=6;TERRAINID=4;DamLossDescID=5",
+            "TCRE-S003#loss_repair:W.SF.1.gab.0.6d.tnail.no.0.70"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+            "CODE_ERA_CONNECTIONS_NOT_LOCATION_SPECIFIC",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_RES_HAZUS_WSF1_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                3.91892e-05
+              ],
+              [
+                65.0,
+                0.000162141
+              ],
+              [
+                70.0,
+                0.000494027
+              ],
+              [
+                75.0,
+                0.00118351
+              ],
+              [
+                80.0,
+                0.00232837
+              ],
+              [
+                85.0,
+                0.00385764
+              ],
+              [
+                90.0,
+                0.00560652
+              ],
+              [
+                95.0,
+                0.00753333
+              ],
+              [
+                100.0,
+                0.00952894
+              ],
+              [
+                105.0,
+                0.0120909
+              ],
+              [
+                110.0,
+                0.0154766
+              ],
+              [
+                115.0,
+                0.020539
+              ],
+              [
+                120.0,
+                0.028429
+              ],
+              [
+                125.0,
+                0.0412291
+              ],
+              [
+                130.0,
+                0.0633839
+              ],
+              [
+                135.0,
+                0.100142
+              ],
+              [
+                140.0,
+                0.15054
+              ],
+              [
+                145.0,
+                0.22935
+              ],
+              [
+                150.0,
+                0.310842
+              ],
+              [
+                155.0,
+                0.424219
+              ],
+              [
+                160.0,
+                0.544446
+              ],
+              [
+                165.0,
+                0.637728
+              ],
+              [
+                170.0,
+                0.723038
+              ],
+              [
+                175.0,
+                0.8292
+              ],
+              [
+                180.0,
+                0.885695
+              ],
+              [
+                185.0,
+                0.92498
+              ],
+              [
+                190.0,
+                0.95023
+              ],
+              [
+                195.0,
+                0.967839
+              ],
+              [
+                200.0,
+                0.98201
+              ],
+              [
+                205.0,
+                0.990795
+              ],
+              [
+                210.0,
+                0.994222
+              ],
+              [
+                215.0,
+                0.996407
+              ],
+              [
+                220.0,
+                0.997875
+              ],
+              [
+                225.0,
+                0.998695
+              ],
+              [
+                230.0,
+                0.99924
+              ],
+              [
+                235.0,
+                0.999607
+              ],
+              [
+                240.0,
+                0.99988
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_RES_SFD_1S_SLAB",
+            "hazus_terrain_class": "trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=6;TERRAINID=5;DamLossDescID=5",
+            "TCRE-S003#loss_repair:W.SF.1.gab.0.6d.tnail.no.0.100"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+            "CODE_ERA_CONNECTIONS_NOT_LOCATION_SPECIFIC"
+          ]
+        },
+        {
+          "curve_id": "TCRE_COM_HAZUS_SECBL_OPEN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                6.67094e-05
+              ],
+              [
+                65.0,
+                0.000112089
+              ],
+              [
+                70.0,
+                0.000197623
+              ],
+              [
+                75.0,
+                0.000323904
+              ],
+              [
+                80.0,
+                0.00055593
+              ],
+              [
+                85.0,
+                0.00110471
+              ],
+              [
+                90.0,
+                0.00230687
+              ],
+              [
+                95.0,
+                0.00498921
+              ],
+              [
+                100.0,
+                0.00986765
+              ],
+              [
+                105.0,
+                0.0202898
+              ],
+              [
+                110.0,
+                0.0346281
+              ],
+              [
+                115.0,
+                0.0622408
+              ],
+              [
+                120.0,
+                0.0876971
+              ],
+              [
+                125.0,
+                0.138396
+              ],
+              [
+                130.0,
+                0.185789
+              ],
+              [
+                135.0,
+                0.247526
+              ],
+              [
+                140.0,
+                0.312759
+              ],
+              [
+                145.0,
+                0.378837
+              ],
+              [
+                150.0,
+                0.453007
+              ],
+              [
+                155.0,
+                0.536489
+              ],
+              [
+                160.0,
+                0.616049
+              ],
+              [
+                165.0,
+                0.652999
+              ],
+              [
+                170.0,
+                0.69727
+              ],
+              [
+                175.0,
+                0.760879
+              ],
+              [
+                180.0,
+                0.809643
+              ],
+              [
+                185.0,
+                0.834491
+              ],
+              [
+                190.0,
+                0.849055
+              ],
+              [
+                195.0,
+                0.860833
+              ],
+              [
+                200.0,
+                0.87203
+              ],
+              [
+                205.0,
+                0.875644
+              ],
+              [
+                210.0,
+                0.878694
+              ],
+              [
+                215.0,
+                0.88007
+              ],
+              [
+                220.0,
+                0.881687
+              ],
+              [
+                225.0,
+                0.881853
+              ],
+              [
+                230.0,
+                0.881824
+              ],
+              [
+                235.0,
+                0.881785
+              ],
+              [
+                240.0,
+                0.882631
+              ],
+              [
+                245.0,
+                0.883074
+              ],
+              [
+                250.0,
+                0.883074
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "hazus_terrain_class": "open"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1812;TERRAINID=1;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.L.bur.0.B.std.low.3"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "SECBL_EQUALS_MECBL_IN_SOURCE",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_COM_HAZUS_SECBL_LIGHT_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                5.26949e-05
+              ],
+              [
+                65.0,
+                8.43639e-05
+              ],
+              [
+                70.0,
+                0.000131915
+              ],
+              [
+                75.0,
+                0.000209286
+              ],
+              [
+                80.0,
+                0.000424484
+              ],
+              [
+                85.0,
+                0.00102924
+              ],
+              [
+                90.0,
+                0.00244629
+              ],
+              [
+                95.0,
+                0.00617154
+              ],
+              [
+                100.0,
+                0.0128849
+              ],
+              [
+                105.0,
+                0.0288315
+              ],
+              [
+                110.0,
+                0.0516696
+              ],
+              [
+                115.0,
+                0.0945325
+              ],
+              [
+                120.0,
+                0.134645
+              ],
+              [
+                125.0,
+                0.213977
+              ],
+              [
+                130.0,
+                0.277288
+              ],
+              [
+                135.0,
+                0.354638
+              ],
+              [
+                140.0,
+                0.424768
+              ],
+              [
+                145.0,
+                0.488947
+              ],
+              [
+                150.0,
+                0.562302
+              ],
+              [
+                155.0,
+                0.640798
+              ],
+              [
+                160.0,
+                0.712036
+              ],
+              [
+                165.0,
+                0.733083
+              ],
+              [
+                170.0,
+                0.759564
+              ],
+              [
+                175.0,
+                0.819561
+              ],
+              [
+                180.0,
+                0.873367
+              ],
+              [
+                185.0,
+                0.900104
+              ],
+              [
+                190.0,
+                0.916214
+              ],
+              [
+                195.0,
+                0.934065
+              ],
+              [
+                200.0,
+                0.944697
+              ],
+              [
+                205.0,
+                0.944475
+              ],
+              [
+                210.0,
+                0.942513
+              ],
+              [
+                215.0,
+                0.944885
+              ],
+              [
+                220.0,
+                0.94539
+              ],
+              [
+                225.0,
+                0.944941
+              ],
+              [
+                230.0,
+                0.944238
+              ],
+              [
+                235.0,
+                0.944256
+              ],
+              [
+                240.0,
+                0.947387
+              ],
+              [
+                245.0,
+                0.949016
+              ],
+              [
+                250.0,
+                0.949016
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "hazus_terrain_class": "light_suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1812;TERRAINID=2;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.L.bur.0.B.std.low.15"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "SECBL_EQUALS_MECBL_IN_SOURCE",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_COM_HAZUS_SECBL_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                4.34518e-05
+              ],
+              [
+                65.0,
+                7.23058e-05
+              ],
+              [
+                70.0,
+                0.000102487
+              ],
+              [
+                75.0,
+                0.000156029
+              ],
+              [
+                80.0,
+                0.000238505
+              ],
+              [
+                85.0,
+                0.000393793
+              ],
+              [
+                90.0,
+                0.000760132
+              ],
+              [
+                95.0,
+                0.00161668
+              ],
+              [
+                100.0,
+                0.00358107
+              ],
+              [
+                105.0,
+                0.00845782
+              ],
+              [
+                110.0,
+                0.0168319
+              ],
+              [
+                115.0,
+                0.0355884
+              ],
+              [
+                120.0,
+                0.0572293
+              ],
+              [
+                125.0,
+                0.101874
+              ],
+              [
+                130.0,
+                0.146079
+              ],
+              [
+                135.0,
+                0.200913
+              ],
+              [
+                140.0,
+                0.258539
+              ],
+              [
+                145.0,
+                0.320335
+              ],
+              [
+                150.0,
+                0.388747
+              ],
+              [
+                155.0,
+                0.475781
+              ],
+              [
+                160.0,
+                0.554282
+              ],
+              [
+                165.0,
+                0.584968
+              ],
+              [
+                170.0,
+                0.630093
+              ],
+              [
+                175.0,
+                0.709766
+              ],
+              [
+                180.0,
+                0.776616
+              ],
+              [
+                185.0,
+                0.819253
+              ],
+              [
+                190.0,
+                0.851418
+              ],
+              [
+                195.0,
+                0.885025
+              ],
+              [
+                200.0,
+                0.905036
+              ],
+              [
+                205.0,
+                0.903466
+              ],
+              [
+                210.0,
+                0.918279
+              ],
+              [
+                215.0,
+                0.923729
+              ],
+              [
+                220.0,
+                0.930529
+              ],
+              [
+                225.0,
+                0.929657
+              ],
+              [
+                230.0,
+                0.929584
+              ],
+              [
+                235.0,
+                0.93108
+              ],
+              [
+                240.0,
+                0.942359
+              ],
+              [
+                245.0,
+                0.94814
+              ],
+              [
+                250.0,
+                0.94814
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "hazus_terrain_class": "suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1812;TERRAINID=3;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.L.bur.0.B.std.low.35"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "SECBL_EQUALS_MECBL_IN_SOURCE",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_COM_HAZUS_SECBL_LIGHT_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                4.12111e-05
+              ],
+              [
+                65.0,
+                6.88863e-05
+              ],
+              [
+                70.0,
+                9.82642e-05
+              ],
+              [
+                75.0,
+                0.0001244
+              ],
+              [
+                80.0,
+                0.000171859
+              ],
+              [
+                85.0,
+                0.000281548
+              ],
+              [
+                90.0,
+                0.00045765
+              ],
+              [
+                95.0,
+                0.000772453
+              ],
+              [
+                100.0,
+                0.00123389
+              ],
+              [
+                105.0,
+                0.00253621
+              ],
+              [
+                110.0,
+                0.0048104
+              ],
+              [
+                115.0,
+                0.0105903
+              ],
+              [
+                120.0,
+                0.0190147
+              ],
+              [
+                125.0,
+                0.0378942
+              ],
+              [
+                130.0,
+                0.0626973
+              ],
+              [
+                135.0,
+                0.0967901
+              ],
+              [
+                140.0,
+                0.138459
+              ],
+              [
+                145.0,
+                0.188033
+              ],
+              [
+                150.0,
+                0.242799
+              ],
+              [
+                155.0,
+                0.316655
+              ],
+              [
+                160.0,
+                0.386563
+              ],
+              [
+                165.0,
+                0.417329
+              ],
+              [
+                170.0,
+                0.47767
+              ],
+              [
+                175.0,
+                0.56524
+              ],
+              [
+                180.0,
+                0.652743
+              ],
+              [
+                185.0,
+                0.700952
+              ],
+              [
+                190.0,
+                0.7403
+              ],
+              [
+                195.0,
+                0.781628
+              ],
+              [
+                200.0,
+                0.825936
+              ],
+              [
+                205.0,
+                0.830311
+              ],
+              [
+                210.0,
+                0.850669
+              ],
+              [
+                215.0,
+                0.871123
+              ],
+              [
+                220.0,
+                0.898156
+              ],
+              [
+                225.0,
+                0.904005
+              ],
+              [
+                230.0,
+                0.907587
+              ],
+              [
+                235.0,
+                0.911776
+              ],
+              [
+                240.0,
+                0.93383
+              ],
+              [
+                245.0,
+                0.945055
+              ],
+              [
+                250.0,
+                0.945055
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "hazus_terrain_class": "light_trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1812;TERRAINID=4;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.L.bur.0.B.std.low.70"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "SECBL_EQUALS_MECBL_IN_SOURCE",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE"
+          ]
+        },
+        {
+          "curve_id": "TCRE_COM_HAZUS_SECBL_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                4.0575e-05
+              ],
+              [
+                65.0,
+                6.5037e-05
+              ],
+              [
+                70.0,
+                9.57249e-05
+              ],
+              [
+                75.0,
+                0.000126696
+              ],
+              [
+                80.0,
+                0.000170608
+              ],
+              [
+                85.0,
+                0.000244846
+              ],
+              [
+                90.0,
+                0.000364369
+              ],
+              [
+                95.0,
+                0.000534265
+              ],
+              [
+                100.0,
+                0.000891193
+              ],
+              [
+                105.0,
+                0.0017035
+              ],
+              [
+                110.0,
+                0.0029882900000000002
+              ],
+              [
+                115.0,
+                0.00558012
+              ],
+              [
+                120.0,
+                0.0100279
+              ],
+              [
+                125.0,
+                0.0194759
+              ],
+              [
+                130.0,
+                0.0341099
+              ],
+              [
+                135.0,
+                0.0561731
+              ],
+              [
+                140.0,
+                0.0850209
+              ],
+              [
+                145.0,
+                0.123181
+              ],
+              [
+                150.0,
+                0.167758
+              ],
+              [
+                155.0,
+                0.226991
+              ],
+              [
+                160.0,
+                0.289325
+              ],
+              [
+                165.0,
+                0.3202
+              ],
+              [
+                170.0,
+                0.376696
+              ],
+              [
+                175.0,
+                0.470375
+              ],
+              [
+                180.0,
+                0.556586
+              ],
+              [
+                185.0,
+                0.609608
+              ],
+              [
+                190.0,
+                0.653723
+              ],
+              [
+                195.0,
+                0.706504
+              ],
+              [
+                200.0,
+                0.751112
+              ],
+              [
+                205.0,
+                0.763373
+              ],
+              [
+                210.0,
+                0.793711
+              ],
+              [
+                215.0,
+                0.818592
+              ],
+              [
+                220.0,
+                0.859776
+              ],
+              [
+                225.0,
+                0.874772
+              ],
+              [
+                230.0,
+                0.886334
+              ],
+              [
+                235.0,
+                0.895364
+              ],
+              [
+                240.0,
+                0.916543
+              ],
+              [
+                245.0,
+                0.927009
+              ],
+              [
+                250.0,
+                0.927009
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_LOWRISE",
+            "hazus_terrain_class": "trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1812;TERRAINID=5;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.L.bur.0.B.std.low.100"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "MOST_COMMON_WIND_CHARACTERISTICS_ASSUMED",
+            "SECBL_EQUALS_MECBL_IN_SOURCE",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE"
+          ]
+        },
+        {
+          "curve_id": "TCRE_IND_HAZUS_SPMBL_NEWDECK_OPEN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                2.65593e-05
+              ],
+              [
+                65.0,
+                0.000160292
+              ],
+              [
+                70.0,
+                0.000702538
+              ],
+              [
+                75.0,
+                0.00214489
+              ],
+              [
+                80.0,
+                0.00535236
+              ],
+              [
+                85.0,
+                0.01068
+              ],
+              [
+                90.0,
+                0.0185315
+              ],
+              [
+                95.0,
+                0.0285257
+              ],
+              [
+                100.0,
+                0.0394193
+              ],
+              [
+                105.0,
+                0.0569879
+              ],
+              [
+                110.0,
+                0.0871047
+              ],
+              [
+                115.0,
+                0.146657
+              ],
+              [
+                120.0,
+                0.234762
+              ],
+              [
+                125.0,
+                0.361876
+              ],
+              [
+                130.0,
+                0.490206
+              ],
+              [
+                135.0,
+                0.615664
+              ],
+              [
+                140.0,
+                0.735168
+              ],
+              [
+                145.0,
+                0.825329
+              ],
+              [
+                150.0,
+                0.889778
+              ],
+              [
+                155.0,
+                0.929423
+              ],
+              [
+                160.0,
+                0.950124
+              ],
+              [
+                165.0,
+                0.969294
+              ],
+              [
+                170.0,
+                0.986251
+              ],
+              [
+                175.0,
+                0.990866
+              ],
+              [
+                180.0,
+                0.995658
+              ],
+              [
+                185.0,
+                0.995242
+              ],
+              [
+                190.0,
+                0.995206
+              ],
+              [
+                195.0,
+                0.998317
+              ],
+              [
+                200.0,
+                0.999354
+              ],
+              [
+                205.0,
+                1.0
+              ],
+              [
+                210.0,
+                1.0
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "hazus_terrain_class": "open"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1730;TERRAINID=1;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.PMB.L.0.god.std.3"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "WAREHOUSE_FLOOR_AREA_100000_FT2_PROFILE",
+            "LARGE_DOORS_NOT_A_HAZUS_SPMB_CHARACTERISTIC",
+            "HAZUS_SPMB_FAMILY_ANOMALY_NOT_IN_SELECTED_ROW",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_IND_HAZUS_SPMBL_NEWDECK_LIGHT_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                4.06464e-06
+              ],
+              [
+                65.0,
+                3.034e-05
+              ],
+              [
+                70.0,
+                0.000155792
+              ],
+              [
+                75.0,
+                0.000572526
+              ],
+              [
+                80.0,
+                0.00169066
+              ],
+              [
+                85.0,
+                0.00404414
+              ],
+              [
+                90.0,
+                0.00815673
+              ],
+              [
+                95.0,
+                0.0142567
+              ],
+              [
+                100.0,
+                0.0217932
+              ],
+              [
+                105.0,
+                0.0324224
+              ],
+              [
+                110.0,
+                0.0462788
+              ],
+              [
+                115.0,
+                0.0730349
+              ],
+              [
+                120.0,
+                0.113768
+              ],
+              [
+                125.0,
+                0.194135
+              ],
+              [
+                130.0,
+                0.292192
+              ],
+              [
+                135.0,
+                0.417718
+              ],
+              [
+                140.0,
+                0.550955
+              ],
+              [
+                145.0,
+                0.684166
+              ],
+              [
+                150.0,
+                0.795738
+              ],
+              [
+                155.0,
+                0.866165
+              ],
+              [
+                160.0,
+                0.914285
+              ],
+              [
+                165.0,
+                0.94599
+              ],
+              [
+                170.0,
+                0.967856
+              ],
+              [
+                175.0,
+                0.979836
+              ],
+              [
+                180.0,
+                0.990691
+              ],
+              [
+                185.0,
+                0.99569
+              ],
+              [
+                190.0,
+                0.998967
+              ],
+              [
+                195.0,
+                0.999742
+              ],
+              [
+                200.0,
+                1.0
+              ],
+              [
+                205.0,
+                1.0
+              ],
+              [
+                210.0,
+                1.0
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "hazus_terrain_class": "light_suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1730;TERRAINID=2;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.PMB.L.0.god.std.15"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "WAREHOUSE_FLOOR_AREA_100000_FT2_PROFILE",
+            "LARGE_DOORS_NOT_A_HAZUS_SPMB_CHARACTERISTIC",
+            "HAZUS_SPMB_FAMILY_ANOMALY_NOT_IN_SELECTED_ROW"
+          ]
+        },
+        {
+          "curve_id": "TCRE_IND_HAZUS_SPMBL_NEWDECK_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                8.50846e-07
+              ],
+              [
+                65.0,
+                8.86634e-06
+              ],
+              [
+                70.0,
+                5.81953e-05
+              ],
+              [
+                75.0,
+                0.000240758
+              ],
+              [
+                80.0,
+                0.000760103
+              ],
+              [
+                85.0,
+                0.00194014
+              ],
+              [
+                90.0,
+                0.00403032
+              ],
+              [
+                95.0,
+                0.00762328
+              ],
+              [
+                100.0,
+                0.0121708
+              ],
+              [
+                105.0,
+                0.0193037
+              ],
+              [
+                110.0,
+                0.0273747
+              ],
+              [
+                115.0,
+                0.0394061
+              ],
+              [
+                120.0,
+                0.0519036
+              ],
+              [
+                125.0,
+                0.0788741
+              ],
+              [
+                130.0,
+                0.127056
+              ],
+              [
+                135.0,
+                0.205674
+              ],
+              [
+                140.0,
+                0.315727
+              ],
+              [
+                145.0,
+                0.439398
+              ],
+              [
+                150.0,
+                0.57912
+              ],
+              [
+                155.0,
+                0.711762
+              ],
+              [
+                160.0,
+                0.816383
+              ],
+              [
+                165.0,
+                0.887394
+              ],
+              [
+                170.0,
+                0.940004
+              ],
+              [
+                175.0,
+                0.964823
+              ],
+              [
+                180.0,
+                0.985353
+              ],
+              [
+                185.0,
+                0.993419
+              ],
+              [
+                190.0,
+                0.998407
+              ],
+              [
+                195.0,
+                0.999419
+              ],
+              [
+                200.0,
+                0.999372
+              ],
+              [
+                205.0,
+                0.999791
+              ],
+              [
+                210.0,
+                0.999895
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "hazus_terrain_class": "suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1730;TERRAINID=3;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.PMB.L.0.god.std.35"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "WAREHOUSE_FLOOR_AREA_100000_FT2_PROFILE",
+            "LARGE_DOORS_NOT_A_HAZUS_SPMB_CHARACTERISTIC",
+            "HAZUS_SPMB_FAMILY_ANOMALY_NOT_IN_SELECTED_ROW",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_IND_HAZUS_SPMBL_NEWDECK_LIGHT_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                3.06823e-07
+              ],
+              [
+                65.0,
+                3.17361e-06
+              ],
+              [
+                70.0,
+                2.41802e-05
+              ],
+              [
+                75.0,
+                0.000104032
+              ],
+              [
+                80.0,
+                0.000371548
+              ],
+              [
+                85.0,
+                0.0009783451
+              ],
+              [
+                90.0,
+                0.00216542
+              ],
+              [
+                95.0,
+                0.00407914
+              ],
+              [
+                100.0,
+                0.00675547
+              ],
+              [
+                105.0,
+                0.0110916
+              ],
+              [
+                110.0,
+                0.0162442
+              ],
+              [
+                115.0,
+                0.02355
+              ],
+              [
+                120.0,
+                0.0306555
+              ],
+              [
+                125.0,
+                0.0431957
+              ],
+              [
+                130.0,
+                0.0600423
+              ],
+              [
+                135.0,
+                0.0926785
+              ],
+              [
+                140.0,
+                0.149122
+              ],
+              [
+                145.0,
+                0.221574
+              ],
+              [
+                150.0,
+                0.33181
+              ],
+              [
+                155.0,
+                0.462392
+              ],
+              [
+                160.0,
+                0.625001
+              ],
+              [
+                165.0,
+                0.742548
+              ],
+              [
+                170.0,
+                0.841811
+              ],
+              [
+                175.0,
+                0.910395
+              ],
+              [
+                180.0,
+                0.955702
+              ],
+              [
+                185.0,
+                0.979771
+              ],
+              [
+                190.0,
+                0.994424
+              ],
+              [
+                195.0,
+                0.998606
+              ],
+              [
+                200.0,
+                1.0
+              ],
+              [
+                205.0,
+                1.0
+              ],
+              [
+                210.0,
+                1.0
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "hazus_terrain_class": "light_trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1730;TERRAINID=4;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.PMB.L.0.god.std.70"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "WAREHOUSE_FLOOR_AREA_100000_FT2_PROFILE",
+            "LARGE_DOORS_NOT_A_HAZUS_SPMB_CHARACTERISTIC",
+            "HAZUS_SPMB_FAMILY_ANOMALY_NOT_IN_SELECTED_ROW"
+          ]
+        },
+        {
+          "curve_id": "TCRE_IND_HAZUS_SPMBL_NEWDECK_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                9.61219e-08
+              ],
+              [
+                65.0,
+                1.49919e-06
+              ],
+              [
+                70.0,
+                1.17826e-05
+              ],
+              [
+                75.0,
+                5.9654e-05
+              ],
+              [
+                80.0,
+                0.000224365
+              ],
+              [
+                85.0,
+                0.000648427
+              ],
+              [
+                90.0,
+                0.00148619
+              ],
+              [
+                95.0,
+                0.00288142
+              ],
+              [
+                100.0,
+                0.00481452
+              ],
+              [
+                105.0,
+                0.00784842
+              ],
+              [
+                110.0,
+                0.0118573
+              ],
+              [
+                115.0,
+                0.0177964
+              ],
+              [
+                120.0,
+                0.0238599
+              ],
+              [
+                125.0,
+                0.0341497
+              ],
+              [
+                130.0,
+                0.0453675
+              ],
+              [
+                135.0,
+                0.0674475
+              ],
+              [
+                140.0,
+                0.0914666
+              ],
+              [
+                145.0,
+                0.143683
+              ],
+              [
+                150.0,
+                0.200927
+              ],
+              [
+                155.0,
+                0.316613
+              ],
+              [
+                160.0,
+                0.446052
+              ],
+              [
+                165.0,
+                0.562087
+              ],
+              [
+                170.0,
+                0.695467
+              ],
+              [
+                175.0,
+                0.797246
+              ],
+              [
+                180.0,
+                0.887443
+              ],
+              [
+                185.0,
+                0.935201
+              ],
+              [
+                190.0,
+                0.968607
+              ],
+              [
+                195.0,
+                0.990357
+              ],
+              [
+                200.0,
+                0.997606
+              ],
+              [
+                205.0,
+                1.0
+              ],
+              [
+                210.0,
+                1.0
+              ],
+              [
+                215.0,
+                1.0
+              ],
+              [
+                220.0,
+                1.0
+              ],
+              [
+                225.0,
+                1.0
+              ],
+              [
+                230.0,
+                1.0
+              ],
+              [
+                235.0,
+                1.0
+              ],
+              [
+                240.0,
+                1.0
+              ],
+              [
+                245.0,
+                1.0
+              ],
+              [
+                250.0,
+                1.0
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_IND_WAREHOUSE",
+            "hazus_terrain_class": "trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1730;TERRAINID=5;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.PMB.L.0.god.std.100"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "WAREHOUSE_FLOOR_AREA_100000_FT2_PROFILE",
+            "LARGE_DOORS_NOT_A_HAZUS_SPMB_CHARACTERISTIC",
+            "HAZUS_SPMB_FAMILY_ANOMALY_NOT_IN_SELECTED_ROW"
+          ]
+        },
+        {
+          "curve_id": "TCRE_OFF_HAZUS_SECBM_OPEN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                8.20969e-05
+              ],
+              [
+                65.0,
+                0.000159649
+              ],
+              [
+                70.0,
+                0.000356754
+              ],
+              [
+                75.0,
+                0.00082861
+              ],
+              [
+                80.0,
+                0.00208605
+              ],
+              [
+                85.0,
+                0.00488497
+              ],
+              [
+                90.0,
+                0.0101861
+              ],
+              [
+                95.0,
+                0.0190941
+              ],
+              [
+                100.0,
+                0.0317255
+              ],
+              [
+                105.0,
+                0.0500165
+              ],
+              [
+                110.0,
+                0.072261
+              ],
+              [
+                115.0,
+                0.106273
+              ],
+              [
+                120.0,
+                0.140212
+              ],
+              [
+                125.0,
+                0.199194
+              ],
+              [
+                130.0,
+                0.252035
+              ],
+              [
+                135.0,
+                0.323493
+              ],
+              [
+                140.0,
+                0.393481
+              ],
+              [
+                145.0,
+                0.463858
+              ],
+              [
+                150.0,
+                0.539786
+              ],
+              [
+                155.0,
+                0.619237
+              ],
+              [
+                160.0,
+                0.684704
+              ],
+              [
+                165.0,
+                0.716458
+              ],
+              [
+                170.0,
+                0.740214
+              ],
+              [
+                175.0,
+                0.76733
+              ],
+              [
+                180.0,
+                0.783859
+              ],
+              [
+                185.0,
+                0.793293
+              ],
+              [
+                190.0,
+                0.798883
+              ],
+              [
+                195.0,
+                0.803778
+              ],
+              [
+                200.0,
+                0.806292
+              ],
+              [
+                205.0,
+                0.805117
+              ],
+              [
+                210.0,
+                0.807244
+              ],
+              [
+                215.0,
+                0.808001
+              ],
+              [
+                220.0,
+                0.810007
+              ],
+              [
+                225.0,
+                0.810504
+              ],
+              [
+                230.0,
+                0.810727
+              ],
+              [
+                235.0,
+                0.810651
+              ],
+              [
+                240.0,
+                0.810457
+              ],
+              [
+                245.0,
+                0.810361
+              ],
+              [
+                250.0,
+                0.810361
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "hazus_terrain_class": "open"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1840;TERRAINID=1;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.M.spm.0.B.std.med.3"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_OFF_HAZUS_SECBM_LIGHT_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                6.7864e-05
+              ],
+              [
+                65.0,
+                0.000121739
+              ],
+              [
+                70.0,
+                0.000242911
+              ],
+              [
+                75.0,
+                0.000539209
+              ],
+              [
+                80.0,
+                0.0013512
+              ],
+              [
+                85.0,
+                0.00338652
+              ],
+              [
+                90.0,
+                0.00768413
+              ],
+              [
+                95.0,
+                0.0157519
+              ],
+              [
+                100.0,
+                0.0286604
+              ],
+              [
+                105.0,
+                0.0505543
+              ],
+              [
+                110.0,
+                0.0797314
+              ],
+              [
+                115.0,
+                0.127532
+              ],
+              [
+                120.0,
+                0.17394
+              ],
+              [
+                125.0,
+                0.255411
+              ],
+              [
+                130.0,
+                0.32092
+              ],
+              [
+                135.0,
+                0.400581
+              ],
+              [
+                140.0,
+                0.471745
+              ],
+              [
+                145.0,
+                0.534919
+              ],
+              [
+                150.0,
+                0.60463
+              ],
+              [
+                155.0,
+                0.672886
+              ],
+              [
+                160.0,
+                0.730584
+              ],
+              [
+                165.0,
+                0.750537
+              ],
+              [
+                170.0,
+                0.769826
+              ],
+              [
+                175.0,
+                0.8032
+              ],
+              [
+                180.0,
+                0.826966
+              ],
+              [
+                185.0,
+                0.838167
+              ],
+              [
+                190.0,
+                0.844359
+              ],
+              [
+                195.0,
+                0.852674
+              ],
+              [
+                200.0,
+                0.857561
+              ],
+              [
+                205.0,
+                0.854107
+              ],
+              [
+                210.0,
+                0.851546
+              ],
+              [
+                215.0,
+                0.853832
+              ],
+              [
+                220.0,
+                0.855496
+              ],
+              [
+                225.0,
+                0.853807
+              ],
+              [
+                230.0,
+                0.852017
+              ],
+              [
+                235.0,
+                0.851452
+              ],
+              [
+                240.0,
+                0.857654
+              ],
+              [
+                245.0,
+                0.86092
+              ],
+              [
+                250.0,
+                0.86092
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "hazus_terrain_class": "light_suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1840;TERRAINID=2;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.M.spm.0.B.std.med.15"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_OFF_HAZUS_SECBM_SUBURBAN",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                6.62994e-05
+              ],
+              [
+                65.0,
+                0.000103598
+              ],
+              [
+                70.0,
+                0.000186993
+              ],
+              [
+                75.0,
+                0.000400679
+              ],
+              [
+                80.0,
+                0.000902913
+              ],
+              [
+                85.0,
+                0.002163
+              ],
+              [
+                90.0,
+                0.00471564
+              ],
+              [
+                95.0,
+                0.00935246
+              ],
+              [
+                100.0,
+                0.0168999
+              ],
+              [
+                105.0,
+                0.0293685
+              ],
+              [
+                110.0,
+                0.0453327
+              ],
+              [
+                115.0,
+                0.072305
+              ],
+              [
+                120.0,
+                0.100962
+              ],
+              [
+                125.0,
+                0.150467
+              ],
+              [
+                130.0,
+                0.197904
+              ],
+              [
+                135.0,
+                0.259272
+              ],
+              [
+                140.0,
+                0.324648
+              ],
+              [
+                145.0,
+                0.390027
+              ],
+              [
+                150.0,
+                0.458353
+              ],
+              [
+                155.0,
+                0.541818
+              ],
+              [
+                160.0,
+                0.618783
+              ],
+              [
+                165.0,
+                0.650097
+              ],
+              [
+                170.0,
+                0.688247
+              ],
+              [
+                175.0,
+                0.745178
+              ],
+              [
+                180.0,
+                0.784814
+              ],
+              [
+                185.0,
+                0.807982
+              ],
+              [
+                190.0,
+                0.822406
+              ],
+              [
+                195.0,
+                0.832828
+              ],
+              [
+                200.0,
+                0.840915
+              ],
+              [
+                205.0,
+                0.838856
+              ],
+              [
+                210.0,
+                0.840388
+              ],
+              [
+                215.0,
+                0.845018
+              ],
+              [
+                220.0,
+                0.851854
+              ],
+              [
+                225.0,
+                0.849848
+              ],
+              [
+                230.0,
+                0.847297
+              ],
+              [
+                235.0,
+                0.845964
+              ],
+              [
+                240.0,
+                0.855476
+              ],
+              [
+                245.0,
+                0.860513
+              ],
+              [
+                250.0,
+                0.860513
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "hazus_terrain_class": "suburban"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1840;TERRAINID=3;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.M.spm.0.B.std.med.35"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_OFF_HAZUS_SECBM_LIGHT_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                4.01614e-05
+              ],
+              [
+                65.0,
+                7.70733e-05
+              ],
+              [
+                70.0,
+                0.000147658
+              ],
+              [
+                75.0,
+                0.000284812
+              ],
+              [
+                80.0,
+                0.000624119
+              ],
+              [
+                85.0,
+                0.00139843
+              ],
+              [
+                90.0,
+                0.00302166
+              ],
+              [
+                95.0,
+                0.00623434
+              ],
+              [
+                100.0,
+                0.0114429
+              ],
+              [
+                105.0,
+                0.0199371
+              ],
+              [
+                110.0,
+                0.0305011
+              ],
+              [
+                115.0,
+                0.0452697
+              ],
+              [
+                120.0,
+                0.0623955
+              ],
+              [
+                125.0,
+                0.0884291
+              ],
+              [
+                130.0,
+                0.116615
+              ],
+              [
+                135.0,
+                0.154956
+              ],
+              [
+                140.0,
+                0.199099
+              ],
+              [
+                145.0,
+                0.25229
+              ],
+              [
+                150.0,
+                0.313294
+              ],
+              [
+                155.0,
+                0.392305
+              ],
+              [
+                160.0,
+                0.473674
+              ],
+              [
+                165.0,
+                0.510985
+              ],
+              [
+                170.0,
+                0.563506
+              ],
+              [
+                175.0,
+                0.643179
+              ],
+              [
+                180.0,
+                0.711544
+              ],
+              [
+                185.0,
+                0.750106
+              ],
+              [
+                190.0,
+                0.776371
+              ],
+              [
+                195.0,
+                0.799931
+              ],
+              [
+                200.0,
+                0.814791
+              ],
+              [
+                205.0,
+                0.814495
+              ],
+              [
+                210.0,
+                0.821565
+              ],
+              [
+                215.0,
+                0.82766
+              ],
+              [
+                220.0,
+                0.837268
+              ],
+              [
+                225.0,
+                0.837971
+              ],
+              [
+                230.0,
+                0.838125
+              ],
+              [
+                235.0,
+                0.838819
+              ],
+              [
+                240.0,
+                0.847902
+              ],
+              [
+                245.0,
+                0.85259
+              ],
+              [
+                250.0,
+                0.85259
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "hazus_terrain_class": "light_trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1840;TERRAINID=4;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.M.spm.0.B.std.med.70"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE",
+            "HAZUS_SIMULATION_NOISE_SMALL_DIPS"
+          ]
+        },
+        {
+          "curve_id": "TCRE_OFF_HAZUS_SECBM_TREES",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+          "curve_form": "piecewise_linear",
+          "x_axis": "tc_peak_gust_3s_10m_mph",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "points": [
+              [
+                50.0,
+                0.0
+              ],
+              [
+                55.0,
+                0.0
+              ],
+              [
+                60.0,
+                4.44014e-05
+              ],
+              [
+                65.0,
+                6.91489e-05
+              ],
+              [
+                70.0,
+                0.000127879
+              ],
+              [
+                75.0,
+                0.000236792
+              ],
+              [
+                80.0,
+                0.000506151
+              ],
+              [
+                85.0,
+                0.0010817
+              ],
+              [
+                90.0,
+                0.00245057
+              ],
+              [
+                95.0,
+                0.00511538
+              ],
+              [
+                100.0,
+                0.00963924
+              ],
+              [
+                105.0,
+                0.0167654
+              ],
+              [
+                110.0,
+                0.0262079
+              ],
+              [
+                115.0,
+                0.0380818
+              ],
+              [
+                120.0,
+                0.0510082
+              ],
+              [
+                125.0,
+                0.0692365
+              ],
+              [
+                130.0,
+                0.0904219
+              ],
+              [
+                135.0,
+                0.117605
+              ],
+              [
+                140.0,
+                0.148401
+              ],
+              [
+                145.0,
+                0.187366
+              ],
+              [
+                150.0,
+                0.232328
+              ],
+              [
+                155.0,
+                0.297962
+              ],
+              [
+                160.0,
+                0.370785
+              ],
+              [
+                165.0,
+                0.414082
+              ],
+              [
+                170.0,
+                0.479401
+              ],
+              [
+                175.0,
+                0.566692
+              ],
+              [
+                180.0,
+                0.646666
+              ],
+              [
+                185.0,
+                0.695872
+              ],
+              [
+                190.0,
+                0.733373
+              ],
+              [
+                195.0,
+                0.767022
+              ],
+              [
+                200.0,
+                0.788395
+              ],
+              [
+                205.0,
+                0.789551
+              ],
+              [
+                210.0,
+                0.793338
+              ],
+              [
+                215.0,
+                0.803718
+              ],
+              [
+                220.0,
+                0.823441
+              ],
+              [
+                225.0,
+                0.828096
+              ],
+              [
+                230.0,
+                0.83002
+              ],
+              [
+                235.0,
+                0.830812
+              ],
+              [
+                240.0,
+                0.840142
+              ],
+              [
+                245.0,
+                0.844952
+              ],
+              [
+                250.0,
+                0.844952
+              ]
+            ]
+          },
+          "valid_range": [
+            50.0,
+            250.0
+          ],
+          "interpolation_policy": "linear_between_source_knots",
+          "extrapolation_policy": "0 <= gust < 50 mph returns 0 (the source is 0 at 50 mph); above 250 mph withholds; no clamp",
+          "selector_match": {
+            "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+            "hazus_terrain_class": "trees"
+          },
+          "source_parameter_refs": [
+            "TCRE-S001#Section_2.1",
+            "TCRE-S002#huDamLossFun:wbID=1840;TERRAINID=5;DamLossDescID=5",
+            "TCRE-S003#loss_repair:S.ECB.M.spm.0.B.std.med.100"
+          ],
+          "metadata_flags": [
+            "HAZUS_HURRICANE_BUILDING_LOSS_TABLE",
+            "HAZUS_6_1_EXTRACT_VERIFIED_AGAINST_5_1_COPY",
+            "PROFILE_WIND_CHARACTERISTICS_WHERE_STATED",
+            "HAZUS_COMMERCIAL_TERRAIN_ORDER_NOT_MONOTONE"
+          ]
+        }
+      ]
+    }
+  ],
+  "value_linkage": {
+    "curve_denominator": "structure replacement cost new of the reference building",
+    "scenario_loss_formula": "loss = DR * structure_replacement_cost_new_usd",
+    "scenario_loss_status": "withheld_consumer_value_qualification",
+    "rejected_denominators": [
+      "depreciated value",
+      "market value",
+      "assessed value"
+    ],
+    "implicit_default_profile": null
+  },
+  "parameter_tier_table": [
+    {
+      "parameter": "axis_definition",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "peak 3-second gust at 10 m, open terrain (z0 0.03 m), mph",
+      "param_role": "axis_bridge",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S001;TCRE-S003;TCRE-S005",
+      "reasoning": "Native axis of the Hazus functions and the field Hazard delivers (TCRE-C001, C020).",
+      "status": "proposed",
+      "update_trigger": "Hazus re-indexes its functions or Hazard changes its field."
+    },
+    {
+      "parameter": "axis_bridge",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "none in Damage (Hazard converts STORM 10-min wind)",
+      "param_role": "axis_bridge",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S005",
+      "reasoning": "Damage must not repeat or undo the consumer conversion.",
+      "status": "proposed",
+      "update_trigger": "Hazard delivers a different averaging period."
+    },
+    {
+      "parameter": "curve_ordinates_house",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_RES_HAZUS_WSF1_*",
+      "value": "Hazus WSF1 wbID 6 building loss, 5 terrains, 50-250 mph every 5 mph",
+      "param_role": "curve_ordinate",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S002;TCRE-S003",
+      "reasoning": "Identical in two independent extractions (TCRE-C011).",
+      "status": "proposed",
+      "update_trigger": "A later Hazus extract differs."
+    },
+    {
+      "parameter": "curve_ordinates_commercial",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_COM_HAZUS_SECBL_*",
+      "value": "Hazus SECBL wbID 1812 building loss, 5 terrains",
+      "param_role": "curve_ordinate",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S002;TCRE-S003",
+      "reasoning": "Identical in two independent extractions; equals MECBL (TCRE-C007, C011).",
+      "status": "proposed",
+      "update_trigger": "A later Hazus extract differs."
+    },
+    {
+      "parameter": "curve_ordinates_warehouse",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_IND_HAZUS_SPMBL_*",
+      "value": "Hazus SPMBL wbID 1729 building loss, 5 terrains",
+      "param_role": "curve_ordinate",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S002;TCRE-S003",
+      "reasoning": "Identical in two extractions; row unaffected by the SPMB family anomaly and directionally consistent with the manual (TCRE-C016, C017).",
+      "status": "proposed",
+      "update_trigger": "FEMA corrects the SPMB family."
+    },
+    {
+      "parameter": "building_type_house",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_RES_HAZUS_WSF1_*",
+      "value": "WSF1 (CONUS, CaseID 1)",
+      "param_role": "selector_archetype",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S001;TCRE-S002",
+      "reasoning": "Exact description match (TCRE-C006); JL accepted 2026-10-12.",
+      "status": "proposed",
+      "update_trigger": "\u2014"
+    },
+    {
+      "parameter": "building_type_commercial",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_COM_HAZUS_SECBL_*",
+      "value": "SECBL (identical to MECBL)",
+      "param_role": "selector_archetype",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "TCRE-S001;TCRE-S002",
+      "reasoning": "Engineered 1-2 story commercial for a 1-3 story building; a 3-story building would be SECBM (TCRE-C007); JL accepted 2026-10-12.",
+      "status": "proposed",
+      "update_trigger": "Reference building fixed at 3 stories or as a strip mall."
+    },
+    {
+      "parameter": "building_type_warehouse",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_IND_HAZUS_SPMBL_*",
+      "value": "SPMBL (> 50,000 ft2)",
+      "param_role": "selector_archetype",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "TCRE-S001;TCRE-S002",
+      "reasoning": "Size class depends on an assumed floor area (TCRE-C008); JL accepted 2026-10-12.",
+      "status": "proposed",
+      "update_trigger": "Reference floor area fixed below 50,000 ft2."
+    },
+    {
+      "parameter": "wind_characteristics_house",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_RES_HAZUS_WSF1_*",
+      "value": "gable; no SWR; 6d @ 6\"/12\"; toe-nail; no garage; no shutters; shingle",
+      "param_role": "selector_archetype",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "TCRE-S001",
+      "reasoning": "Most common value per characteristic (Table C-2 all-region average, TCRE-C010); an assumption about one building, not an observation.",
+      "status": "proposed",
+      "update_trigger": "A regional reference building or a typical mix is chosen."
+    },
+    {
+      "parameter": "wind_characteristics_commercial",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_COM_HAZUS_SECBL_*",
+      "value": "BUR; low window area; debris environment B; standard metal deck; no shutters",
+      "param_role": "selector_archetype",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "TCRE-S001",
+      "reasoning": "Most common values (TCRE-C010, C022).",
+      "status": "proposed",
+      "update_trigger": "Same."
+    },
+    {
+      "parameter": "wind_characteristics_warehouse",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "TCRE_IND_HAZUS_SPMBL_*",
+      "value": "old roof deck; standard metal deck; no shutters",
+      "param_role": "selector_archetype",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "TCRE-S001",
+      "reasoning": "Most common values (TCRE-C010).",
+      "status": "proposed",
+      "update_trigger": "Same."
+    },
+    {
+      "parameter": "terrain_class",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "one of open, light_suburban, suburban, light_trees, trees; required; no default; no interpolation",
+      "param_role": "site_selector",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S001;TCRE-S002",
+      "reasoning": "Five discrete source curves and no combination rule (TCRE-C005); JL decided 2026-10-12.",
+      "status": "proposed",
+      "update_trigger": "Hazard supplies roughness and a mapping rule is agreed."
+    },
+    {
+      "parameter": "curve_form",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "straight lines between published points (5 mph spacing); published values kept, including dips <= 0.002",
+      "param_role": "curve_fit_shape",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S002",
+      "reasoning": "Dense published table; no smoothing needed (CURVE_FORM_DECISION).",
+      "status": "proposed",
+      "update_trigger": "A reviewed reason to smooth."
+    },
+    {
+      "parameter": "range_low",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "below 50 mph returns 0",
+      "param_role": "extrapolation",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S002",
+      "reasoning": "Every selected record is exactly 0 at 50 mph (TCRE-C014).",
+      "status": "proposed",
+      "update_trigger": "A selected record is non-zero at 50 mph."
+    },
+    {
+      "parameter": "range_high",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "above 250 mph withholds",
+      "param_role": "extrapolation",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S002",
+      "reasoning": "Nothing published above 250 mph; Hazard tops out near 229 mph.",
+      "status": "proposed",
+      "update_trigger": "A source publishes higher speeds."
+    },
+    {
+      "parameter": "denominator",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "structure replacement cost new (100%, one failure unit)",
+      "param_role": "value_basis",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S001;TCRE-S006",
+      "reasoning": "Hazus loss ratio is over total building replacement cost (TCRE-C004).",
+      "status": "proposed",
+      "update_trigger": "Value basis changes for flood_real_estate too."
+    },
+    {
+      "parameter": "value_per_area",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "all",
+      "value": "not selected (scenario dollars withheld)",
+      "param_role": "value_basis",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "TCRE-S006",
+      "reasoning": "Shared open seam with flood_real_estate.",
+      "status": "open",
+      "update_trigger": "JL selects a per-area source."
+    },
+    {
+      "parameter": "tree_fall_house",
+      "pathway_id": "tropical_cyclone_wind",
+      "curve_id": "none",
+      "value": "deferred; withheld, not zero",
+      "param_role": "deferred_mechanism",
+      "tier": "T2_public_lab_standard_or_physics",
+      "source_ids": "TCRE-S001",
+      "reasoning": "Additive term outside the base record (TCRE-C003).",
+      "status": "proposed",
+      "update_trigger": "Hazard supplies tree data."
+    }
+  ],
+  "evaluation_contract": {
+    "supported_pathway_id": "tropical_cyclone_wind",
+    "supported_failure_unit_id": "TCRE_BUILDING_STRUCTURE",
+    "required_selector_fields": [
+      "reference_building_id",
+      "hazus_terrain_class"
+    ],
+    "required_conditioner_fields": [],
+    "optional_characteristic_fields": [
+      "hazus_garage_door",
+      "hazus_metal_deck_attachment",
+      "hazus_roof_cover",
+      "hazus_roof_deck_age",
+      "hazus_roof_deck_attachment",
+      "hazus_roof_shape",
+      "hazus_roof_to_wall_connection",
+      "hazus_secondary_water_resistance",
+      "hazus_shutters",
+      "hazus_windborne_debris_environment",
+      "hazus_window_area"
+    ],
+    "accepted_axis_payloads": [
+      {
+        "mode": "open_terrain_gust_mph",
+        "required_fields": [
+          "tc_peak_gust_3s_10m_mph"
+        ]
+      }
+    ],
+    "metadata_flags_always": [
+      "NONCANONICAL_PROPOSAL",
+      "SCREENING_SOURCE_NATIVE_ADOPTED_TABLE",
+      "WHOLE_BUILDING_SOURCE_ATOM",
+      "HAZUS_COMBINED_PRESSURE_DEBRIS_RAIN_INGRESS",
+      "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+      "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+      "PLATFORM_CODES_PROPOSED_NOT_ISSUED"
+    ],
+    "out_of_range_behavior": "above 250 mph: withhold; 0 to 50 mph: 0; negative: error",
+    "reference_evaluator": "scripts/reference_helpers/tropical_cyclone_wind_real_estate_curve_eval.py"
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean"
+    ],
+    "supported_output": "conditional scalar DR for TCRE_BUILDING_STRUCTURE",
+    "scenario_loss": "withheld until the consumer qualifies the building value",
+    "annual_and_tail_metrics": "withheld; consumer-owned",
+    "withheld_units_emit": "explicit null DR plus reason codes; never zero"
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "tropical_cyclone_wind_real_estate",
+    "canonical_runtime_artifact": false,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "withheld",
+        "curve_intrinsic_spread": "not_carried",
+        "populated_emit_modes": [
+          "scalar_mean"
+        ],
+        "conditions": [
+          "reference_building_id must be one of the four proposed reference buildings",
+          "hazus_terrain_class is required (open, light_suburban, suburban, light_trees, trees); no default, no interpolation",
+          "tc_peak_gust_3s_10m_mph is the open-terrain 3-second gust at 10 m; terrain is applied only by the record choice",
+          "records are valid from 50 to 250 mph; below 50 returns 0, above 250 withholds",
+          "only the reference wind building characteristics are published (the Hazard profile value where it states one, else the most common); other values withhold",
+          "the damage ratio includes wind pressure, windborne debris and rain entering through wind damage; no separate debris or rain pathway may be added",
+          "scenario dollars stay withheld until the consumer qualifies the building value",
+          "owner acceptance of the scope and selections is required before any canonical use"
+        ],
+        "limitation_flags": [
+          "NONCANONICAL_PROPOSAL",
+          "SCREENING_SOURCE_NATIVE_ADOPTED_TABLE",
+          "WHOLE_BUILDING_SOURCE_ATOM",
+          "HAZUS_COMBINED_PRESSURE_DEBRIS_RAIN_INGRESS",
+          "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+          "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+          "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+          "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+          "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE",
+          "HOUSE_CONNECTIONS_NATIONAL_MOST_COMMON_NOT_CODE_ZONE",
+          "TERRAIN_CLASS_MAPPING_CONSUMER_OWNED",
+          "WIND_AND_FLOOD_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+        ],
+        "withheld_failure_units": [
+          {
+            "failure_unit_id": "TCRE_BUILDING_CONTENTS",
+            "reason_codes": [
+              "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+              "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+            ]
+          }
+        ]
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "withheld",
+      "prerequisites": [
+        "owner acceptance of scope and curve selections",
+        "consumer-qualified replacement cost new for each reference building",
+        "Hazard terrain class per building location",
+        "exact model/docs/schema/SHA pin"
+      ],
+      "limitation_flags": [
+        "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+        "VALUE_COVERAGE_NOT_ITEMIZED_BY_SOURCE"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "exact model/docs/schema/SHA pin",
+        "record routing by reference_building_id and hazus_terrain_class",
+        "terrain never defaulted and never also applied to the gust",
+        "wind and flood damage on one building in one storm together at most 100% of structure value"
+      ],
+      "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+    },
+    "promotion_gate": {
+      "status": "blocked",
+      "required_before_canonical_use": [
+        "owner accepts scope D-TCRE-01 to D-TCRE-05 and D-TCRE-08 to D-TCRE-13, and selections D-TCRE-17 to D-TCRE-25",
+        "consumer value qualification of each reference budget (shared with flood_real_estate)",
+        "Hazard supplies a terrain class per building location",
+        "independent review of the package"
+      ]
+    }
+  },
+  "derivation_rationale": {
+    "source_spine": "FEMA Hazus hurricane building-loss functions (Hazus 7.0 TM method; Hazus 6.1 FEMA extract values), verified identical to SimCenter's independent Hazus 5.1 copy.",
+    "adopted_form": "exact published 5-mph tables, straight lines between published points",
+    "why_not_smooth_fits": "41 published points per record; nothing to fill and a fit could only move published values.",
+    "parameter_tier_mix": "Ordinates T2; building types T2-T3; wind characteristics from the Hazard profiles where stated (office roof, windows, storeys; warehouse roof age), else T4 most-common assumptions; terrain required input; value coverage not itemized."
+  },
+  "legacy_comparison": {
+    "prior_cell_state": "model v0.1 proposal (local branch, kept unchanged for reproducibility)",
+    "changes_from_prior": [
+      "new office record SECBM single-ply membrane medium windows (D-TCRE-23)",
+      "warehouse roof deck new or average instead of old (D-TCRE-24)",
+      "house and retail unchanged (D-TCRE-25)"
+    ],
+    "legacy_arrays_used": "none (legacy Climada residential and Unanwa straight-line arrays rejected, D-TCRE-10)",
+    "canonical_or_consumer_change": false
+  }
+}

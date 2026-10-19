@@ -1,0 +1,83 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "tropical_cyclone_wind_real_estate",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "reference_building_id must be one of the three proposed reference buildings",
+        "hazus_terrain_class is required (open, light_suburban, suburban, light_trees, trees); no default, no interpolation",
+        "tc_peak_gust_3s_10m_mph is the open-terrain 3-second gust at 10 m; terrain is applied only by the record choice",
+        "records are valid from 50 to 250 mph; below 50 returns 0, above 250 withholds",
+        "only the most-common wind building characteristics are published; other values withhold",
+        "the damage ratio includes wind pressure, windborne debris and rain entering through wind damage; no separate debris or rain pathway may be added",
+        "scenario dollars stay withheld until a per-area replacement cost new is selected",
+        "owner acceptance of the scope and selections is required before any canonical use"
+      ],
+      "limitation_flags": [
+        "NONCANONICAL_PROPOSAL",
+        "SCREENING_SOURCE_NATIVE_ADOPTED_TABLE",
+        "WHOLE_BUILDING_SOURCE_ATOM",
+        "HAZUS_COMBINED_PRESSURE_DEBRIS_RAIN_INGRESS",
+        "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+        "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+        "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+        "TREE_FALL_ADDITIVE_TERM_DEFERRED",
+        "VALUE_PER_AREA_NOT_SELECTED",
+        "TERRAIN_CLASS_MAPPING_CONSUMER_OWNED",
+        "WIND_AND_FLOOD_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "TCRE_BUILDING_CONTENTS",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "owner acceptance of scope and curve selections",
+      "selected per-area replacement cost new for each reference building",
+      "Hazard terrain class per building location",
+      "exact model/docs/schema/SHA pin"
+    ],
+    "limitation_flags": [
+      "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+      "VALUE_PER_AREA_NOT_SELECTED"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact model/docs/schema/SHA pin",
+      "record routing by reference_building_id and hazus_terrain_class",
+      "terrain never defaulted and never also applied to the gust",
+      "wind and flood damage on one building in one storm together at most 100% of structure value"
+    ],
+    "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "owner accepts scope D-TCRE-01 to D-TCRE-05 and D-TCRE-08 to D-TCRE-13, and selections D-TCRE-17 to D-TCRE-21",
+      "per-area replacement cost new selected (shared with flood_real_estate)",
+      "Hazard supplies a terrain class per building location",
+      "independent review of the package"
+    ]
+  }
+}
