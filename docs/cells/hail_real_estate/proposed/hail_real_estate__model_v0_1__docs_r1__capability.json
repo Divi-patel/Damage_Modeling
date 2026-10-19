@@ -1,0 +1,93 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "hail_real_estate",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "hail_impact",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "withheld",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "reference_building_id must be one of the three Hazard reference profiles r1 buildings",
+        "mesh_diameter_mm is Hazard's MESH75 hail diameter (mm) as delivered, read as the largest hailstone at the building",
+        "records are valid from 0 to 203.2 mm; above 203.2 withholds; a negative diameter is rejected",
+        "each failure unit's damage ratio is a fraction of that unit's own replacement value; the unit's share of structure replacement cost new is in the value crosswalk and failure_units[].share_of_structure_rcn",
+        "the walls-and-windows unit is Tier-4 screening and answers only with screening_assumption_set_id = HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18",
+        "exposed equipment and contents are withheld, never zero",
+        "scenario dollars stay withheld until the consumer qualifies the building value",
+        "owner acceptance of the scope and selections is required before any canonical use"
+      ],
+      "limitation_flags": [
+        "NONCANONICAL_PROPOSAL",
+        "SCREENING_MATERIAL_THRESHOLD_CURVES",
+        "COMPONENT_FAILURE_UNITS_OWN_VALUE_DENOMINATOR",
+        "AXIS_IS_HAZARD_MESH75_READ_AS_HAILSTONE_DIAMETER",
+        "THRESHOLD_BAND_READ_AS_90_PERCENT_RANGE",
+        "COSMETIC_DENTING_EXCLUDED",
+        "CONSEQUENTIAL_INTERIOR_LEAKAGE_NOT_PRICED",
+        "CUMULATIVE_SUB_SEVERE_HAIL_NOT_MODELLED",
+        "REFERENCE_BUILDING_ASSUMPTIONS_NOT_OBSERVED",
+        "NOT_FIELD_OR_CLAIMS_CALIBRATED",
+        "PLATFORM_CODES_PROPOSED_NOT_ISSUED",
+        "VALUE_SHARES_PARTLY_JUDGMENT",
+        "MULTI_PERIL_SAME_BUILDING_COMBINATION_CONSUMER_OWNED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "HRE_EXPOSED_EQUIPMENT",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "FUNCTIONAL_EQUIPMENT_HAIL_EVIDENCE_NOT_FOUND"
+          ]
+        },
+        {
+          "failure_unit_id": "HRE_BUILDING_CONTENTS",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT",
+            "CONTENTS_DEFERRED_SEPARATE_FAILURE_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "owner acceptance of scope and curve selections",
+      "consumer-qualified replacement cost new for each reference building",
+      "Hazard review of the MESH75 floor and point hail frequency (NRI check)",
+      "exact model/docs/schema/SHA pin"
+    ],
+    "limitation_flags": [
+      "ANNUAL_AND_TAIL_METRICS_CONSUMER_OWNED",
+      "NRI_CHECK_ABOVE_NRI_EXPECTED_UNDERREPORTING"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "exact model/docs/schema/SHA pin",
+      "record routing by failure_unit_id and reference_building_id",
+      "unit DR multiplied by the same unit's share of structure value, never by the whole value",
+      "walls-and-windows unit used only with the screening acknowledgement",
+      "all perils on one building in one event together at most 100% of structure value"
+    ],
+    "action_if_fail": "withhold the affected DR or downstream metric; do not substitute another record or clamp"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "owner accepts D-HRE-01 to D-HRE-16",
+      "consumer value qualification of each reference budget (shared with the other real-estate cells)",
+      "reviewer accepts the MESH75-as-hailstone axis reading and the Tier-4 walls-and-windows unit",
+      "independent review of the package"
+    ]
+  }
+}

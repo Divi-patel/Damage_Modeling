@@ -1,0 +1,2953 @@
+{
+  "schema_version": "known_answer_tests.v3",
+  "cell_id": "hail_real_estate",
+  "semantic_damage_model_version": "model v0.1",
+  "documentation_revision": "docs r1",
+  "artifact_schema_version": "damage_curve_record_bundle.v3",
+  "artifact_status": "noncanonical_proposal",
+  "absolute_tolerance": 1e-12,
+  "equation": {
+    "runtime": "straight lines between the 1-mm knots of the selected record",
+    "axis": "mesh_diameter_mm (Hazard's MESH75 hail diameter, mm)",
+    "ranges": "0 to 203.2 mm evaluates; above 203.2 mm withholds; negative is an error"
+  },
+  "formula_known_answer_tests": [
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_0MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_10MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_20MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1e-06
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_25MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 25.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.000453
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_30MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 30.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.020582
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_35MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 35.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.167819
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_40MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 40.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.488789
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 45.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.787091
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_50MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.937471
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_55MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 55.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.986134
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_60MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.997524
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_65MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 65.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.999625
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_70MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 70.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.99995
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.999994
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_80MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.999999
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_90MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 90.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_100MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_150MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_KNOT_203MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 203.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_25.4MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 25.4
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.000739399999999999
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_31.75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 31.75
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.05067125
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_38.98MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 38.98
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.41727123999999977
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_44.45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 44.45
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.7604253500000001
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_50.8MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.9497245999999999
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_63.5MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 63.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.9993175
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_76.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 76.2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.9999962
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_88.9MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 88.9
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_101.6MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 101.6
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_AT_203.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 203.2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_0MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 0.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_10MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 10.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_20MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 20.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_25MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 25.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.000104
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_30MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 30.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.004794
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_35MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 35.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.040214
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_40MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 40.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.123942
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 45.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.218068
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_50MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.287544
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_55MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 55.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.328825
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_60MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 60.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.349862
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_65MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 65.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.359041
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_70MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 70.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.362483
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 75.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.363612
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_80MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 80.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.363943
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_90MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 90.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.364054
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_100MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 100.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.364061
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_150MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 150.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.364061
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_KNOT_203MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 203.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.364061
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_25.4MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 25.4,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.00016999999999999974
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_31.75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 31.75,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.01189625
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_38.98MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 38.98,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.10431333999999994
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_44.45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 44.45,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.20848150000000007
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_50.8MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.29578959999999993
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_63.5MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 63.5,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.357078
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_76.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 76.2,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.36373120000000003
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_88.9MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 88.9,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.3640517
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_101.6MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 101.6,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.364061
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_AT_203.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 203.2,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_WALLS_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.364061
+      }
+    },
+    {
+      "test_id": "RE_RES_SFD_1S_SLAB_ROOF_ZERO_AT_ZERO",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "RE_RES_SFD_1S_SLAB_ROOF_WITH_ACK_SAME_VALUE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED",
+        "failure_unit_damage_ratio": 0.9497245999999999,
+        "metadata_flags_include": [
+          "ROOF_COVER_HAIL_THRESHOLD_EVIDENCE"
+        ]
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_0MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_10MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_20MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_25MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 25.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_30MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 30.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_35MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 35.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_40MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 40.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 45.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_50MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 3.4e-05
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_55MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 55.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.001144
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_60MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.013926
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_65MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 65.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.078284
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_70MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 70.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.244441
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.493026
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_80MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.73025
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_90MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 90.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.961239
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_100MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.997409
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_150MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_KNOT_203MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 203.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_25.4MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 25.4
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_31.75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 31.75
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_38.98MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 38.98
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_44.45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 44.45
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_50.8MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 6.759999999999988e-05
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_63.5MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 63.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.050456
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_76.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 76.2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.5546350000000001
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_88.9MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 88.9
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.9499130000000001
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_101.6MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 101.6
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.998397
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_AT_203.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 203.2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_0MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 0.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_10MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 10.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_20MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 20.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_25MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 25.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 2e-06
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_30MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 30.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.000181
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_35MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 35.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.003551
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_40MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 40.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.022875
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 45.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.070832
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_50MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.135512
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_55MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 55.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.191017
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_60MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 60.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.224925
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_65MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 65.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.240926
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_70MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 70.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.247119
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 75.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249177
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_80MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 80.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249783
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_90MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 90.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249988
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_100MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 100.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249999
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_150MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 150.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_KNOT_203MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 203.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_25.4MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 25.4,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 3.1999999999999956e-06
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_31.75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 31.75,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.00061925
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_38.98MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 38.98,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.016779799999999984
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_44.45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 44.45,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.06438820000000003
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_50.8MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.14553679999999997
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_63.5MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 63.5,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.237444
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_76.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 76.2,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.24939540000000002
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_88.9MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 88.9,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.24998250000000002
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_101.6MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 101.6,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_AT_203.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 203.2,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "RE_IND_WAREHOUSE_ROOF_ZERO_AT_ZERO",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "RE_IND_WAREHOUSE_ROOF_WITH_ACK_SAME_VALUE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL",
+        "failure_unit_damage_ratio": 6.759999999999988e-05,
+        "metadata_flags_include": [
+          "ROOF_COVER_HAIL_THRESHOLD_EVIDENCE"
+        ]
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_0MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_10MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 10.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_20MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 20.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.002722
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_25MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 25.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.042685
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_30MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 30.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.196287
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_35MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 35.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.450939
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_40MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 40.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.695154
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 45.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.857593
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_50MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.941753
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_55MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 55.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.978414
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_60MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 60.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.992555
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_65MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 65.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.997561
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_70MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 70.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.999229
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 75.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.999762
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_80MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 80.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.999928
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_90MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 90.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.999993
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_100MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 100.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.999999
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_150MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 150.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_KNOT_203MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 203.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_25.4MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 25.4
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.050607799999999974
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_31.75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 31.75
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.27926625
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_38.98MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 38.98
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.6509275399999999
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_44.45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 44.45
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.8436274
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_50.8MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.9498778
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_63.5MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 63.5
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.996555
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_76.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 76.2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.99982
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_88.9MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 88.9
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.9999917
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_101.6MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 101.6
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_AT_203.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 203.2
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 1.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_0MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 0.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_10MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 10.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_20MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 20.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_25MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 25.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 2e-06
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_30MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 30.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.000181
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_35MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 35.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.003551
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_40MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 40.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.022875
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 45.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.070832
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_50MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.135512
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_55MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 55.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.191017
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_60MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 60.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.224925
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_65MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 65.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.240926
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_70MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 70.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.247119
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 75.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249177
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_80MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 80.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249783
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_90MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 90.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249988
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_100MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 100.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.249999
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_150MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 150.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_KNOT_203MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 203.0,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_25.4MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 25.4,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 3.1999999999999956e-06
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_31.75MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 31.75,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.00061925
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_38.98MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 38.98,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.016779799999999984
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_44.45MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 44.45,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.06438820000000003
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_50.8MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.14553679999999997
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_63.5MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 63.5,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.237444
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_76.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 76.2,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.24939540000000002
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_88.9MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 88.9,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.24998250000000002
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_101.6MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 101.6,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_AT_203.2MM",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 203.2,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_WINDOWS_T4",
+        "failure_unit_damage_ratio": 0.25
+      }
+    },
+    {
+      "test_id": "RE_COM_OFFICE_3S_SLAB_ROOF_ZERO_AT_ZERO",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 0.0
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.0
+      }
+    },
+    {
+      "test_id": "RE_COM_OFFICE_3S_SLAB_ROOF_WITH_ACK_SAME_VALUE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "conditional",
+        "curve_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION",
+        "failure_unit_damage_ratio": 0.9498778,
+        "metadata_flags_include": [
+          "ROOF_COVER_HAIL_THRESHOLD_EVIDENCE"
+        ]
+      }
+    }
+  ],
+  "withheld_tests": [
+    {
+      "test_id": "HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 203.2001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "HRE_RES_WALLS_WINDOWS_T4_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 203.2001,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_RES_SFD_1S_SLAB_HRE_EXPOSED_EQUIPMENT_WITHHELD",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_EXPOSED_EQUIPMENT",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "RE_RES_SFD_1S_SLAB_HRE_BUILDING_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "HRE_IND_ROOF_STANDING_SEAM_STEEL_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 203.2001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "HRE_IND_WINDOWS_T4_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 203.2001,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_IND_WAREHOUSE_HRE_EXPOSED_EQUIPMENT_WITHHELD",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_EXPOSED_EQUIPMENT",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "RE_IND_WAREHOUSE_HRE_BUILDING_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_IND_WAREHOUSE",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 203.2001
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "HRE_OFF_WINDOWS_T4_ABOVE_RANGE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 203.2001,
+        "screening_assumption_set_id": "HRE_T4_WALLS_WINDOWS_SCREENING_2026_10_18"
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "ABOVE_SOURCE_VALID_RANGE"
+      }
+    },
+    {
+      "test_id": "RE_COM_OFFICE_3S_SLAB_HRE_EXPOSED_EQUIPMENT_WITHHELD",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_EXPOSED_EQUIPMENT",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    },
+    {
+      "test_id": "RE_COM_OFFICE_3S_SLAB_HRE_BUILDING_CONTENTS_WITHHELD",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_BUILDING_CONTENTS",
+        "reference_building_id": "RE_COM_OFFICE_3S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected": {
+        "status": "withheld",
+        "reason_code": "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+      }
+    }
+  ],
+  "error_tests": [
+    {
+      "test_id": "PATHWAY_REQUIRED",
+      "input": {
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "PATHWAY_ID_REQUIRED"
+    },
+    {
+      "test_id": "PATHWAY_UNKNOWN",
+      "input": {
+        "pathway_id": "straight_line_convective",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "PATHWAY_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_REQUIRED",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_REQUIRED"
+    },
+    {
+      "test_id": "BUILDING_UNKNOWN",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_COM_LOWRISE",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "BUILDING_PROFILE_ID_NOT_A_SELECTOR",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "re_house_1s_wood_slab",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "REFERENCE_BUILDING_ID_UNKNOWN"
+    },
+    {
+      "test_id": "AXIS_REQUIRED",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB"
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "AXIS_INCHES_FIELD_NOT_ACCEPTED",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "hail_diameter_in": 2.0
+      },
+      "expected_error_code": "AXIS_PAYLOAD_REQUIRED"
+    },
+    {
+      "test_id": "AXIS_NOT_NUMBER",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": "50.8"
+      },
+      "expected_error_code": "AXIS_VALUE_INVALID"
+    },
+    {
+      "test_id": "AXIS_BOOLEAN",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": true
+      },
+      "expected_error_code": "AXIS_VALUE_INVALID"
+    },
+    {
+      "test_id": "AXIS_NEGATIVE",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_ROOF_COVER",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": -1.0
+      },
+      "expected_error_code": "AXIS_OUTSIDE_VALID_RANGE"
+    },
+    {
+      "test_id": "UNIT_REQUIRED",
+      "input": {
+        "pathway_id": "hail_impact",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_REQUIRED"
+    },
+    {
+      "test_id": "UNIT_UNKNOWN",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_BUILDING_STRUCTURE",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "FAILURE_UNIT_ID_UNKNOWN"
+    },
+    {
+      "test_id": "WALLS_WITHOUT_ACKNOWLEDGEMENT",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8
+      },
+      "expected_error_code": "SCREENING_ASSUMPTION_SET_REQUIRED"
+    },
+    {
+      "test_id": "WALLS_WRONG_ACKNOWLEDGEMENT",
+      "input": {
+        "pathway_id": "hail_impact",
+        "failure_unit_id": "HRE_WALLS_AND_WINDOWS",
+        "reference_building_id": "RE_RES_SFD_1S_SLAB",
+        "mesh_diameter_mm": 50.8,
+        "screening_assumption_set_id": "WW_T4_PARTIAL_ELECTRICAL_SCREENING_2026_08_08"
+      },
+      "expected_error_code": "SCREENING_ASSUMPTION_SET_UNSUPPORTED"
+    }
+  ],
+  "contract_assertions": [
+    {
+      "assertion_id": "HRE_UNIT_OWN_VALUE",
+      "expected": "each unit DR is a fraction of that unit's own value; building level = sum of DR x share"
+    },
+    {
+      "assertion_id": "HRE_T4_UNIT_NEEDS_ACKNOWLEDGEMENT",
+      "expected": "walls and windows answer only with the screening acknowledgement"
+    },
+    {
+      "assertion_id": "HRE_NO_DOLLARS",
+      "expected": "no scenario dollars until the consumer qualifies the building value"
+    },
+    {
+      "assertion_id": "HRE_WITHHELD_NOT_ZERO",
+      "expected": "exposed equipment and contents are withheld, never zero"
+    }
+  ]
+}

@@ -60,6 +60,13 @@ These files are reference implementations for downstream notebooks/services. The
 | `validate_convective_wind_real_estate_v0_1_package.py` | Schema/register/EF-table/re-derivation/loader-routing/reproducibility/KAT/non-promotion/binding/workbook/link validator for the convective wind × real estate model-v0.1 proposal. |
 | `check_convective_wind_real_estate_hazard_loader.py` | Read-only consumer check: runs the proposal's known-answer requests through a copy of Hazard's generic v3 loader and lists the differences. |
 | `convective_wind_real_estate_nri_check.py` | Read-only order-of-magnitude check of the proposal's yearly building loss on Hazard's convective grid against FEMA NRI (needs numpy, pandas, scipy, a Hazard checkout and the NRI parquet). |
+| `derive_hail_real_estate_curves.py` | Derives the hail × real estate model-v0.1 ordinates (per-part lognormal replacement probability from Haag hail thresholds, weighted by part value and hail-facing share), the sensitivity table and, with `--chart`, the preview (needs matplotlib for the chart only). |
+| `hail_real_estate_curve_eval.py` | Fail-closed reference evaluator for the noncanonical hail × real estate model-v0.1 proposal: `mesh_diameter_mm`, reference-building selector, roof-cover and Tier-4 walls-and-windows units (acknowledgement required), 0–203.2 mm; damage emit v2. |
+| `build_hail_real_estate_v0_1_package.py` | Deterministic builder for the hail × real estate model-v0.1 artifact, capability, known-answer tests and review workbook (needs openpyxl). |
+| `hail_real_estate_profile_binding.py` | Binds the hail × real estate model-v0.1 records to the Hazard reference profiles r1 (one row per profile and failure unit). Standard library only. |
+| `validate_hail_real_estate_v0_1_package.py` | Schema/register/fragility-table/re-derivation/loader-routing/reproducibility/KAT/non-promotion/binding/workbook/link validator for the hail × real estate model-v0.1 proposal. |
+| `check_hail_real_estate_hazard_loader.py` | Read-only consumer check: runs the proposal's known-answer requests through a copy of Hazard's generic v3 loader and lists the differences. |
+| `hail_real_estate_nri_check.py` | Read-only order-of-magnitude check of the proposal's yearly building loss from Hazard's MRMS daily pixel evidence (Hazard's MESH75 per-pixel rule) against FEMA NRI (needs numpy, pandas, scipy, a Hazard checkout with the hail grid data and the NRI parquet). |
 
 These helpers are not a full production package. Their purpose is to make the intended implementation seam unambiguous.
 
