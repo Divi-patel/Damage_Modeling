@@ -1,0 +1,165 @@
+{
+  "cases": [
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 0.0,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.0,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 0.0,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.0,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 0.0,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.0,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 0.0,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.0,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 0.5,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.007082310245126067,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 0.5,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.0061746313670207375,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 0.5,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.010383801797272886,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 0.5,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.0061746313670207375,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 1.0,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.16282351441713266,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 1.0,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.18614254608419975,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 1.0,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.31233130217260663,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 1.0,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.18614254608419975,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 1.5,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.4846763095389488,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 1.5,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.5380291331302357,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 1.5,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.731201353333085,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 1.5,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.5380291331302357,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 2.0,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.7590523193037834,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 2.0,
+      "response_hypothesis_id": "repair_sensitivity",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.7972055439293442,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "pressure_ratio": 2.0,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.9214390280976563,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "pressure_ratio": 2.0,
+      "response_hypothesis_id": "approved_replacement",
+      "resistance_scenario": "central_screening",
+      "expected_dr": 0.7972055439293442,
+      "expected_basis": "Independent research state-cost expectation; not measured"
+    }
+  ],
+  "not_field_calibration": true
+}

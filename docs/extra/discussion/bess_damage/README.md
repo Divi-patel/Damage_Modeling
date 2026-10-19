@@ -8,9 +8,13 @@ scope: BESS Damage research history and current conditional-release links
 
 # BESS Damage research
 
-**Next hazard:** [Hurricane-wind intake](06_hurricane_wind_intake.md) now records
-nine sources, eight claims, 135 source-only response checks and the next enclosure/
-PCS research target. No BESS wind curve is admitted by that first pass. The local
+**Current Hurricane checkpoint:** [costed enclosure/PCS review](07_hurricane_enclosure_candidate.md)
+records BW-Q01 approved for local testing: full replacement after major
+compromise, with repair retained as a sensitivity. The
+[proposed v0.1 package](../../../cells/tropical_cyclone_wind_bess/proposed/local_candidate_v0_1/README.md)
+passes 972 conditional parity comparisons, schemas and typed/pin guards; no
+canonical or annual use is admitted. The earlier [intake](06_hurricane_wind_intake.md)
+retains its nine-source/eight-claim audit. The local
 curation skill passes 106-file validation and eight governance self-tests; the
 record distinguishes committed improvements from broader uncommitted guidance.
 
@@ -36,6 +40,7 @@ remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wind enclosure/PCS candidate](07_hurricane_enclosure_candidate.md) | BW-Q01 local selection; costed policies and resistance sensitivities; proposed v0.1 and conditional validation |
 | 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Hurricane-wind intake](06_hurricane_wind_intake.md) | Seven-step audit; source/claim/reuse registers; actual OEM/drawing review; source-only numerical reproduction and skill status |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Remaining property and domain](05_remaining_property_and_flood_domain.md) | 70 checks, exact prior-case replay, capped depth extension and coastal policy comparison |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Grouped repair and value](04_grouped_repair_and_value.md) | Original cost inputs, same-budget allocation, one open repair-policy choice and 31 checks |

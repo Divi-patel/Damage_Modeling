@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "classification": "NEW_CELL_SCAFFOLD",
+  "candidate_state": "owner_selected_local_test",
+  "schemas": "existing bundle_v3 and capability_v3; unchanged",
+  "exact_parity_evaluations": 972,
+  "negative_response_controls": 14,
+  "explicit_optin_control": 1,
+  "tampered_payload_controls": 3,
+  "dependency_pin_control": 1,
+  "source_records": 13,
+  "claim_records": 16,
+  "max_dr_abs_delta": 1.1102230246251565e-16,
+  "known_answer_cases": 20,
+  "value_rows_reconciled": 10,
+  "canonical_runtime_artifact": false,
+  "runtime_index_changed": false,
+  "annual_metrics_qualified": false,
+  "artifact_sha256": "f73281af574d9e60ab88b44aada30b018a356d08644523d4db55fe4fb70db31d"
+}

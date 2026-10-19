@@ -1,0 +1,27 @@
+[
+  {
+    "source_id": "BW-S10",
+    "url": "https://evogov.s3.us-west-2.amazonaws.com/meetings/17/staff_reports/629.pdf",
+    "path": "data/bess/raw_hurricane_review_r2/marshall_permit.pdf",
+    "bytes": 8355122,
+    "sha256": "0b3ad9164f309da2a9f559b82147eb1bc0d7ce99ca204414e3c94fbfb6320abe",
+    "wind_design_pages": [
+      14,
+      29
+    ],
+    "visually_reviewed_page": 29,
+    "review_scope": "selected design criterion and context only; no target wind rating adopted"
+  },
+  {
+    "source_id": "BW-S11",
+    "path": "data/bess/raw_flood_review_r1/tesla_erg.pdf",
+    "sha256": "26d87a70bc42411445b2a3b7dd1ba2c43cd9368141b010cd8962c88bcad10849",
+    "reuse_original_bytes": true
+  },
+  {
+    "source_id": "BW-S12",
+    "path": "data/bess/raw_flood_review_r3/pvscm_2024/UPV 2024Q1.txt",
+    "sha256": "fd65a854a2e6bee8384081ebaa40abf2f56e160fff624092d9a9e1608ea9d496",
+    "reuse_original_bytes": true
+  }
+]

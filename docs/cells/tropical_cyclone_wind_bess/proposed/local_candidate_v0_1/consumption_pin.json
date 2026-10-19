@@ -1,0 +1,20 @@
+{
+  "cell_id": "tropical_cyclone_wind_bess",
+  "model": "model v0.1",
+  "docs": "docs r1",
+  "sha256": {
+    "curve_artifact.json": "f73281af574d9e60ab88b44aada30b018a356d08644523d4db55fe4fb70db31d",
+    "capability.json": "455c4eb269422c495ffb5ee65b02e7a5ececa37e84dd94eb6884c8209b28435e",
+    "value_binding.json": "8a5324479461417f04d0972e5dbd1ebfe30ac0ff7d6044a26221912300c675df",
+    "value_crosswalk.csv": "4030fcf62918501fb16ff52e47e6757686a7a6dde93d406b0ec9e4bc467249b8",
+    "source_register.csv": "568296b4e6b60eb0e3928c88ce95401548661642081faa84b21f28dd66765f82",
+    "claim_parameter_register.csv": "e45b816fa8f7898a10b39f7c23ed48412f5893499636288cae76311d0f386d12",
+    "parameter_register.csv": "7d4d8738e626f62d2313a81603cb606621b16492bfac7619cfa8eaedfc2e9dff",
+    "known_answers.json": "68689dbf61661cf1ae92be4eba78b85943c43011dcbc43110f5e5dbc50c3ee15",
+    "evaluate_local.py": "b880e0402aa0945c39b4782111ea180080cca7db294568ea911d36628effa2a6"
+  },
+  "dependency_sha256": {
+    "scripts/reference_helpers/tropical_cyclone_wind_solar_v2_curve_eval.py": "0bd592031feb9efaecf63f37341c6ce170be01dc28eaa88f3d2fcce98540cc07"
+  },
+  "canonical_runtime_artifact": false
+}
