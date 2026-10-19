@@ -1,0 +1,11 @@
+{
+  "cell_id": "flood_bess",
+  "semantic_damage_model_version": "model v1.0",
+  "documentation_revision": "docs r1",
+  "artifact_schema_version": "damage_curve_record_bundle.v2",
+  "sha256": {
+    "curve_artifact.json": "c9bc9194accb3adbc2c05a9720b4945dd5a969bd7288eb600d5e901aa0185d24",
+    "value_binding.json": "d0f12c7728cbab8f071eb0772e07ef1b0f08e4943d7cfbfedfd3c6dcb1f3fdb4",
+    "capability.json": "43789b9dd742a3741bc0ded91233da58158efff8767c922e8b29a7bb34b750e9"
+  }
+}

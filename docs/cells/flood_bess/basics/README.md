@@ -3,10 +3,10 @@ author: owner-directed (Divy) · agent-implemented
 created: 2026-10-18
 updated: 2026-10-18
 status: active
-scope: Plain-language local candidate explanation
+scope: Plain-language canonical conditional response explanation
 ---
 
-# What this BESS candidate means
+# What this BESS response means
 
 We test a selected battery plant, not an observed insured site. Each container
 has expensive battery, control and cooling equipment; converters stand separately.
@@ -30,8 +30,12 @@ active-group DR
           0.30m
 ```
 
-The ordinary runtime and all annual metrics remain withheld. Missing or
+Conditional runtime is admitted. Hazard can construct annual screening metrics
+when the declared consumer checks pass; full-property metrics remain withheld. Missing or
 unsupported depth is not zero damage. For example a wet yard below the assumed
 entry has zero from this mechanism; bypass or other property damage may remain.
 See [how it is built](HOW_THE_MODEL_IS_BUILT.md),
-[exact reference](MODEL_REFERENCE.md) and [the package](../proposed/local_candidate_v0_1/README.md).
+[exact reference](MODEL_REFERENCE.md) and [the package](../current/README.md).
+
+For saline water, separate PCS follows the same strict-entry replacement rule.
+For freshwater, PCS uses the gradual proxy described in the current package.

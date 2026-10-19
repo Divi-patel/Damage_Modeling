@@ -1,0 +1,307 @@
+{
+  "schema_version": "damage_curve_record_bundle.v2",
+  "cell_id": "flood_bess",
+  "damage_code_id": "BESS_FLOOD_INUNDATION_SCREENING_V1",
+  "semantic_damage_model_version": "model v1.0",
+  "documentation_revision": "docs r1",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "repository_canonical_not_in_portable_package",
+  "canonical_runtime_artifact": true,
+  "lifecycle_state": "repository_canonical_screening",
+  "promotion_status": "canonical_conditional_annual_screening",
+  "source_dossier": "docs/cells/flood_bess/current/derivation.md",
+  "source_workbook": "docs/cells/flood_bess/current/value_crosswalk.csv",
+  "known_answer_tests": "docs/cells/flood_bess/current/known_answers.json",
+  "hazard_axis": {
+    "id": "external_inundation_depth_above_local_grade_m",
+    "input_field": "depth_m",
+    "unit": "m",
+    "extrapolation_policy": "Finite nonnegative depths only; explicit capped replacement continuation; no added damage beyond included hardware value"
+  },
+  "failure_units": [
+    {
+      "id": "BESS_ACTIVE_ENCLOSURE",
+      "subsystem": "battery_enclosures",
+      "component": "battery_enclosures",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio"
+    },
+    {
+      "id": "BESS_SEPARATE_PCS",
+      "subsystem": "pcs",
+      "component": "pcs",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio"
+    }
+  ],
+  "curve_records": [
+    {
+      "curve_id": "BESS_ACTIVE_CONTACT_STATE",
+      "failure_unit_id": "BESS_ACTIVE_ENCLOSURE",
+      "curve_form": "piecewise_linear",
+      "x_axis": "binary_common_entry_policy_state",
+      "y_axis": "failure_unit_damage_ratio",
+      "parameters": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "curve_id": "BESS_PCS_INUNDATION_PROXY",
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "curve_form": "piecewise_linear",
+      "x_axis": "depth_above_assumed_entry_m",
+      "y_axis": "failure_unit_damage_ratio",
+      "parameters": {
+        "points": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.02,
+            0.05
+          ],
+          [
+            0.05,
+            0.25
+          ],
+          [
+            0.15,
+            0.75
+          ],
+          [
+            0.3,
+            0.95
+          ],
+          [
+            0.6,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.5,
+            1.0
+          ],
+          [
+            2.0,
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "curve_id": "BESS_PCS_SALINE_CONTACT_STATE",
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "curve_form": "piecewise_linear",
+      "x_axis": "binary_common_entry_policy_state",
+      "y_axis": "failure_unit_damage_ratio",
+      "parameters": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    }
+  ],
+  "parameter_tier_table": [
+    {
+      "parameter": "entry_and_active_replacement",
+      "value": ".30m; binary strict greater-than",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BF-S01",
+        "BF-S02",
+        "BF-S09",
+        "BF-S15"
+      ],
+      "claim_ids": [
+        "BF-C20"
+      ],
+      "reason": "BF-Q01 owner-approved conservative local-test policy, not a physical fragility"
+    },
+    {
+      "parameter": "PCS_source_knots",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": [
+        "BF-S06",
+        "BF-S12"
+      ],
+      "claim_ids": [
+        "BF-C14"
+      ],
+      "reason": "Exact source engineering proxy; target entry remains T4"
+    },
+    {
+      "parameter": "same_unit_value",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": [
+        "BF-S01",
+        "BF-S13",
+        "BF-S14"
+      ],
+      "claim_ids": [
+        "BF-C18"
+      ],
+      "reason": "Dimensionless market-case allocation preserves reference total"
+    },
+    {
+      "parameter": "deep_freshwater_saturation",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BF-S01",
+        "BF-S06"
+      ],
+      "claim_ids": [
+        "BF-C26",
+        "BF-C27"
+      ],
+      "reason": "Continue existing maximum equipment replacement; no empirical deep-water calibration or cleanup scope"
+    },
+    {
+      "parameter": "saline_contact_replacement",
+      "value": ".30m strict greater-than; DR1 for covered battery and PCS hardware",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": [
+        "BF-S02",
+        "BF-S03",
+        "BF-S10",
+        "BF-S16"
+      ],
+      "claim_ids": [
+        "BF-C30"
+      ],
+      "reason": "BF-Q02 owner-approved conservative local-test policy; not a measured mean or salinity multiplier"
+    }
+  ],
+  "derivation_rationale": {
+    "source_artifact_path": "docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json",
+    "source_artifact_sha256": "a08e77ef034e1ecea3e7cd05d13c825921b54d610fca9de8651ebda8e857082d",
+    "evidence_sources": "docs/extra/discussion/bess_damage/evidence/sources.csv",
+    "evidence_claims": "docs/extra/discussion/bess_damage/evidence/claims.csv",
+    "owner_decision": "docs/plans/bess_damage/decisions.md#bd-d09--bf-q02--saline-entry-replacement-approved-for-local-testing",
+    "annual_qualification_decision": "docs/plans/bess_damage/decisions.md#bd-d10--annual-screening-qualification"
+  },
+  "evaluation_contract": {
+    "minimum_external_depth_m": 0,
+    "finite_depth_required": true,
+    "required_policy_id": "BESS_FLOOD_SCREENING_V1",
+    "supported_water_conditions": [
+      "freshwater_screening",
+      "saline_screening"
+    ],
+    "curve_selection_by_water_condition": {
+      "freshwater_screening": {
+        "battery_enclosures": "BESS_ACTIVE_CONTACT_STATE",
+        "pcs": "BESS_PCS_INUNDATION_PROXY"
+      },
+      "saline_screening": {
+        "battery_enclosures": "BESS_ACTIVE_CONTACT_STATE",
+        "pcs": "BESS_PCS_SALINE_CONTACT_STATE"
+      }
+    },
+    "battery_state": "int(external_depth_m > 0.30); only binary states accepted; never interpolate depth between state codes",
+    "PCS_axis": "Freshwater: max(0, external_depth_m - 0.30), once only; DR1 beyond final source point. Saline: binary strict entry state.",
+    "pathway_architecture": "One direct-inundation pathway; water chemistry is an explicit event conditioner. Wave impact, scour, debris and autonomous failures remain unmodeled/excluded, not alternative selectors.",
+    "prohibited": [
+      "General-purpose evaluation without the state bridge",
+      "unknown water silently treated as fresh or saline",
+      "numeric salinity duration or IP multiplier",
+      "claims-calibrated mean interpretation",
+      "converting unmodeled value to zero"
+    ],
+    "local_test_authorized": true,
+    "production_runtime_authorized": true,
+    "annual_construction": "Hazard-owned; explicit frequency/coupling/cap/coverage validation required",
+    "runtime_adapter_contract": "bess_screening.v1"
+  },
+  "value_linkage": {
+    "value_binding_path": "docs/cells/flood_bess/current/value_binding.json",
+    "value_binding_sha256": "d0f12c7728cbab8f071eb0772e07ef1b0f08e4943d7cfbfedfd3c6dcb1f3fdb4",
+    "formula": "Sum unique physical unit DR times the same unit value; cap annual accumulated cost per unit before summing; complete-plant metrics withheld"
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "discrete_state_table",
+      "scalar_mean"
+    ],
+    "runtime_output": "conditional policy DR and same-unit cost; conservative screening, not an empirically calibrated conditional mean"
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v2",
+    "cell_id": "flood_bess",
+    "vulnerability_emit": {
+      "failure_unit_scalar_dr": "supported",
+      "scenario_loss_given_value_basis": "supported_with_explicit_value_and_exposure_basis",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "discrete_state_table",
+        "scalar_mean"
+      ],
+      "withheld_reason_codes": []
+    },
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "frequency_driven_annual_loss_distribution": "supported_if_consumer_samples_frequency_intensity_coupling_and_applies_caps",
+      "vulnerability_uncertainty_distribution": "not_supported_curve_intrinsic_spread_not_carried",
+      "eal": "consumer_computable_with_prerequisites",
+      "pml": "consumer_computable_from_validated_annual_loss_distribution",
+      "var": "consumer_computable_from_validated_annual_loss_distribution",
+      "tvar": "consumer_computable_from_validated_annual_loss_distribution",
+      "prerequisites": [
+        "Exact v1.0 artifact/value/profile pins and unique physical units",
+        "Existing inland common-rank annual-maximum or Coastal observed-rate/direct-event clock; no invented category probabilities",
+        "Depth interpolation before response; selected unit entry applied once; actual Pluvial local capacity",
+        "Common event across all units; fixed plant location within year",
+        "Per-unit annual replacement cap; no within-year restoration; total covered cap equals disjoint value sum",
+        "Original source/response missing mass retained; complete property metrics remain withheld",
+        "Validated annual distribution and fixed-mass tail calculations; location mixtures before parent quantiles",
+        "Local proof is not national resolution/coverage qualification or automatic recipient delivery"
+      ],
+      "limitation_flags": [
+        "CONSERVATIVE_POLICY_NOT_CALIBRATED_MEAN",
+        "PARTIAL_PROPERTY_SCOPE",
+        "NO_INTRINSIC_DAMAGE_SPREAD",
+        "NO_WITHIN_YEAR_RESTORATION",
+        "CANONICAL_REFERENCE_NOT_OBSERVED_ASSET",
+        "COASTAL_CATEGORY_ENVELOPE_NOT_EVENT_HYDRAULICS",
+        "COMMON_RANK_INLAND_SCREENING",
+        "SOURCE_MISSINGNESS_RETAINED",
+        "NO_AUTOMATIC_PORTFOLIO_OR_TOTAL_ADMISSION"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "status": "not_evaluated_by_damage_artifact",
+      "checks_required": [
+        "One value per unique physical unit",
+        "No overlapping enclosure and cell costs",
+        "Missing risk not zero; tagged modeled contribution only",
+        "Per-unit annual cap and disjoint whole-covered-value cap",
+        "No complete-plant metric from partial property scope"
+      ],
+      "action_if_fail": "withhold affected output"
+    }
+  },
+  "release_basis": "Owner-directed annual qualification after BF-Q01/BF-Q02 local proofs; exact response/value parity; annual consumer checks remain mandatory"
+}

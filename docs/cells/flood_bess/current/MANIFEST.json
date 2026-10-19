@@ -1,0 +1,19 @@
+{
+  "schema": "repository_cell_manifest.v1",
+  "cell": "flood_bess",
+  "pin": "flood_bess@model_v1_0__docs_r1",
+  "scope": "repository_only_no_portable_package",
+  "sha256": {
+    "README.md": "cb965b7cb3f069470bc96f6e5723f480adae7356b5353abf2e23db08e35f4270",
+    "RELEASE.md": "318bd4888425f2740a9b39450f1add344ebc7f82c0899b9b4aa4c3915e308201",
+    "capability.json": "43789b9dd742a3741bc0ded91233da58158efff8767c922e8b29a7bb34b750e9",
+    "consumption_pin.json": "2aaa139f1f056be59b122c7957f36518d7ed65cd6aaa6de3c87dea1ca24e0cf0",
+    "curve_artifact.json": "c9bc9194accb3adbc2c05a9720b4945dd5a969bd7288eb600d5e901aa0185d24",
+    "derivation.md": "7711f12d974c3d8926c39dc6eb686233df613a4ebb5c21fba42496988b501a96",
+    "known_answers.json": "a0b7fa390e71bb8f933f95116660d8dbfc1b0c9ed3763f3a6c392b89e0be902a",
+    "metadata.md": "aa7fddd8896f29ed614cba716a8d0db05b4f73acab4a8da3ad61420418e34c14",
+    "validation.json": "911804550844ef7da898853f14702732bf17fc196ac55a019951d43db5be4a42",
+    "value_binding.json": "d0f12c7728cbab8f071eb0772e07ef1b0f08e4943d7cfbfedfd3c6dcb1f3fdb4",
+    "value_crosswalk.csv": "208486801501026b9104f0b6290cb1cffcca2e08da00c3bd4c3cae54855a7091"
+  }
+}

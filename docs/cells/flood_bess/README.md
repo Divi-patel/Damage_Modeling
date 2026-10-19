@@ -3,29 +3,26 @@ author: owner-directed (Divy) · agent-implemented
 created: 2026-10-18
 updated: 2026-10-18
 status: active
-scope: BESS Flood local candidate, not a released Damage cell
+scope: Canonical partial-property BESS Flood screening response
 ---
 
 # Flood × BESS
 
-**Current local candidate v0.2.** BF-Q01 and BF-Q02 approve the conservative
-active-hardware and saline-entry replacement policies for local testing. No canonical runtime, annual metric or
-national publication is admitted.
+**Current: canonical conditional model v1.0 / docs r1.** The response and values
+are identical to the tested local v0.2 package. Annual screening is permitted
+only when the declared frequency, coupling, unit-cap and support checks pass.
 
-```text
-direct inundation × standalone outdoor LFP BESS
-├─ active enclosure hardware: battery + management + cooling
-│  └─ 80 repeated units; explicit common-entry replacement policy
-├─ separate PCS: 20 units; freshwater FS_INV proxy / saline entry replacement
-└─ unresolved: enclosure/racks/fire safety, internal MV/cables/controls,
-   civil property and fieldwork; retained in the full $109.8M denominator
-```
+Start with [the plain-language explanation](basics/README.md),
+[the current package](current/README.md) and [validation](current/validation.json).
+The [Hazard annual proof](../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/07_annual_flood_proof.md)
+passes 29 diagnostic cases. It is not a national result or empirical calibration.
 
-Start with [the plain-language explanation](basics/README.md), then the
-[candidate package](proposed/local_candidate_v0_2/README.md).
-The [v0.1 package](proposed/local_candidate_v0_1/README.md) is retained for earlier
-proof reproduction; current local configs explicitly select v0.2.
-Source research and its exact locators remain in the
-[BESS evidence record](../../extra/discussion/bess_damage/README.md).
-The [version register](VERSION_REGISTRY.md) distinguishes local candidate status
-from release. The global runtime index is deliberately unchanged.
+Covered scope is active battery/management/cooling hardware and separate PCS:
+$82.5104M of $109.8M. $27.2896M remains unmodeled. Other physical pathways,
+autonomous failures and external collector/export property are not included.
+
+The [version register](VERSION_REGISTRY.md) preserves the distinction between
+current canonical use and local-only [v0.2](proposed/local_candidate_v0_2/README.md)
+and [v0.1](proposed/local_candidate_v0_1/README.md). The current tuple is indexed;
+no portable package or national publication has been issued. Source evidence
+and reasoning remain in the [BESS research record](../../extra/discussion/bess_damage/README.md).

@@ -101,3 +101,23 @@ freshwater outputs; carry the existing hardware ceiling into deeper freshwater
 as the documented engineering continuation. Keep the $27.2896M residual value,
 source missingness and source-bin uncertainty visible. No new hazard model or
 global schema change is authorized or required for this bounded local test.
+
+## BD-D10 — conditional annual admission after the owner-directed proof
+
+**Owner direction:** proceed after the Coastal local proof, document carefully,
+and raise material blockers. **Analyst qualification:** preserve every v0.2
+response ordinate and value; create canonical model v1.0 under
+`NEW_CELL_MODEL_RELEASE` after the bounded annual consumer passes.
+
+Existing annual clocks, a shared inland rank/Coastal event, per-physical-unit
+no-restoration caps, original probability mass and explicit coverage are required.
+The [consumer proof](../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/07_annual_flood_proof.md)
+passes 29 cases × 100,000 years plus independent mean and tail checks.
+This is an engineering admission under the continuing work authorization; the
+original BF-Q01/BF-Q02 rulings remain local-policy approvals, not claims of
+calibration. Conservative entry/consequence assumptions remain T4.
+
+The current cell is indexed in this repository; portable packaging, national
+spatial qualification, complete-property coverage and delivery remain separate.
+Old local pins and existing other-cell outputs are unchanged. Retain the
+material Coastal first-bin sensitivity for the spatial pilot.

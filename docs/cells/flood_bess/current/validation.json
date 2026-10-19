@@ -1,0 +1,38 @@
+{
+  "status": "passed_conditional_annual_screening",
+  "date": "2026-10-18",
+  "classification": "NEW_CELL_MODEL_RELEASE",
+  "semantic_damage_model_version": "model v1.0",
+  "response_and_value_vs_v0_2": "exactly_unchanged",
+  "schema_pin_index_source_claim_value_checks": "passed",
+  "hazard_consumer_proof": "../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/verification/annual_flood_proof.json",
+  "annual_cases": 29,
+  "base_locations": 19,
+  "source_bin_sensitivities": 10,
+  "years_per_case": 100000,
+  "targeted_bess_tests_passed": 38,
+  "targeted_shared_and_annual_tests_passed": 49,
+  "broader_hazard_tests": {
+    "passed": 634,
+    "failed": 1,
+    "failure": "Pre-existing Convective Wind private-import architecture check; no BESS numerical failure"
+  },
+  "independent_replay": [
+    "reference means within 5 MC standard errors",
+    "empirical AEP/OEP PML100/200/250/500",
+    "fixed-mass TVaR95/99",
+    "physical-unit caps",
+    "input/output/code hashes"
+  ],
+  "review_scope": "Same-author validation with independent numerical methods; no external scientific review claimed",
+  "runtime_use_requires_passed_consumer_checks": true,
+  "national_spatial_qualification": false,
+  "portable_package_issued": false,
+  "remaining_limits": [
+    "T4 entry/consequence policy, not empirical mean",
+    "Partial property coverage",
+    "Material Coastal entry-bin sensitivity",
+    "Common-rank/category screening dependence",
+    "No within-year restoration"
+  ]
+}

@@ -3,7 +3,7 @@ author: owner-directed (Divy) · agent-researched
 created: 2026-10-18
 updated: 2026-10-18
 status: active
-scope: BESS Damage reasoning and evidence; no released BESS response
+scope: BESS Damage research history and current conditional-release links
 -->
 
 # BESS Damage research
@@ -17,25 +17,16 @@ plant**, excluding the collector station and export line. The profile is pinned
 at Hazard commit `23e1aac4d`; exact input hashes are in
 [the audit receipt](evidence/audit_receipt.json).
 
-**Current checkpoint:** BF-Q01 is approved for local testing. The
-[proposed Flood BESS cell](../../../cells/flood_bess/README.md) packages the
-binary active-hardware policy and separate PCS proxy with exact pins and
-ordinary runtime/annual capabilities withheld. Hazard's first local proof
-passes 15 targeted tests and 10 controlled examples; the existing 12-cell
-Pluvial controls remain below the assumed entry. The r1–r3 records below
-preserve the prior evidence and decisions; their open-status snapshots predate
-the owner's approval. The subsequent
-[Riverine consumer proof](../../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/05_riverine_local_proof.md)
-uses the same candidate bytes: 43,800 unit × RP cases, 2,929 positive candidate
-costs and one illustrated single-enclosure loss. Remaining property and deeper
-water/coastal/annual applicability stay qualification tasks. This consumer
-evidence does not change the candidate model, value, capability or release.
-The fourth bounded pass now records the residual-property disposition and 70
-research checks. Its deeper-water saturation comparison recovers 876 known-depth
-cases without modifying v0.1. BF-Q02 is now approved and separately implemented
-in [local v0.2](../../../cells/flood_bess/proposed/local_candidate_v0_2/README.md),
-with freshwater parity and a five-cell Coastal proof. No national
-or canonical BESS result is released.
+**Current checkpoint:** [canonical Flood BESS v1.0](../../../cells/flood_bess/current/README.md)
+retains the local v0.2 response and value while qualifying conditional annual use.
+The [annual consumer proof](../../../../../Hazard_modeling/docs/plans/_cross_cutting/bess_conus/07_annual_flood_proof.md)
+passes 29 cases. Conservative policy assumptions remain explicit; complete
+property, national outputs and calibration are not claimed.
+
+The r1–r4 research records below preserve their original questions and statuses.
+BF-Q01 and BF-Q02 were subsequently approved for local testing, followed by the
+separate annual qualification recorded as BD-D10. Prior local package bytes
+remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
@@ -46,9 +37,6 @@ or canonical BESS result is released.
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage | [Bounded search](02_bounded_search.md) | Exact search scope, endpoint tests, limits and follow-on leads |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage | [Evidence registers](evidence/README.md) | Sources, claims, reuse, value and reproducible audit |
 
-Classification: `EVIDENCE_ONLY_NO_OUTPUT_CHANGE` plus planning documentation.
-The r1–r3 records are pre-cell research; r4 is post-proof research with no output
-change. The separately linked local candidate
-is not a `flood_bess` release. The current artifact index and all existing cell outputs remain
-unchanged. A subsequent candidate/new-cell package follows the existing skill's
-new-cell and capability gates.
+The r1–r4 research records are evidence/decision history. Local candidates and
+the later `NEW_CELL_MODEL_RELEASE` have their own packages and validation. The
+current artifact index adds BESS; other cell outputs and schemas are unchanged.
