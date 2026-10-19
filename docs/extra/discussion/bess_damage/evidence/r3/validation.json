@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "r3 research only; no scientific admission",
+  "known_answer_checks": 31,
+  "reproduced_artifacts": 5,
+  "source_hashes_checked": 5,
+  "csv_files_checked": 7,
+  "documents_checked": 10,
+  "local_links_checked": 82,
+  "notes": [
+    "First reproduction exposed directory-dependent output manifest; fixed to name only generated artifacts.",
+    "Critical NREL Table3 and Sungrow wet-battery pages rendered and visually reviewed.",
+    "Existing unrelated README changes are preserved; numerical cells and evaluator unchanged."
+  ]
+}

@@ -8,8 +8,10 @@ scope: Reproducible BESS Flood source audits and explicitly unqualified hypothes
 
 # Evidence and audit files
 
-The latest [r2 hypothesis tests](r2/README.md) add 52 checks and four primary
-sources. The root-level r1 audit remains the original source-reproduction record.
+The latest [r3 grouped-value audit](r3/README.md) adds original cost inputs,
+same-budget allocations and 31 checks. The [r2 hypothesis tests](r2/README.md)
+retain 52 checks and four primary sources. The root-level r1 audit remains the
+original source-reproduction record.
 
 - [Sources](sources.csv): primary sources and pinned repository evidence, exact
   locators, permitted and prohibited inferences.

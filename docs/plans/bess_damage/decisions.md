@@ -65,3 +65,20 @@ questions. The sensitivity comparison materially changes loss, and neither
 shape resolves the missing link. Continue with a grouped repair rule and
 same-unit cost allocation; no cell simulation or hazard rebuild is required.
 See [the candidate review](../../extra/discussion/bess_damage/03_flood_candidate_pressure_test.md).
+
+## BD-D07 — Use source-derived shares without changing the reference budget
+
+**Decision (analyst evidence implementation):** retain the original $84M
+enclosure total and record a T3 internal allocation using the historical PVSCM
+market-case direct inputs. Keep its undistorted-input allocation as sensitivity.
+
+**Reason:** dimensionless related-benchmark shares are a reproducible starting
+point; cost categories are not repair units. No new value, current tariff claim
+or runtime damage ratio follows. See
+[BF-C17–BF-C18](../../extra/discussion/bess_damage/evidence/claims.csv).
+
+## Open BF-Q01 — common-entry active-hardware replacement policy
+
+**No owner ruling recorded.** The [review](../../extra/discussion/bess_damage/04_grouped_repair_and_value.md)
+recommends a conservative candidate, explicitly T4 for entry/affected-group and
+replacement assumptions. Costing and testing that candidate is not adoption.

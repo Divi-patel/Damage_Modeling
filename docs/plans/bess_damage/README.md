@@ -8,12 +8,14 @@ scope: Bounded BESS Damage curation and Hazard handoff; Flood first
 
 # BESS Damage: first response and reusable curation record
 
-**Candidate pressure test complete; repair-unit and entry qualification is next.**
-The [second review](../../extra/discussion/bess_damage/03_flood_candidate_pressure_test.md)
-adds four primary sources and 52 passing known-answer checks. It preserves PCS
-as a conditional T3 reuse candidate and rejects an unsupported uniform-height
-battery curve as the selected mean. Neither a whole-enclosure step nor an average
-of the hypotheses has been adopted. No BESS response is admitted or published.
+**Grouped cost allocation complete; one repair-policy choice is ready for review.**
+The [third review](../../extra/discussion/bess_damage/04_grouped_repair_and_value.md)
+uses the original PVSCM inputs to allocate the unchanged $84M enclosure budget,
+with 31 new checks. BF-Q01 recommends a labeled conservative common-entry
+active-hardware replacement candidate; its owner ruling is open. The earlier
+52-check pressure test and conditional PCS candidate remain intact. No battery
+depth curve, whole-enclosure step or average of hypotheses has been adopted.
+No BESS response is admitted or published.
 This plan executes the owner's approved research; no additional authorization
 is needed to continue the bounded repair-scope work.
 
@@ -27,7 +29,7 @@ equipment and autonomous internal failures remain excluded.
 |---|---|---|
 | 1. Pin reference and inspect reuse | Done | Input hashes, five-record/95-case source audit, source/claim registers, all ten budget rows |
 | 2. Draft grouped Flood candidate | First hypothesis test done | Enclosure ingress and repair-unit hypothesis plus PCS proxy evaluated separately; facts, engineering assumptions and unsupported pairs explicit |
-| 3. Qualify response/value/conditions | Active next step | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
+| 3. Qualify response/value/conditions | Source-based enclosure allocation done; BF-Q01 open | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
 | 4. Create governed cell/consumer handoff | Pending | Appropriate new-cell classification, versioned JSON/capability, boundary/invalid/domain/condition tests, independent review evidence |
 | 5. Local Hazard proof | Pending | Existing Flood M0/M1 reused; exposure-response and annual/tail scope tested before national execution |
 | 6. Other important hazards | Later | Own evidence and response checks; carry useful wind/wildfire discoveries without assuming Substation applicability |
@@ -59,8 +61,10 @@ or approval gate was introduced.
 
 The second review supplies representative-depth tables and a plot, repeated
 equipment at distinct exposures, same-unit dollar examples and changed-condition
-rejection. The next review must close the remaining entry and repair/value
-assumptions or retain their exact unsupported disposition.
+rejection. The third supplies source-derived cost shares, two allocation cases
+and explicitly unadmitted replacement-policy examples. Record BF-Q01 before
+adopting its repair/entry assumptions. Independent residual-value work can
+continue; the choice does not stop all research.
 
 Before numerical release, finish the skill's new-cell package and source-linked
 parameter tiers. A deterministic conditional DR can feed Hazard's stochastic

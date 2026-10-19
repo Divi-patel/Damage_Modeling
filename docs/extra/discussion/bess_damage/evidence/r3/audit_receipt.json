@@ -1,0 +1,38 @@
+{
+  "classification": "EVIDENCE_ONLY_NO_OUTPUT_CHANGE",
+  "runtime_admitted": false,
+  "research_policy_ruling": "OPEN_BF_Q01",
+  "checks_passed": 31,
+  "reference_tiv_usd": 109800000.0,
+  "reference_enclosure_usd": 1050000.0,
+  "active_hardware_candidate_usd_per_enclosure": 901380.0424628449,
+  "active_hardware_candidate_fleet_usd": 72110403.39702758,
+  "enclosure_composite_not_evaluated_usd": 11889596.60297241,
+  "active_plus_pcs_candidate_value_fraction": 0.7514608688253878,
+  "other_plant_value_not_evaluated_usd": 27289596.602972418,
+  "market_allocation_active_share": 0.8584571832979475,
+  "msp_sensitivity_active_share": 0.8333333333333334,
+  "review_warning": "Value shares are not DRs. Policy scenarios are not measured average damage or upper/lower bounds.",
+  "raw_source_sha256": {
+    "pvscm_2024.zip": "96247a16611b5548c96b1a431bcd51d9d5e113f8f4ef54fb2ffdbcec0cbf315e",
+    "pvscm_2024/UPV 2024Q1.txt": "fd65a854a2e6bee8384081ebaa40abf2f56e160fff624092d9a9e1608ea9d496",
+    "pvscm_2024/PVSCM 2024.xlsm": "58c59866e8b00acb938333dd818ff20aba1815ab9e6f166e6422654fc20e41a9",
+    "sungrow_sbs050.pdf": "51d18a00286753b6e71d8d38fac8fe9daef6112bc6eb9c0677edf90e5103a2d0"
+  },
+  "reference_sha256": {
+    "asset_model.json": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8",
+    "layout.csv": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19",
+    "reference_budget.csv": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d",
+    "twin_crosswalk.csv": "7e96ff9a6f48db73bb35ccdf76daa5a41a418140472d127b7e7253e25fbdd30d",
+    "01_reference_profile_and_value.md": "0fcbe8c69a38cca5e795d7ef0308ee8fd02d819665b9f4d0cd408757f4cd5d73",
+    "02_damage_research_brief.md": "ac0afba8fb45e87f6d0592fa78808aeb5f099110608a354b0a081ae26fddeacc",
+    "verification/source_receipt.json": "028b743aadda7c3f441231699412390ccd8bc4a609d9a2c3aa1c5787eee0f5d9"
+  },
+  "script_sha256": "84458617b7fda413fbacce8b5f723aa89e7af69d243b7484ecf335ec95509197",
+  "output_sha256": {
+    "value_allocations.csv": "f54ba3b3f13b00da8f5ea440aa13b7319f785f66511ae84698dfe7abf54cdf37",
+    "repair_policy_examples.csv": "b6067154177dff885af1aec5490a96d671360dd8769274470ab6b5b98564d3bf",
+    "entry_policy_examples.csv": "2e46c05b0a80d4f0d737a52c24c9280042c85af0838c752193cb726ef4089488",
+    "known_answer_checks.csv": "d7c75917c49ac8cfce4d8dc1b474b3ccdb7344effafcd78015ef0fb550c139a0"
+  }
+}

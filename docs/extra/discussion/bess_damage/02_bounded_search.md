@@ -77,3 +77,35 @@ Search scope remains public primary evidence. Automotive tests were retained for
 mechanism and test-design lessons, not promoted to utility LFP calibration.
 The next retrieval must address the specific repair-unit/value or entry question
 in [the candidate review](03_flood_candidate_pressure_test.md#6-next-bounded-step-and-future-work).
+
+## Third bounded pass — repair scope and source costs, 2026-10-18
+
+This pass follows the remaining denominator and service questions, not a search
+for an arbitrary smooth curve. [BF-S13–BF-S15](evidence/sources.csv) and
+[r3 captures](evidence/r3/source_captures.json) identify adopted sources.
+
+| Actual query / retrieval family | Result and disposition |
+|---|---|
+| `NREL PVSCM 2024 storage battery cells battery packs model csv github`; `"PVSCM_2024" zip`; `site:nrel.gov battery storage cost pack balance system 2024 2025` | Original Q1-2024 archive obtained from the lab catalog. Four members inventoried; UPV text and unloaded Excel template inspected without macros. Use compatible direct-input shares only; current 2025 benchmark page is a different vintage. |
+| `"battery energy storage" "flooded" "replace"`; `"PowerTitan" "flood" "replacement"`; `site:sungrowpower.com "battery" "water" "replacement" "PACK"` | Official SBS050 manual retrieved; printed p6 supplies adjacent LFP non-reuse guidance. No utility depth-to-repair curve. |
+| `site:sungrowpower.com ST5015 system manual replacement PACK battery flooded`; `"ST5015UX" "System Manual" site:sungrowpower.com`; `ST5015UX 4H System Manual pdf sungrowpower`; `"ST5015UX" "PACK replacement"`; `"ST5015UX-2H_ST5015UX-4H-SEN-Ver10" -site:scribd.com` | OEM datasheets and a third-party-indexed manual lead located. The matched full service manual was not recovered from a primary endpoint. Do not use the indexed PACK-replacement snippet to infer exact unit counts, elevations or costs. Retain title ST5015UX-2H_ST5015UX-4H-SEN-Ver10-202311 as a future service-document lead. |
+| `site:deyeess.com "GE-F256" manual pdf`; `"GE-F256" "Flood" site:deyeess.com`; `"GE-F256" "water-soaked"`; `site:deyeinverter.com "GE-F256" manual` | Official product page links V03 and V01 manuals. Web reader size limit and direct HTTP403 prevented primary PDF retrieval, including one user-agent retry. Third-party full-text mirrors were not adopted as a numerical source. This is an access limit, not absence of guidance. |
+| `"Ocracoke" "battery" "Dorian"` | Government/cooperative narratives describe elevated battery installation and diesel restoration. They do not demonstrate an immersed battery surviving without damage. No zero-loss anchor adopted. |
+
+The official PowerKeeper product page also advertises flood resistance for a
+different modular C&I configuration. No matched test report was recovered and
+no advertised depth or numerical protection credit was transferred. Equipment
+specificity matters in both directions: no automatic floodproofing and no
+automatic universal destruction threshold.
+
+Exact unadopted leads for a future targeted pass:
+
+- Deye product: https://deyeess.com/product/ge-f128-ge-f240-ge-f256/
+- Blocked V03 PDF: https://deyeess.com/wp-content/uploads/2026/05/Deye-ESS-User-Manual-GE-F256-BC-2-A3-EUEN-V03.pdf
+- PowerKeeper product: https://official-overseas-aks-na.sungrowpower.com/mal/en/products/c-i-energy-storage-system/powerkeeper?tab=2
+- Ocracoke government narrative: https://www.resilienceexchange.nc.gov/identify-actions/success-stories/ocracoke-island-electric-cooperatives-microgrid
+
+**Checkpoint:** a sourced cost allocation is now available. A matched utility
+depth-to-affected-module/service mapping still is not. Resolve
+[BF-Q01's explicit policy choice](04_grouped_repair_and_value.md) rather than
+restart a broad search or silently insert a central damage estimate.
