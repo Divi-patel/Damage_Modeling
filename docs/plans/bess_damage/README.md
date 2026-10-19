@@ -8,12 +8,14 @@ scope: Bounded BESS Damage curation and Hazard handoff; Flood first
 
 # BESS Damage: first response and reusable curation record
 
-**First evidence checkpoint complete; numerical candidate work is next.**
-The [review](../../extra/discussion/bess_damage/01_flood_evidence_and_reuse.md)
-reproduces five existing electrical curves, reconciles the reference budget and
-separates primary guidance from usable numerical evidence. No BESS response has
-been admitted or published. This plan executes the owner's approved research;
-no additional authorization is needed to continue bounded candidate work.
+**Candidate pressure test complete; repair-unit and entry qualification is next.**
+The [second review](../../extra/discussion/bess_damage/03_flood_candidate_pressure_test.md)
+adds four primary sources and 52 passing known-answer checks. It preserves PCS
+as a conditional T3 reuse candidate and rejects an unsupported uniform-height
+battery curve as the selected mean. Neither a whole-enclosure step nor an average
+of the hypotheses has been adopted. No BESS response is admitted or published.
+This plan executes the owner's approved research; no additional authorization
+is needed to continue the bounded repair-scope work.
 
 Target: one outdoor LFP, separate-PCS, 100 MW / 400 MWh usable-AC reference;
 450 MWh installed DC; $109.8M direct physical budget. Hazard owns profile,
@@ -24,8 +26,8 @@ equipment and autonomous internal failures remain excluded.
 | Step | Status | Done when |
 |---|---|---|
 | 1. Pin reference and inspect reuse | Done | Input hashes, five-record/95-case source audit, source/claim registers, all ten budget rows |
-| 2. Draft grouped Flood candidate | Active next step | Enclosure ingress and repair-unit hypothesis plus PCS proxy evaluated separately; facts, engineering assumptions and unsupported pairs explicit |
-| 3. Qualify response/value/conditions | Pending | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
+| 2. Draft grouped Flood candidate | First hypothesis test done | Enclosure ingress and repair-unit hypothesis plus PCS proxy evaluated separately; facts, engineering assumptions and unsupported pairs explicit |
+| 3. Qualify response/value/conditions | Active next step | Selected ordinates or partial/no-response disposition supported; critical datum, water conditions, escalation and mixed value reconciled |
 | 4. Create governed cell/consumer handoff | Pending | Appropriate new-cell classification, versioned JSON/capability, boundary/invalid/domain/condition tests, independent review evidence |
 | 5. Local Hazard proof | Pending | Existing Flood M0/M1 reused; exposure-response and annual/tail scope tested before national execution |
 | 6. Other important hazards | Later | Own evidence and response checks; carry useful wind/wildfire discoveries without assuming Substation applicability |
@@ -47,16 +49,18 @@ Do not treat the whole project as blocked merely because refinement remains.
 
 The [decisions](decisions.md), [assumptions](assumptions.md) and
 [bounded-source leads](../../extra/discussion/bess_damage/02_bounded_search.md)
-are the re-entry route. Keep research under the existing Damage skill; no skill
-rewrite was needed for this checkpoint because its bounded-search, endpoint,
-value and reuse controls already cover these findings.
+are the re-entry route. The existing Damage skill governs this work. The second
+pass added a focused
+test-evidence check for post-test treatment, intervention censoring and the
+difference between safety criteria and physical repair. No new folder sequence
+or approval gate was introduced.
 
 ## Deliverable and validation
 
-The next review must show actual candidate behavior or a precise unsupported
-mechanism, including native-axis plots/tables, representative depths, identical
-equipment repeated at different exposures, same-unit dollar examples, and
-changed-condition rejection. Mere folder creation is not completion.
+The second review supplies representative-depth tables and a plot, repeated
+equipment at distinct exposures, same-unit dollar examples and changed-condition
+rejection. The next review must close the remaining entry and repair/value
+assumptions or retain their exact unsupported disposition.
 
 Before numerical release, finish the skill's new-cell package and source-linked
 parameter tiers. A deterministic conditional DR can feed Hazard's stochastic

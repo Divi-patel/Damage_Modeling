@@ -1,0 +1,43 @@
+{
+  "review_date_local": "2026-10-18",
+  "status": "research_inputs_only",
+  "raw_files_gitignored": true,
+  "captures": [
+    {
+      "source_id": "BF-S09",
+      "url": "https://info-support.sungrowpower.com/application/pdf/2022/11/10/E049-ST2752UX-SEN-Ver21-202204-IEC.pdf",
+      "revision": "ST2752UX-SEN-Ver21-202204",
+      "cache_path": "data/bess/raw_flood_review_r2/sungrow_st2752_manual.pdf",
+      "bytes": 52364463,
+      "sha256": "e9c09ad1e08c7aad93d7657dfdb7c12fbd24643d18531016a03a0a713b32ef56",
+      "review_scope": "Selected anatomy installation and cable-entry text; printedp8 andp11 rendered/visually reviewed"
+    },
+    {
+      "source_id": "BF-S10",
+      "url": "https://rosap.ntl.bts.gov/view/dot/57013/dot_57013_DS1.pdf",
+      "revision": "DOT HS 813 136 August2021",
+      "cache_path": "data/bess/raw_flood_review_r2/nhtsa_immersion.pdf",
+      "bytes": 5930294,
+      "sha256": "e1a151bbeb97b5f13518222a996bdae52daeb91897b4a7e9fa9ae7cec6fe487f",
+      "review_scope": "Methods and findings pp15-24 and27; printedp17 table andp20 photographs visually reviewed"
+    },
+    {
+      "source_id": "BF-S11",
+      "url": "https://www.sandia.gov/app/uploads/sites/163/2021/09/SNL-Abuse-Testing-Manual_July2017_FINAL.pdf",
+      "revision": "SAND2017-6925 July2017",
+      "cache_path": "data/bess/raw_flood_review_r2/sandia_abuse_manual.pdf",
+      "bytes": 504773,
+      "sha256": "13fe682e77047bb553fc4c308cf7c53e1b4e9d7476065e8d79c41428094c4d29",
+      "review_scope": "p36 Water Immersion protocol read; not represented as test results"
+    },
+    {
+      "source_id": "BF-S12",
+      "url": "https://files.sma.de/downloads/MVPS-S2-SCS-US-B8-SH-en-11.pdf",
+      "revision": "MVPS-S2-SCS-US-B8-SH-en-11",
+      "cache_path": "data/bess/raw_flood_review_r2/sma_storage_mv_manual.pdf",
+      "bytes": 11661886,
+      "sha256": "5b9e391531b4f28701b17c4c5c0a0ab279b071e2b52fc9d490136db6d2f75b69",
+      "review_scope": "pp22 267 274-275 read; p275 Fig99 visually reviewed"
+    }
+  ]
+}

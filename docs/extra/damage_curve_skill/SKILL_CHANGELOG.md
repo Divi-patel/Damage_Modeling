@@ -4,6 +4,18 @@ The folder name remains stable: `damage_curve_skill/`.
 
 Skill changes are tracked here rather than in the folder name. When uploaded to an OpenAI skill environment, the platform may assign skill versions; that upload version is separate from damage-library package versions.
 
+## 2026-10-18 — Interpret test evidence before fitting economic response
+
+- Focused `SKILL_REVISION`: the evidence-pressure-test guide now distinguishes
+  test protocol, exposure, post-test treatment, intervention and repair endpoint.
+- BESS application: extended final soaking confounds a short-soak damage anchor;
+  early re-immersion censors thermal escalation; heterogeneous packs are not
+  repeated trials of the target BESS.
+- Hypothesis comparisons cannot become a mean by averaging or be labeled a
+  confidence interval. Uses existing registers; no mandatory new folder sequence.
+- No cell, runtime schema, model version, indexed artifact or consumer pin changed.
+
+
 ## Initial draft-operational build — 2026-07-07
 
 Added:

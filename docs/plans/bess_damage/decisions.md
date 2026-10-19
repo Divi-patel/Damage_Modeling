@@ -52,3 +52,16 @@ for other asset sizes after the reference model works.
 **Reason:** power, energy, integer units, shared property and layout can change
 differently. Damage supplies compatibility rules; Hazard/recipient code supplies
 any qualified resizing or screening projection. Current research proceeds.
+
+
+## BD-D06 — Preserve candidate status after the second pressure test
+
+**Decision (analyst evidence review):** keep exact `FS_INV` as a conditional T3
+PCS candidate; do not select the full-enclosure step, uniform-height curve or
+an average of those interpretations as the battery mean.
+
+**Reason:** the OEM and immersion evidence establishes distinct repair/entry
+questions. The sensitivity comparison materially changes loss, and neither
+shape resolves the missing link. Continue with a grouped repair rule and
+same-unit cost allocation; no cell simulation or hazard rebuild is required.
+See [the candidate review](../../extra/discussion/bess_damage/03_flood_candidate_pressure_test.md).

@@ -20,6 +20,8 @@ scope: BESS Damage assumptions and actionable re-entry conditions
 | BD-A08 | Existing PCS/switchgear shapes are candidate T3 proxies | BF-S06 and source numerical audit | Qualify target construction and datum; preserve provenance and domain. Damage |
 | BD-A09 | $0.6M installation has no independent curve | BF-S01, same-unit cost principle | Allocate once to actual direct work; check source curves' cost denominator. Hazard + Damage |
 | BD-A10 | Other sizes/durations not yet qualified | Owner request, BD-D05 | Test matched-unit DR reuse separately from EAL/tail projection; complete production examples. Hazard + Damage + production |
+| BD-A11 | Post-immersion test outcomes are not direct repair ratios | BF-C11–C13; NHTSA postmortem follows additional soaking; early smoke triggers intervention | Require test timeline and repair assessment before fitting probabilities/DR. Damage |
+| BD-A12 | No uniform cost distribution with height and no automatic full-bundle swap | BF-C15; 19.3× hypothetical difference at0.45m | Resolve grouped repair scope and cost allocation; never average hypotheses into a curve. Damage + value owner |
 
 These are research assumptions and missing evidence, not silent runtime defaults.
 The next candidate must separate parameters supported by evidence from explicit

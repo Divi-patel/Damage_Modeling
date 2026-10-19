@@ -58,3 +58,22 @@ their URLs and hashes travel with this review. No private or paid evidence was
 searched. Repeat this bounded pass when a matched report, loss record or changed
 reference architecture becomes available, not merely because a numerical result
 is desired.
+
+
+## Second bounded pass — targeted retrieval, 2026-10-18
+
+Followed the existing repair-unit and immersion leads, not a new open-ended
+literature review. [BF-S09–BF-S12](evidence/sources.csv) and their
+[exact captures](evidence/r2/source_captures.json) record the resulting evidence.
+
+| Targeted question / search family | Primary retrieval | Disposition |
+|---|---|---|
+| Utility LFP installation manual, internal PACK/rack/control arrangement and flood-related foundation/cable entry | Sungrow ST2752UX full system manual | Separate-PCS anatomy; no exact r1 entry height or repair-value curve |
+| Battery pack immersion exploratory investigation and saltwater test results | NHTSA/Argonne DOT HS 813 136 | Adjacent observed degradation; reject direct BESS probability/DR fit and short-soak postmortem anchor |
+| Sandia recommended abuse testing water immersion | SAND2017-6925 | Protocol only; no response dataset |
+| Storage PCS installation, enclosure compartments and flooding | SMA MVPS-S2-SCS-US-B8-SH-en-11 | Conditional electrical analogy; no automatic numeric protection or whole-group replacement |
+
+Search scope remains public primary evidence. Automotive tests were retained for
+mechanism and test-design lessons, not promoted to utility LFP calibration.
+The next retrieval must address the specific repair-unit/value or entry question
+in [the candidate review](03_flood_candidate_pressure_test.md#6-next-bounded-step-and-future-work).

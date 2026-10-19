@@ -8,20 +8,23 @@ scope: BESS Damage reasoning and evidence; no released BESS response
 
 # BESS Damage research
 
-Start with [the first Flood evidence review](01_flood_evidence_and_reuse.md).
+Start with [the candidate pressure test](03_flood_candidate_pressure_test.md), then
+[the first evidence review](01_flood_evidence_and_reuse.md) for the original audit.
 The target is Hazard's selected **100 MW / 400 MWh usable-AC, outdoor LFP battery
 plant**, excluding the collector station and export line. The profile is pinned
 at Hazard commit `23e1aac4d`; exact input hashes are in
 [the audit receipt](evidence/audit_receipt.json).
 
-**Current checkpoint:** existing electrical curves reproduced, primary-source
-claims separated from numerical assumptions, and every reference-budget row
-assigned a research treatment. There is no BESS runtime curve or monetary result.
-The next work is a bounded battery-ingress/consequence candidate and PCS transfer
-test under [the execution plan](../../../plans/bess_damage/README.md).
+**Current checkpoint:** the second bounded pass adds manufacturer anatomy and
+observed immersion evidence, compares two unqualified battery interpretations,
+and tests a conditional PCS transfer. **52 known-answer checks pass.** No BESS
+runtime curve or predicted monetary result exists. Hypothetical dollar arithmetic
+in the review is not a site prediction. Next: resolve entry and grouped repair
+scope before numerical admission under [the execution plan](../../../plans/bess_damage/README.md).
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Candidate pressure test](03_flood_candidate_pressure_test.md) | OEM anatomy, immersion endpoint audit, conditional PCS and battery hypothesis checks |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Flood evidence and reuse](01_flood_evidence_and_reuse.md) | First seven-step review, numerical pressure test and immediate research choices |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage | [Bounded search](02_bounded_search.md) | Exact search scope, endpoint tests, limits and follow-on leads |
 | 2026-10-18 | owner-directed (Divy) · agent-researched | Damage | [Evidence registers](evidence/README.md) | Sources, claims, reuse, value and reproducible audit |

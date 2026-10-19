@@ -3,10 +3,13 @@ author: owner-directed (Divy) · agent-researched
 created: 2026-10-18
 updated: 2026-10-18
 status: active
-scope: Reproducible BESS Flood research evidence; all numerical evaluations are source audits
+scope: Reproducible BESS Flood source audits and explicitly unqualified hypothesis tests
 -->
 
 # Evidence and audit files
+
+The latest [r2 hypothesis tests](r2/README.md) add 52 checks and four primary
+sources. The root-level r1 audit remains the original source-reproduction record.
 
 - [Sources](sources.csv): primary sources and pinned repository evidence, exact
   locators, permitted and prohibited inferences.
