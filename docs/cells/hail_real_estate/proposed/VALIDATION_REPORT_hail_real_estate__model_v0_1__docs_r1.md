@@ -95,6 +95,16 @@ This is an order-of-magnitude comparison with FEMA's National Risk Index on Haza
 pinned in the [receipt](NRI_CHECK_RECEIPT_hail_real_estate__model_v0_1__docs_r1.json)). It is a check, not a
 calibration.
 
+**Inputs checked against GCS (read-only, 2026-10-18).** The check ran on local copies. Each matches its GCS original:
+
+| Input | Compared by | Result |
+|---|---|---|
+| Hazard M1 QC table | SHA-256 | identical (`c92c0219…`) |
+| Hazard M0 daily partitions (2,071 files) | MD5 of every file | all identical |
+| NRI parquet | SHA-256 | identical (`bc4f8dff…`) |
+
+The GCS URIs are in the receipt.
+
 **Result:** central house and office roof yearly loss is 64–73 times NRI in the median cell, with ranking agreement
 0.70. NRI's own national hail building loss is far below insured experience. Under Hazard's earlier Version-1 size
 transform, the house would be at NRI's level (1.2×).
