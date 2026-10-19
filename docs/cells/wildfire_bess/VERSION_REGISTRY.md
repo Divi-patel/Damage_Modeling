@@ -1,0 +1,16 @@
+---
+author: owner-directed (Divy) · agent-implemented
+created: 2026-10-19
+updated: 2026-10-19
+status: active
+scope: Proposed BESS Wildfire version registry; no current runtime
+---
+
+# Wildfire BESS version registry
+
+| Date | Model / docs | State | Change |
+|---|---|---|---|
+| 2026-10-19 | v0.1 / r1 | Proposed local-test candidate; not canonical or indexed | BWF-Q01 consequence policy, grouped enclosure/PCS response, ordinal shape and repair sensitivities. |
+
+Existing schema v3 is unchanged. Portable package remains unreleased/not included.
+No predecessor BESS Wildfire numerical model or existing curve is overwritten.

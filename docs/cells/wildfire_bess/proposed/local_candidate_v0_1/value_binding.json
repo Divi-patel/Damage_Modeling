@@ -1,0 +1,31 @@
+{
+  "full_tiv_usd": 109800000,
+  "candidate_hardware_usd": 94400000,
+  "unbound_property_usd": 15400000,
+  "enclosure_count": 80,
+  "enclosure_value_usd": 1050000,
+  "pcs_count": 20,
+  "pcs_value_usd": 520000,
+  "currency_basis": "fixed_2024_USD",
+  "units": {
+    "BESS_INTEGRATED_ENCLOSURE": {
+      "count": 80,
+      "value_usd_each": 1050000
+    },
+    "BESS_SEPARATE_PCS": {
+      "count": 20,
+      "value_usd_each": 520000
+    }
+  },
+  "reference_hashes": {
+    "asset_model.json": "571869ae77680bd5bcf57ec4597a39964f25e0d3106b7c89fdf7c66e697b6ec8",
+    "layout.csv": "e86ac540857336a12e6708fb0b88688454575637d2e00c72925ec76ab947bb19",
+    "reference_budget.csv": "d8d27b114c0330cedfef601fc3a4e9f207c352b774293d009d8ee5b5954fb51d"
+  },
+  "known_battery_compromise_cost_usd": 1050000,
+  "counterfactual_repair_costs_usd": {
+    "noncell_repair_sensitivity": 334394.90445859876,
+    "limited_repair_sensitivity": 204352.44161358813
+  },
+  "complete_plant_loss_supported": false
+}

@@ -73,7 +73,7 @@ bounded pass. That is not a universal absence claim. A transparent engineering
 candidate is a possible next deliverable; unlimited research and a new fire
 simulator are not prerequisites.
 
-## 3. BWF-Q01 — consequence after battery thermal compromise
+## 3. BWF-Q01 — settled for local testing, 2026-10-19
 
 **In plain words:** for an enclosure whose battery contents have been thermally
 compromised, should the first local Wildfire test replace the integrated unit?
@@ -108,7 +108,9 @@ The categorical response, source/footprint coupling and annual loss distribution
 still need qualification. No existing curve, database, dashboard or national
 result changes from this choice.
 
-**Owner ruling:** open; no approval inferred from direction to research.
+**Owner ruling, 2026-10-19:** “Test full replacement; retain repair sensitivities (Recommended)”. Full replacement for the compromised-battery state is selected for local tests; repair sensitivities remain conditional on retained-hardware serviceability. The class response, annual capability and canonical release are not approved by this ruling.
+
+[Proposed v0.1 and verification](10_wildfire_local_candidate.md) now implement that bounded consequence policy with explicitly T4 ordinal hypotheses.
 
 ## 4. Seven-step audit
 
@@ -160,7 +162,7 @@ not silently zero or certain whole-plant propagation.
 
 ## 7. Finite next checkpoint
 
-After BWF-Q01, prepare a proposed grouped enclosure/PCS response with explicit
+After the now-settled BWF-Q01, prepare a proposed grouped enclosure/PCS response with explicit
 ordinal engineering assumptions, costed repair comparisons, parameter tiers and
 partial-property capability. If a state-cost representation is used, any new
 probability interpretation is a new T4 hypothesis, not source-observed ignition.

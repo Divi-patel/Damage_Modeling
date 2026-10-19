@@ -1,0 +1,96 @@
+{
+  "schema_version": "capability_declaration.v3",
+  "cell_id": "wildfire_bess",
+  "canonical_runtime_artifact": false,
+  "pathway_capabilities": [
+    {
+      "pathway_id": "wildfire_thermal_attack",
+      "failure_unit_scalar_dr": "conditional",
+      "scenario_loss_given_value_basis": "conditional",
+      "curve_intrinsic_spread": "not_carried",
+      "populated_emit_modes": [
+        "scalar_mean"
+      ],
+      "conditions": [
+        "Exact content pins and explicit local-test opt-in",
+        "Exact class0..6 and explicit BESS reference, policy and shape",
+        "Repair requires explicit serviceability counterfactual",
+        "Same physical unit/value; no blanket exposure or protection multiplier"
+      ],
+      "limitation_flags": [
+        "LOCAL_TEST_ONLY_NOT_CANONICAL",
+        "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+        "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+        "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+        "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+        "PARTIAL_PROPERTY_SCOPE",
+        "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+        "NO_GENERIC_MITIGATION_CREDIT",
+        "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+        "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+        "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+      ],
+      "withheld_failure_units": [
+        {
+          "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_CIVIL",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        },
+        {
+          "failure_unit_id": "BESS_FIELDWORK",
+          "reason_codes": [
+            "NO_RUNTIME_CURVE_FOR_PATHWAY_UNIT"
+          ]
+        }
+      ]
+    }
+  ],
+  "consumer_annual_metrics": {
+    "computation_owner": "downstream_consumer",
+    "status_before_promotion": "withheld_noncanonical_proposal",
+    "status_after_promotion": "withheld",
+    "prerequisites": [
+      "Local source/footprint bridge qualification",
+      "Annual joint coupling, original mass, per-unit caps and fixed-mass tail proof",
+      "Separate canonical admission before production use"
+    ],
+    "limitation_flags": [
+      "LOCAL_TEST_ONLY_NOT_CANONICAL",
+      "BESS_CLASS_RESPONSE_TRANSFER_T4_NOT_CALIBRATED",
+      "SOURCE_DR_IS_NOT_IGNITION_PROBABILITY",
+      "FSIM_CLASS_IS_NOT_LOCAL_HEAT_FLUX",
+      "BWF_Q01_FULL_REPLACEMENT_AFTER_BATTERY_COMPROMISE",
+      "PARTIAL_PROPERTY_SCOPE",
+      "REPAIR_AND_SHAPE_SENSITIVITIES_ARE_UNWEIGHTED_HYPOTHESES",
+      "NO_GENERIC_MITIGATION_CREDIT",
+      "CROSS_UNIT_PROPAGATION_UNQUANTIFIED",
+      "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+      "ANNUAL_SOURCE_COUPLING_NOT_QUALIFIED"
+    ]
+  },
+  "cap_binding": {
+    "policy": "consumer_enforced_fail_closed",
+    "enforcement_owner": "downstream_consumer",
+    "checks_required": [
+      "One value per physical unit; enclosures already include their internals",
+      "94.4M hardware does not become109.8M modeled value",
+      "No within-year restoration inferred; qualify annual per-unit caps separately"
+    ],
+    "action_if_fail": "withhold affected response"
+  },
+  "promotion_gate": {
+    "status": "blocked",
+    "required_before_canonical_use": [
+      "Local Hazard exposure and consumer proof",
+      "Scientific/capability review; owner cost choice is not response calibration",
+      "Separate annual qualification"
+    ]
+  }
+}

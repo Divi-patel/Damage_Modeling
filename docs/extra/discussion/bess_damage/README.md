@@ -8,7 +8,8 @@ scope: BESS Damage research history and current conditional-release links
 
 # BESS Damage research
 
-**Current: [Wildfire intake and BWF-Q01](09_wildfire_damage_intake.md).** Eleven sources/eleven claims, donor reproduction, full value reconciliation and source-only unit-support checks are complete. The costed battery thermal-compromise policy remains open; no BESS Wildfire runtime is admitted. Flood/Hurricane releases below are unchanged.
+**Current: [BWF-Q01 and proposed Wildfire v0.1](10_wildfire_local_candidate.md).** The owner selected full integrated replacement for battery thermal compromise, with serviceable-hardware repair sensitivities. The opt-in conditional proposal passes 84 independent comparisons, 19 negative controls, integrity and value checks; the ordinal response is a new T4 hypothesis. Annual/canonical/national admission remains separate. [First source intake](09_wildfire_damage_intake.md) is retained.
+
 
 **Current Hurricane checkpoint:** [annual qualification](08_hurricane_annual_qualification.md)
 permits repository-canonical [v1.0 conditional screening](../../../cells/tropical_cyclone_wind_bess/current/README.md)
@@ -41,6 +42,7 @@ remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wildfire local candidate](10_wildfire_local_candidate.md) | BWF-Q01 settled for local tests; categorical T4 hypotheses, repair counterfactuals, independent arithmetic and conditional-only capability |
 | 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Wildfire Damage/source intake](09_wildfire_damage_intake.md) | Seven-step audit, 11 sources/11 claims, source-only reproduction, costed BWF-Q01 and finite next candidate |
 | 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wind enclosure/PCS candidate](07_hurricane_enclosure_candidate.md) | BW-Q01 local selection; costed policies and resistance sensitivities; proposed v0.1 and conditional validation |
 | 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Hurricane-wind intake](06_hurricane_wind_intake.md) | Seven-step audit; source/claim/reuse registers; actual OEM/drawing review; source-only numerical reproduction and skill status |

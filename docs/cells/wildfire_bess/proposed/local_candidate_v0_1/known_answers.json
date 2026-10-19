@@ -1,0 +1,677 @@
+{
+  "cases": [
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 0,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 1,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 2100.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 2,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 10500.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 3,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 52500.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 4,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 189000.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 5,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 472500.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 6,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 840000.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 0,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 1,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.001,
+      "expected_loss_usd": 1050.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 2,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.006,
+      "expected_loss_usd": 6300.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 3,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.03,
+      "expected_loss_usd": 31500.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 4,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.12,
+      "expected_loss_usd": 126000.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 5,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.35,
+      "expected_loss_usd": 367500.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 6,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.7,
+      "expected_loss_usd": 735000.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 0,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 1,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.0006369426751592356,
+      "expected_loss_usd": 668.7898089171974
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 2,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.0031847133757961785,
+      "expected_loss_usd": 3343.9490445859874
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 3,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.01592356687898089,
+      "expected_loss_usd": 16719.745222929938
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 4,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.05732484076433121,
+      "expected_loss_usd": 60191.082802547775
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 5,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.14331210191082802,
+      "expected_loss_usd": 150477.70700636943
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 6,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.25477707006369427,
+      "expected_loss_usd": 267515.923566879
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 0,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 1,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.0003184713375796178,
+      "expected_loss_usd": 334.3949044585987
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 2,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.001910828025477707,
+      "expected_loss_usd": 2006.3694267515923
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 3,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.009554140127388535,
+      "expected_loss_usd": 10031.847133757961
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 4,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.03821656050955414,
+      "expected_loss_usd": 40127.388535031845
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 5,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.11146496815286625,
+      "expected_loss_usd": 117038.21656050955
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 6,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.2229299363057325,
+      "expected_loss_usd": 234076.4331210191
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 0,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 1,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.00038924274593064406,
+      "expected_loss_usd": 408.70488322717625
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 2,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.0019462137296532202,
+      "expected_loss_usd": 2043.5244161358812
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 3,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.009731068648266101,
+      "expected_loss_usd": 10217.622080679406
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 4,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.03503184713375796,
+      "expected_loss_usd": 36783.43949044586
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 5,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.08757961783439491,
+      "expected_loss_usd": 91958.59872611465
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 6,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.15569709837225762,
+      "expected_loss_usd": 163481.9532908705
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 0,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 1,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.00019462137296532203,
+      "expected_loss_usd": 204.35244161358813
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 2,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.0011677282377919322,
+      "expected_loss_usd": 1226.1146496815288
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 3,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.005838641188959661,
+      "expected_loss_usd": 6130.573248407643
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 4,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.023354564755838643,
+      "expected_loss_usd": 24522.292993630574
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 5,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.0681174805378627,
+      "expected_loss_usd": 71523.35456475585
+    },
+    {
+      "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+      "class_state": 6,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.1362349610757254,
+      "expected_loss_usd": 143046.7091295117
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 0,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 1,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 1040.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 2,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 5200.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 3,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 26000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 4,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 93600.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 5,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 234000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 6,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 416000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 0,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 1,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 1040.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 2,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 5200.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 3,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 26000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 4,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 93600.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 5,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 234000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 6,
+      "response_hypothesis_id": "approved_replacement",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 416000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 0,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 1,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 1040.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 2,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 5200.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 3,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 26000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 4,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 93600.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 5,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 234000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 6,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 416000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 0,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 1,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 1040.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 2,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 5200.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 3,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 26000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 4,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 93600.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 5,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 234000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 6,
+      "response_hypothesis_id": "noncell_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 416000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 0,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 1,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 1040.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 2,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 5200.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 3,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 26000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 4,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 93600.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 5,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 234000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 6,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "electronics_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 416000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 0,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0,
+      "expected_loss_usd": 0.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 1,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.002,
+      "expected_loss_usd": 1040.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 2,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.01,
+      "expected_loss_usd": 5200.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 3,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.05,
+      "expected_loss_usd": 26000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 4,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.18,
+      "expected_loss_usd": 93600.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 5,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.45,
+      "expected_loss_usd": 234000.0
+    },
+    {
+      "failure_unit_id": "BESS_SEPARATE_PCS",
+      "class_state": 6,
+      "response_hypothesis_id": "limited_repair_sensitivity",
+      "shape_scenario": "heavy_electrical_ordinal",
+      "expected_dr": 0.8,
+      "expected_loss_usd": 416000.0
+    }
+  ],
+  "independent_basis": "Decimal arithmetic on pinned donor ordinates and cost allocations; not measured BESS data"
+}
