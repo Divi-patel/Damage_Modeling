@@ -12,8 +12,11 @@ scope: Bounded BESS Damage curation and Hazard handoff; Flood first
 The [current package](../../cells/flood_bess/current/README.md) preserves the
 approved v0.2 response and values. Its conditional annual-use requirements pass
 29 diagnostic cases × 100,000 years, independent mean/tail replay and schema/pin
-checks. No national or complete-property result is released. Next: Hazard's
-placement/resolution pilot, carrying the measured Coastal source-bin sensitivity.
+checks. Hazard Flood national computation/maps are now complete; canonical aggregate
+publication and recipient selection remain separate. Current work: [Hurricane
+annual qualification](../../extra/discussion/bess_damage/08_hurricane_annual_qualification.md)
+qualifies canonical BESS TC wind v1.0 with unchanged conditional records and
+values. Its next Hazard checkpoint is a bounded placement canary.
 
 Target: one outdoor LFP, separate-PCS, 100 MW / 400 MWh usable-AC reference;
 450 MWh installed DC; $109.8M direct physical budget. Hazard owns profile,

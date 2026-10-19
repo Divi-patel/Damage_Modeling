@@ -1,0 +1,724 @@
+{
+  "schema_version": "damage_curve_record_bundle.v3",
+  "schema_status": "released",
+  "cell_id": "tropical_cyclone_wind_bess",
+  "damage_code_id": "BESS_TC_WIND_SCREENING_V1",
+  "semantic_damage_model_version": "model v1.0",
+  "documentation_revision": "docs r1",
+  "lifecycle_state": "repository_canonical_conditional_screening",
+  "promotion_status": "conditional_consumer_annual_use_qualified",
+  "package_release": "unreleased",
+  "package_baseline": "library v2.5",
+  "package_inclusion_status": "repository_canonical_not_in_portable_package",
+  "canonical_runtime_artifact": true,
+  "source_dossier": "docs/cells/tropical_cyclone_wind_bess/current/derivation.md",
+  "source_workbook": "docs/cells/tropical_cyclone_wind_bess/current/value_crosswalk.csv",
+  "known_answer_tests": "docs/cells/tropical_cyclone_wind_bess/current/known_answers.json",
+  "source_register": "docs/cells/tropical_cyclone_wind_bess/current/source_register.csv",
+  "claim_parameter_register": "docs/cells/tropical_cyclone_wind_bess/current/claim_parameter_register.csv",
+  "value_crosswalk": "docs/cells/tropical_cyclone_wind_bess/current/value_crosswalk.csv",
+  "failure_units": [
+    {
+      "id": "BESS_INTEGRATED_ENCLOSURE",
+      "subsystem": "battery_enclosures",
+      "component": "integrated cabinet and included internal hardware",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same integrated enclosure pre-event physical replacement proxy"
+    },
+    {
+      "id": "BESS_SEPARATE_PCS",
+      "subsystem": "pcs",
+      "component": "separate PCS group",
+      "treatment": "primary_nonzero",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "same separate PCS pre-event physical replacement proxy"
+    },
+    {
+      "id": "BESS_MV_AND_SHARED_ELECTRICAL",
+      "subsystem": "BESS_MV_AND_SHARED_ELECTRICAL",
+      "component": "unbound reference property",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "retained reference budget row",
+      "withheld_reason_codes": [
+        "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+      ]
+    },
+    {
+      "id": "BESS_CIVIL",
+      "subsystem": "BESS_CIVIL",
+      "component": "unbound reference property",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "retained reference budget row",
+      "withheld_reason_codes": [
+        "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+      ]
+    },
+    {
+      "id": "BESS_FIELDWORK",
+      "subsystem": "BESS_FIELDWORK",
+      "component": "unbound reference property",
+      "treatment": "withheld",
+      "y_axis": "failure_unit_damage_ratio",
+      "denominator": "retained reference budget row",
+      "withheld_reason_codes": [
+        "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+      ]
+    }
+  ],
+  "pathways": [
+    {
+      "pathway_id": "tropical_cyclone_wind",
+      "hazard_scope": {
+        "included": "conditional direct TC wind",
+        "deferred": [
+          "debris",
+          "wind_driven_rain",
+          "triggered_propagation"
+        ],
+        "neighboring": [
+          "flood",
+          "strong_wind",
+          "tornado"
+        ],
+        "autonomous_failure": "outside_scope"
+      },
+      "hazard_axis": {
+        "id": "bess_tc_event_to_reference_pressure_ratio",
+        "preferred_input_field": "pressure_ratio",
+        "unit": "dimensionless comparable pressure-demand/reference ratio",
+        "valid_range": [
+          0,
+          2
+        ],
+        "extrapolation_policy": "withhold outside range; no clamp"
+      },
+      "selector_logic": [
+        {
+          "reference": "standalone_outdoor_liquid_cooled_LFP_r1"
+        }
+      ],
+      "conditioner_logic": [],
+      "exposure_contract": {
+        "scope": "one physical unit at declared local demand",
+        "unknown_demand": "withhold",
+        "height_or_protection_credit": "none"
+      },
+      "failure_unit_coverage": [
+        {
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "status": "conditional_screening"
+        },
+        {
+          "failure_unit_id": "BESS_SEPARATE_PCS",
+          "status": "conditional_screening"
+        },
+        {
+          "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+          "status": "withheld"
+        },
+        {
+          "failure_unit_id": "BESS_CIVIL",
+          "status": "withheld"
+        },
+        {
+          "failure_unit_id": "BESS_FIELDWORK",
+          "status": "withheld"
+        }
+      ],
+      "curve_records": [
+        {
+          "curve_id": "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "bess_tc_event_to_reference_pressure_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1_DS0",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "no_direct_repair; replace_at_major_compromise; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              },
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1_DS1",
+                "cost_ratio": 0.14154281670205238,
+                "affected_subsystems": [
+                  "integrated_battery_enclosure"
+                ],
+                "description": "limited_composite_damage; replace_at_major_compromise; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              },
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1_DS2",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "integrated_battery_enclosure"
+                ],
+                "description": "major_integrity_compromise; replace_at_major_compromise; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              },
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1_DS3",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "integrated_battery_enclosure"
+                ],
+                "description": "destructive_unit_damage; replace_at_major_compromise; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.72,
+                  1.0,
+                  1.32
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.9,
+                  1.25,
+                  1.65
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.125,
+                  1.5625,
+                  2.0625
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "BESS_INTEGRATED_ENCLOSURE",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "bess_tc_event_to_reference_pressure_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1_DS0",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "no_direct_repair; repair_if_contained_hardware_serviceable; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              },
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1_DS1",
+                "cost_ratio": 0.14154281670205238,
+                "affected_subsystems": [
+                  "integrated_battery_enclosure"
+                ],
+                "description": "limited_composite_damage; repair_if_contained_hardware_serviceable; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              },
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1_DS2",
+                "cost_ratio": 0.194621372965322,
+                "affected_subsystems": [
+                  "integrated_battery_enclosure"
+                ],
+                "description": "major_integrity_compromise; repair_if_contained_hardware_serviceable; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              },
+              {
+                "state_id": "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1_DS3",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "integrated_battery_enclosure"
+                ],
+                "description": "destructive_unit_damage; repair_if_contained_hardware_serviceable; selected engineering policy, not measured damage",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S11",
+                  "BW-S12"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.72,
+                  1.0,
+                  1.32
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.9,
+                  1.25,
+                  1.65
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.125,
+                  1.5625,
+                  2.0625
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        },
+        {
+          "curve_id": "BESS_SEPARATE_PCS_TC_PROXY_V0_1",
+          "pathway_id": "tropical_cyclone_wind",
+          "failure_unit_id": "BESS_SEPARATE_PCS",
+          "curve_form": "ordered_damage_state_lognormal",
+          "x_axis": "bess_tc_event_to_reference_pressure_ratio",
+          "y_axis": "failure_unit_damage_ratio",
+          "parameters": {
+            "beta_ln": 0.35,
+            "damage_states": [
+              {
+                "state_id": "BESS_PCS_TC_DS0",
+                "cost_ratio": 0.0,
+                "affected_subsystems": [],
+                "description": "Related electrical-equipment T4 transfer; not matched OEM fragility",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S03"
+                ]
+              },
+              {
+                "state_id": "BESS_PCS_TC_DS1",
+                "cost_ratio": 0.1,
+                "affected_subsystems": [
+                  "separate_pcs"
+                ],
+                "description": "Related electrical-equipment T4 transfer; not matched OEM fragility",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S03"
+                ]
+              },
+              {
+                "state_id": "BESS_PCS_TC_DS2",
+                "cost_ratio": 0.4,
+                "affected_subsystems": [
+                  "separate_pcs"
+                ],
+                "description": "Related electrical-equipment T4 transfer; not matched OEM fragility",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S03"
+                ]
+              },
+              {
+                "state_id": "BESS_PCS_TC_DS3",
+                "cost_ratio": 1.0,
+                "affected_subsystems": [
+                  "separate_pcs"
+                ],
+                "description": "Related electrical-equipment T4 transfer; not matched OEM fragility",
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02",
+                  "BW-S03"
+                ]
+              }
+            ],
+            "capacity_scenarios": [
+              {
+                "scenario_id": "lower_resistance",
+                "state_medians": [
+                  0.72,
+                  1.0,
+                  1.32
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "central_screening",
+                "state_medians": [
+                  0.9,
+                  1.25,
+                  1.65
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              },
+              {
+                "scenario_id": "upper_resistance",
+                "state_medians": [
+                  1.125,
+                  1.5625,
+                  2.0625
+                ],
+                "tier": "T4_placeholder_or_expert_judgment",
+                "source_ids": [
+                  "BW-S02"
+                ],
+                "interpretation": "unweighted screening resistance scenario on a qualified site-facility demand/design ratio; not fitted and not a probabilistic confidence bound"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "value_linkage": {
+    "value_binding_path": "docs/cells/tropical_cyclone_wind_bess/current/value_binding.json",
+    "value_binding_sha256": "4aaf33b9aa7f3bcaca37eb2506799c303d9ff9f67c449665f512a38d9a43aa89",
+    "full_tiv_usd": 109800000,
+    "candidate_hardware_usd": 94400000,
+    "unbound_property_usd": 15400000
+  },
+  "parameter_tier_table": [
+    {
+      "parameter_id": "BW-P01",
+      "parameter": "pressure_axis",
+      "value_or_rule": "(comparable event/design3second gust)^2",
+      "role": "axis_bridge",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S02;BW-S13",
+      "status": "research_bridge",
+      "reasoning": "Pressure normalization only with declared common wind basis; no unqualified height/shielding or aerodynamic credit",
+      "update_trigger": "Qualified BESS demand bridge"
+    },
+    {
+      "parameter_id": "BW-P02",
+      "parameter": "state_probability_shape",
+      "value_or_rule": "beta0.35 and inherited three source scenarios",
+      "role": "curve_fit_shape",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S02",
+      "status": "research_transfer_not_fit",
+      "reasoning": "Existing synthetic electrical-equipment response reused explicitly as hypothesis; no target observations fitted",
+      "update_trigger": "Matched structural/enclosure failure data"
+    },
+    {
+      "parameter_id": "BW-P03",
+      "parameter": "limited_group_cost",
+      "value_or_rule": "20/141.3 of cabinet value",
+      "role": "exposure_or_value",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S12",
+      "status": "research_policy",
+      "reasoning": "Cost fraction derived from related benchmark; mapping limited damage to whole composite repair is a separate engineering assumption",
+      "update_trigger": "Repair itemization or selected candidate revision"
+    },
+    {
+      "parameter_id": "BW-P04",
+      "parameter": "major_repair_if_serviceable",
+      "value_or_rule": "27.5/141.3 of cabinet value",
+      "role": "exposure_or_value",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S11;BW-S12",
+      "status": "unselected_alternative",
+      "reasoning": "Repairs enclosure/rack/safety composite plus thermal group while assuming battery and management remain reusable; not demonstrated service result",
+      "update_trigger": "Configuration-matched repair guidance or owner local-test ruling"
+    },
+    {
+      "parameter_id": "BW-P05",
+      "parameter": "major_compromise_replacement",
+      "value_or_rule": "1.0 of integrated cabinet value",
+      "role": "boundary_or_cap",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S11;BW-S12",
+      "status": "BW_Q01_APPROVED_LOCAL_ONLY",
+      "reasoning": "Conservative return-to-service hypothesis selected by owner; source motivates evaluation but does not mandate universal replacement",
+      "update_trigger": "Matched repair evidence or later qualification"
+    },
+    {
+      "parameter_id": "BW-P06",
+      "parameter": "destructive_state_cost",
+      "value_or_rule": "1.0 of integrated cabinet value",
+      "role": "boundary_or_cap",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S01;BW-S11;BW-S12",
+      "status": "research_policy",
+      "reasoning": "Direct replacement of the defined destructive unit once; no separate internal/cascade cost",
+      "update_trigger": "Supported partial salvage or replacement scope"
+    },
+    {
+      "parameter_id": "BW-P07",
+      "parameter": "pcs_response",
+      "value_or_rule": "Unchanged source normalized-pressure states and costs0:0.1:0.4:1",
+      "role": "curve_fit_shape",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S02;BW-S03",
+      "status": "proposed_related_proxy",
+      "reasoning": "Apply only to separate PCS candidate value; no Solar collection dollars or fullplant scaling",
+      "update_trigger": "Target-specific local binding and tests"
+    },
+    {
+      "parameter_id": "BW-P08",
+      "parameter": "national_wind_reference",
+      "value_or_rule": "Not selected by this research experiment",
+      "role": "selector_default",
+      "tier": "T4_placeholder_or_expert_judgment",
+      "source_ids": "BW-S10;BW-S13",
+      "status": "consumer_qualification_pending",
+      "reasoning": "Existing ASCE surface has multiple MRIs; choose explicit BESS screening policy before geographic losses",
+      "update_trigger": "Bounded Hazard reference qualification"
+    },
+    {
+      "parameter_id": "BW-P09",
+      "parameter": "unbound_property",
+      "value_or_rule": "15400000USD remains without wind response",
+      "role": "exposure_or_value",
+      "tier": "T3_engineering_proxy_or_adjacent_empirical",
+      "source_ids": "BW-S01",
+      "status": "unresolved_not_zero",
+      "reasoning": "Full budget retained and candidate hardware never renormalized to100percent",
+      "update_trigger": "Qualified same-scope EBOS/civil/support response"
+    }
+  ],
+  "evaluation_contract": {
+    "production_runtime_authorized": true,
+    "explicit_local_test_opt_in_required": false,
+    "approved_policy_id": "BW_Q01_LOCAL_MAJOR_REPLACEMENT",
+    "curve_selection_by_response_hypothesis": {
+      "approved_replacement": {
+        "BESS_INTEGRATED_ENCLOSURE": "BESS_ENCLOSURE_TC_REPLACE_MAJOR_V0_1",
+        "BESS_SEPARATE_PCS": "BESS_SEPARATE_PCS_TC_PROXY_V0_1"
+      },
+      "repair_sensitivity": {
+        "BESS_INTEGRATED_ENCLOSURE": "BESS_ENCLOSURE_TC_REPAIR_SENSITIVITY_V0_1",
+        "BESS_SEPARATE_PCS": "BESS_SEPARATE_PCS_TC_PROXY_V0_1"
+      }
+    },
+    "default_response_hypothesis": null,
+    "national_reference_selected": false,
+    "required_local_demand_basis_id": "qualified_comparable_pressure_reference_declared_by_consumer",
+    "limitation_flags": [
+      "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+      "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+      "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+      "PARTIAL_PROPERTY_SCOPE",
+      "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+      "UNKNOWN_TC_DURATION_CLASS",
+      "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS",
+      "COMMON_RATE_RANK_SCREENING_DEPENDENCE",
+      "SOURCE_UNKNOWN_MASS_RETAINED",
+      "NO_INTRINSIC_DAMAGE_SPREAD",
+      "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+      "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+    ],
+    "annual_qualification_evidence": "docs/extra/discussion/bess_damage/evidence/hurricane/r3/annual_qualification.json"
+  },
+  "emit_contract": {
+    "schema_version": "damage_emit.v2",
+    "populated_emit_modes_for_this_cell": [
+      "scalar_mean"
+    ]
+  },
+  "capability_declaration": {
+    "schema_version": "capability_declaration.v3",
+    "cell_id": "tropical_cyclone_wind_bess",
+    "canonical_runtime_artifact": true,
+    "pathway_capabilities": [
+      {
+        "pathway_id": "tropical_cyclone_wind",
+        "failure_unit_scalar_dr": "conditional",
+        "scenario_loss_given_value_basis": "conditional",
+        "curve_intrinsic_spread": "not_carried",
+        "populated_emit_modes": [
+          "scalar_mean"
+        ],
+        "conditions": [
+          "Exact artifact/value/capability pins",
+          "Explicit response hypothesis and unweighted resistance scenario",
+          "Declared comparable normalized-demand basis and valid source domain",
+          "Unique physical unit and same-unit value",
+          "Qualified reference/coupling and annual-cap prerequisites when used downstream"
+        ],
+        "limitation_flags": [
+          "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+          "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+          "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+          "PARTIAL_PROPERTY_SCOPE",
+          "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+          "UNKNOWN_TC_DURATION_CLASS",
+          "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS",
+          "COMMON_RATE_RANK_SCREENING_DEPENDENCE",
+          "SOURCE_UNKNOWN_MASS_RETAINED",
+          "NO_INTRINSIC_DAMAGE_SPREAD",
+          "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+          "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+        ],
+        "withheld_failure_units": [
+          {
+            "failure_unit_id": "BESS_MV_AND_SHARED_ELECTRICAL",
+            "reason_codes": [
+              "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+            ]
+          },
+          {
+            "failure_unit_id": "BESS_CIVIL",
+            "reason_codes": [
+              "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+            ]
+          },
+          {
+            "failure_unit_id": "BESS_FIELDWORK",
+            "reason_codes": [
+              "NO_QUALIFIED_WIND_RESPONSE_OR_ALLOCATION"
+            ]
+          }
+        ]
+      }
+    ],
+    "consumer_annual_metrics": {
+      "computation_owner": "downstream_consumer",
+      "status_before_promotion": "withheld_noncanonical_proposal",
+      "status_after_promotion": "consumer_computable_from_validated_frequency_intensity_coupling_value_and_cap_model",
+      "prerequisites": [
+        "Exact model v1.0/docs r1 artifact/value/capability and profile pins",
+        "Explicit replacement or repair hypothesis and unweighted resistance scenario",
+        "Comparable pressure demand/reference and valid 0-to-2 response domain",
+        "Declared frequency and common-event spatial coupling; marginal rates are not joint events",
+        "Unique physical units; cap cumulative annual cost separately at each unit value; no within-year restoration",
+        "Retain original source/rank weights and unknown intervals, clocks, source floor and unbound property",
+        "Validated annual AEP/OEP distribution and independent fixed-mass tail/mean checks",
+        "Annual projection uses conditional mean severity; no intrinsic Damage uncertainty inferred",
+        "Local qualification is not national support, publication, complete property or recipient admission"
+      ],
+      "limitation_flags": [
+        "T4_PROBABILITY_TRANSFER_NOT_CALIBRATED",
+        "BW_Q01_CONSERVATIVE_REPLACEMENT_POLICY",
+        "REPAIR_AND_RESISTANCE_SENSITIVITIES_NOT_CONFIDENCE_INTERVALS",
+        "PARTIAL_PROPERTY_SCOPE",
+        "WIND_ONLY_DEBRIS_RAIN_INGRESS_AND_SPREAD_UNQUANTIFIED",
+        "UNKNOWN_TC_DURATION_CLASS",
+        "UNKNOWN_TC_DIRECTION_EVOLUTION_CLASS",
+        "COMMON_RATE_RANK_SCREENING_DEPENDENCE",
+        "SOURCE_UNKNOWN_MASS_RETAINED",
+        "NO_INTRINSIC_DAMAGE_SPREAD",
+        "PER_PHYSICAL_UNIT_ANNUAL_CAP_NO_RESTORATION",
+        "LOCAL_PROOF_NOT_NATIONAL_ADMISSION"
+      ]
+    },
+    "cap_binding": {
+      "policy": "consumer_enforced_fail_closed",
+      "enforcement_owner": "downstream_consumer",
+      "checks_required": [
+        "One integrated value per unique enclosure; do not add its internals again",
+        "One separate PCS value per unit",
+        "No renormalization of94.4M candidate hardware to109.8M full TIV",
+        "No within-year replacement assumptions inferred from occurrence response",
+        "Per-physical-unit annual cap before plant sum",
+        "AEP/OEP from same storms and fixed plant; no assembly cap borrowing undamaged stock"
+      ],
+      "action_if_fail": "withhold affected response"
+    },
+    "promotion_gate": {
+      "status": "passed",
+      "required_before_canonical_use": [
+        "Consumer must satisfy all conditional-use prerequisites for its exact run; no automatic national/recipient admission"
+      ]
+    }
+  },
+  "derivation_rationale": {
+    "source_artifact_path": "docs/cells/tropical_cyclone_wind_solar/current/tropical_cyclone_wind_solar__model_v2_1__docs_r2__curve_artifact.json",
+    "source_artifact_sha256": "2fbc34fbf8f91df408fe1b3c8d01d260d013119cbcba594b6a9a60044cd2113e",
+    "owner_local_policy": {
+      "date": "2026-10-19",
+      "words": "Test full replacement; retain repair as a sensitivity (Recommended)",
+      "scope": "local testing only"
+    },
+    "research_spec_sha256": "9b99b84797f21cdc1dcddd959c36f5bbe12cb2638f90e21d589d8f686370812f",
+    "shape": "T4 transfer, no fitted BESS observations",
+    "costs": "Cabinet-specific projected composite costs; full replacement at approved major state",
+    "consumer_boundary": "Conditional partial-scope annual metrics only after frequency/coupling/value/cap/distribution prerequisites; complete-plant metrics withheld",
+    "predecessor_candidate_sha256": "f73281af574d9e60ab88b44aada30b018a356d08644523d4db55fe4fb70db31d"
+  },
+  "model_grade": "screening_T4_not_calibrated",
+  "review_status": "same_author_with_independent_numerical_methods"
+}

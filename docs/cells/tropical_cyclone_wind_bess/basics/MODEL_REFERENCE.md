@@ -3,7 +3,7 @@ author: owner-directed (Divy) · agent-drafted
 created: 2026-10-19
 updated: 2026-10-19
 status: active
-scope: Exact lookup for proposed BESS wind v0.1
+scope: Exact lookup for BESS wind v1.0 conditional screening
 ---
 
 # Local candidate reference
@@ -11,7 +11,7 @@ scope: Exact lookup for proposed BESS wind v0.1
 | Coordinate | Value |
 |---|---|
 | Cell / pathway | `tropical_cyclone_wind_bess` / `tropical_cyclone_wind` |
-| Model / docs | proposed v0.1 / r1 |
+| Model / docs | canonical v1.0 / r1 |
 | Bundle / capability / emit schemas | Existing v3 / v3 / v2; unchanged |
 | Numerical units | `BESS_INTEGRATED_ENCLOSURE`, `BESS_SEPARATE_PCS` |
 | Mean response | `sum(exact-state probability × same-unit cost fraction)` |
@@ -19,14 +19,14 @@ scope: Exact lookup for proposed BESS wind v0.1
 | Probability parameters | Inherited T4 beta 0.35; central medians 0.90/1.25/1.65; unweighted alternatives retained |
 | Value | 80 × $1.05M + 20 × $520k = $94.4M candidate hardware; full TIV $109.8M fixed2024 |
 | Missing risk | $15.4M property plus unquantified mechanisms/source gaps; never assumed safe |
-| Capability | Conditional local scalar response only; canonical and annual use withheld |
+| Capability | Conditional scalar response; downstream annual use after validated frequency/coupling/value/caps/distribution |
 
-Exact ordinate/state parameters: [curve JSON](../proposed/local_candidate_v0_1/curve_artifact.json).
-Exact hashes: [consumption pin](../proposed/local_candidate_v0_1/consumption_pin.json).
-Sources and claims: [package](../proposed/local_candidate_v0_1/README.md).
-Inputs/withholding and example call: [metadata](../proposed/local_candidate_v0_1/metadata.md).
-Checks: [validation](../proposed/local_candidate_v0_1/validation.json) and
-[known answers](../proposed/local_candidate_v0_1/known_answers.json).
+Exact ordinate/state parameters: [curve JSON](../current/curve_artifact.json).
+Exact hashes: [consumption pin](../current/consumption_pin.json).
+Sources and claims: [package](../current/README.md).
+Consumer inputs and withholding: [metadata](../current/metadata.md).
+Checks: [validation](../current/validation.json) and
+[known answers](../current/known_answers.json).
 
 For the uniform-demand event fixture, sum 80 enclosure mean costs and 20 PCS
 mean costs once. At pressure ratio 1 under the inherited central skeleton the

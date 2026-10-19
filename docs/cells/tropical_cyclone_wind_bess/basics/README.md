@@ -45,3 +45,8 @@ available from this candidate alone.
 
 Continue with [how it was built](HOW_THE_MODEL_IS_BUILT.md) and
 [the exact reference](MODEL_REFERENCE.md).
+
+Current admission: [v1.0 conditional annual screening](../current/README.md).
+The conditional probabilities and values below are unchanged; annual reporting
+requires a qualified Hazard consumer, and national/complete-property scope is
+not implied.

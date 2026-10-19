@@ -1,0 +1,11 @@
+source_row,target_group,included_usd,excluded_source_usd,candidate_failure_unit,status
+battery_cabinets,battery_enclosures,84000000,0,BESS_INTEGRATED_ENCLOSURE,local_candidate
+pcs,pcs,10400000,0,BESS_SEPARATE_PCS,local_candidate
+sbos,civil_works,1600000.0,400000.0,UNBOUND_OR_EXCLUDED,unbound_not_zero
+ebos,electrical_balance,13200000.0,4400000.0,UNBOUND_OR_EXCLUDED,unbound_not_zero
+installation,unallocated_fieldwork,600000.0,200000.0,UNBOUND_OR_EXCLUDED,unbound_not_zero
+permitting,excluded,0,800000,UNBOUND_OR_EXCLUDED,outside_physical_scope
+sales_tax,excluded,0,6800000,UNBOUND_OR_EXCLUDED,outside_physical_scope
+contingency,excluded,0,2800000,UNBOUND_OR_EXCLUDED,outside_physical_scope
+epc_overhead,excluded,0,2400000,UNBOUND_OR_EXCLUDED,outside_physical_scope
+developer_profit,excluded,0,5600000,UNBOUND_OR_EXCLUDED,outside_physical_scope

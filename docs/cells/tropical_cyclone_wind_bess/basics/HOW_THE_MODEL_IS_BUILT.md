@@ -38,7 +38,7 @@ about serviceability, not a measured mean or a bound on total real risk.
 opt-in and explicit hypothesis/scenario. No intrinsic uncertainty distribution
 or plant distribution is supplied by the local reader.
 
-**Ship:** [v0.1 proposed local package](../proposed/local_candidate_v0_1/README.md),
-outside the runtime index. Next: Hazard wind-reference/exposure proof, followed
-by separately governed annual capability. Dossier, exact sources and future
+**Ship:** [v1.0 current package](../current/README.md), conditionally admitted
+after local source/reference and annual-cap/distribution qualification. National
+support and recipient delivery remain separate. Dossier, exact sources and future
 triggers: [derivation](../proposed/local_candidate_v0_1/derivation.md).

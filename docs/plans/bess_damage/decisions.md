@@ -121,3 +121,18 @@ The current cell is indexed in this repository; portable packaging, national
 spatial qualification, complete-property coverage and delivery remain separate.
 Old local pins and existing other-cell outputs are unchanged. Retain the
 material Coastal first-bin sensitivity for the spatial pilot.
+
+## BD-D11 — conditional Hurricane annual admission
+
+Owner direction, 2026-10-19: continue the annual-loss qualification after the local
+source/reference proof. Analyst qualification: preserve v0.1 conditional records
+and unit values, and admit first repository-canonical v1.0/docs r1 after 90 local
+configurations × 100,000 years, independent unit-PGF means, analytic OEP, annual
+array/tail replay and controlled unit-cap tests pass.
+
+[Qualification and scope](../../extra/discussion/bess_damage/08_hurricane_annual_qualification.md).
+This is a conditional screening admission under continued authorization, not
+owner certification of empirical fragility. Common-rank spatial dependence,
+mean-severity projection, source gaps, no restoration and $15.4M unbound property
+remain explicit. National support and portable/recipient publication remain
+separate. Existing v3 schemas, other cells and old proposal bytes are unchanged.

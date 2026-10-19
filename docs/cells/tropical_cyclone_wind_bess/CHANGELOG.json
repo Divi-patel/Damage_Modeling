@@ -1,0 +1,15 @@
+{
+  "cell_id": "tropical_cyclone_wind_bess",
+  "changes": [
+    {
+      "date": "2026-10-19",
+      "model": "model v1.0",
+      "docs": "docs r1",
+      "classification": "NEW_CELL_MODEL_RELEASE",
+      "reason": "Owner-directed local annual proof passes; same conditional response and value, conditional consumer admission",
+      "schema_change": false,
+      "other_cells_changed": false,
+      "portable_package_release": "unreleased"
+    }
+  ]
+}

@@ -8,12 +8,11 @@ scope: BESS Damage research history and current conditional-release links
 
 # BESS Damage research
 
-**Current Hurricane checkpoint:** [costed enclosure/PCS review](07_hurricane_enclosure_candidate.md)
-records BW-Q01 approved for local testing: full replacement after major
-compromise, with repair retained as a sensitivity. The
-[proposed v0.1 package](../../../cells/tropical_cyclone_wind_bess/proposed/local_candidate_v0_1/README.md)
-passes 972 conditional parity comparisons, schemas and typed/pin guards; no
-canonical or annual use is admitted. The earlier [intake](06_hurricane_wind_intake.md)
+**Current Hurricane checkpoint:** [annual qualification](08_hurricane_annual_qualification.md)
+permits repository-canonical [v1.0 conditional screening](../../../cells/tropical_cyclone_wind_bess/current/README.md)
+after the finite consumer checks. Conditional curves and unit values match v0.1
+exactly; source/coupling gaps, T4 transfer and partial property remain explicit.
+National support and recipient delivery are separate. The earlier [intake](06_hurricane_wind_intake.md)
 retains its nine-source/eight-claim audit. The local
 curation skill passes 106-file validation and eight governance self-tests; the
 record distinguishes committed improvements from broader uncommitted guidance.
