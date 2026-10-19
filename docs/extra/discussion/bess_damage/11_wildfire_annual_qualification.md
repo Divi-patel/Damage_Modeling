@@ -69,9 +69,16 @@ and publication remain separate.
 - [Author/validator](evidence/wildfire/r3/release.py) verifies schemas, parity,
   content pins, provenance paths and the once-only runtime index entry.
 
-The broad runtime validator still fails on the pre-existing Flood BESS v2
-vulnerability-spread flag. That artifact is byte-identical to HEAD; the old
+At the original admission checkpoint, the broad runtime validator failed on
+the pre-existing Flood BESS v2 vulnerability-spread flag. That artifact is byte-identical to HEAD; the old
 index reproduces the failure. The new Wildfire cell separately passes the
 validator's seven-record v3 checks, existing v3 schemas and exact pin/value
 checks. [Scope receipt](evidence/wildfire/r3/runtime_validation_scope.json)
 records this inherited debt; a global validator pass is not claimed.
+
+
+**Subsequent maintenance complete:** [the integration repair](12_integration_contract_repairs.md)
+now closes that failure and current registry/guide/test inventory drift, with
+19 passing tests and all thirteen runtime artifacts validated. Canonical curve,
+value and capability payloads retain their original bytes; this does not change
+the qualified annual science recorded above.

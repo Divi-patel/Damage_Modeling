@@ -8,6 +8,11 @@ scope: BESS Damage research history and current conditional-release links
 
 # BESS Damage research
 
+**Integration maintenance complete:** [the repair record](12_integration_contract_repairs.md)
+closes the inherited validator/metadata failures and current guide/test inventory
+drift. All 19 Damage tests and the 13-artifact validator pass; model selections
+and numerical payloads are unchanged.
+
 **Current Wildfire: [conditional annual admission](11_wildfire_annual_qualification.md).**
 Repository-canonical v1.0 retains the seven v0.1 response tables and same-unit
 values exactly, after 72 local annual configurations and independent marginal,
@@ -46,6 +51,7 @@ remain unchanged. Current selection is in the cell's version register.
 
 | Date | Created by | Related to | Record | Purpose |
 |---|---|---|---|---|
+| 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard / Integration | [Integration repairs](12_integration_contract_repairs.md) | Exact capability aliases, current-pin metadata, guide/test coverage and unchanged numerical payloads; green suites |
 | 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wildfire annual admission](11_wildfire_annual_qualification.md) | First conditional v1.0; exact response/value parity, bounded annual proof and explicit consumer gates |
 | 2026-10-19 | owner-directed (Divy) · agent-implemented | Damage / Hazard | [Wildfire local candidate](10_wildfire_local_candidate.md) | BWF-Q01 settled for local tests; categorical T4 hypotheses, repair counterfactuals, independent arithmetic and conditional-only capability |
 | 2026-10-19 | owner-directed (Divy) · agent-researched | Damage / Hazard | [Wildfire Damage/source intake](09_wildfire_damage_intake.md) | Seven-step audit, 11 sources/11 claims, source-only reproduction, costed BWF-Q01 and finite next candidate |

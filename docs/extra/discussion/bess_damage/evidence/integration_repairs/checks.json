@@ -1,0 +1,141 @@
+{
+  "status": "passed",
+  "station_rows_byte_identical": 45,
+  "station_table_and_distribution_file_hashes_identical": true,
+  "national_overlap_decisions_byte_identical": 13085,
+  "asce_slice_controls_byte_identical": 3,
+  "total_composition_controls_byte_identical": 2,
+  "damage_cell_file_changes": [
+    "docs/cells/tropical_cyclone_wind_bess/CHANGELOG.json"
+  ],
+  "damage_index_unchanged": true,
+  "canonical_damage_payloads_unchanged": true,
+  "bess_annual_manifest_unchanged": true,
+  "source_sha256": "3c2f8f57e29ed2d15c599d342ba3c650f1472d857677e0356f3b3b4c0f143ee3",
+  "new_national_model_run": false,
+  "publication": false,
+  "test_results": {
+    "hazard": {
+      "tests": 325,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "f87bb6a677f2553261e81feb23bb1139bafae39cfcbf3eab0ec79788ac4dcd5d",
+      "junit_path": "data/bess/integration_repair/20261019/hazard_pytest.xml",
+      "test_roots": [
+        "perils/convective_wind/tests",
+        "perils/wildfire/tests",
+        "shared/tests/test_production_dependency_direction.py",
+        "drivers/conus_grid/tests/test_cli.py",
+        "drivers/conus_grid/tests/test_bess_fire_local.py",
+        "drivers/conus_grid/tests/test_bess_fire_annual_local.py",
+        "drivers/conus_grid/tests/test_convective_wind_dashboard_projection.py",
+        "drivers/conus_grid/tests/test_convective_wind_recipient.py",
+        "drivers/conus_grid/tests/test_substation_cw_driver.py",
+        "drivers/conus_grid/tests/test_convective_wind_delivery.py",
+        "drivers/conus_grid/tests/test_convective_wind_recipient_exact_tvar.py",
+        "drivers/conus_grid/tests/test_substation_total.py",
+        "drivers/conus_grid/tests/test_convective_wind_pipeline_e2e.py",
+        "drivers/conus_grid/tests/test_convective_wind_recipient_release.py",
+        "drivers/conus_grid/tests/test_convective_wind_driver_reproduces_smoke.py",
+        "drivers/conus_grid/tests/test_convective_wind_reference.py"
+      ]
+    },
+    "damage": {
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "11145b85a4a7628e05f8f66e5ad12df9c23f26e87bad293c89d94e37f42f26c8",
+      "junit_path": "data/bess/integration_repair/20261019/damage_pytest.xml",
+      "command": ".venv/bin/python -m pytest tests -q (Damage repository)"
+    }
+  },
+  "original_local_national_parquet_pins_verified": {
+    "data/convective_wind/substation_grid/20261017T064500Z_station_cw_conus/sources/station_inputs.parquet": {
+      "bytes": 1349626,
+      "sha256": "3c2f8f57e29ed2d15c599d342ba3c650f1472d857677e0356f3b3b4c0f143ee3"
+    },
+    "data/convective_wind/substation_grid/20261017T064500Z_station_cw_conus/substation_convective_wind_0p25.parquet": {
+      "bytes": 11582311,
+      "sha256": "5a71e0502265c38eae31c5c81ea997f45f8d01da038a30734a3ec08c6f897c5c"
+    },
+    "data/substation_total/20261017_station_total_v1/overlap_hazard_parent.parquet": {
+      "bytes": 1091478,
+      "sha256": "386e274d3c109915244c75a0852d3b41ae7aa348f2eb6cd73b050ada6cafa3c8"
+    },
+    "data/substation_total/20261017_station_total_v1/substation_component_review_0p25.parquet": {
+      "bytes": 14976757,
+      "sha256": "7ecc1520eb3629fd073b5675a8ac005780d233ca4299eb1d6163538592adaad7"
+    },
+    "data/substation_total/20261017_station_total_v1/substation_total_0p25.parquet": {
+      "bytes": 3269119,
+      "sha256": "662d0ca850749ffd6437de7a9283a534db83c2b948f3ccf57d34de4065d56855"
+    }
+  },
+  "unchanged_physics_module_sha256": {
+    "perils/convective_wind/src/convective_wind/asce_m0.py": "dcb4732098b232f595fcb749ff0ef61a0c58167bec6ba5e54115d408332891a5",
+    "perils/convective_wind/src/convective_wind/m1_hazard_layer.py": "ddb1b31f044f17d730151695a80d9679fee4315803ee64410c555ad6eaad6ae9",
+    "perils/convective_wind/src/convective_wind/spc_m0.py": "3f4dda2a7d1bac655e3374715c00897d324fd1770a8c255825bdccb852984f72",
+    "perils/convective_wind/src/convective_wind/substation.py": "732d53ca7e89a2c841e8573b35a5cd794e8e301bf658c3411dddf85acef9ce5b",
+    "perils/convective_wind/src/convective_wind/config.py": "d0a01471fdcf695c682ddcb829e7626ddc225464e7334a547b819444d5d3b52c"
+  },
+  "damage_runtime_validator": {
+    "status": "PASS",
+    "indexed_artifacts": 13,
+    "exact_aliases_accepted": [
+      "CURVE_INTRINSIC_SPREAD_NOT_CARRIED",
+      "NO_INTRINSIC_DAMAGE_SPREAD"
+    ],
+    "structured_spread_and_annual_semantics_still_required": true
+  },
+  "additional_metadata_repair": {
+    "cell": "tropical_cyclone_wind_bess",
+    "current_pin": "tropical_cyclone_wind_bess@model_v1_0__docs_r1",
+    "matches_existing_index": true,
+    "authoring_helper_corrected": true,
+    "numerical_payload_unchanged": true
+  },
+  "broader_test_disposition": {
+    "initial_damage_failures": 3,
+    "cause": "Stale eight-cell/five-KAT publisher expectations and four missing current request guides",
+    "repair": "Publisher tests compare exact cell/KAT membership and hashes against the current index; four new guides pin existing contracts and are indexed",
+    "request_guide_cells_added": [
+      "flood_substation",
+      "flood_bess",
+      "tropical_cyclone_wind_bess",
+      "wildfire_bess"
+    ],
+    "remaining_failures": 0
+  },
+  "release_scope": {
+    "model_versions_changed": false,
+    "artifact_schemas_changed": false,
+    "consumer_pins_changed": false,
+    "canonical_artifact_index_changed": false,
+    "cloud_or_database_writes": false,
+    "national_recalculation": false
+  },
+  "future_publication_scope": "Offline file planning is verified; Damage publisher registry mapping currently accepts Solar/Wind only. BESS/Substation registration is a separate delivery-readiness item, not qualified by these checks.",
+  "baseline_heads": {
+    "hazard": "c0b9a26d96375dd0357302d0e873d3f310021a61",
+    "damage": "0c26b8423cab23700e4f69cecc5a7cbc2daba8fb"
+  },
+  "before_after_witness_sha256": {
+    "before": "5b4109322e884b423244d849442ac35fa8d3d8fbcfc446b82fbac8be4afbabe7",
+    "after": "9f685a2aeb0fb24b4a6d9b9db65b32836cdd61308ba2bafdc331d33b7947cbf4"
+  },
+  "repaired_hazard_code_sha256": {
+    "perils/convective_wind/src/convective_wind/api.py": "a6b3a3d0c9abdde00408ef785edcfd05186cdae6da425896ecca0ff872aee854",
+    "drivers/conus_grid/src/conus_grid/convective_wind/product.py": "83e413a1b23e197c384047e4e4b0412167889b472c0c9e9a50122bee816ac6db",
+    "drivers/conus_grid/src/conus_grid/convective_wind/substation.py": "5363f29580fad533df2b07a5c6df9714870eeb3ff7b031fa22a549f08f6d3dbe",
+    "drivers/conus_grid/src/conus_grid/convective_wind/substation_review.py": "54ede93b1ad24d18d16e2870ef6c1585439c03309c1cd8a44055c03df9d75366",
+    "drivers/conus_grid/src/conus_grid/convective_wind/substation_publishing.py": "9515e6ec9e545601b1a7d93484b7f12c1bab6492a871a46e0f43779ece8d122c",
+    "drivers/conus_grid/src/conus_grid/substation_total.py": "72ec327498285b7ef85f77f7d0742e0668714356fa1d0c48538663748a47afd4"
+  },
+  "repaired_damage_validation_metadata_sha256": {
+    "scripts/reference_helpers/validate_runtime_contracts.py": "db13a932c1e53b13b1b57f8a7131094d0b7c749c5604b98ca7cad831f57710e0",
+    "docs/cells/tropical_cyclone_wind_bess/CHANGELOG.json": "06fd6f86fec9cd1401bb60b88b564e4c33dc052d7dc5388abf9b9775e780a22d",
+    "docs/extra/discussion/bess_damage/evidence/hurricane/r3/release.py": "2cc48cd29b070bb9ef846bb4615e2cfeae2d1a4d5ed0063f7fd7e1c65e022713"
+  }
+}

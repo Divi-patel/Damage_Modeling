@@ -73,7 +73,7 @@ def build():
     assert not any(x['cell_id']==art['cell_id'] for x in index['artifacts'])
     index['artifacts'].append({'cell_id':art['cell_id'],'damage_code_id':art['damage_code_id'],'semantic_damage_model_version':'model v1.0','documentation_revision':'docs r1','consumer_pin':'tropical_cyclone_wind_bess@model_v1_0__docs_r1','artifact_schema_version':'damage_curve_record_bundle.v3','capability_schema_version':'capability_declaration.v3','publication_status':'repository_canonical_not_in_portable_package','path':str((CURRENT/'curve_artifact.json').relative_to(ROOT)),'sha256':sha(CURRENT/'curve_artifact.json'),'changelog_path':str((CELL/'CHANGELOG.json').relative_to(ROOT)),'known_answer_tests_path':str((CURRENT/'known_answers.json').relative_to(ROOT))})
     write(ROOT/'docs/contracts/machine_readable_artifact_index.json',index)
-    write(CELL/'CHANGELOG.json',{'cell_id':art['cell_id'],'changes':[{'date':'2026-10-19','model':'model v1.0','docs':'docs r1','classification':'NEW_CELL_MODEL_RELEASE','reason':'Owner-directed local annual proof passes; same conditional response and value, conditional consumer admission','schema_change':False,'other_cells_changed':False,'portable_package_release':'unreleased'}]})
+    write(CELL/'CHANGELOG.json',{'cell_id':art['cell_id'],'current_pin':'tropical_cyclone_wind_bess@model_v1_0__docs_r1','changes':[{'date':'2026-10-19','model':'model v1.0','docs':'docs r1','classification':'NEW_CELL_MODEL_RELEASE','reason':'Owner-directed local annual proof passes; same conditional response and value, conditional consumer admission','schema_change':False,'other_cells_changed':False,'portable_package_release':'unreleased'}]})
 
 def validate():
     art,cap,value,pin=[load(CURRENT/n) for n in ['curve_artifact.json','capability.json','value_binding.json','consumption_pin.json']]
@@ -94,6 +94,7 @@ def validate():
     index=load(ROOT/'docs/contracts/machine_readable_artifact_index.json')
     entries=[x for x in index['artifacts'] if x['cell_id']==art['cell_id']]
     assert len(entries)==1 and entries[0]['sha256']==sha(CURRENT/'curve_artifact.json')
+    assert load(CELL/'CHANGELOG.json')['current_pin']==entries[0]['consumer_pin']
     print('PASS: existing v3 schemas, exact response/unit-value parity, pins, provenance, index and conditional annual capability')
 
 if __name__=='__main__':

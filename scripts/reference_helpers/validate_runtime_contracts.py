@@ -88,8 +88,15 @@ def validate_capability(artifact: dict) -> None:
         "curve-intrinsic spread limitation missing",
     )
     require(
-        "CURVE_INTRINSIC_SPREAD_NOT_CARRIED" in annual["limitation_flags"],
-        "vulnerability-spread flag missing",
+        emit["curve_intrinsic_spread"] == "not_carried",
+        f"{artifact['cell_id']}: curve-intrinsic spread declaration contradicts annual limitation",
+    )
+    # Existing v2 releases use both spellings. Accept only these exact aliases
+    # with matching structured declarations; a flag alone grants no capability.
+    require(
+        bool({"CURVE_INTRINSIC_SPREAD_NOT_CARRIED", "NO_INTRINSIC_DAMAGE_SPREAD"}
+             .intersection(annual["limitation_flags"])),
+        f"{artifact['cell_id']}: vulnerability-spread limitation flag missing",
     )
     require(
         capability["cap_binding"]["enforcement_owner"] == "downstream_consumer",

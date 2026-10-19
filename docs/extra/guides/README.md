@@ -19,6 +19,10 @@ the canonical files and explain the normal process.
 | [`tropical_cyclone_wind_wind_curve_request_guide.md`](tropical_cyclone_wind_wind_curve_request_guide.md) | Someone needs the canonical hurricane × wind source-native request, exact Jaimes selector, axis/range behavior, or partial-coverage boundary. |
 | [`tropical_cyclone_wind_solar_v2_curve_request_guide.md`](tropical_cyclone_wind_solar_v2_curve_request_guide.md) | Someone needs to evaluate the noncanonical tropical-cyclone wind × solar model-v2 candidate, choose its Perry/fixed/tracker route, supply qualified architecture-specific inputs and an exact pin, or interpret its five bounded records and withheld outputs. |
 | [`tropical_cyclone_wind_solar_v2_1_curve_request_guide.md`](tropical_cyclone_wind_solar_v2_1_curve_request_guide.md) | Someone needs the coverage-complete screening call: seven numeric direct/civil unit DRs, named-value plant physical DR, loss per kWdc, optional scenario dollars, and a direct GSU route. |
+| [`flood_substation_curve_request_guide.md`](flood_substation_curve_request_guide.md) | Exact current flood substation inputs, pin, response/value grain and conditional-use limits. |
+| [`flood_bess_curve_request_guide.md`](flood_bess_curve_request_guide.md) | Exact current flood bess inputs, pin, response/value grain and conditional-use limits. |
+| [`tropical_cyclone_wind_bess_curve_request_guide.md`](tropical_cyclone_wind_bess_curve_request_guide.md) | Exact current tropical cyclone wind bess inputs, pin, response/value grain and conditional-use limits. |
+| [`wildfire_bess_curve_request_guide.md`](wildfire_bess_curve_request_guide.md) | Exact current wildfire bess inputs, pin, response/value grain and conditional-use limits. |
 | [`source_drop_ingestion_guide.md`](source_drop_ingestion_guide.md) | A new ZIP/source drop arrives and needs inventory, classification, promotion, or staging. |
 | [`damage_curve_skill_usage_guide.md`](damage_curve_skill_usage_guide.md) | Deciding whether `damage_curve_skill` should operate directly in-repo or through an outside package/ZIP flow. |
 
