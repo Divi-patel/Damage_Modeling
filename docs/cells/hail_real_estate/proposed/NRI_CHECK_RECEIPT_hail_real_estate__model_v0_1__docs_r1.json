@@ -1,0 +1,48 @@
+{
+  "check": "hail_real_estate model v0.1 vs FEMA NRI Dec 2025 (order of magnitude; not calibration)",
+  "inputs": {
+    "hazard_m0_daily_evidence": {
+      "gcs_uri": "gs://infrasure-benchmark/hazard_conus_grid/dev/hail/v1_mrms_only/m0_reconciled_daily_cell_evidence/run_id=20260616T225000Z_m0_full_conus_reconciled",
+      "dates": 2071,
+      "partitions_digest_sha256": "7d389cedad68ff5ac4d883bde126fb44238d448bf7a6bc6b85dfc67a4a388955",
+      "partitions_digest_rule": "sha256 of 'date=YYYY-MM-DD:<sha256 of part-000.parquet>' lines, sorted by date",
+      "severe_cell_days_used": 143440,
+      "severe_cell_days_dropped_max_ge_300mm": 0
+    },
+    "hazard_m1_qc_table": {
+      "gcs_uri": "gs://infrasure-benchmark/hazard_conus_grid/dev/hail/v1_mrms_only/m1_hazard_layer/run_id=20260625_m1_mrms_only_qcd/tables/mrms_v1_m1_hazard_layer_20260625_m1_mrms_only_qcd.parquet",
+      "sha256": "c92c0219c5770fe88b17c94b2abe46bac61775695a1ddd78283d4b83ac4610ed",
+      "observed_years": 5.670089,
+      "cells_eligible": 12446
+    },
+    "nri": {
+      "gcs_uri": "gs://infrasure-benchmark/hazard_conus_grid/dev/reference/nri/nri_dec2025/raw/run_id=20260706T184931Z_nri_reference/nri_raw_conus.parquet",
+      "sha256": "bc4f8dff7ab9c465677d7a8b94f2fe3038ff03da4632d7b044bcff2afcb3d82b"
+    },
+    "ordinates": {
+      "path": "docs/cells/hail_real_estate/proposed/CURVE_ORDINATES_hail_real_estate__model_v0_1__docs_r1.csv",
+      "sha256": "270fedc842e4c20338a15819203a62790777b2ffcd3111b2b5e56bd475a6d74d"
+    }
+  },
+  "method": {
+    "pixel_rule": "1[raw >= 25.4 mm] x DR(MESH75(raw)); building at a uniformly random native pixel",
+    "quantile_points": "25.4 mm (q=0), p50, p90, p95, max (q=1) of the day's severe pixels; linear between",
+    "raw_cap_mm": 203.2,
+    "cell_eligibility": "M1 QC reportable_loss_eligible and not hard_artifact_flag"
+  },
+  "cells": {
+    "compared": 12374,
+    "plains_compared": 2620
+  },
+  "point_severe_hail_days_per_year": {
+    "median": 0.0468,
+    "p90": 0.3429,
+    "plains_median": 0.297
+  },
+  "house_roof_replacements_per_year": {
+    "median": 0.02993,
+    "p90": 0.23876,
+    "plains_median": 0.20414
+  },
+  "mesh75_at_threshold_mm": 38.98
+}

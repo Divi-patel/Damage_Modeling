@@ -1,0 +1,14 @@
+parameter,pathway_id,curve_id,value,param_role,tier,source_ids,reasoning,status,update_trigger
+axis_definition,hail_impact,all,"mesh_diameter_mm: Hazard's MESH75 hail diameter, mm, read as the largest hailstone at the building",axis_bridge,T4_placeholder_or_expert_judgment,HRE-S008,"Hazard's field (HRE-C013); radar estimate, not a measured stone.",proposed,Hazard changes the transform.
+valid_range,hail_impact,all,0 to 203.2 mm; above withholds; negative rejected,range,T2_public_lab_standard_or_physics,HRE-S008,Hazard's physical cap 203.2 mm.,proposed,Hazard changes the cap.
+band_reading,hail_impact,all,"onset = 5%, full = 95% (lognormal)",curve_form,T4_placeholder_or_expert_judgment,HRE-S001;HRE-S002,HRE-C020.,proposed,A source states the spread.
+house_roof_band,hail_impact,HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED,1.25-2.0 in (31.75-50.8 mm),threshold,T3_engineering_proxy_or_adjacent_empirical,HRE-S001;HRE-S013,"HRE-C001, C002.",proposed,Claims study by roof type.
+house_roof_share,hail_impact,HRE_RES_ROOF_ASPHALT_SHINGLE_LAMINATED,0.0375 of structure RCN,value_share,T3_engineering_proxy_or_adjacent_empirical,HRE-S006,HRE-C008.,proposed,Cost model.
+warehouse_roof_band,hail_impact,HRE_IND_ROOF_STANDING_SEAM_STEEL,2.5-3.5 in (63.5-88.9 mm),threshold,T3_engineering_proxy_or_adjacent_empirical,HRE-S002;HRE-S003,Onset T3 (HRE-C005); full T4 (HRE-C021).,proposed,Metal panel tests above 2.5 in.
+warehouse_roof_share,hail_impact,HRE_IND_ROOF_STANDING_SEAM_STEEL,0.12 of structure RCN (9-15%),value_share,T4_placeholder_or_expert_judgment,HRE-S006;HRE-S007,HRE-C022.,proposed,Metal roof cost source.
+office_roof_band,hail_impact,HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION,1.0-2.0 in (25.4-50.8 mm),threshold,T3_engineering_proxy_or_adjacent_empirical,HRE-S002;HRE-S004;HRE-S005,"HRE-C004, C006, C007.",proposed,TPO test series by attachment.
+office_roof_share,hail_impact,HRE_OFF_ROOF_TPO_MEMBRANE_AND_INSULATION,0.027 of structure RCN,value_share,T3_engineering_proxy_or_adjacent_empirical,HRE-S006,HRE-C010.,proposed,Office cost breakdown.
+siding_band_and_exposure,hail_impact,HRE_RES_WALLS_WINDOWS_T4,1.25-2.0 in; hail-facing share 0.5,threshold,T4_placeholder_or_expert_judgment,HRE-S004,HRE-C023.,proposed,Siding hail study.
+window_band_and_exposure,hail_impact,HRE_*_WALLS_WINDOWS_T4;HRE_*_WINDOWS_T4,1.5-2.5 in; panes reached 0.25,threshold,T4_placeholder_or_expert_judgment,HRE-S004,HRE-C023.,proposed,Glazing hail study.
+wall_window_costs,hail_impact,HRE_*_WALLS_WINDOWS_T4;HRE_*_WINDOWS_T4,$7/ft2 siding; $55/ft2 residential window; $80/ft2 commercial window,value_share,T4_placeholder_or_expert_judgment,HRE-S007,HRE-C023; areas from the profiles.,proposed,Cost source.
+exposed_equipment,hail_impact,none,withheld (not zero),scope,T4_placeholder_or_expert_judgment,HRE-S011,HRE-C016.,proposed,Equipment hail evidence.

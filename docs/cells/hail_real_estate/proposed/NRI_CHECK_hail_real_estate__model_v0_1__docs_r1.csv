@@ -1,0 +1,17 @@
+reference_building_id,variant,n_cells,n_cells_nonzero,ours_median_pct_per_year,ours_p90_pct_per_year,nri_median_pct_per_year,ours_over_nri_median,ours_over_nri_p10,ours_over_nri_p90,spearman_rank_corr
+RE_RES_SFD_1S_SLAB,central: roof cover only,12374,11406,0.11222,0.89535,0.00141,72.90,9.36,648.77,0.696
+RE_RES_SFD_1S_SLAB,central: roof cover + walls and windows (T4),12374,11406,0.16173,1.30212,0.00141,104.75,13.30,945.56,0.694
+RE_RES_SFD_1S_SLAB,"central roof cover, Hazard Version-1 size transform (raw x 25.4/35.56)",12374,11226,0.00123,0.07752,0.00141,1.19,0.00,35.27,0.565
+RE_IND_WAREHOUSE,central: roof cover only,12374,9638,0.00000,0.00236,0.00141,0.01,0.00,1.48,0.502
+RE_IND_WAREHOUSE,central: roof cover + walls and windows (T4),12374,11406,0.00144,0.01668,0.00141,0.96,0.09,10.55,0.627
+RE_IND_WAREHOUSE,"central roof cover, Hazard Version-1 size transform (raw x 25.4/35.56)",12374,4037,0.00000,0.00046,0.00141,0.00,0.00,12.71,0.326
+RE_COM_OFFICE_3S_SLAB,central: roof cover only,12374,11406,0.09889,0.75197,0.00141,63.87,8.81,560.18,0.702
+RE_COM_OFFICE_3S_SLAB,central: roof cover + walls and windows (T4),12374,11406,0.11189,0.87644,0.00141,72.29,9.75,645.74,0.697
+RE_COM_OFFICE_3S_SLAB,"central roof cover, Hazard Version-1 size transform (raw x 25.4/35.56)",12374,11406,0.00558,0.11567,0.00141,4.35,0.10,56.75,0.614
+RE_RES_SFD_1S_SLAB,roof low: no Hazus repair factor (3.0%),12374,11406,0.08982,0.71663,0.00141,58.35,7.49,519.27,0.696
+RE_RES_SFD_1S_SLAB,roof high: 3-tab shingles (1.0-1.75 in),12374,11406,0.15961,1.18409,0.00141,102.84,14.46,898.32,0.704
+RE_IND_WAREHOUSE,"roof low: full at 4.0 in, 9%",12374,11406,0.00002,0.00263,0.00141,0.02,0.00,1.13,0.538
+RE_IND_WAREHOUSE,"roof high: full at 3.0 in, 15%",12374,10072,0.00000,0.00210,0.00141,0.00,0.00,1.07,0.486
+RE_IND_WAREHOUSE,roof alternative not adopted: cosmetic denting (1.5-2.5 in),12374,11406,0.11062,1.11398,0.00141,74.59,7.30,712.63,0.669
+RE_COM_OFFICE_3S_SLAB,"roof low: adhered on cover board (1.5-2.0 in), membrane only",12374,11406,0.02772,0.26569,0.00141,18.42,1.71,169.78,0.677
+RE_COM_OFFICE_3S_SLAB,roof high: 1.0-1.5 in,12374,11406,0.12537,0.91884,0.00141,81.05,11.59,700.41,0.706
