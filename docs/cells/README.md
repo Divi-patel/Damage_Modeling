@@ -57,6 +57,16 @@ FSim-class tables for `WT_PAD_ELECTRICAL` and `WT_GSU_PROTECTION_CONTROL_DC` onl
 withheld, source/assumption acknowledgement is mandatory, and whole-farm or annual defaults are prohibited.
 The model-v0.1 zero-curve scaffold remains the strict evidence-earned alternative and audit history.
 
+Five Real Estate cells arrive from Jung A Lim's `cell/real-estate` branch (merged 2026-10-19) as
+noncanonical draft proposals bound to the Hazard reference profiles r1 (one-storey house, one-storey warehouse,
+three-storey office): [`flood_real_estate`](flood_real_estate/README.md) and
+[`tropical_cyclone_wind_real_estate`](tropical_cyclone_wind_real_estate/README.md) at `model v0.2 / docs r1`
+(v0.1 kept beside each), and [`convective_wind_real_estate`](convective_wind_real_estate/README.md),
+[`hail_real_estate`](hail_real_estate/README.md) and [`wildfire_real_estate`](wildfire_real_estate/README.md)
+at `model v0.1 / docs r1`. None is in the artifact index or has a current/runtime release. The earlier
+flood v0.1 intake and office source check are recorded in
+[intake and next work](../extra/discussion/real_estate_conus/03_junga_research_intake_and_next_work.md).
+
 ## Portable-package boundary
 
 `wildfire_solar`, `flood_wind`, `wildfire_wind`, and `tropical_cyclone_wind_wind` are repository-current and canonical but are not included

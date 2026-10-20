@@ -1,0 +1,194 @@
+{
+  "created": "2026-10-15",
+  "classification": "NEW_CELL_SCAFFOLD repository intake of an existing noncanonical proposal; no scientific promotion",
+  "source_repository": "https://github.com/aamani-ai/Damage_Modeling",
+  "source_branch": "cell/flood-real-estate",
+  "source_commit": "bc2752451189ac2ed56f6cc82253c4380df03720",
+  "source_slack_message": "https://aamani.slack.com/archives/D0ACH17MH7B/p1791819653636769",
+  "imported_files": [
+    {
+      "path": "docs/cells/flood_real_estate/README.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "75cfe0834b33db179a181bec29222946d6a326b9b9b24329a248d08b05425206",
+      "bytes": 4096
+    },
+    {
+      "path": "docs/cells/flood_real_estate/previews/flood_real_estate_v0_1_candidate_curves.png",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "26e903a9565efd6a8cb08625485ef342d09c5431f61be7b7aa2b724fc847f28d",
+      "bytes": 155807
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/CHANGE_CLASSIFICATION_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "3c9f63cbd82c37fec465866038246b914f10e661f3bf517faa0123314b435b28",
+      "bytes": 2235
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/CLAIM_PARAMETER_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "62c9d9c40b35f23a68282bcc516909f936a541487b2062eb81dfadddabafa9bf",
+      "bytes": 15996
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/COVERAGE_NOTE_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "c877df668363e507a325758c6c00ec245ad6e9da47124b92683dbb8a46a7048e",
+      "bytes": 4507
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/CURVE_FORM_DECISION_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "347373ecc1bd31846c908c862584f40dddff22f0b1a6e2b1250cba4eee3d7e6f",
+      "bytes": 6863
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/CURVE_ORDINATES_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "7a0e4e6a4689f3c186f9729683044f86d4086f4de84bfc0140fff3b22362918d",
+      "bytes": 24951
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/DECISION_LOG_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "ea75bf3d8031b463691bd9e1675bbbb6da8be9d4b3a2f1643c380e1420d90398",
+      "bytes": 11695
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/FORM_COMPARISON_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "848a22d96b621c869ca81bb4e6500c238916287fb26fc2cbc8da6510df720eea",
+      "bytes": 4866
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/NSI_SAMPLE_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "d787367721dfc6d221385b33b9e7a05ffe1b167215709e33a1c365f19a58b3c5",
+      "bytes": 2142
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/PARAMETER_TIER_TABLE_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "4c456316bf546884ee10fdf64e2ed27d258212b2902c78d4d71d03983ce8efaf",
+      "bytes": 7304
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/PRESSURE_TEST_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "c1891a641eb256283adc464b19a36e324c773be14e48f37c3f08f535d53c4e93",
+      "bytes": 7911
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/README_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "9d3cc7bb1be04f909daacbd8942b7fa59ae6ad1f25a9587cfa6907b3d7916052",
+      "bytes": 11103
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/REFERENCE_BUILDINGS_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "dfec8ef4a8f0381b146196252b1db0e568052bb81e42f8a9fa6029be4a9962f5",
+      "bytes": 7108
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/SEVEN_STEP_AUDIT_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "ba3dd2abb59aaa2e31b9154d8efc16215e53f094a9bd1c6a3fbe8aea74c6d726",
+      "bytes": 5395
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/SOURCE_REGISTER_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "b6a216dfc61afe04d348aa4965d5b61a4531f0180ff0248fb63839e4dc69aedb",
+      "bytes": 11946
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/SOURCE_VERIFICATION_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "d35268250e07ed4b07edcba3405ce0ffdc5c988908766a08e1f205fa190a6ec1",
+      "bytes": 6383
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/VALIDATION_REPORT_flood_real_estate__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "551985cf1682fc6d84447113a851845ccdb1c9642b821c6a1ca781f7cb562465",
+      "bytes": 5293
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/VALUE_CROSSWALK_flood_real_estate__model_v0_1__docs_r1.csv",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "0ed18327be0970be55f214d554da4ccfdd2ebdca471d13b1873dbab237c856e0",
+      "bytes": 1668
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/damage_curve_records_flood_real_estate__model_v0_1__docs_r1.xlsx",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "33683b0be2d096c3133cf51b86cb5c3d0979ae47dc35aac9ffcab76bcc5e1979",
+      "bytes": 35689
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/flood_real_estate__model_v0_1__docs_r1__capability.json",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "d0cd4c60c348424662ebda0bd5f16a4b7f859794034918c140722907a68cb2c5",
+      "bytes": 3453
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/flood_real_estate__model_v0_1__docs_r1__curve_artifact.json",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "106e3b53c8ac84f3dba7c233a261e32a8663012794d90c898e6ccab9dbd128e1",
+      "bytes": 50980
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/flood_real_estate_curve_derivation_dossier__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "c5dd16786da641b663dc7bdbd438ef083c36346976a194bf39567419683e192e",
+      "bytes": 5300
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/flood_real_estate_damage_code_metadata_spec__model_v0_1__docs_r1.md",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "5bd6923bdd791b1893f72a1c6c0c7b1ed8481cc9213427351a91aefbb5652d7a",
+      "bytes": 2997
+    },
+    {
+      "path": "docs/cells/flood_real_estate/proposed/known_answer_tests_flood_real_estate__model_v0_1__docs_r1.json",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "681ac67507c19bd3429e744604a93b496382909170baf5da7a74822ba3cc4cc7",
+      "bytes": 86182
+    },
+    {
+      "path": "scripts/reference_helpers/build_flood_real_estate_v0_1_package.py",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "1fa9ea3bd0ca724bf30be8ffac3cb0c60ab4803a5e018bfb1599a2d8848c7021",
+      "bytes": 26592
+    },
+    {
+      "path": "scripts/reference_helpers/flood_real_estate_curve_eval.py",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "56b5a28ee9811d2e57e0f52cfdafd3861eb7c883ad878de05b0111193adf9456",
+      "bytes": 9697
+    },
+    {
+      "path": "scripts/reference_helpers/flood_real_estate_form_comparison.py",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "20f0b87b1ca9d3be101b0a50c7c4004f884bcc66904a7f3022edbb1c9e20d3b4",
+      "bytes": 8303
+    },
+    {
+      "path": "scripts/reference_helpers/validate_flood_real_estate_v0_1_package.py",
+      "action": "imported_proposed_source_unchanged",
+      "sha256": "3d93b91c5e0dadae27939999b63e7f1637226ad0ac530498a48788a7e011a06d",
+      "bytes": 10203
+    }
+  ],
+  "documentation_merge": "scripts/reference_helpers/README.md: four additive helper rows, unrelated rows preserved",
+  "validation": {
+    "package_checks_passed": 29,
+    "known_answer_cases_passed": 166,
+    "run_mode": "isolated Git archive before import; repeated locally after import"
+  },
+  "canonical_artifact_index_changed": false,
+  "published": false,
+  "office_binding_status": "not present in imported proposal; COM1 retail remains unchanged",
+  "nfip_claims_comparison_status": "reported in Slack; not found in inspected branch; owner has no copy; not a blocker to source-native screening research"
+}

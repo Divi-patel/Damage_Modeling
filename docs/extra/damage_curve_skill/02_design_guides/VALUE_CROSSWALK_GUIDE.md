@@ -18,10 +18,21 @@ unknown
 
 ## Required crosswalk table
 
-| Source location/row | Failure unit | Value bucket | Default $/MW or share | Financial class | Role in loss | Direct denominator? | Allocation/double-count rule | Status |
+| Source location/row | Failure unit | Value bucket | Value + declared unit (amount/share/area/count/capacity) | Financial class | Role in loss | Direct denominator? | Allocation/double-count rule | Status |
 |---|---|---|---:|---|---|---:|---|---|
 
 Use `../templates/TEMPLATE_VALUE_CROSSWALK.csv` for a row-level machine-readable view.
+
+## Asset-appropriate quantities
+
+Use the quantity that matches the physical subject: USD per m² of floor, roof or wall (name which),
+USD per item, USD per MW/kW, a total budget or a dimensionless share. Preserve source currency, price year,
+location/cost basis and repair scope in the source register/crosswalk notes. Do not convert between floor,
+roof and wall area without the profile geometry. Do not invent capacity for a building.
+
+The CSV already separates `value` and `unit`; these prompts add no runtime schema fields. Existing
+Solar/Wind $/MW or $/kW crosswalks retain their units. Property market value, land, insurance limits,
+physical repair/replacement, movable contents and business interruption are separate bases/scopes.
 
 ## Rule
 

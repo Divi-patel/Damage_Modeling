@@ -21,6 +21,17 @@ outside_package
 For first-time orientation, read `START_HERE_FOR_FIRST_READER.md` before the detailed workflow files. For the
 two-mode operating guide, read `../guides/damage_curve_skill_usage_guide.md`.
 
+For a new asset family or detailed illustrative twin, start with
+[illustrative asset intake and reuse](02_design_guides/ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md)
+before naming cells or fitting curves. It connects idealistic anatomy to a scoped profile, qualified
+reuse and the Hazard–Damage interface. Skip this intake for bounded updates whose scope is already settled.
+
+When adding or materially re-curating a response, use
+[bounded curation and future research](02_design_guides/BOUNDED_CURATION_AND_FUTURE_WORK.md):
+agree the deliverable, choose the simplest justified baseline, and retain actionable
+discoveries for later improvement in the existing dossier/register. A practical
+baseline is not an arbitrary midpoint or permission to emit unsupported numbers.
+
 ## First-time orientation
 
 For a human or agent opening this skill for the first time, read `FIRST_TIME_READER_GUIDE.md` after this file. It connects the dots on what the skill is, why it exists, and how it governs future package/version changes.
@@ -40,7 +51,7 @@ If the user is asking how to use or install the skill, or if the operator is unf
 7. **Run the seven-step audit.** Define the asset, decompose failure units, choose the y-axis/value basis, split value rows, allocate physical value, specify the site adapter, then apply qualified curves or withhold.
 8. **Declare pathway architecture before fitting.** Keep one cell only when the asset/value substrate is shared and each mechanism can be independently governed. Require a stable `pathway_id`; never encode a pathway as a boolean, selector, conditioner, or undocumented branch. Give each pathway its own axis/bridge, evidence disposition, curve records, capabilities, and known-answer tests.
 9. **Pressure-test evidence and legacy numbers.** Use a stable source register, claim-level provenance, exact locators, canonical tiers, reproducible equation/table checks, endpoint transfer limits, and explicit denominators.
-10. **Keep the grain correct.** Damage curves are hazard × asset cells made of pathway × failure-unit records. Avoid whole-asset curves unless the dossier proves that the failure mechanism is genuinely whole-asset.
+10. **Keep the grain correct.** Damage cells contain pathway × failure-unit records. A whole-asset or source-native assembly response needs explicit applicability, included mechanisms and a repair denominator supported by its dossier. Preserve that source grain; do not reinterpret aggregate evidence as independent component curves or infer full-asset coverage from an assembly name.
 11. **Govern site conditions causally.** Separate bridge inputs, derived exposure, vulnerability, and value allocation. Fences, walls, barriers, protection, maintenance, access, and response receive no blanket credit and cannot be double-counted.
 12. **Maintain the M3 boundary.** The damage-code layer emits vulnerability/severity: failure-unit DRs and scenario loss views with explicit value basis. It does not own hazard frequency, EAL aggregation, insurance terms, BI, VaR, PML, or TVaR unless those are downstream objects consuming the emit.
 13. **Use JSON as the runtime artifact.** Workbooks are derivation/audit views. Runtime M3 should pin to canonical JSON artifacts and an exact cell-model/docs/schema/SHA tuple.

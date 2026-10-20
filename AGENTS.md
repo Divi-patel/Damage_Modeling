@@ -94,10 +94,13 @@ are not curves).
 | `docs/contracts/schemas/` | JSON schemas for curve bundles, damage emit, and capability declarations. |
 | `docs/contracts/hazard_handoff/` | Hazard M2/M3 handoff notes. |
 | `docs/contracts/resiliency_handoff/` | Damage producer boundary for Resiliency scenarios; links to the canonical cross-repo contract. |
+| `docs/plans/` | Plans of record (README + `decisions.md` + `assumptions.md` per folder) with a dated ledger and [`_templates/`](docs/plans/_templates/README.md); Hazard-style stamps and the closed status vocabulary. [Index](docs/plans/README.md). |
+| `docs/extra/discussion/` | Reasoning nodes — one bounded question each, ending in a verdict — with a dated ledger and [`_templates/`](docs/extra/discussion/_templates/README.md). [Index](docs/extra/discussion/README.md). |
+| `docs/extra/tasks_history/` | Per-session handoffs; read the newest `handoff.md` first. [Index](docs/extra/tasks_history/README.md). |
 | `docs/extra/learning_logs/` | Team-shared, non-canonical atomic lessons and complete newcomer/re-entry project learning packages. [Index](docs/extra/learning_logs/README.md). |
 | `scripts/reference_helpers/` | Reference helper scripts only; not a stable `src/` API. |
 | `data/` | Curve-record artifacts + manifests (large/binary gitignored). [README](data/README.md). |
-| `notebooks/` | Curve-derivation / fitting / evidence notebooks (TBD). [README](notebooks/README.md). |
+| `notebooks/` | Companion notebooks per cell — `<hazard>/<asset>/00_curve_curation_walkthrough` + `01_runtime_curve_walkthrough`, reading the pinned artifact through the artifact index, never authoring one. **2 of 10 cells covered; both existing pairs currently fail (their loader targets the removed `docs/damage_curves/` tree).** Repair + the other eight cells: [`docs/plans/cell_notebook_coverage/`](docs/plans/cell_notebook_coverage/README.md). [README](notebooks/README.md). |
 | `.github/workflows/` | CI (starter). |
 
 ### Cross-project symlinks (gitignored, local-only — machine-specific absolute paths, never commit)
@@ -130,6 +133,12 @@ is linked from the [`Resiliency handoff`](docs/contracts/resiliency_handoff/READ
 - **Single source of agent guidance = this file** (`AGENTS.md`); `CLAUDE.md` imports it.
 - Mirror the house style of `Hazard_modeling` / `model-gpr`: `docs/` layout, gitignored local-only symlinks,
   plain `venv` + `requirements.txt`, a README per folder, `python3.12` for venvs.
+- **Plans and discussion follow the Hazard ledger conventions**: every plan/node carries the five-field stamp
+  (`author · created · updated · status · scope`), the status vocabulary is closed
+  (`draft · proposed · active · settled · superseded · done`), each index is a dated ledger updated in the
+  same commit as the doc, and new folders start from the tier's `_templates/`
+  ([plans](docs/plans/README.md) · [discussion](docs/extra/discussion/README.md)). Agent-drafted work is
+  stamped `owner-directed (<name>) · agent-drafted`; an owner ruling is never inferred.
 - For any new ZIP/source drop, follow
   [`docs/extra/guides/source_drop_ingestion_guide.md`](docs/extra/guides/source_drop_ingestion_guide.md):
   preserve raw first, use `extracted/` only as a local mirror/staging area, inventory before moving, and

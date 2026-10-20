@@ -9,21 +9,31 @@ This folder contains runnable companions for the `flood_solar` damage-curve cell
 | [`00_curve_curation_walkthrough.ipynb`](00_curve_curation_walkthrough.ipynb) | Start here. Explains the curation process: evidence classes, failure-unit coverage, local-depth axis choice, piecewise/state curve form, selectors/conditioners/exposure, value linkage, and open seams. |
 | [`01_runtime_curve_walkthrough.ipynb`](01_runtime_curve_walkthrough.ipynb) | Read the canonical runtime artifact, evaluate the multi-failure-unit piecewise curves, demonstrate local-depth transforms, and assemble conditional loss from explicit value/exposure inputs. |
 
+## Execution state
+
+> **Broken as of 2026-08-26 — repair is Phase 0 (WP-0b) of the
+> [cell notebook coverage plan](../../../docs/plans/cell_notebook_coverage/README.md).** Both notebooks stop
+> in their first code cell: the loader looks for the removed `docs/damage_curves/…` tree and pins
+> `flood_solar__model_v1_0__docs_r3`, which now exists only in the gitignored `docs/source_drops/extracted/`
+> mirror. The repository-current pin is `flood_solar@model_v1_0__docs_r4` (below). Do not re-point the path by
+> hand without re-executing and reconciling the prose and figures to r4.
+
 ## Source artifacts
 
-Canonical runtime artifact:
+Canonical runtime artifact (repository-current pin `flood_solar@model_v1_0__docs_r4`, resolved through
+[`docs/contracts/MACHINE_READABLE_ARTIFACTS.md`](../../../docs/contracts/MACHINE_READABLE_ARTIFACTS.md)):
 
-```text
-../../../docs/damage_curves/damage_curve_implementation/DAMAGE_CURVE_LIBRARY_V2_5_IMPLEMENTATION_HARDENED_DELIVERABLE/01_cells/flood_solar/current/flood_solar__model_v1_0__docs_r3__curve_artifact.json
-```
+- [`flood_solar__model_v1_0__docs_r4__curve_artifact.json`](../../../docs/cells/flood_solar/current/flood_solar__model_v1_0__docs_r4__curve_artifact.json)
+- known-answer tests: none is published in `current/` as of 2026-08-26 (plan gate G4); the runtime notebook
+  must say so rather than invent expected values.
 
 Process / evidence narrative:
 
-```text
-../../../docs/damage_curves/damage_curve_implementation/DAMAGE_CURVE_LIBRARY_V2_5_IMPLEMENTATION_HARDENED_DELIVERABLE/01_cells/flood_solar/current/flood_solar_curve_derivation_dossier_v1_0.md
-```
+- [`flood_solar_curve_derivation_dossier_v1_0.md`](../../../docs/cells/flood_solar/current/flood_solar_curve_derivation_dossier_v1_0.md)
+- [`flood_solar_damage_code_metadata_spec_v1_0.md`](../../../docs/cells/flood_solar/current/flood_solar_damage_code_metadata_spec_v1_0.md)
+- cell entry point: [`docs/cells/flood_solar/README.md`](../../../docs/cells/flood_solar/README.md)
 
-## What the runtime notebook covers
+## What the notebooks cover
 
 `00_curve_curation_walkthrough.ipynb` covers:
 

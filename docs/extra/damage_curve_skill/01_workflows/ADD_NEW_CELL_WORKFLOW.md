@@ -1,6 +1,13 @@
 # Add new cell workflow
 
-Use for a new hazard × asset pair.
+Use for a new hazard × asset pair. A new physical profile alone does not automatically create a new cell.
+
+## Before Phase 0 — new-asset intake when needed
+
+For a new asset family or detailed twin, use
+[illustrative asset intake and reuse](../02_design_guides/ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md).
+Resolve scope, response grain, existing reuse candidates and the Hazard–Damage interface before choosing
+cell identity. Link its worksheet from the scope dossier; do not duplicate established cell registers.
 
 ## Phase 0 — classify and name
 
@@ -26,6 +33,11 @@ canonical_runtime_artifact: false
 Repository presence supports review; it does not promote runtime/package status.
 
 ## Phase 1 — scope dossier
+
+Apply [bounded curation and future research](../02_design_guides/BOUNDED_CURATION_AND_FUTURE_WORK.md).
+Set the current deliverable and a materiality-based search checkpoint. Preserve
+useful deferred discoveries as they arise, with exact evidence, current treatment,
+reopening trigger and next acceptance check; link the existing registers.
 
 Create a cell README and scope note that answer:
 
@@ -154,14 +166,25 @@ failure_unit_scalar_dr: supported if deterministic curves are complete
 scenario_loss: supported only with explicit value/exposure basis
 scalar_eal: conditional unless distribution and cap-binding gates pass
 scalar_eal reason while conditional: CAP_BINDING_PREFLIGHT_NOT_EXECUTED
-pml/var/tvar: withheld unless spread exists
+pml/var/tvar: withheld unless the downstream annual loss distribution and metric-specific gates are qualified
 ```
+
+Curve-intrinsic spread and an annual loss distribution are different objects. A deterministic
+DR(intensity) can feed a stochastic hazard-event/year calculation. Damage must state whether it carries
+intrinsic spread; Hazard owns frequency, spatial coupling, annual composition and tail calculation.
+Do not fabricate curve spread to unlock tails, and do not override an existing cell's explicit annual
+withholding merely because a downstream distribution can be constructed. Follow
+[the capability rules](../03_contracts/CAPABILITY_DECLARATION.md).
 
 ## Phase 8 — validation and release
 
 Use `04_validation_qc/VALIDATION_QC_GUIDE.md` and `05_release/PACKAGE_ASSEMBLY_GUIDE.md`.
 
 Minimum release outputs:
+
+The closeout also identifies the supported baseline and its actionable future-work
+entries. An unresolved required proof remains a capability restriction, even if
+it is recorded for later work; an optional refinement does not block the baseline.
 
 ```text
 VERSION_REGISTRY updated

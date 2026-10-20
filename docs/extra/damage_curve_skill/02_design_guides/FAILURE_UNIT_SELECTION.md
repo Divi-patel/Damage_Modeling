@@ -2,6 +2,11 @@
 
 The failure unit is the component or subsystem slice that gets its own damage curve.
 
+Inventory nodes and response units need not be one-to-one. A qualified source-native assembly can span
+several nodes; a single node can require different responses for distinct pathways. For a new asset or
+detailed twin, first use [illustrative asset intake and reuse](ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md).
+Preserve the assembly's scope and prevent overlap with any included component losses.
+
 ## Good failure unit criteria
 
 ```text

@@ -9,19 +9,28 @@ This folder contains runnable companions for the `hail_solar` damage-curve cell.
 | [`00_curve_curation_walkthrough.ipynb`](00_curve_curation_walkthrough.ipynb) | Start here. Explains how the curve is curated from evidence: scope/grain, evidence classes, interpreted anchors, logistic fitting, selectors, conditioners, exposure/value logic, capability, and open seams. |
 | [`01_runtime_curve_walkthrough.ipynb`](01_runtime_curve_walkthrough.ipynb) | Read the canonical runtime artifact, evaluate the PV module failure-unit curves, plot selector / stow / exposure effects, and show a consumer-style conditional-loss assembly. |
 
+## Execution state
+
+> **Broken as of 2026-08-26 — repair is Phase 0 (WP-0a) of the
+> [cell notebook coverage plan](../../../docs/plans/cell_notebook_coverage/README.md).** Both notebooks stop
+> in their first code cell: the loader looks for the removed `docs/damage_curves/…` tree and pins
+> `hail_solar__model_v1_0__docs_r5`, which now exists only in the gitignored `docs/source_drops/extracted/`
+> mirror. The repository-current pin is `hail_solar@model_v1_0__docs_r7` (below). Do not re-point the path by
+> hand without re-executing and reconciling the prose and figures to r7.
+
 ## Source artifacts
 
-Canonical runtime artifact:
+Canonical runtime artifact (repository-current pin `hail_solar@model_v1_0__docs_r7`, resolved through
+[`docs/contracts/MACHINE_READABLE_ARTIFACTS.md`](../../../docs/contracts/MACHINE_READABLE_ARTIFACTS.md)):
 
-```text
-../../../docs/damage_curves/damage_curve_implementation/DAMAGE_CURVE_LIBRARY_V2_5_IMPLEMENTATION_HARDENED_DELIVERABLE/01_cells/hail_solar/current/hail_solar__model_v1_0__docs_r5__curve_artifact.json
-```
+- [`hail_solar__model_v1_0__docs_r7__curve_artifact.json`](../../../docs/cells/hail_solar/current/hail_solar__model_v1_0__docs_r7__curve_artifact.json)
+- known-answer tests: [`known_answer_tests_hail_solar__model_v1_0__docs_r7.json`](../../../docs/cells/hail_solar/current/known_answer_tests_hail_solar__model_v1_0__docs_r7.json)
 
 Process / evidence narrative:
 
-```text
-../../../docs/damage_curves/damage_curve_implementation/DAMAGE_CURVE_LIBRARY_V2_5_IMPLEMENTATION_HARDENED_DELIVERABLE/01_cells/hail_solar/current/hail_solar_curve_derivation_dossier_v1_3.md
-```
+- [`hail_solar_curve_derivation_dossier_v1_3.md`](../../../docs/cells/hail_solar/current/hail_solar_curve_derivation_dossier_v1_3.md)
+- [`damage_code_metadata_spec_hail_solar_v1_3.md`](../../../docs/cells/hail_solar/current/damage_code_metadata_spec_hail_solar_v1_3.md)
+- cell entry point: [`docs/cells/hail_solar/README.md`](../../../docs/cells/hail_solar/README.md)
 
 Do not use the legacy Hazard artifact as the curated curve:
 

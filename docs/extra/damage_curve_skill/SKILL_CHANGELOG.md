@@ -15,6 +15,18 @@ Skill changes are tracked here rather than in the folder name. When uploaded to 
   confidence interval. Uses existing registers; no mandatory new folder sequence.
 - No cell, runtime schema, model version, indexed artifact or consumer pin changed.
 
+## 2026-10-18 — Bounded curation and actionable future research
+
+- Owner-directed `SKILL_REVISION`: separate the agreed current deliverable from
+  useful later refinements; retain source locators, current treatment, deferral
+  reason, expected benefit, reopening trigger and acceptance check while researching.
+- Clarifies practical evidence-based assumptions versus arbitrary midpoint estimates,
+  optional refinements versus missing required proof, and initiating events versus
+  downstream physical consequences.
+- Routes new-cell and material re-curation work to one focused guide. Stable skill
+  name and existing admission rules retained; no cell, model, cell-docs revision,
+  schema, runtime value mapping, artifact, package release or consumer pin changed.
+- Local authoring update only; no cloud upload or numerical release implied.
 
 ## Initial draft-operational build — 2026-07-07
 
@@ -211,3 +223,32 @@ controlled_example_target: proposed model v2.0 / docs r1
 ```
 
 The workflow requires a separate schema-contract change event when a live bundle/emit/capability schema adopts required pathway fields. Skill revision 0.6 does not perform that runtime migration by itself.
+
+## 0.7 — illustrative asset intake and qualified reuse — 2026-10-15
+
+- Added a conditional pre-cell intake guide and worksheet: idealistic twin provenance, scope reduction,
+  category/profile/response separation, reuse qualification and the early Hazard–Damage interface.
+- Routed the entrypoint, new-cell workflow, design-guide/template indexes and operator guide to it.
+- Reused the existing shared-component substrate standard; no new runtime registry, loader or schema.
+- Generalized value prompts to declared area, item, amount, share or capacity while preserving CSV columns.
+- Reviewed warehouse, office, house, assembly overlap, non-runtime candidate and existing Solar/Wind cases.
+
+Version impact: `SKILL_REVISION` 0.6 → 0.7 only. Package release, cell model versions, cell documentation
+revisions, schemas, numerical artifacts and consumer pins are unchanged. Status remains controlled-use;
+real building research and numerical admission still require the existing cell gates.
+
+## 0.8 — reviewable reuse and annual-distribution clarity — 2026-10-16
+
+- Exercised the intake on a pinned substation profile and an existing whole-assembly Flood response:
+  numerical reproduction, applicability, value binding and metric admission are separate proofs.
+- Added a compact progress table to the existing guide/worksheet, including owners and next evidence;
+  retained source verification is distinguished from fresh retrieval and unresolved transfer claims.
+- Require a concrete source-to-target/value comparison before asking about a consequential proxy.
+- Corrected workflow/capability prose that conflated curve-intrinsic spread with annual loss variation.
+  Deterministic DR can feed a stochastic annual hazard model; existing capability withholding still binds.
+- Clarified that the illustrative capability guide does not migrate a released runtime schema.
+
+Version impact: `SKILL_REVISION` 0.7 → 0.8 only. The associated Substation review is evidence/documentation
+outside current cell packages. No cell model/docs revisions, numerical artifacts, runtime schema, package
+release, registry or consumer pins change. Status remains controlled-use. This is local skill authoring,
+not an upload/installation or admission of a standalone substation curve.

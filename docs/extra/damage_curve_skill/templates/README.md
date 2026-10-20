@@ -2,6 +2,10 @@
 
 Copy these when creating or updating cells. Templates are intentionally strict so the output stays machine-checkable.
 
+For new-asset scoping, use [TEMPLATE_ASSET_INTAKE_AND_REUSE.md](TEMPLATE_ASSET_INTAKE_AND_REUSE.md)
+in the existing discussion or dossier before choosing cell identity. It is a research worksheet, not a
+runtime schema or a required repeat step for every existing-cell change.
+
 For a new or deeply re-researched cell, use this minimum set:
 
 ```text

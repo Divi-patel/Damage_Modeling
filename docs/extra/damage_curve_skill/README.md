@@ -47,6 +47,16 @@ FIRST_TIME_READER_GUIDE.md
 
 That file explains what this skill is, why it exists, how it relates to the damage-curve library, how to use it with Codex/OpenAI agents, and how the version streams stay separate.
 
+## New asset or illustrative twin
+
+Start with [the intake and reuse guide](02_design_guides/ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md)
+when scope and response grain are not settled. Revision 0.7 adds this pre-cell step and asset-appropriate
+value prompts; it preserves existing cell/runtime authority and version streams.
+
+Revision 0.8 adds an explicit qualification-progress record and distinguishes retained versus newly
+verified source evidence. It also aligns annual-tail guidance with the existing consumer ownership and
+reportability rules. See the [changelog](SKILL_CHANGELOG.md) and [validation report](VALIDATION_REPORT.md).
+
 ## Main use case
 
 Use this skill when a user says something like:

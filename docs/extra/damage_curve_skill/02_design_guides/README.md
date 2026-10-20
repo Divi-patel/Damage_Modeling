@@ -2,6 +2,13 @@
 
 These guides help design or update the contents of a damage cell.
 
+For a new or materially re-curated response, use
+[bounded curation and future research](BOUNDED_CURATION_AND_FUTURE_WORK.md) to deliver
+a justified current baseline and preserve evidence-backed next steps.
+
+For a new asset family or detailed twin, first read
+[ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md](ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md).
+
 Read in this order for new cells:
 
 ```text

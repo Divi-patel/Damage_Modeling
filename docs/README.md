@@ -13,10 +13,11 @@ for method, contracts, cells, evidence, and source drops.
 | [`source_drops/`](source_drops/README.md) | Landing zone/index for raw ZIPs, optional local extracted source mirrors, source context, and source-drop manifests. |
 | [`scope/SCOPE_AND_STORY.md`](scope/SCOPE_AND_STORY.md) | **Anchor** — end-to-end scope, the three-phase arc, the tier/contract boundary, and migration state. |
 | [`method/foundations/`](method/foundations/README.md) | Principles (P1–P3) + the 6 question-docs + the assembled-curve-record spec. |
-| [`plans/`](plans/README.md) | Build-facing plans that have graduated from discussion into staged execution, including hazard × asset coverage priority. |
+| [`plans/`](plans/README.md) | Build-facing plans that have graduated from discussion into staged execution, including hazard × asset coverage priority and cell notebook coverage. A dated ledger; new folders start from [`plans/_templates/`](plans/_templates/README.md). |
 | [`extra/guides/`](extra/guides/README.md) | Practical walkthroughs for common repo operations and requests. |
 | [`extra/learning_logs/`](extra/learning_logs/README.md) | Team-shared, non-canonical atomic lessons and complete newcomer/re-entry learning packages. |
-| [`extra/discussion/`](extra/discussion/README.md) | Thinking-out-loud *before* building (P2), including coverage framing, flood-wind/shared-electrical decisions, and evidence harvest. |
+| [`extra/discussion/`](extra/discussion/README.md) | Thinking-out-loud *before* building (P2), including coverage framing, flood-wind/shared-electrical decisions, evidence harvest and notebook coverage. A dated ledger; new nodes start from [`extra/discussion/_templates/`](extra/discussion/_templates/README.md). |
+| [`extra/tasks_history/`](extra/tasks_history/README.md) | Per-session handoffs (`YYYY-MM-DD__area__slug/` with task_context · decisions · notes · handoff). Read the newest `handoff.md` first. |
 
 > **Relocation note.** The old deliverable-shaped `docs/damage_curves/` tree has been removed. The current
 > reader path is `scope/`, `method/`, `contracts/`, `cells/`, `evidence/`, and `source_drops/`.

@@ -46,7 +46,16 @@ capability_declaration:
 | Failure-unit scalar DR | Supported when deterministic failure-unit curves exist for the requested inputs |
 | Scenario loss | Supported only with explicit value and exposure basis |
 | Scalar EAL | Conditional unless frequency layer, value basis, and cap-binding preflight pass |
-| PML/VaR/TVaR | Withheld unless emitted object carries distribution/spread relevant to tail metric |
+| PML/VaR/TVaR | Withheld unless a qualified downstream annual loss distribution or equivalent tail-supporting object exists and the applicable capability permits that use |
+
+Distinguish **curve-intrinsic spread** from the **annual loss distribution**. Deterministic damage ratios
+can feed a stochastic hazard-event/year model; missing curve spread alone does not make downstream tail
+metrics mathematically impossible. Damage declares response support and uncertainty; the consumer owns
+frequency, coupling, annual composition and metric validation. Existing explicit annual withholding remains
+binding until its governed promotion gates pass. Do not fabricate spread or unlock metrics through prose.
+
+This guide describes the support concepts. The cell's released schema and capability are the runtime
+authority; this illustrative block does not migrate existing capability versions.
 
 Keep the support state machine-readable and finite: `supported`, `conditional`, or `withheld`. Put the condition or withholding explanation in `metric_reason_codes`, for example `MISSING_VALUE_BASIS`, `MISSING_HAZARD_FREQUENCY`, `CAP_BINDING_PREFLIGHT_NOT_EXECUTED`, `NO_TAIL_DISTRIBUTION`, or `NO_RUNTIME_CURVE`. Do not encode prose conditions into new status strings.
 

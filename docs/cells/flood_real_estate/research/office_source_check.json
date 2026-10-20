@@ -1,0 +1,38 @@
+{
+  "review_date": "2026-10-15",
+  "status": "research_only_not_runtime_admitted",
+  "source_ids_in_junga_register": [
+    "FRE-S003",
+    "FRE-S005",
+    "FRE-S007"
+  ],
+  "primary_source": {
+    "url": "https://raw.githubusercontent.com/USACE/go-consequences/dff647cabbc1abae3f084e80b7f6a166651d05d8/structures/occtypes.json",
+    "sha256": "ac0d2222b68884d581a17fb48ee4fdbfa36fe06e7de5ab7fa44de69c5badaab9",
+    "json_locator": "occupancytypes.COM4.componentdamagefunctions.structure.damagefunctions.default.damagefunction"
+  },
+  "hazus_carrier": {
+    "repository": "https://github.com/aamani-ai/Hazard_Modeling",
+    "commit": "09b95acbe39b4981e446a5b4dc3ab7d7d07f8911",
+    "path": "Notebooks/flood/coastal/real_estate/experiments/2026-10-02_plymouth_trial/feature_cache/change_log/refs/ddf/haz_fl_dept.csv",
+    "sha256": "863397b877aa7022d17239d527e0ea264dd9fd6431d3b6facdfbaa4add3b94a8",
+    "row_filter": {
+      "DmgFnId": "431",
+      "Occupancy": "COM4"
+    },
+    "retail_comparison_filter": {
+      "DmgFnId": "217",
+      "Occupancy": "COM1"
+    }
+  },
+  "matched_knots": 29,
+  "transform": "source percentages / 100; office_minus_retail is a difference in damage-ratio fractions at the same floor-relative depth",
+  "comparison_csv_sha256": "275f4ccf3e70d77a2848e84aec8f3278caea8bb6c914c11a01a0059e2706eb1d",
+  "limits": [
+    "Class-average screening source; matching values is not calibration to a three-story office",
+    "No fresh verification of FEMA default-selection manual bytes; selection evidence inherited as reviewed by JL",
+    "No coastal inheritance from freshwater or retail",
+    "No dollar loss until same-scope replacement values are qualified",
+    "Office candidate is not added to the v0.1 artifact and has no runtime record ID"
+  ]
+}

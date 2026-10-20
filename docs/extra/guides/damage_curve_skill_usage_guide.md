@@ -20,6 +20,19 @@ Mode B - outside repo
 The ZIP/source-drop path is only needed for outside work. If work happens inside this repo, do not route it
 through a ZIP.
 
+## Starting a new asset family
+
+Before choosing cell names or searching for a curve for every illustrated part, follow the skill's
+[intake and reuse guide](../damage_curve_skill/02_design_guides/ILLUSTRATIVE_ASSET_INTAKE_AND_REUSE.md).
+Preserve the idealistic reference, decide the initial physical scope, map anatomy to evidence-supported
+response units and inspect existing reusable inventory. The
+[Real Estate flow review](../discussion/real_estate_conus/02_flow_and_reuse_review.md) records the first
+application and current implementation limits. The
+[Substation worked review](../discussion/substation_damage/README.md) applies the same intake to an existing
+assembly curve with exact pins, numerical checks and unresolved physical/value qualifications. Revision 0.8
+clarifies this progress record and the distinction between curve spread and annual hazard variability.
+Numerical admission still follows the existing workflows.
+
 ## Core Picture
 
 ```text
