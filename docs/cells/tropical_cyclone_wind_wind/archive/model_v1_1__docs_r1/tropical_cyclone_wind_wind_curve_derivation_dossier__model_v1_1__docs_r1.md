@@ -19,7 +19,7 @@ parameter refit.
 | evidence grade | source-derived engineering proxy | owner-approved target-mismatch screening proxy |
 
 The full evidence review, equation provenance and source limitations remain in the preserved
-[model-v1.0 rollback snapshot](../archive/model_v1_0__docs_r1/README.md).
+[model-v1.0 rollback snapshot](../model_v1_0__docs_r1/README.md).
 
 ## Numerical derivation
 

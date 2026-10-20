@@ -749,8 +749,16 @@ def validate_markdown_links() -> int:
 
 def validate_index_absence() -> None:
     index = load_json(ARTIFACT_INDEX_PATH)
-    cells = {entry.get("cell_id") for entry in index.get("artifacts", [])}
-    require("wildfire_wind" not in cells, "noncanonical scaffold entered artifact index")
+    # A later canonical wildfire_wind release may be indexed; this v0.1 scaffold must never be.
+    paths = [
+        entry.get("path", "")
+        for entry in index.get("artifacts", [])
+        if entry.get("cell_id") == "wildfire_wind"
+    ]
+    require(
+        not any("/proposed/" in path or path.endswith(ARTIFACT_PATH.name) for path in paths),
+        "noncanonical scaffold entered artifact index",
+    )
 
 
 def main() -> int:

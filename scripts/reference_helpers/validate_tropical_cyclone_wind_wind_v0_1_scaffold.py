@@ -485,7 +485,7 @@ def validate_index_isolation() -> None:
     ]
     require(len(matching) == 1, "expected one later canonical TC-wind release")
     row = matching[0]
-    require(row["semantic_damage_model_version"] == "model v1.0", "unexpected indexed TC-wind model")
+    require(row["semantic_damage_model_version"] != "model v0.1", "v0.1 scaffold model is indexed")
     require("/current/" in row["path"], "indexed TC-wind release is not current")
     require("model_v0_1" not in row["path"], "v0.1 scaffold appears in runtime artifact index")
 

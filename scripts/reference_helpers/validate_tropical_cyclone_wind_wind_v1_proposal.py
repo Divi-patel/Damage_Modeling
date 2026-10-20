@@ -549,7 +549,10 @@ def validate_index() -> None:
     require(current_path.exists(), "canonical TC-wind current artifact is missing")
     current = load(current_path)
     require(current["canonical_runtime_artifact"] is True, "indexed TC-wind artifact is not canonical")
-    require(current["semantic_damage_model_version"] == "model v1.1", "unexpected current TC-wind model")
+    require(
+        current["semantic_damage_model_version"] != load(ARTIFACT)["semantic_damage_model_version"],
+        "model-v1.0 proposal became the current TC-wind model",
+    )
     require(artifact_sha256(current_path) == row["sha256"], "canonical TC-wind index SHA mismatch")
 
 

@@ -832,9 +832,17 @@ def validate_workbook() -> None:
 def validate_index_and_runtime_absence() -> None:
     index = load_json(ARTIFACT_INDEX_PATH)
     artifacts = index.get("artifacts", index if isinstance(index, list) else [])
-    matching = [row for row in artifacts if row.get("cell_id") == "flood_wind"]
-    require(not matching, "noncanonical scaffold appears in runtime artifact index")
-    require(not (ROOT / "src").exists(), "stable src API created during scaffold work")
+    # A later canonical flood_wind release may be indexed; this v0.1 scaffold must never be.
+    paths = [row.get("path", "") for row in artifacts if row.get("cell_id") == "flood_wind"]
+    require(
+        not any("/proposed/" in path or path.endswith(ARTIFACT_PATH.name) for path in paths),
+        "noncanonical scaffold appears in runtime artifact index",
+    )
+    # src/ now holds the durable publisher (standard 23); the scaffold must not add flood_wind code there.
+    require(
+        not any("flood_wind" in path.name for path in (ROOT / "src").rglob("*")),
+        "flood_wind scaffold code entered the src package",
+    )
     handoff = HANDOFF_PATH.read_text()
     require("do_not_load_or_cut_over" in handoff, "handoff no-load action missing")
     require("M3 and M4" in handoff, "handoff omits dual bypass migration")
